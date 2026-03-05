@@ -1,7 +1,6 @@
 ﻿# Scope Chain Lookup
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -12,18 +11,19 @@ ormalized
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/scope-chain-lookup-map.svg`](../assets/scope-chain-lookup-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`4` pada Internals.
-- Prasyarat langsung: `03-event-loop-detail.md`.
-- Lanjut setelah ini: `05-prototype-chain-lookup.md`.
+- Prasyarat langsung: `08-call-stack-web-apis-queues.md`.
+- Lanjut setelah ini: `../../04-javascript-object-model/topics/03-prototype-chain-lookup.md`.
 
 Prasyarat topik:
 - Sudah paham execution context dan lexical environment.
 - Sudah paham scope dasar (`global`, `function`, `block`) dari Foundations.
 
 Referensi remedial:
-- [`01-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
+- [`07-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
 - [`./02-scope-hoisting.md`](./02-scope-hoisting.md)
 
 Kamus mini topik:
@@ -135,7 +135,7 @@ Langkah debug:
 - [ ] Bisa memperbaiki bug scope dengan perubahan nama/struktur yang tepat.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `foundations/02-scope-hoisting.md`.
+1. Ulangi `02-scope-hoisting.md`.
 2. Jalankan contoh nested function sambil menandai scope per variabel.
 3. Buat dua variasi: dengan dan tanpa shadowing, lalu bandingkan outputnya.
 

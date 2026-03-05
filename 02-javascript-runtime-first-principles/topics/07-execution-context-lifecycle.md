@@ -1,7 +1,6 @@
 ﻿# Execution Context Lifecycle
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -12,11 +11,12 @@ ormalized
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/execution-context-lifecycle-map.svg`](../assets/execution-context-lifecycle-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`1` pada Internals.
 - Prasyarat langsung: `./06-this-binding-lanjutan.md`.
-- Lanjut setelah ini: `02-call-stack-web-apis-queues.md`.
+- Lanjut setelah ini: `08-call-stack-web-apis-queues.md`.
 
 Prasyarat topik:
 - Sudah paham scope dan hoisting dasar.
@@ -129,7 +129,7 @@ Langkah debug:
 - [ ] Bisa melacak bug sederhana yang disebabkan context lokal menutupi nilai global.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `foundations/02-scope-hoisting.md`.
+1. Ulangi `02-scope-hoisting.md`.
 2. Jalankan ulang contoh sambil menandai fase creation dan execution per baris.
 3. Latih 3 soal kecil yang membandingkan `var` lokal vs variabel global.
 

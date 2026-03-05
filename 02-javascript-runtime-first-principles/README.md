@@ -27,6 +27,12 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 ## Struktur Konten
 - `topics/`: materi normalisasi utama track 02.
 - `docs/`: dokumen pendukung track (learning path, catatan).
+- `assets/`: visualisasi konsep runtime untuk pembaca pemula.
+
+## Visualisasi Konsep
+- `assets/execution-context-lifecycle-map.svg`: peta creation phase -> execution phase.
+- `assets/call-stack-web-api-queue-map.svg`: peta call stack, Web APIs, queue handoff.
+- `assets/scope-chain-lookup-map.svg`: peta pencarian identifier dari local -> outer -> global.
 
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
@@ -36,11 +42,4 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 ## Exit Criteria
 - Bisa menjelaskan alur eksekusi kode sync secara internal.
 - Bisa menganalisis bug dasar terkait scope/closure/hoisting/`this`.
-
-## Status Migrasi
-- `in_progress`
-- Tahap normalisasi struktur + link utama topik sudah selesai.
-- Boundary map antar track sudah ditetapkan di `docs/boundary-map.md`.
-- Snapshot penuh legacy sudah diamankan untuk mencegah kehilangan artefak.
-- Pending tersisa: review editorial final per topik.
 

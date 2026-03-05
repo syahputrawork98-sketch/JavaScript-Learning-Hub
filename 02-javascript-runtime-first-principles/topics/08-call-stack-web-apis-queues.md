@@ -1,7 +1,6 @@
 ﻿# Call Stack, Web APIs, dan Queues
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -12,18 +11,19 @@ ormalized
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/call-stack-web-api-queue-map.svg`](../assets/call-stack-web-api-queue-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`2` pada Internals.
-- Prasyarat langsung: `01-execution-context-lifecycle.md`.
-- Lanjut setelah ini: `03-event-loop-detail.md`.
+- Prasyarat langsung: `07-execution-context-lifecycle.md`.
+- Lanjut setelah ini: `09-scope-chain-lookup.md`.
 
 Prasyarat topik:
 - Sudah paham lifecycle execution context.
 - Sudah paham async dasar (`task queue`, `microtask queue`) pada level Foundations.
 
 Referensi remedial:
-- [`01-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
+- [`07-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
 - [`../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md`](../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md)
 
 Kamus mini topik:
@@ -124,8 +124,8 @@ Langkah debug:
 - [ ] Bisa menemukan sumber delay ketika callback async terlambat masuk stack.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `internals/01-execution-context-lifecycle.md`.
-2. Ulangi `foundations/06-async-javascript-dasar.md`.
+1. Ulangi `07-execution-context-lifecycle.md`.
+2. Ulangi `../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md`.
 3. Jalankan 3 variasi `setTimeout` dengan operasi sync berat untuk melihat dampaknya.
 
 

@@ -1,7 +1,6 @@
 ﻿# Closure Patterns
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -15,8 +14,8 @@ Rujukan cepat:
 
 Alur topik:
 - Topik ini ada di urutan ke-`1` pada Advanced.
-- Prasyarat langsung: `foundations/03-function-closure-dasar.md`.
-- Lanjut setelah ini: `02-this-binding-lanjutan.md`.
+- Prasyarat langsung: `03-function-closure-dasar.md`.
+- Lanjut setelah ini: `06-this-binding-lanjutan.md`.
 
 Prasyarat topik:
 - Sudah paham closure dasar (counter, factory function).
@@ -149,7 +148,7 @@ Langkah debug:
 - [ ] Bisa mengidentifikasi risiko stale closure pada kode async/callback.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi dulu `foundations/03-function-closure-dasar.md`.
+1. Ulangi dulu `03-function-closure-dasar.md`.
 2. Ubah contoh bank account: tambah method `transfer` tanpa membuka `balance`.
 3. Latih satu pola kecil: buat `createToggle()` dengan state privat boolean.
 

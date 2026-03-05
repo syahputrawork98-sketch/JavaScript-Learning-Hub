@@ -1,7 +1,6 @@
 ﻿# this Binding Dasar
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -16,7 +15,7 @@ Rujukan cepat:
 Alur topik:
 - Topik ini ada di urutan ke-`4` pada Foundations.
 - Prasyarat langsung: `02-scope-hoisting.md`, `03-function-closure-dasar.md`.
-- Lanjut setelah ini: `05-object-prototype-dasar.md`.
+- Lanjut setelah ini: `05-closure-patterns.md`.
 
 Prasyarat topik:
 - Sudah paham function dasar.

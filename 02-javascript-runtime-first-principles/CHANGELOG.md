@@ -1,5 +1,31 @@
 ﻿# Changelog - 02 JavaScript Runtime First Principles
 
+## 2026-03-06 - v0.2.0
+
+### Added
+- Menambahkan folder `assets/` untuk visualisasi konsep runtime.
+- Menambahkan aset SVG:
+- `assets/execution-context-lifecycle-map.svg`
+- `assets/call-stack-web-api-queue-map.svg`
+- `assets/scope-chain-lookup-map.svg`
+- Menambahkan referensi visual map pada:
+- `README.md`
+- `topics/07-execution-context-lifecycle.md`
+- `topics/08-call-stack-web-apis-queues.md`
+- `topics/09-scope-chain-lookup.md`
+
+### Changed
+- Merapikan metadata topik `topics/01` sampai `topics/09` (status `normalized` konsisten).
+- Menormalkan alur prasyarat dan "lanjut setelah ini" agar selaras dengan urutan aktif `topics/README.md`.
+- Menghapus section `Status Migrasi` dari `README.md` untuk menyiapkan audit/review manual.
+
+### Validation
+- Validasi link lokal area track 02 (`README + topics + docs`) lulus tanpa broken link.
+- Validasi XML seluruh aset SVG lulus.
+
+### Notes
+- Track 02 siap dipakai sebagai baseline audit manual sebelum lanjut ke track 03.
+
 ## 2026-03-06
 
 ### Added

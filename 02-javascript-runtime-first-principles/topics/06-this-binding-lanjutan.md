@@ -1,7 +1,6 @@
 ﻿# this Binding Lanjutan
 ## Metadata Migrasi
-- Status: 
-ormalized
+- Status: `normalized`
 - Source: `02-javascript-first-principles (decommissioned legacy source)`
 - Boundary:
   - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
@@ -15,8 +14,8 @@ Rujukan cepat:
 
 Alur topik:
 - Topik ini ada di urutan ke-`2` pada Advanced.
-- Prasyarat langsung: `01-closure-patterns.md`, `./04-this-binding-dasar.md`.
-- Lanjut setelah ini: `03-prototype-chain-lanjutan.md`.
+- Prasyarat langsung: `05-closure-patterns.md`, `04-this-binding-dasar.md`.
+- Lanjut setelah ini: `07-execution-context-lifecycle.md`.
 
 Prasyarat topik:
 - Sudah paham 4 rule dasar `this` (default, implicit, explicit, new).
@@ -25,7 +24,7 @@ Prasyarat topik:
 Referensi remedial:
 - [`./04-this-binding-dasar.md`](./04-this-binding-dasar.md)
 - [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
-- [`01-closure-patterns.md`](./05-closure-patterns.md)
+- [`05-closure-patterns.md`](./05-closure-patterns.md)
 
 Kamus mini topik:
 - `[baru]` Hard binding: mengunci `this` permanen dengan `bind`.
