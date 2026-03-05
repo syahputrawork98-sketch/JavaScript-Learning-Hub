@@ -1,22 +1,23 @@
-# Asynchronous JavaScript Dasar
+﻿# Asynchronous JavaScript Dasar
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/promise-vs-timer-order-map.svg`](../assets/promise-vs-timer-order-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`6` pada Foundations.
-- Prasyarat langsung: `03-function-closure-dasar.md`.
-- Lanjut setelah ini: `advanced/04-promise-async-await.md`.
+- Topik ini ada di urutan ke-`1` pada Track 03.
+- Prasyarat langsung: `../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md`.
+- Lanjut setelah ini: `02-promise-async-await.md`.
 
 Prasyarat topik:
 - Sudah paham function dasar.
 - Sudah paham Promise secara gambaran umum (minimal pernah lihat).
 
 Referensi remedial:
-- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
-- [`../docs/prasyarat/promise-dasar.md`](../docs/prasyarat/promise-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/function-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/function-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Synchronous: kode berjalan baris demi baris, tunggu satu selesai baru lanjut.
@@ -127,3 +128,5 @@ Langkah debug:
 1. Jalankan ulang contoh sambil tulis urutan antrean di kertas.
 2. Fokus satu rule penting: microtask selalu dicek sebelum task queue.
 3. Ulangi sampai bisa memprediksi tanpa mengeksekusi kode.
+
+

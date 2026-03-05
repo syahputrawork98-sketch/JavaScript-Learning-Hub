@@ -1,0 +1,63 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sequential vs Parallel Decision Board</title>
+  <desc id="desc">Decision board that compares sequential await and Promise.all parallel execution, tradeoffs and selection rule.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffef2"/>
+      <stop offset="100%" stop-color="#edf6ff"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b7285"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .hero{fill:url(#hero);rx:18;filter:url(#shadow)}
+      .seq{fill:#ffe4e6;stroke:#be123c;stroke-width:2;rx:14;filter:url(#shadow)}
+      .par{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:14;filter:url(#shadow)}
+      .panel{fill:#ffffff;stroke:#334155;stroke-width:2;rx:14;filter:url(#shadow)}
+      .code{fill:#0f172a;stroke:#1f2937;stroke-width:1.8;rx:12;filter:url(#shadow)}
+      .title{font:700 33px 'Segoe UI','Trebuchet MS',sans-serif;fill:#ffffff}
+      .subtitle{font:500 17px 'Segoe UI','Trebuchet MS',sans-serif;fill:#d1fae5}
+      .h{font:700 20px 'Segoe UI','Trebuchet MS',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI','Trebuchet MS',sans-serif;fill:#334155}
+      .small{font:600 13px 'Segoe UI','Trebuchet MS',sans-serif;fill:#1f2937}
+      .mono{font:600 14px Consolas,'Courier New',monospace;fill:#e5e7eb}
+    </style>
+  </defs>
+
+  <rect width="1280" height="900" fill="url(#bg)"/>
+
+  <rect class="hero" x="48" y="32" width="1184" height="122"/>
+  <text class="title" x="82" y="82">Sequential vs Parallel - Decision Board</text>
+  <text class="subtitle" x="82" y="112">Target: cepat, benar, dan sesuai dependency data.</text>
+
+  <rect class="seq" x="70" y="188" width="560" height="386"/>
+  <text class="h" x="96" y="228">Sequential Await</text>
+  <text class="p" x="96" y="254">Pakai saat langkah berikutnya butuh hasil langkah sebelumnya.</text>
+  <rect class="code" x="96" y="278" width="508" height="140"/>
+  <text class="mono" x="118" y="314">const a = await stepA();</text>
+  <text class="mono" x="118" y="342">const b = await stepB(a);</text>
+  <text class="mono" x="118" y="370">const c = await stepC(b);</text>
+  <text class="small" x="96" y="450">Kelebihan: alur jelas dan mudah debug.</text>
+  <text class="small" x="96" y="476">Risiko: lambat jika task ternyata independen.</text>
+
+  <rect class="par" x="650" y="188" width="560" height="386"/>
+  <text class="h" x="676" y="228">Parallel (Promise.all)</text>
+  <text class="p" x="676" y="254">Pakai saat task tidak saling bergantung.</text>
+  <rect class="code" x="676" y="278" width="508" height="140"/>
+  <text class="mono" x="698" y="314">const [a,b,c] = await Promise.all([</text>
+  <text class="mono" x="698" y="342">  stepA(), stepB(), stepC()</text>
+  <text class="mono" x="698" y="370">]);</text>
+  <text class="small" x="676" y="450">Kelebihan: total waktu mendekati task terlama.</text>
+  <text class="small" x="676" y="476">Risiko: fail-fast jika satu promise reject.</text>
+
+  <rect class="panel" x="70" y="610" width="1140" height="232"/>
+  <text class="h" x="96" y="648">Quick Selection Rule</text>
+  <text class="small" x="116" y="676">1. Ada dependency data? Pilih sequential.</text>
+  <text class="small" x="116" y="702">2. Tidak ada dependency? Pilih parallel.</text>
+  <text class="small" x="116" y="728">3. Butuh partial success? Pertimbangkan allSettled.</text>
+  <text class="small" x="116" y="754">4. Selalu pasangkan dengan error handling yang eksplisit.</text>
+</svg>

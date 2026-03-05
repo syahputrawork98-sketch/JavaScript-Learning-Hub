@@ -1,23 +1,24 @@
-# Event Loop Detail
+﻿# Event Loop Detail
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/event-loop-flow-map.svg`](../assets/event-loop-flow-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`3` pada Internals.
-- Prasyarat langsung: `02-call-stack-web-apis-queues.md`.
-- Lanjut setelah ini: `04-scope-chain-lookup.md`.
+- Topik ini ada di urutan ke-`3` pada Track 03.
+- Prasyarat langsung: `02-promise-async-await.md`.
+- Lanjut setelah ini: `04-error-handling-async.md`.
 
 Prasyarat topik:
 - Sudah paham hubungan call stack, Web APIs, dan queue handoff.
 - Sudah paham Promise dan `setTimeout` dasar.
 
 Referensi remedial:
-- [`02-call-stack-web-apis-queues.md`](./02-call-stack-web-apis-queues.md)
-- [`../foundations/06-async-javascript-dasar.md`](../foundations/06-async-javascript-dasar.md)
-- [`../advanced/04-promise-async-await.md`](../advanced/04-promise-async-await.md)
+- [`../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md`](../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md)
+- [`01-async-javascript-dasar.md`](./01-async-javascript-dasar.md)
+- [`02-promise-async-await.md`](./02-promise-async-await.md)
 
 Kamus mini topik:
 - `[baru]` Tick: satu putaran pengambilan kerja oleh event loop.
@@ -119,6 +120,8 @@ Langkah debug:
 - [ ] Bisa mengidentifikasi gejala microtask starvation sederhana.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `internals/02-call-stack-web-apis-queues.md`.
+1. Ulangi `../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md`.
 2. Ulangi contoh dengan menambah satu `then` baru setiap langkah.
 3. Bandingkan hasil saat sebagian kerja dipindah dari Promise ke timer task.
+
+

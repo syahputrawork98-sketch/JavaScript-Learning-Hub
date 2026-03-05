@@ -1,0 +1,64 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900" role="img" aria-labelledby="title desc">
+  <title id="title">Promise Concurrency Patterns Matrix</title>
+  <desc id="desc">Matrix comparison of Promise.all, allSettled, race and any with use-case guidance.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fffb"/>
+      <stop offset="100%" stop-color="#edf4ff"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .hero{fill:url(#hero);rx:18;filter:url(#shadow)}
+      .grid{fill:#ffffff;stroke:#334155;stroke-width:2;rx:14;filter:url(#shadow)}
+      .all{fill:#fee2e2;stroke:#b91c1c;stroke-width:2;rx:12;filter:url(#shadow)}
+      .settled{fill:#ffedd5;stroke:#c2410c;stroke-width:2;rx:12;filter:url(#shadow)}
+      .race{fill:#dbeafe;stroke:#1d4ed8;stroke-width:2;rx:12;filter:url(#shadow)}
+      .any{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:12;filter:url(#shadow)}
+      .title{font:700 33px 'Segoe UI','Trebuchet MS',sans-serif;fill:#ffffff}
+      .subtitle{font:500 17px 'Segoe UI','Trebuchet MS',sans-serif;fill:#d1fae5}
+      .h{font:700 20px 'Segoe UI','Trebuchet MS',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI','Trebuchet MS',sans-serif;fill:#334155}
+      .small{font:600 13px 'Segoe UI','Trebuchet MS',sans-serif;fill:#1f2937}
+    </style>
+  </defs>
+
+  <rect width="1280" height="900" fill="url(#bg)"/>
+
+  <rect class="hero" x="48" y="32" width="1184" height="122"/>
+  <text class="title" x="82" y="82">Concurrency Patterns Matrix</text>
+  <text class="subtitle" x="82" y="112">Pilih combinator Promise berdasarkan requirement hasil dan error.</text>
+
+  <rect class="all" x="70" y="190" width="560" height="250"/>
+  <text class="h" x="96" y="230">Promise.all</text>
+  <text class="p" x="96" y="256">Semua task harus sukses.</text>
+  <text class="small" x="96" y="284">Perilaku: fail-fast jika satu reject.</text>
+  <text class="small" x="96" y="310">Cocok: halaman yang butuh semua data wajib hadir.</text>
+
+  <rect class="settled" x="650" y="190" width="560" height="250"/>
+  <text class="h" x="676" y="230">Promise.allSettled</text>
+  <text class="p" x="676" y="256">Kumpulkan status semua task.</text>
+  <text class="small" x="676" y="284">Perilaku: tidak fail-fast.</text>
+  <text class="small" x="676" y="310">Cocok: dashboard dengan partial success.</text>
+
+  <rect class="race" x="70" y="468" width="560" height="250"/>
+  <text class="h" x="96" y="508">Promise.race</text>
+  <text class="p" x="96" y="534">Ambil yang settle paling dulu.</text>
+  <text class="small" x="96" y="562">Perilaku: bisa resolve atau reject pertama.</text>
+  <text class="small" x="96" y="588">Cocok: timeout race / first-response strategy.</text>
+
+  <rect class="any" x="650" y="468" width="560" height="250"/>
+  <text class="h" x="676" y="508">Promise.any</text>
+  <text class="p" x="676" y="534">Ambil resolve pertama.</text>
+  <text class="small" x="676" y="562">Perilaku: reject hanya jika semua gagal.</text>
+  <text class="small" x="676" y="588">Cocok: fallback provider redundancy.</text>
+
+  <rect class="grid" x="70" y="746" width="1140" height="108"/>
+  <text class="small" x="94" y="784">Selection rule: wajib semua sukses -> all | boleh parsial -> allSettled | butuh tercepat settle -> race | butuh tercepat sukses -> any</text>
+  <text class="small" x="94" y="812">Selalu pasangkan dengan error handling yang eksplisit agar behavior bisa diprediksi.</text>
+</svg>

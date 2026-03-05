@@ -1,0 +1,44 @@
+# Changelog - 03 Asynchronous JavaScript Model
+
+## 2026-03-06 - v0.2.0
+
+### Added
+- Menambahkan dokumen prasyarat aktif:
+- `PRASYARAT-DAN-KAMUS-MINI.md`
+- Menambahkan dokumen learning path:
+- `docs/learning-path.md`
+- Menambahkan topik baru:
+- `topics/04-error-handling-async.md`
+- `topics/05-concurrency-patterns.md`
+- Menambahkan folder visualisasi:
+- `assets/`
+- Menambahkan aset SVG:
+- `assets/event-loop-flow-map.svg`
+- `assets/promise-vs-timer-order-map.svg`
+- `assets/sequential-vs-parallel-map.svg`
+- `assets/error-handling-async-map.svg`
+- `assets/concurrency-patterns-map.svg`
+
+### Changed
+- Menormalkan `README.md` track 03 agar `topics/` + `docs/` menjadi rute belajar utama.
+- Menormalkan urutan topik aktif menjadi 5 topik:
+- `01-async-javascript-dasar.md`
+- `02-promise-async-await.md`
+- `03-event-loop-detail.md`
+- `04-error-handling-async.md`
+- `05-concurrency-patterns.md`
+- Memperbarui referensi prasyarat/remedial/cross-track pada topik `01` sampai `05`.
+- Menambahkan referensi visual map pada topik `01` sampai `05`.
+- Menyelaraskan catatan drill async agar dilakukan setelah menyelesaikan topik `05`.
+
+### Removed
+- Menghapus artefak migrasi sementara:
+- `migrated-from-02-first-principles/`
+- `migrated-from-03-advanced-patterns/`
+
+### Validation
+- Link lokal area aktif track 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Seluruh aset SVG track 03 telah divalidasi XML parse dan valid.
+
+### Notes
+- Track 03 siap dipakai sebagai rute belajar async model yang utuh sebelum lanjut ke drill track 06.

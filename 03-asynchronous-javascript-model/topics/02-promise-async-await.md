@@ -1,22 +1,23 @@
-# Promise, Async, dan Await
+﻿# Promise, Async, dan Await
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/sequential-vs-parallel-map.svg`](../assets/sequential-vs-parallel-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`4` pada Advanced.
-- Prasyarat langsung: `../foundations/06-async-javascript-dasar.md`.
-- Lanjut setelah ini: `05-error-handling-defensive-coding.md`.
+- Topik ini ada di urutan ke-`2` pada Track 03.
+- Prasyarat langsung: `01-async-javascript-dasar.md`.
+- Lanjut setelah ini: `03-event-loop-detail.md`.
 
 Prasyarat topik:
 - Sudah paham event loop dasar, task queue, dan microtask queue.
 - Sudah paham Promise dasar (`then/catch`) secara umum.
 
 Referensi remedial:
-- [`../foundations/06-async-javascript-dasar.md`](../foundations/06-async-javascript-dasar.md)
-- [`../docs/prasyarat/promise-dasar.md`](../docs/prasyarat/promise-dasar.md)
+- [`01-async-javascript-dasar.md`](./01-async-javascript-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Promise chaining: menyusun beberapa operasi async berurutan.
@@ -124,6 +125,8 @@ Langkah debug:
 - [ ] Bisa menulis `async` flow dengan error handling yang jelas.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `foundations/06-async-javascript-dasar.md`.
+1. Ulangi `01-async-javascript-dasar.md`.
 2. Coba ubah contoh sequential jadi parallel, lalu bandingkan waktu eksekusi.
 3. Latih skenario reject satu promise dan lihat jalur `catch`.
+
+

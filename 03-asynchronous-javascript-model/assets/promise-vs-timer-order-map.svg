@@ -1,0 +1,70 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Promise vs Timer Execution Timeline</title>
+  <desc id="desc">Timeline style visualization for sync logs, microtask processing, and task processing order.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffaf4"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .hero{fill:url(#hero);rx:18;filter:url(#shadow)}
+      .code{fill:#0f172a;stroke:#1f2937;stroke-width:2;rx:14;filter:url(#shadow)}
+      .lane{fill:#ffffff;stroke:#334155;stroke-width:2;rx:14;filter:url(#shadow)}
+      .sync{fill:#dbeafe;stroke:#1d4ed8;stroke-width:2;rx:10}
+      .micro{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:10}
+      .task{fill:#fde68a;stroke:#b45309;stroke-width:2;rx:10}
+      .title{font:700 33px 'Segoe UI','Trebuchet MS',sans-serif;fill:#ffffff}
+      .subtitle{font:500 17px 'Segoe UI','Trebuchet MS',sans-serif;fill:#dbeafe}
+      .h{font:700 20px 'Segoe UI','Trebuchet MS',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI','Trebuchet MS',sans-serif;fill:#334155}
+      .mono{font:600 14px Consolas,'Courier New',monospace;fill:#e5e7eb}
+      .small{font:600 13px 'Segoe UI','Trebuchet MS',sans-serif;fill:#1f2937}
+    </style>
+  </defs>
+
+  <rect width="1280" height="860" fill="url(#bg)"/>
+
+  <rect class="hero" x="48" y="32" width="1184" height="122"/>
+  <text class="title" x="82" y="82">Promise vs setTimeout - Execution Timeline</text>
+  <text class="subtitle" x="82" y="112">Membaca urutan output tanpa menebak.</text>
+
+  <rect class="code" x="70" y="190" width="520" height="214"/>
+  <text class="mono" x="92" y="226">console.log('A');</text>
+  <text class="mono" x="92" y="254">setTimeout(() =&gt; console.log('B'), 0);</text>
+  <text class="mono" x="92" y="282">Promise.resolve().then(() =&gt; console.log('C'));</text>
+  <text class="mono" x="92" y="310">console.log('D');</text>
+
+  <rect class="lane" x="620" y="190" width="590" height="620"/>
+  <text class="h" x="646" y="228">Timeline per Fase</text>
+
+  <rect class="sync" x="646" y="252" width="538" height="100"/>
+  <text class="h" x="668" y="286">Fase 1: Sync</text>
+  <text class="p" x="668" y="312">Output langsung: A, D</text>
+
+  <rect class="micro" x="646" y="374" width="538" height="100"/>
+  <text class="h" x="668" y="408">Fase 2: Microtask</text>
+  <text class="p" x="668" y="434">Promise.then dieksekusi: C</text>
+
+  <rect class="task" x="646" y="496" width="538" height="100"/>
+  <text class="h" x="668" y="530">Fase 3: Task Queue</text>
+  <text class="p" x="668" y="556">Timer callback dieksekusi: B</text>
+
+  <rect class="lane" x="70" y="436" width="520" height="374"/>
+  <text class="h" x="94" y="474">Mental Model</text>
+  <text class="small" x="112" y="504">1. setTimeout 0ms = dijadwalkan, bukan langsung jalan.</text>
+  <text class="small" x="112" y="530">2. Promise callback = microtask prioritas tinggi.</text>
+  <text class="small" x="112" y="556">3. Task queue diproses setelah microtask habis.</text>
+  <text class="small" x="112" y="582">4. Output final: A -> D -> C -> B.</text>
+
+  <rect class="sync" x="646" y="642" width="538" height="140"/>
+  <text class="h" x="668" y="678">Checkpoint</text>
+  <text class="p" x="668" y="704">Jika prediksi urutan salah, cek asumsi prioritas queue.</text>
+  <text class="p" x="668" y="728">Biasanya sumber salahnya: menganggap timer mengalahkan Promise.</text>
+</svg>
