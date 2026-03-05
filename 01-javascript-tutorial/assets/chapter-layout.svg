@@ -1,0 +1,71 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Chapter Layout - JavaScript Tutorial</title>
+  <desc id="desc">Chapter page wireframe with visual hierarchy for practical learning.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fefce8"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.13"/>
+    </filter>
+    <style>
+      .header{fill:url(#header);rx:16;filter:url(#shadow)}
+      .box{fill:#ffffff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#shadow)}
+      .box2{fill:#f8fafc;stroke:#334155;stroke-width:2;rx:14;filter:url(#shadow)}
+      .title{font:700 30px 'Segoe UI Emoji','Segoe UI',sans-serif;fill:#ffffff}
+      .sub{font:500 17px 'Segoe UI',sans-serif;fill:#dbeafe}
+      .h{font:700 20px 'Segoe UI Emoji','Segoe UI',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI',sans-serif;fill:#334155}
+      .chip{fill:#e2e8f0;stroke:#475569;stroke-width:1.6;rx:9}
+      .chipt{font:600 13px 'Segoe UI',sans-serif;fill:#0f172a}
+    </style>
+  </defs>
+
+  <rect width="1200" height="820" fill="url(#bg)"/>
+
+  <rect class="header" x="46" y="34" width="1108" height="126"/>
+  <text class="title" x="78" y="85">📘 Chapter Template - 01 JavaScript Tutorial</text>
+  <text class="sub" x="78" y="116">Detail, tidak bertele-tele, fokus kenapa -> bagaimana -> latihan -> evaluasi.</text>
+
+  <rect class="box" x="46" y="192" width="540" height="124"/>
+  <text class="h" x="72" y="232">1. 🎯 Tujuan Bab</text>
+  <text class="p" x="72" y="260">Apa yang harus bisa dilakukan setelah bab selesai.</text>
+  <rect class="chip" x="72" y="276" width="168" height="26"/>
+  <text class="chipt" x="83" y="294">Output terukur</text>
+
+  <rect class="box" x="614" y="192" width="540" height="124"/>
+  <text class="h" x="640" y="232">2. 🗺️ Gambaran Besar</text>
+  <text class="p" x="640" y="260">Topik ini nyambung ke konsep sebelumnya dan sesudahnya.</text>
+  <rect class="chip" x="640" y="276" width="192" height="26"/>
+  <text class="chipt" x="651" y="294">Big picture dulu</text>
+
+  <rect class="box2" x="46" y="340" width="540" height="132"/>
+  <text class="h" x="72" y="382">3. 🔍 Gambaran Kecil</text>
+  <text class="p" x="72" y="410">Sintaks inti, batasan, dan aturan penting.</text>
+  <text class="p" x="72" y="434">Contoh: kapan pakai ===, kapan pakai ==.</text>
+
+  <rect class="box2" x="614" y="340" width="540" height="132"/>
+  <text class="h" x="640" y="382">4. 💡 Analogi Sederhana</text>
+  <text class="p" x="640" y="410">Bantu pemahaman cepat pakai situasi harian.</text>
+  <text class="p" x="640" y="434">Contoh: if/else seperti pilih jalur A atau B.</text>
+
+  <rect class="box" x="46" y="496" width="540" height="136"/>
+  <text class="h" x="72" y="538">5. 🧪 Contoh Kode Inti</text>
+  <text class="p" x="72" y="566">Kode minimal yang bisa dijalankan + output.</text>
+  <text class="p" x="72" y="590">Dijelaskan sebab-akibatnya, bukan sekadar hafalan.</text>
+
+  <rect class="box" x="614" y="496" width="540" height="136"/>
+  <text class="h" x="640" y="538">6. 🐞 Debug Corner</text>
+  <text class="p" x="640" y="566">Error umum, gejala, dan langkah diagnosis.</text>
+  <text class="p" x="640" y="590">Fokus ke pola pikir debugging.</text>
+
+  <rect class="box2" x="46" y="656" width="1108" height="128"/>
+  <text class="h" x="72" y="698">7. 🏁 Latihan + Checkpoint</text>
+  <text class="p" x="72" y="726">Latihan bertahap: mudah -> sedang -> menantang.</text>
+  <text class="p" x="72" y="750">Lulus jika bisa jelaskan alasan teknis dan menyelesaikan soal tanpa bantuan penuh.</text>
+</svg>
