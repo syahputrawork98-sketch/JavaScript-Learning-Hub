@@ -29,7 +29,8 @@ Format mengikuti prinsip [Keep a Changelog](https://keepachangelog.com/en/1.1.0/
 - Belum ada.
 
 ### Changed
-- Belum ada.
+- Memindahkan paket materi JavaScript First Principles ke subfolder track `02-javascript-first-principles/` sebagai bagian dari restrukturisasi hub JavaScript.
+- Menetapkan ulang fungsi root repo menjadi hub multi-track JavaScript dengan urutan belajar lintas track.
 
 ## [0.4.0] - 2026-03-03
 
