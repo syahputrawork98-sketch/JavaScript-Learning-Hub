@@ -1,60 +1,118 @@
-# Content Plan
+﻿# Content Plan
 
 ## Track 01: JavaScript Tutorial
 ### In Scope
-- syntax essentials, control flow, function, object/array.
-- async dasar (`Promise`, `async/await`) untuk use case umum.
-- mini app berbasis browser/Node sederhana.
+- syntax essentials: variables, functions, objects, arrays, conditionals, loops.
+- modules dan error handling dasar.
+- mini app sederhana untuk integrasi konsep.
 
 ### Out of Scope
-- internal engine detail.
+- internals engine yang mendalam.
 - framework khusus.
 
 ### Prioritas Penulisan
-1. fondasi bahasa (values, operators, flow).
-2. data & function design.
-3. async dasar + mini app.
+1. fondasi bahasa dan flow control.
+2. data structures dan function design.
+3. async dasar + mini project.
 
-## Track 02: JavaScript First Principles
+## Track 02: JavaScript Runtime First Principles
 ### In Scope
-- semantics core (coercion, scope, closure, this, prototype).
-- async runtime model (stack, queue, event loop).
-- memory lifecycle dan debugging dasar.
+- execution context.
+- lexical environment.
+- scope, closure, hoisting.
+- `this` binding.
+- call stack dan memory model dasar.
 
 ### Out of Scope
 - framework API.
 - optimasi mikro tanpa konteks.
 
 ### Prioritas Penulisan
-1. foundations.
-2. advanced core patterns.
-3. internals.
+1. execution context + lexical environment.
+2. scope/closure/hoisting/`this`.
+3. stack + memory model.
 
-## Track 03: JavaScript Advanced Patterns
+## Track 03: Asynchronous JavaScript Model
 ### In Scope
-- module boundaries dan architecture dasar.
-- async orchestration dan error strategy.
-- refactor patterns untuk maintainability.
+- event loop.
+- task queue.
+- microtask queue dan job queue.
+- Promise.
+- `async/await`.
 
 ### Out of Scope
-- framework architecture spesifik.
-- build tooling detail lintas ecosystem.
+- distributed systems concurrency detail.
+- framework async abstraction spesifik.
 
 ### Prioritas Penulisan
-1. module + boundary.
-2. error handling + defensive coding.
-3. refactor scenario berbasis trade-off.
+1. event loop + queues.
+2. Promise + `async/await` reasoning.
+3. async execution order drills.
 
-## Track 04: Runtime Exercises and Katas
+## Track 04: JavaScript Object Model
 ### In Scope
-- drill prediksi output sync/async.
-- race condition, stale state, mutation bug.
-- refactor kata dengan acceptance criteria.
+- objects.
+- property descriptors.
+- prototype chain dan `[[Prototype]]`.
+- constructors, `new` operator.
+- class syntax.
 
 ### Out of Scope
-- teori panjang tanpa soal.
+- OOP framework patterns spesifik.
+- decorator/proposal non-standar sebagai materi inti.
 
 ### Prioritas Penulisan
-1. drill dasar (output prediction).
-2. kata async menengah.
-3. case latihan regresi kompleks.
+1. object basics + descriptors.
+2. prototype chain + constructors.
+3. class syntax + composition trade-off.
+
+## Track 05: JavaScript Memory and References
+### In Scope
+- primitive values.
+- reference values.
+- referential equality.
+- mutation vs immutability.
+- garbage collection (high level).
+
+### Out of Scope
+- VM implementation detail per engine.
+- low-level allocator internals.
+
+### Prioritas Penulisan
+1. primitive vs reference semantics.
+2. mutation bugs + immutability strategies.
+3. GC mental model (high level).
+
+## Track 06: JavaScript Runtime Exercises
+### In Scope
+- latihan closure behavior.
+- latihan `this` binding edge cases.
+- latihan async execution order.
+- latihan object mutation behavior.
+
+### Out of Scope
+- teori panjang tanpa eksperimen.
+
+### Prioritas Penulisan
+1. drill output prediction.
+2. edge-case labs.
+3. anti-regression exercise packs.
+
+## Track 07: JavaScript Specification Companion
+### In Scope
+- peta konsep ke ECMAScript specification sections.
+- glossary istilah formal spec yang relevan.
+- reading guide untuk konsep runtime inti.
+
+### Out of Scope
+- pembahasan semua clause spesifikasi secara menyeluruh.
+- legal/editorial detail non-pedagogis.
+
+### Prioritas Penulisan
+1. mapping concept -> spec section.
+2. guided reading notes.
+3. companion checks untuk topik sulit.
+
+## Catatan Migrasi
+- Struktur ini adalah target resmi arsitektur 7 track.
+- Migrasi folder/konten dari struktur lama dilakukan bertahap dengan update link di setiap tahap.

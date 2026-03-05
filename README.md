@@ -1,6 +1,6 @@
-# JavaScript Learning Hub
+﻿# JavaScript Learning Hub
 
-Repo ini adalah pusat pembelajaran JavaScript end-to-end: dari implementasi dasar, pemahaman mekanisme runtime, sampai latihan terstruktur untuk stabil di kasus nyata.
+Repo ini adalah pusat pembelajaran JavaScript end-to-end: dari sintaks dasar, mental model runtime, async model, object model, memory references, latihan runtime, sampai companion ke ECMAScript specification.
 
 Panduan detail pengembangan docs ada di [`docs/README.md`](./docs/README.md).
 
@@ -18,74 +18,63 @@ Panduan detail pengembangan docs ada di [`docs/README.md`](./docs/README.md).
 - Mampu menulis solusi JavaScript dasar-menengah tanpa bergantung pada copy-paste.
 - Mampu memprediksi output sync/async untuk skenario umum.
 - Mampu debug bug state, async flow, dan coercion dengan alasan teknis.
-- Mampu memilih pattern berdasarkan trade-off keterbacaan, reliabilitas, dan kompleksitas.
+- Mampu membaca konsep inti JavaScript dalam konteks spesifikasi resmi.
 
-## Track Utama
+## Arsitektur Track (Target 7 Root)
 1. `01-javascript-tutorial/`
-- Tujuan: onboarding cepat dari nol sampai bisa membuat program kecil.
-- In scope: sintaks dasar, kontrol alur, function, object/array, async dasar, mini app.
-- Out of scope: internals runtime mendalam.
+- Tujuan: memahami sintaks dasar JavaScript dan penggunaan praktisnya.
+- Output: kumpulan contoh program JavaScript kecil untuk memahami bahasa.
 
-2. `02-javascript-first-principles/`
-- Tujuan: membangun mental model inti JavaScript.
-- In scope: values/types/coercion, scope/hoisting, closure, `this`, prototype, event loop, memory lifecycle.
-- Out of scope: framework/library spesifik.
+2. `02-javascript-runtime-first-principles/`
+- Tujuan: membangun mental model bagaimana JavaScript dijalankan oleh engine.
+- Output: mampu memahami bagaimana kode dieksekusi secara internal.
 
-3. `03-javascript-advanced-patterns/`
-- Tujuan: menerapkan pattern lanjutan untuk codebase nyata.
-- In scope: module boundary, error strategy, async orchestration, maintainability.
-- Out of scope: framework architecture detail.
+3. `03-asynchronous-javascript-model/`
+- Tujuan: memahami mekanisme asynchronous JavaScript.
+- Output: mampu memprediksi urutan eksekusi kode async secara deterministik.
 
-4. `04-javascript-exercises-katas/`
-- Tujuan: menguatkan eksekusi teknis lewat latihan terstruktur.
-- In scope: output drills, race condition, mutation bugs, refactor kata, anti-regression checks.
-- Out of scope: teori panjang tanpa praktik.
+4. `04-javascript-object-model/`
+- Tujuan: memahami cara kerja object system di JavaScript.
+- Output: memahami inheritance dan object composition.
+
+5. `05-javascript-memory-and-references/`
+- Tujuan: memahami data storage, references, mutation, dan immutability.
+- Output: mampu memahami bug terkait mutation dan references.
+
+6. `06-javascript-runtime-exercises/`
+- Tujuan: melatih pemahaman runtime lewat eksperimen kode.
+- Output: kumpulan eksperimen untuk memperkuat mental model JavaScript.
+
+7. `07-javascript-specification-companion/`
+- Tujuan: menghubungkan konsep belajar dengan ECMAScript specification.
+- Output: kemampuan memahami definisi formal konsep JavaScript.
 
 ## Milestone Belajar
 1. Milestone 1 - `JavaScript Tutorial`
 - Selesai materi dasar dan 1 mini app.
 
-2. Milestone 2 - `JavaScript First Principles`
-- Lulus drill prediksi output dan mampu menjelaskan model runtime dasar.
+2. Milestone 2 - `Runtime First Principles`
+- Lulus drill reasoning execution context, scope, closure, hoisting, dan `this`.
 
-3. Milestone 3 - `JavaScript Advanced Patterns`
-- Menyelesaikan studi kasus refactor dengan alasan desain yang jelas.
+3. Milestone 3 - `Asynchronous + Object + Memory Models`
+- Mampu menjelaskan async order, prototype chain, dan mutation behavior dengan tepat.
 
-4. Milestone 4 - `Runtime Exercises and Katas`
-- Konsisten menyelesaikan latihan tanpa regresi perilaku utama.
+4. Milestone 4 - `Runtime Exercises`
+- Konsisten menyelesaikan eksperimen tanpa regressi penjelasan teknis.
+
+5. Milestone 5 - `Specification Companion`
+- Mampu memetakan konsep belajar ke bagian spesifikasi ECMAScript terkait.
 
 ## Wireframe Alur Belajar
 ```text
-Alur utama:
-[01 Tutorial] -> [02 First Principles] -> [03 Advanced Patterns] -> [04 Exercises/Katas] -> [Production-ready reasoning]
-
-Alur jalan:
-[Belajar konsep] -> [Kerjakan contoh] -> [Kerjakan drill] -> [Cek checkpoint] -> [Lanjut track berikutnya]
-
-Alur error:
-[Lompat track tanpa prasyarat] -> [Bingung mental model] -> [Bug berulang] -> [Kembali ke track sebelumnya + ulang checkpoint]
-```
-
-## Wireframe Navigasi Repo
-```text
-.
-|-- README.md
-|-- docs/
-|   |-- README.md
-|   |-- roadmap.md
-|   |-- content-plan.md
-|   |-- operating-rules.md
-|-- 01-javascript-tutorial/
-|   |-- README.md
-|-- 02-javascript-first-principles/
-|   |-- README.md
-|   |-- foundations/
-|   |-- advanced/
-|   |-- internals/
-|-- 03-javascript-advanced-patterns/
-|   |-- README.md
-|-- 04-javascript-exercises-katas/
-|   |-- README.md
+[01 Tutorial]
+   -> [02 Runtime First Principles]
+   -> [03 Async Model]
+   -> [04 Object Model]
+   -> [05 Memory & References]
+   -> [06 Runtime Exercises]
+   -> [07 Specification Companion]
+   -> [Production-ready reasoning]
 ```
 
 ## Cara Pakai Repo
@@ -100,6 +89,6 @@ Alur error:
 - Hindari overlap antar track; jika overlap, gunakan cross-reference.
 
 ## Status Saat Ini
-- Struktur hub 4 track sudah dibuat di root repo.
-- Materi existing tersimpan di `02-javascript-first-principles/`.
-- Track 01, 03, dan 04 siap diisi bertahap sesuai `docs/content-plan.md`.
+- Repositori sedang transisi dari struktur 4 track ke target 7 track.
+- Dokumen global (`README`, `docs/roadmap.md`, `docs/content-plan.md`) sudah mengikuti arsitektur 7 track.
+- Migrasi folder dan konten dilakukan bertahap agar link tetap stabil.

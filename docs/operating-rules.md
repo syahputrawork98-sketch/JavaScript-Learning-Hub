@@ -12,6 +12,7 @@
 
 ## Aturan Perubahan
 - Perubahan besar struktur wajib didahului update `docs/roadmap.md` dan `docs/content-plan.md`.
+- Perubahan struktur lintas track wajib mengikuti `docs/migration-map.md`.
 - Catat perubahan penting di changelog track terkait.
 - Gunakan commit message dengan format `<type>(<scope>): <ringkasan>`.
 
