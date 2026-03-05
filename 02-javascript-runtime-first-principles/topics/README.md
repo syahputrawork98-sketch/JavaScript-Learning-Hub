@@ -11,6 +11,12 @@
 8. `08-call-stack-web-apis-queues.md`
 9. `09-scope-chain-lookup.md`
 
-## Catatan
+## Catatan Boundary
+- Detail event loop/task/microtask queue diperdalam di Track 03.
+- Detail prototype chain diperdalam di Track 04.
+- Detail memory/reference diperdalam di Track 05.
+
+## Catatan Migrasi
 - Sumber awal berasal dari migrasi `02-javascript-first-principles`.
-- Urutan ini bersifat baseline dan bisa dirapikan lagi pada fase refinemen.
+- Traceability: `../migrated-from-02-first-principles/`.
+- Safety snapshot penuh: `../legacy-snapshot-from-02-first-principles/`.

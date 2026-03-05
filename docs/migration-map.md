@@ -31,13 +31,17 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 - `03-asynchronous-javascript-model/` (bagian async runtime)
 - `04-javascript-object-model/` (bagian prototype/object mechanics)
 - `05-javascript-memory-and-references/` (bagian memory/reference)
-- Status: `in_progress`.
+- Status: `migrated`.
 - Progres:
 - Tahap 1 copy non-destruktif selesai ke folder `migrated-from-02-first-principles/` pada track 02/03/04/05.
 - Masing-masing track sudah memiliki `README.md` index untuk daftar file migrasi tahap 1.
 - Tahap 1b normalisasi awal selesai:
 - Track 02 memiliki `topics/` dan `docs/` berbasis hasil copy.
 - Track 03/04/05 memiliki `topics/` berbasis hasil copy.
+- Tahap 1c refinemen safety selesai:
+- Track 02 memiliki `legacy-snapshot-from-02-first-principles/` sebagai backup penuh sebelum folder lama ditutup.
+- Boundary antar track untuk topik runtime didokumentasikan di `02-javascript-runtime-first-principles/docs/boundary-map.md`.
+- Folder legacy `02-javascript-first-principles/` sudah didekomisioning setelah safety snapshot dan validasi selesai.
 
 3. `03-javascript-advanced-patterns/` (lama) -> pecah ke:
 - `03-asynchronous-javascript-model/` (orchestration async yang fundamental)
@@ -69,7 +73,7 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 1. Tetapkan arsitektur dan scope (selesai).
 2. Buat folder target + README kerangka (selesai).
 3. Migrasi konten `02-javascript-first-principles` ke track 02/03/04/05.
- - Status: in_progress (tahap 1 copy + normalisasi awal selesai, refinemen akhir belum).
+ - Status: migrated (tahap 1 copy + normalisasi awal + safety snapshot selesai, folder legacy sudah didekomisioning).
 4. Migrasi konten `04-javascript-exercises-katas` ke track 06.
  - Status: migrated (sumber lama hanya README + paket drill baseline sudah dibuat).
 5. Seleksi konten `03-javascript-advanced-patterns`:
@@ -97,7 +101,7 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 
 ## Status Ringkas Saat Ini
 - `01-javascript-tutorial`: migrated (tetap).
-- `02-javascript-first-principles` -> `02/03/04/05`: in_progress.
+- `02-javascript-first-principles` -> `02/03/04/05`: migrated (folder legacy sudah dihapus, snapshot aman tersedia di track 02).
 - `03-javascript-advanced-patterns` -> `03/04/06`: migrated (folder legacy sudah dihapus).
 - `04-javascript-exercises-katas` -> `06`: migrated (folder legacy sudah dihapus).
 - `07-javascript-specification-companion`: planned (belum berisi materi inti).
