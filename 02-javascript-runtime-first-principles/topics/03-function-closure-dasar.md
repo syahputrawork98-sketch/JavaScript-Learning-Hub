@@ -1,4 +1,12 @@
-# Function dan Closure Dasar
+﻿# Function dan Closure Dasar
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -129,3 +137,7 @@ Langkah debug:
 1. Ulangi contoh counter, tapi log nilai `count` di setiap langkah.
 2. Bandingkan hasil `counterA` dan `counterB` sampai paham state terpisah.
 3. Coba ubah contoh jadi `makeMultiplier` untuk melihat pola yang sama.
+
+
+
+

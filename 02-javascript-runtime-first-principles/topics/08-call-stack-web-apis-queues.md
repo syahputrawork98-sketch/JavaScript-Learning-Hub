@@ -1,4 +1,12 @@
-# Call Stack, Web APIs, dan Queues
+﻿# Call Stack, Web APIs, dan Queues
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -15,8 +23,8 @@ Prasyarat topik:
 - Sudah paham async dasar (`task queue`, `microtask queue`) pada level Foundations.
 
 Referensi remedial:
-- [`01-execution-context-lifecycle.md`](./01-execution-context-lifecycle.md)
-- [`../foundations/06-async-javascript-dasar.md`](../foundations/06-async-javascript-dasar.md)
+- [`01-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
+- [`../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md`](../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Stack frame: satu unit eksekusi function di call stack.
@@ -119,3 +127,8 @@ Langkah debug:
 1. Ulangi `internals/01-execution-context-lifecycle.md`.
 2. Ulangi `foundations/06-async-javascript-dasar.md`.
 3. Jalankan 3 variasi `setTimeout` dengan operasi sync berat untuk melihat dampaknya.
+
+
+
+
+

@@ -1,4 +1,12 @@
-# Values, Types, and Coercion
+﻿# Values, Types, and Coercion
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -126,3 +134,7 @@ Urutan baca ulang cepat:
 2. Lanjut ke perilaku operator `+` vs `-` pada string angka.
 3. Ulangi 3 soal prediksi output sampai konsisten benar.
 4. Baru masuk lagi ke topik reference vs primitive.
+
+
+
+

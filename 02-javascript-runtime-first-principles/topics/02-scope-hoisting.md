@@ -1,4 +1,12 @@
-# Scope dan Hoisting
+﻿# Scope dan Hoisting
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -119,3 +127,7 @@ Langkah debug:
 1. Ulangi contoh `var` vs `let` sampai hasilnya bisa diprediksi.
 2. Buat eksperimen kecil sendiri dengan 3 baris kode.
 3. Fokus ke dua fase: creation dan execution.
+
+
+
+

@@ -1,4 +1,12 @@
-# Scope Chain Lookup
+﻿# Scope Chain Lookup
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -15,8 +23,8 @@ Prasyarat topik:
 - Sudah paham scope dasar (`global`, `function`, `block`) dari Foundations.
 
 Referensi remedial:
-- [`01-execution-context-lifecycle.md`](./01-execution-context-lifecycle.md)
-- [`../foundations/02-scope-hoisting.md`](../foundations/02-scope-hoisting.md)
+- [`01-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
+- [`./02-scope-hoisting.md`](./02-scope-hoisting.md)
 
 Kamus mini topik:
 - `[baru]` Identifier resolution: proses mesin mencari sumber nilai identifier.
@@ -130,3 +138,8 @@ Langkah debug:
 1. Ulangi `foundations/02-scope-hoisting.md`.
 2. Jalankan contoh nested function sambil menandai scope per variabel.
 3. Buat dua variasi: dengan dan tanpa shadowing, lalu bandingkan outputnya.
+
+
+
+
+

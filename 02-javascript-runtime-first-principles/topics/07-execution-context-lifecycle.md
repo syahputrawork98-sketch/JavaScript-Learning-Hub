@@ -1,4 +1,12 @@
-# Execution Context Lifecycle
+﻿# Execution Context Lifecycle
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -7,7 +15,7 @@ Rujukan cepat:
 
 Alur topik:
 - Topik ini ada di urutan ke-`1` pada Internals.
-- Prasyarat langsung: `../advanced/06-module-organization-esm.md`.
+- Prasyarat langsung: `./06-this-binding-lanjutan.md`.
 - Lanjut setelah ini: `02-call-stack-web-apis-queues.md`.
 
 Prasyarat topik:
@@ -15,8 +23,8 @@ Prasyarat topik:
 - Sudah paham fungsi sebagai unit eksekusi.
 
 Referensi remedial:
-- [`../foundations/02-scope-hoisting.md`](../foundations/02-scope-hoisting.md)
-- [`../foundations/03-function-closure-dasar.md`](../foundations/03-function-closure-dasar.md)
+- [`./02-scope-hoisting.md`](./02-scope-hoisting.md)
+- [`./03-function-closure-dasar.md`](./03-function-closure-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Execution context: lingkungan eksekusi yang menyimpan variabel, `this`, dan referensi scope.
@@ -124,3 +132,7 @@ Langkah debug:
 1. Ulangi `foundations/02-scope-hoisting.md`.
 2. Jalankan ulang contoh sambil menandai fase creation dan execution per baris.
 3. Latih 3 soal kecil yang membandingkan `var` lokal vs variabel global.
+
+
+
+

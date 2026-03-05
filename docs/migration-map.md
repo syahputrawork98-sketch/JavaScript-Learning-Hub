@@ -1,4 +1,4 @@
-# Migration Map (4 Track -> 7 Track)
+﻿# Migration Map (4 Track -> 7 Track)
 
 Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur baru (7 track).
 
@@ -38,10 +38,10 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 - Tahap 1b normalisasi awal selesai:
 - Track 02 memiliki `topics/` dan `docs/` berbasis hasil copy.
 - Track 03/04/05 memiliki `topics/` berbasis hasil copy.
-- Tahap 1c refinemen safety selesai:
-- Track 02 memiliki `legacy-snapshot-from-02-first-principles/` sebagai backup penuh sebelum folder lama ditutup.
+- Tahap 1c refinemen akhir selesai:
 - Boundary antar track untuk topik runtime didokumentasikan di `02-javascript-runtime-first-principles/docs/boundary-map.md`.
-- Folder legacy `02-javascript-first-principles/` sudah didekomisioning setelah safety snapshot dan validasi selesai.
+- Folder legacy `02-javascript-first-principles/` sudah didekomisioning setelah normalisasi dan validasi selesai.
+- Artefak migrasi sementara di track 02 (`migrated-from-02-first-principles/` dan `legacy-snapshot-from-02-first-principles/`) sudah didekomisioning setelah konten aktif stabil.
 
 3. `03-javascript-advanced-patterns/` (lama) -> pecah ke:
 - `03-asynchronous-javascript-model/` (orchestration async yang fundamental)
@@ -73,7 +73,7 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 1. Tetapkan arsitektur dan scope (selesai).
 2. Buat folder target + README kerangka (selesai).
 3. Migrasi konten `02-javascript-first-principles` ke track 02/03/04/05.
- - Status: migrated (tahap 1 copy + normalisasi awal + safety snapshot selesai, folder legacy sudah didekomisioning).
+ - Status: migrated (tahap 1 copy + normalisasi awal selesai, folder legacy dan artefak sementara sudah didekomisioning).
 4. Migrasi konten `04-javascript-exercises-katas` ke track 06.
  - Status: migrated (sumber lama hanya README + paket drill baseline sudah dibuat).
 5. Seleksi konten `03-javascript-advanced-patterns`:
@@ -101,7 +101,9 @@ Dokumen ini adalah peta resmi migrasi dari struktur lama (4 track) ke struktur b
 
 ## Status Ringkas Saat Ini
 - `01-javascript-tutorial`: migrated (tetap).
-- `02-javascript-first-principles` -> `02/03/04/05`: migrated (folder legacy sudah dihapus, snapshot aman tersedia di track 02).
+- `02-javascript-first-principles` -> `02/03/04/05`: migrated (folder legacy dan artefak migrasi sementara sudah dihapus).
 - `03-javascript-advanced-patterns` -> `03/04/06`: migrated (folder legacy sudah dihapus).
 - `04-javascript-exercises-katas` -> `06`: migrated (folder legacy sudah dihapus).
 - `07-javascript-specification-companion`: planned (belum berisi materi inti).
+
+

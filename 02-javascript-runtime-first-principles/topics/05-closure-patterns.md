@@ -1,4 +1,12 @@
-# Closure Patterns
+﻿# Closure Patterns
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -15,7 +23,7 @@ Prasyarat topik:
 - Sudah paham scope dan lexical environment.
 
 Referensi remedial:
-- [`../foundations/03-function-closure-dasar.md`](../foundations/03-function-closure-dasar.md)
+- [`./03-function-closure-dasar.md`](./03-function-closure-dasar.md)
 - [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
 
 Kamus mini topik:
@@ -144,3 +152,7 @@ Langkah debug:
 1. Ulangi dulu `foundations/03-function-closure-dasar.md`.
 2. Ubah contoh bank account: tambah method `transfer` tanpa membuka `balance`.
 3. Latih satu pola kecil: buat `createToggle()` dengan state privat boolean.
+
+
+
+

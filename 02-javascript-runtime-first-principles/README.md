@@ -27,8 +27,11 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 ## Struktur Konten
 - `topics/`: materi normalisasi utama track 02.
 - `docs/`: dokumen pendukung track (learning path, catatan).
-- `migrated-from-02-first-principles/`: salinan sumber migrasi tahap 1 (traceability).
-- `legacy-snapshot-from-02-first-principles/`: snapshot penuh legacy untuk safety sebelum dekomisioning folder lama.
+
+## Mulai Belajar
+1. Buka `docs/learning-path.md`.
+2. Ikuti urutan di `topics/README.md`.
+3. Gunakan `docs/boundary-map.md` saat topik mulai overlap ke track 03/04/05.
 
 ## Exit Criteria
 - Bisa menjelaskan alur eksekusi kode sync secara internal.
@@ -36,6 +39,8 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 
 ## Status Migrasi
 - `in_progress`
-- Tahap 1 copy + normalisasi awal (`topics/`) sudah selesai.
+- Tahap normalisasi struktur + link utama topik sudah selesai.
 - Boundary map antar track sudah ditetapkan di `docs/boundary-map.md`.
 - Snapshot penuh legacy sudah diamankan untuk mencegah kehilangan artefak.
+- Pending tersisa: review editorial final per topik.
+

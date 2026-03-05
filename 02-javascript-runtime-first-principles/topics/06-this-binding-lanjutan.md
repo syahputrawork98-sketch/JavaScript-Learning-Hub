@@ -1,4 +1,12 @@
-# this Binding Lanjutan
+﻿# this Binding Lanjutan
+## Metadata Migrasi
+- Status: 
+ormalized
+- Source: `02-javascript-first-principles (decommissioned legacy source)`
+- Boundary:
+  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
+  - Object/prototype detail -> ../../04-javascript-object-model/topics/
+  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -7,7 +15,7 @@ Rujukan cepat:
 
 Alur topik:
 - Topik ini ada di urutan ke-`2` pada Advanced.
-- Prasyarat langsung: `01-closure-patterns.md`, `../foundations/04-this-binding-dasar.md`.
+- Prasyarat langsung: `01-closure-patterns.md`, `./04-this-binding-dasar.md`.
 - Lanjut setelah ini: `03-prototype-chain-lanjutan.md`.
 
 Prasyarat topik:
@@ -15,9 +23,9 @@ Prasyarat topik:
 - Sudah paham risiko context hilang saat method dipass sebagai callback.
 
 Referensi remedial:
-- [`../foundations/04-this-binding-dasar.md`](../foundations/04-this-binding-dasar.md)
+- [`./04-this-binding-dasar.md`](./04-this-binding-dasar.md)
 - [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
-- [`01-closure-patterns.md`](./01-closure-patterns.md)
+- [`01-closure-patterns.md`](./05-closure-patterns.md)
 
 Kamus mini topik:
 - `[baru]` Hard binding: mengunci `this` permanen dengan `bind`.
@@ -131,6 +139,11 @@ Langkah debug:
 - [ ] Bisa memilih kapan pakai `this` binding vs closure untuk menjaga keterbacaan kode.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi topik dasar: `../foundations/04-this-binding-dasar.md`.
+1. Ulangi topik dasar: `./04-this-binding-dasar.md`.
 2. Buat eksperimen kecil: method dipanggil langsung, via `bind`, dan via `call`.
 3. Catat output tiap skenario sampai polanya jelas.
+
+
+
+
+
