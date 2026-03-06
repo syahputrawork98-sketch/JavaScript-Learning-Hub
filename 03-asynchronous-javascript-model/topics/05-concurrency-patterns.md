@@ -9,7 +9,7 @@ Rujukan cepat:
 Alur topik:
 - Topik ini ada di urutan ke-`5` pada Track 03.
 - Prasyarat langsung: `04-error-handling-async.md`.
-- Lanjut setelah ini: `../../06-javascript-runtime-exercises/exercises/03-async-order-drills.md`.
+- Lanjut setelah ini: `06-cancellation-timeout-dan-retry-strategy.md`.
 
 Prasyarat topik:
 - Sudah paham Promise dasar dan `async/await`.

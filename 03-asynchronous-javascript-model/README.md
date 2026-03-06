@@ -15,6 +15,9 @@ Track ini fokus pada model asynchronous JavaScript agar urutan eksekusi async bi
 - Async/Await
 - Async Error Handling
 - Concurrency Patterns (`all`, `allSettled`, `race`, `any`)
+- Cancellation, Timeout, dan Retry Strategy
+- Async Iteration (`for await...of`)
+- Async Architecture dan Anti-Patterns production
 
 ## Out of Scope
 - Distributed systems concurrency detail.
@@ -38,7 +41,7 @@ Track ini fokus pada model asynchronous JavaScript agar urutan eksekusi async bi
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
-3. Gunakan drill async di track 06 setelah menyelesaikan topik 05.
+3. Gunakan drill async di track 06 setelah menyelesaikan topik 08.
 
 ## Exit Criteria
 - Bisa memprediksi output async umum sebelum menjalankan kode.

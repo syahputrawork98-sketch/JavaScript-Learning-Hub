@@ -89,20 +89,25 @@
 - latihan `this` binding edge cases.
 - latihan async execution order.
 - latihan object mutation behavior.
+- latihan Promise error propagation.
+- latihan event loop batching/starvation.
+- latihan prototype/class runtime behavior.
+- latihan integrative runtime debugging.
 
 ### Out of Scope
 - teori panjang tanpa eksperimen.
 
 ### Prioritas Penulisan
-1. drill output prediction.
-2. edge-case labs.
-3. anti-regression exercise packs.
+1. progression 3 level per topik (dasar-menengah-lanjutan).
+2. answer key terpisah untuk self-check pasca-attempt.
+3. visual map untuk pola runtime yang sering menimbulkan miskonsepsi.
 
 ## Track 07: JavaScript Specification Companion
 ### In Scope
 - peta konsep ke ECMAScript specification sections.
 - glossary istilah formal spec yang relevan.
 - reading guide untuk konsep runtime inti.
+- visual map untuk workflow membaca spec dan model formal utama.
 
 ### Out of Scope
 - pembahasan semua clause spesifikasi secara menyeluruh.
@@ -111,8 +116,8 @@
 ### Prioritas Penulisan
 1. mapping concept -> spec section.
 2. guided reading notes.
-3. companion checks untuk topik sulit.
+3. companion checks + visual aids untuk topik sulit.
 
-## Catatan Migrasi
-- Struktur ini adalah target resmi arsitektur 7 track.
-- Migrasi folder/konten dari struktur lama dilakukan bertahap dengan update link di setiap tahap.
+## Catatan Evolusi
+- Arsitektur 7 track sudah menjadi baseline aktif repository.
+- Penyesuaian berikutnya difokuskan ke kualitas konten, bukan perpindahan struktur utama.

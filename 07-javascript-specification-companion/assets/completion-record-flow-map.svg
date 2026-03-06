@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><style>.t{font:700 34px 'Segoe UI',sans-serif;fill:#111827}.s{font:500 18px 'Segoe UI',sans-serif;fill:#374151}.b{fill:#fff;stroke:#7c3aed;stroke-width:2;rx:12}.n{fill:#e9d5ff;stroke:#7c3aed;stroke-width:2;rx:10}.a{fill:#fee2e2;stroke:#dc2626;stroke-width:2;rx:10}.h{font:700 17px 'Segoe UI',sans-serif;fill:#4c1d95}.p{font:500 14px 'Segoe UI',sans-serif;fill:#1f2937}.ar{stroke:#334155;stroke-width:2.5;marker-end:url(#m)}</style><marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#334155"/></marker></defs>
+  <rect width="1200" height="760" fill="#faf5ff"/>
+  <text x="50" y="70" class="t">Completion Record Flow Map</text>
+  <text x="50" y="102" class="s">Model formal untuk normal vs abrupt completion</text>
+  <rect x="80" y="160" width="1040" height="510" class="b"/>
+  <rect x="120" y="220" width="240" height="100" class="n"/><text x="145" y="258" class="h">Evaluate Step</text><text x="145" y="285" class="p">jalankan statement</text>
+  <rect x="420" y="220" width="240" height="100" class="n"/><text x="445" y="258" class="h">Normal Completion</text><text x="445" y="285" class="p">lanjut ke step berikut</text>
+  <rect x="720" y="220" width="280" height="100" class="a"/><text x="745" y="258" class="h">Abrupt Completion</text><text x="745" y="285" class="p">throw/return/break/continue</text>
+  <rect x="230" y="420" width="300" height="140" class="n"/><text x="255" y="460" class="h">Propagate</text><text x="255" y="488" class="p">bawa completion ke caller</text><text x="255" y="512" class="p">atau enclosing construct</text>
+  <rect x="670" y="420" width="300" height="140" class="n"/><text x="695" y="460" class="h">Handle</text><text x="695" y="488" class="p">try/catch/finally atau</text><text x="695" y="512" class="p">logic kontrol alur lain</text>
+  <line x1="360" y1="270" x2="420" y2="270" class="ar"/><line x1="660" y1="270" x2="720" y2="270" class="ar"/><line x1="860" y1="320" x2="820" y2="420" class="ar"/><line x1="720" y1="270" x2="380" y2="420" class="ar"/>
+  <text x="120" y="620" class="p">Kunci membaca algoritme: cek kapan langkah mengembalikan completion dan kapan completion diteruskan.</text>
+</svg>

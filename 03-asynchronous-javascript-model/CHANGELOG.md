@@ -1,5 +1,24 @@
 # Changelog - 03 Asynchronous JavaScript Model
 
+## 2026-03-06 - v0.3.0
+
+### Added
+- Menambahkan topik baru:
+- `topics/06-cancellation-timeout-dan-retry-strategy.md`
+- `topics/07-async-iteration-dan-for-await-of.md`
+- `topics/08-async-architecture-dan-anti-patterns.md`
+
+### Changed
+- Menormalkan urutan topik aktif menjadi 8 topik async model.
+- Memperbarui `topics/README.md` dan `docs/learning-path.md` agar sinkron dengan 8 topik aktif.
+- Menyelaraskan alur lanjutan dari topik `05` ke topik `06` sebelum drill track 06.
+
+### Validation
+- Link lokal area aktif track 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+
+### Notes
+- Track 03 sekarang mencakup fondasi async hingga desain arsitektur async dan anti-pattern production.
+
 ## 2026-03-06 - v0.2.0
 
 ### Added

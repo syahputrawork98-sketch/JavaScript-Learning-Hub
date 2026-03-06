@@ -20,7 +20,7 @@ Panduan detail pengembangan docs ada di [`docs/README.md`](./docs/README.md).
 - Mampu debug bug state, async flow, dan coercion dengan alasan teknis.
 - Mampu membaca konsep inti JavaScript dalam konteks spesifikasi resmi.
 
-## Arsitektur Track (Target 7 Root)
+## Arsitektur Track (7 Root Aktif)
 1. `01-javascript-tutorial/`
 - Tujuan: memahami sintaks dasar JavaScript dan penggunaan praktisnya.
 - Output: kumpulan contoh program JavaScript kecil untuk memahami bahasa.
@@ -89,6 +89,6 @@ Panduan detail pengembangan docs ada di [`docs/README.md`](./docs/README.md).
 - Hindari overlap antar track; jika overlap, gunakan cross-reference.
 
 ## Status Saat Ini
-- Repositori sedang transisi dari struktur 4 track ke target 7 track.
-- Dokumen global (`README`, `docs/roadmap.md`, `docs/content-plan.md`) sudah mengikuti arsitektur 7 track.
-- Migrasi folder dan konten dilakukan bertahap agar link tetap stabil.
+- Arsitektur 7 track sudah aktif sebagai struktur utama repo.
+- Track 05, 06, dan 07 telah dinormalkan ke format aktif (`README`, `PRASYARAT`, `docs`, konten utama, `CHANGELOG`).
+- Fokus berikutnya adalah hardening kualitas lintas track (validasi link, konsistensi scope, dan quality gate editorial).
