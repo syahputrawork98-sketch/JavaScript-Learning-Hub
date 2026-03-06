@@ -1,94 +1,234 @@
-﻿# JavaScript Learning Hub
+# JavaScript
 
-Repo ini adalah pusat pembelajaran JavaScript end-to-end: dari sintaks dasar, mental model runtime, async model, object model, memory references, latihan runtime, sampai companion ke ECMAScript specification.
+Repository ini adalah **perpustakaan kecil** yang berisi kumpulan buku teknis tentang JavaScript.
 
-Panduan detail pengembangan docs ada di [`docs/README.md`](./docs/README.md).
+Repository ini **bukan tutorial tunggal** dan bukan juga sebuah handbook besar.  
+Sebaliknya, repository ini disusun sebagai **rak buku**, di mana setiap buku membahas satu aspek penting dari bahasa JavaScript.
 
-## Visi dan Fokus
-- Fokus utama: JavaScript sebagai inti, bukan framework-specific.
-- Fokus hasil: bukan hanya "bisa jalan", tapi bisa menjelaskan sebab-akibat teknis.
-- Fokus proses: belajar bertahap dengan urutan track yang jelas dan checkpoint terukur.
+Tujuan dari repository ini adalah membangun **pemahaman yang kuat dan benar tentang bagaimana JavaScript bekerja**, mulai dari sintaks dasar hingga perilaku runtime dan cara kerja JavaScript engine.
 
-## Untuk Siapa
-- Pemula yang ingin jalur belajar JavaScript yang runtut.
-- Developer yang sudah ngoding JavaScript tapi mental model runtime-nya belum kokoh.
-- Mentor/author yang ingin menulis materi JavaScript dengan standar struktur yang konsisten.
+---
 
-## Target Akhir Lulusan
-- Mampu menulis solusi JavaScript dasar-menengah tanpa bergantung pada copy-paste.
-- Mampu memprediksi output sync/async untuk skenario umum.
-- Mampu debug bug state, async flow, dan coercion dengan alasan teknis.
-- Mampu membaca konsep inti JavaScript dalam konteks spesifikasi resmi.
+# Konsep Repository
 
-## Arsitektur Track (7 Root Aktif)
-1. `01-javascript-tutorial/`
-- Tujuan: memahami sintaks dasar JavaScript dan penggunaan praktisnya.
-- Output: kumpulan contoh program JavaScript kecil untuk memahami bahasa.
+Banyak materi JavaScript yang tersedia di internet berfokus pada **cara menggunakan API atau framework**.
 
-2. `02-javascript-runtime-first-principles/`
-- Tujuan: membangun mental model bagaimana JavaScript dijalankan oleh engine.
-- Output: mampu memahami bagaimana kode dieksekusi secara internal.
+Namun sering kali penjelasan tersebut tidak menjelaskan **mengapa JavaScript berperilaku seperti itu**.
 
-3. `03-asynchronous-javascript-model/`
-- Tujuan: memahami mekanisme asynchronous JavaScript.
-- Output: mampu memprediksi urutan eksekusi kode async secara deterministik.
+Untuk memahami JavaScript secara mendalam, kita perlu memahami:
 
-4. `04-javascript-object-model/`
-- Tujuan: memahami cara kerja object system di JavaScript.
-- Output: memahami inheritance dan object composition.
+- bagaimana kode JavaScript dieksekusi
+- bagaimana **Execution Context** bekerja
+- bagaimana **Lexical Environment** terbentuk
+- bagaimana **Event Loop** menjalankan asynchronous code
+- bagaimana **Prototype Chain** membentuk object system
+- bagaimana nilai dan reference disimpan di memory
+- bagaimana JavaScript engine mengeksekusi program
 
-5. `05-javascript-memory-and-references/`
-- Tujuan: memahami data storage, references, mutation, dan immutability.
-- Output: mampu memahami bug terkait mutation dan references.
+Karena itu repository ini disusun sebagai **kumpulan buku**, sehingga setiap topik dapat dipelajari secara lebih fokus.
 
-6. `06-javascript-runtime-exercises/`
-- Tujuan: melatih pemahaman runtime lewat eksperimen kode.
-- Output: kumpulan eksperimen untuk memperkuat mental model JavaScript.
+---
 
-7. `07-javascript-specification-companion/`
-- Tujuan: menghubungkan konsep belajar dengan ECMAScript specification.
-- Output: kemampuan memahami definisi formal konsep JavaScript.
+# Struktur Rak Buku
 
-## Milestone Belajar
-1. Milestone 1 - `JavaScript Tutorial`
-- Selesai materi dasar dan 1 mini app.
+Repository ini disusun seperti **rak buku teknis**.
 
-2. Milestone 2 - `Runtime First Principles`
-- Lulus drill reasoning execution context, scope, closure, hoisting, dan `this`.
+Setiap folder merepresentasikan **satu buku**.
+JavaScript
+│
+├── 01-javascript-tutorial
+├── 02-javascript-runtime-first-principles
+├── 03-asynchronous-javascript-model
+├── 04-javascript-object-model
+├── 05-javascript-memory-and-references
+├── 06-javascript-runtime-exercises
+├── 07-javascript-specification-companion
+├── 08-javascript-engine-internals
+└── 09-javascript-modules-and-program-structure
 
-3. Milestone 3 - `Asynchronous + Object + Memory Models`
-- Mampu menjelaskan async order, prototype chain, dan mutation behavior dengan tepat.
 
-4. Milestone 4 - `Runtime Exercises`
-- Konsisten menyelesaikan eksperimen tanpa regressi penjelasan teknis.
+Setiap buku membahas **satu domain JavaScript** secara khusus.
 
-5. Milestone 5 - `Specification Companion`
-- Mampu memetakan konsep belajar ke bagian spesifikasi ECMAScript terkait.
+Jika dipelajari bersama, buku-buku ini akan membentuk **mental model yang utuh tentang JavaScript**.
 
-## Wireframe Alur Belajar
-```text
-[01 Tutorial]
-   -> [02 Runtime First Principles]
-   -> [03 Async Model]
-   -> [04 Object Model]
-   -> [05 Memory & References]
-   -> [06 Runtime Exercises]
-   -> [07 Specification Companion]
-   -> [Production-ready reasoning]
-```
+---
 
-## Cara Pakai Repo
-1. Baca [`docs/roadmap.md`](./docs/roadmap.md) untuk memahami urutan track.
-2. Ikuti track secara berurutan, kecuali sudah lulus checkpoint track sebelumnya.
-3. Gunakan [`docs/content-plan.md`](./docs/content-plan.md) untuk melihat batas materi per track.
-4. Gunakan [`docs/operating-rules.md`](./docs/operating-rules.md) saat menambah/merevisi materi.
+# Daftar Buku
 
-## Aturan Kualitas Materi
-- Satu topik harus punya tujuan, contoh, pitfalls, dan checkpoint.
-- Klaim teknis harus bisa diuji lewat kode atau latihan.
-- Hindari overlap antar track; jika overlap, gunakan cross-reference.
+## 01 — JavaScript Tutorial
 
-## Status Saat Ini
-- Arsitektur 7 track sudah aktif sebagai struktur utama repo.
-- Track 05, 06, dan 07 telah dinormalkan ke format aktif (`README`, `PRASYARAT`, `docs`, konten utama, `CHANGELOG`).
-- Fokus berikutnya adalah hardening kualitas lintas track (validasi link, konsistensi scope, dan quality gate editorial).
+Buku ini berfokus pada **dasar-dasar bahasa JavaScript** dan cara menulis program menggunakan sintaks JavaScript.
+
+Topik utama:
+
+- variables
+- functions
+- arrays
+- objects
+- conditionals
+- loops
+- modules
+- error handling
+
+Tujuan buku ini adalah memahami **bagaimana menulis program JavaScript**.
+
+---
+
+## 02 — JavaScript Runtime First Principles
+
+Buku ini membahas **bagaimana JavaScript dijalankan oleh runtime**.
+
+Topik utama:
+
+- Execution Context
+- Lexical Environment
+- Scope
+- Hoisting
+- Closures
+- `this` binding
+- Call Stack
+- Scope Chain
+
+Tujuan buku ini adalah membangun **mental model tentang bagaimana kode JavaScript dieksekusi**.
+
+---
+
+## 03 — Asynchronous JavaScript Model
+
+Buku ini membahas bagaimana JavaScript menjalankan **asynchronous code**.
+
+Topik utama:
+
+- Event Loop
+- Task Queue
+- Microtask Queue
+- Promises
+- Async/Await
+- Job Queue
+
+Tujuan buku ini adalah memahami **urutan eksekusi asynchronous code**.
+
+---
+
+## 04 — JavaScript Object Model
+
+Buku ini membahas **sistem objek dalam JavaScript**.
+
+Topik utama:
+
+- Objects
+- Property Descriptors
+- Prototype Chain
+- `[[Prototype]]`
+- Constructors
+- `new` operator
+- Class syntax
+
+Tujuan buku ini adalah memahami **prototype-based object system** dalam JavaScript.
+
+---
+
+## 05 — JavaScript Memory and References
+
+Buku ini membahas **bagaimana nilai dan reference disimpan di memory**.
+
+Topik utama:
+
+- Primitive values
+- Reference values
+- Referential equality
+- Mutation vs immutability
+- Garbage Collection (high level)
+
+Tujuan buku ini adalah memahami bagaimana **data berperilaku di dalam program JavaScript**.
+
+---
+
+## 06 — JavaScript Runtime Exercises
+
+Buku ini berisi **eksperimen kode untuk melatih pemahaman runtime JavaScript**.
+
+Contoh latihan:
+
+- closure behavior
+- `this` binding edge cases
+- async execution order
+- object mutation behavior
+- prototype chain behavior
+
+Tujuan buku ini adalah melatih kemampuan untuk **memprediksi perilaku runtime JavaScript**.
+
+---
+
+## 07 — JavaScript Specification Companion
+
+Buku ini menghubungkan konsep yang dipelajari dengan **ECMAScript Specification**.
+
+Topik utama:
+
+- cara membaca ECMAScript specification
+- Environment Records
+- Abstract Operations
+- Completion Records
+- Iteration Protocol
+
+Tujuan buku ini adalah menjembatani **pemahaman developer dengan spesifikasi resmi JavaScript**.
+
+---
+
+## 08 — JavaScript Engine Internals
+
+Buku ini membahas bagaimana **JavaScript engine mengeksekusi kode secara internal**.
+
+Topik utama:
+
+- parsing
+- Abstract Syntax Tree (AST)
+- bytecode
+- JIT compilation
+- hidden classes
+- inline caching
+- optimization dan deoptimization
+
+Tujuan buku ini adalah memahami bagaimana **engine seperti V8 menjalankan dan mengoptimasi JavaScript**.
+
+---
+
+## 09 — JavaScript Modules and Program Structure
+
+Buku ini membahas bagaimana **program JavaScript modern disusun menggunakan module system**.
+
+Topik utama:
+
+- ES Modules
+- module graph
+- `import` / `export`
+- live bindings
+- circular dependencies
+- module evaluation
+
+Tujuan buku ini adalah memahami **struktur program JavaScript modern**.
+
+---
+
+# Tujuan Jangka Panjang
+
+Repository ini merupakan **proyek belajar jangka panjang**.
+
+Dengan mempelajari JavaScript melalui buku-buku ini, diharapkan terbentuk pemahaman yang kuat tentang:
+
+- runtime behavior
+- execution model
+- object system
+- asynchronous execution
+- memory behavior
+- engine internals
+
+Dengan fondasi tersebut, teknologi lain yang dibangun di atas JavaScript akan jauh lebih mudah dipahami.
+
+---
+
+# Status Repository
+
+Repository ini bersifat **work in progress** dan akan terus berkembang seiring dengan proses belajar dan dokumentasi yang dilakukan.
+
