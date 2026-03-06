@@ -1,9 +1,9 @@
-﻿# 04 - Object Mutation Drills
+# 04 - Object Mutation Drills
 
 ## Tujuan
-Melatih deteksi bug akibat reference sharing dan mutation pada object/array.
+Melatih deteksi bug akibat reference sharing dari object sederhana sampai nested array.
 
-## Drill 1
+## Level 1 - Dasar
 ```js
 const a = { nilai: 10 };
 const b = a;
@@ -17,7 +17,7 @@ Tugas:
 - Prediksi output.
 - Jelaskan kenapa perubahan `b` memengaruhi `a`.
 
-## Drill 2
+## Level 2 - Menengah
 ```js
 const state = {
   user: { nama: "Ari" },
@@ -32,8 +32,33 @@ console.log(nextState.user.nama);
 
 Tugas:
 - Prediksi output.
-- Jelaskan kenapa spread di level atas belum cukup untuk nested object.
+- Jelaskan kenapa spread level atas belum cukup untuk nested object.
+
+## Level 3 - Lanjutan
+```js
+const source = {
+  profile: { nama: "Lia" },
+  tags: ["js", "runtime"],
+};
+
+const clone = {
+  ...source,
+  profile: { ...source.profile },
+};
+
+clone.tags.push("debug");
+clone.profile.nama = "Mila";
+
+console.log(source.profile.nama, source.tags.length);
+console.log(clone.profile.nama, clone.tags.length);
+```
+
+Tugas:
+- Prediksi output.
+- Identifikasi properti mana yang masih berbagi reference.
+- Usulkan strategi copy aman untuk struktur campuran object + array.
 
 ## Checkpoint
-- [ ] Bisa jelaskan perbedaan copy reference vs copy value.
-- [ ] Bisa memilih strategi update yang aman untuk nested structure.
+- [ ] Level 1: Bisa membedakan copy reference vs copy value.
+- [ ] Level 2: Bisa mengidentifikasi efek shallow copy pada nested object.
+- [ ] Level 3: Bisa memilih strategi copy yang aman sesuai bentuk data.

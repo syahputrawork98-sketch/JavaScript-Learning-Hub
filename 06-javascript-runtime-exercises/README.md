@@ -1,4 +1,4 @@
-﻿# 06 - JavaScript Runtime Exercises
+# 06 - JavaScript Runtime Exercises
 
 Track ini fokus penguatan lewat eksperimen runtime terstruktur.
 
@@ -11,6 +11,10 @@ Track ini fokus penguatan lewat eksperimen runtime terstruktur.
 - `this` binding edge cases
 - Async execution order drills
 - Object mutation behavior drills
+- Promise error propagation drills
+- Event loop batching and starvation drills
+- Prototype and class runtime behavior drills
+- Integrative runtime debugging drills
 
 ## Out of Scope
 - Teori panjang tanpa eksperimen kode.
@@ -20,13 +24,25 @@ Track ini fokus penguatan lewat eksperimen runtime terstruktur.
 
 ## Struktur Konten
 - `exercises/`: bank latihan runtime terstruktur.
-- `migrated-from-04-exercises-katas/`: baseline migrasi dari track lama.
+- `docs/`: jalur belajar dan catatan pendukung.
+- `assets/`: visual map untuk pola runtime yang paling sering bikin salah prediksi.
+
+## Visualisasi Konsep
+- `assets/this-binding-callsite-map.svg`: peta aturan `this` berbasis call-site.
+- `assets/event-loop-order-map.svg`: peta urutan sync, microtask, dan macrotask.
+- `assets/mutation-reference-sharing-map.svg`: peta kebocoran mutasi akibat shared reference.
+- `assets/promise-error-flow-map.svg`: peta propagasi error pada Promise chain.
 
 ## Exit Criteria
 - Konsisten menyelesaikan drill dengan alasan teknis yang benar.
 - Mampu menjelaskan kenapa jawaban salah sebelumnya bisa terjadi.
 
-## Status Migrasi
-- `in_progress`
-- Baseline README dari `04-javascript-exercises-katas` sudah dicopy.
-- Tahap berikutnya: isi paket drill per domain runtime.
+## Mulai Belajar
+1. Buka `PRASYARAT-DAN-KAMUS-MINI.md`.
+2. Ikuti urutan latihan di `docs/learning-path.md`.
+3. Gunakan `exercises/README.md` sebagai index navigasi cepat.
+
+## Boundary ke Track Lain
+- Fondasi runtime sinkron: `../02-javascript-runtime-first-principles/topics/`
+- Model asynchronous: `../03-asynchronous-javascript-model/topics/`
+- Model object/prototype/reference: `../04-javascript-object-model/topics/` dan `../05-javascript-memory-and-references/topics/`

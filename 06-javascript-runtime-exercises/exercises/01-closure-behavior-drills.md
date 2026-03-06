@@ -1,9 +1,9 @@
-﻿# 01 - Closure Behavior Drills
+# 01 - Closure Behavior Drills
 
 ## Tujuan
-Melatih pemahaman closure: kapan state tersimpan, kapan tidak, dan bagaimana efeknya ke output.
+Melatih pemahaman closure dari state sederhana hingga kasus loop dan async callback.
 
-## Drill 1
+## Level 1 - Dasar
 ```js
 function buatCounter() {
   let count = 0;
@@ -24,7 +24,7 @@ Tugas:
 - Prediksi output.
 - Jelaskan kenapa `c1` dan `c2` tidak berbagi state.
 
-## Drill 2
+## Level 2 - Menengah
 ```js
 function pembuatPesan(prefix) {
   return function (nama) {
@@ -41,8 +41,30 @@ console.log(hai("Budi"));
 
 Tugas:
 - Prediksi output.
-- Jelaskan nilai apa saja yang "tertangkap" oleh closure.
+- Jelaskan nilai apa saja yang tertangkap oleh closure.
+
+## Level 3 - Lanjutan
+```js
+function buatHandlers() {
+  const handlers = [];
+  for (var i = 1; i <= 3; i++) {
+    handlers.push(() => console.log("index", i));
+  }
+  return handlers;
+}
+
+const hs = buatHandlers();
+hs[0]();
+hs[1]();
+hs[2]();
+```
+
+Tugas:
+- Prediksi output.
+- Jelaskan kenapa semua handler bisa menghasilkan nilai sama.
+- Usulkan perbaikan minimal agar tiap handler menyimpan indeks yang benar.
 
 ## Checkpoint
-- [ ] Bisa menjelaskan closure tanpa menyebut "magic".
-- [ ] Bisa membedakan shared state vs isolated state.
+- [ ] Level 1: Bisa menjelaskan shared state vs isolated state pada closure.
+- [ ] Level 2: Bisa menyebut lexical environment yang tertangkap function.
+- [ ] Level 3: Bisa memperbaiki bug closure pada loop secara tepat.

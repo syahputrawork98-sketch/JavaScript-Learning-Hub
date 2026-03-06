@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .title{font:700 34px 'Segoe UI',sans-serif;fill:#0f172a}
+      .subtitle{font:500 18px 'Segoe UI',sans-serif;fill:#334155}
+      .box{fill:#ffffff;stroke:#0ea5e9;stroke-width:2;rx:14}
+      .box2{fill:#f8fafc;stroke:#64748b;stroke-width:2;rx:14}
+      .h{font:700 18px 'Segoe UI',sans-serif;fill:#0c4a6e}
+      .p{font:500 15px 'Segoe UI',sans-serif;fill:#1e293b}
+      .arrow{stroke:#0ea5e9;stroke-width:3;marker-end:url(#m)}
+      .note{font:600 15px 'Segoe UI',sans-serif;fill:#7c2d12}
+    </style>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#0ea5e9" />
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f0f9ff"/>
+  <text x="50" y="70" class="title">This Binding Call-Site Map</text>
+  <text x="50" y="102" class="subtitle">Aturan utama: nilai this ditentukan oleh cara function dipanggil</text>
+
+  <rect x="60" y="150" width="330" height="170" class="box"/>
+  <text x="85" y="185" class="h">1) Method Call</text>
+  <text x="85" y="220" class="p">obj.fn() - this = obj</text>
+  <text x="85" y="250" class="p">Stabil untuk akses property</text>
+  <text x="85" y="280" class="p">contoh: user.sapa()</text>
+
+  <rect x="435" y="150" width="330" height="170" class="box"/>
+  <text x="460" y="185" class="h">2) Function Reference</text>
+  <text x="460" y="220" class="p">const f = obj.fn; f()</text>
+  <text x="460" y="250" class="p">this lepas dari obj</text>
+  <text x="460" y="280" class="p">risiko undefined / TypeError</text>
+
+  <rect x="810" y="150" width="330" height="170" class="box"/>
+  <text x="835" y="185" class="h">3) Explicit Binding</text>
+  <text x="835" y="220" class="p">fn.call(obj), fn.apply(obj)</text>
+  <text x="835" y="250" class="p">atau fn.bind(obj)</text>
+  <text x="835" y="280" class="p">this dipatok ke obj</text>
+
+  <rect x="150" y="410" width="390" height="210" class="box2"/>
+  <text x="175" y="445" class="h">Callback Async Trap</text>
+  <text x="175" y="480" class="p">setTimeout(function(){ this.x })</text>
+  <text x="175" y="510" class="p">this bukan object asal</text>
+  <text x="175" y="540" class="p">perbaikan: arrow function / bind</text>
+
+  <rect x="650" y="410" width="390" height="210" class="box2"/>
+  <text x="675" y="445" class="h">Checklist Debug</text>
+  <text x="675" y="480" class="p">1. Cek call-site aktual</text>
+  <text x="675" y="510" class="p">2. Cek mode strict/module</text>
+  <text x="675" y="540" class="p">3. Kunci context bila perlu</text>
+
+  <line x1="390" y1="235" x2="435" y2="235" class="arrow"/>
+  <line x1="765" y1="235" x2="810" y2="235" class="arrow"/>
+  <line x1="600" y1="320" x2="345" y2="410" class="arrow"/>
+  <line x1="600" y1="320" x2="845" y2="410" class="arrow"/>
+
+  <text x="50" y="705" class="note">Kunci: bug this biasanya bukan di deklarasi function, tetapi di call-site.</text>
+</svg>

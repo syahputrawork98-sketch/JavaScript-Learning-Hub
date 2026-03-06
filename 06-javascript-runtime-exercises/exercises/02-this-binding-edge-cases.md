@@ -1,9 +1,9 @@
-﻿# 02 - This Binding Edge Cases
+# 02 - This Binding Edge Cases
 
 ## Tujuan
-Melatih reasoning `this` di berbagai pola pemanggilan function.
+Melatih reasoning `this` berdasarkan call-site dari kasus dasar hingga callback terlepas.
 
-## Drill 1
+## Level 1 - Dasar
 ```js
 const user = {
   nama: "Nina",
@@ -21,7 +21,7 @@ Tugas:
 - Prediksi output.
 - Jelaskan kenapa hasil `fn()` berbeda.
 
-## Drill 2
+## Level 2 - Menengah
 ```js
 function tampilkan() {
   return this.nilai;
@@ -38,6 +38,27 @@ Tugas:
 - Prediksi output.
 - Jelaskan aturan binding yang sedang terjadi.
 
+## Level 3 - Lanjutan
+```js
+const timer = {
+  detik: 0,
+  start() {
+    setTimeout(function () {
+      this.detik++;
+      console.log("detik:", this.detik);
+    }, 0);
+  },
+};
+
+timer.start();
+```
+
+Tugas:
+- Prediksi output/error.
+- Identifikasi akar masalah binding pada callback.
+- Usulkan dua perbaikan berbeda (contoh: arrow function atau `bind`).
+
 ## Checkpoint
-- [ ] Bisa jelaskan `this` berdasarkan cara pemanggilan, bukan lokasi deklarasi.
-- [ ] Bisa mendeteksi bug karena function reference lepas dari object.
+- [ ] Level 1: Bisa jelaskan `this` saat method dipanggil langsung vs function reference.
+- [ ] Level 2: Bisa memetakan `this` ke object pemanggil pada call-site.
+- [ ] Level 3: Bisa memperbaiki bug binding pada callback async.

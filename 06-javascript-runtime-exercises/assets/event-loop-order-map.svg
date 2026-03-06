@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .title{font:700 34px 'Segoe UI',sans-serif;fill:#111827}
+      .subtitle{font:500 18px 'Segoe UI',sans-serif;fill:#374151}
+      .lane{fill:#ffffff;stroke:#9ca3af;stroke-width:2;rx:12}
+      .task{fill:#e0f2fe;stroke:#0284c7;stroke-width:2;rx:10}
+      .micro{fill:#dcfce7;stroke:#16a34a;stroke-width:2;rx:10}
+      .macro{fill:#ffedd5;stroke:#ea580c;stroke-width:2;rx:10}
+      .h{font:700 17px 'Segoe UI',sans-serif;fill:#0f172a}
+      .p{font:500 14px 'Segoe UI',sans-serif;fill:#1f2937}
+      .arrow{stroke:#475569;stroke-width:2.5;marker-end:url(#m)}
+      .note{font:600 15px 'Segoe UI',sans-serif;fill:#92400e}
+    </style>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f8fafc"/>
+  <text x="50" y="70" class="title">Event Loop Order Map</text>
+  <text x="50" y="102" class="subtitle">Urutan: Sync Stack - Microtask Queue - Macrotask Queue</text>
+
+  <rect x="60" y="150" width="1080" height="130" class="lane"/>
+  <text x="85" y="185" class="h">Sync Stack (langsung dieksekusi)</text>
+  <rect x="85" y="205" width="220" height="55" class="task"/>
+  <text x="105" y="238" class="p">console.log('A')</text>
+  <rect x="330" y="205" width="220" height="55" class="task"/>
+  <text x="350" y="238" class="p">setTimeout(..., 0)</text>
+  <rect x="575" y="205" width="220" height="55" class="task"/>
+  <text x="595" y="238" class="p">Promise.then(...)</text>
+  <rect x="820" y="205" width="220" height="55" class="task"/>
+  <text x="840" y="238" class="p">console.log('D')</text>
+
+  <rect x="60" y="320" width="520" height="180" class="lane"/>
+  <text x="85" y="355" class="h">Microtask Queue</text>
+  <rect x="95" y="375" width="220" height="50" class="micro"/>
+  <text x="115" y="406" class="p">Promise callback C</text>
+  <rect x="340" y="375" width="220" height="50" class="micro"/>
+  <text x="360" y="406" class="p">await continuation</text>
+  <text x="85" y="470" class="p">Semua microtask dikosongkan dulu</text>
+
+  <rect x="620" y="320" width="520" height="180" class="lane"/>
+  <text x="645" y="355" class="h">Macrotask Queue</text>
+  <rect x="655" y="375" width="220" height="50" class="macro"/>
+  <text x="675" y="406" class="p">timer callback B</text>
+  <rect x="900" y="375" width="220" height="50" class="macro"/>
+  <text x="920" y="406" class="p">I/O / UI event</text>
+  <text x="645" y="470" class="p">Jalan setelah microtask kosong</text>
+
+  <rect x="60" y="540" width="1080" height="150" class="lane"/>
+  <text x="85" y="575" class="h">Contoh Urutan Output</text>
+  <text x="85" y="610" class="p">A -> D -> C -> B</text>
+  <text x="85" y="640" class="note">Jika microtask terus menambah microtask baru, timer bisa tertunda (starvation gejala ringan).</text>
+
+  <line x1="795" y1="233" x2="205" y2="375" class="arrow"/>
+  <line x1="795" y1="233" x2="765" y2="375" class="arrow"/>
+</svg>
