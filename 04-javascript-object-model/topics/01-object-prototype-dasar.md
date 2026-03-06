@@ -1,23 +1,24 @@
-# Object dan Prototype Dasar
+﻿# Object dan Prototype Dasar
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/object-prototype-basics-map.svg`](../assets/object-prototype-basics-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`5` pada Foundations.
-- Prasyarat langsung: `01-values-types-coercion.md`, `03-function-closure-dasar.md`.
-- Lanjut setelah ini: `06-async-javascript-dasar.md`.
+- Topik ini ada di urutan ke-`1` pada Track 04.
+- Prasyarat langsung: `../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md`.
+- Lanjut setelah ini: `02-prototype-chain-lanjutan.md`.
 
 Prasyarat topik:
 - Sudah paham function dasar.
 - Sudah paham tipe data primitive vs reference.
 
 Referensi remedial:
-- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
-- [`../docs/prasyarat/object-dasar.md`](../docs/prasyarat/object-dasar.md)
-- [`../docs/prasyarat/variabel-dasar.md`](../docs/prasyarat/variabel-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/function-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/function-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/object-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/object-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/variabel-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/variabel-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Object: kumpulan pasangan `key: value`.
@@ -126,3 +127,5 @@ Langkah debug:
 1. Ulangi contoh `animal` dan `cat` sambil cek `hasOwnProperty`.
 2. Coba tambah property dengan nama sama di `cat` lalu lihat efek override.
 3. Fokus ke pertanyaan: "property ini milik object langsung atau dari prototype?"
+
+

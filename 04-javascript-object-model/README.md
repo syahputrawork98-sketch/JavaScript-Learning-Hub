@@ -14,6 +14,7 @@ Track ini fokus memahami mekanisme object system JavaScript.
 - Constructors
 - `new` operator
 - Class syntax
+- Composition vs inheritance decision
 
 ## Out of Scope
 - Framework-specific OOP patterns.
@@ -23,14 +24,25 @@ Track ini fokus memahami mekanisme object system JavaScript.
 - Materi object model + latihan reasoning prototype/inheritance/composition.
 
 ## Struktur Konten
-- `topics/`: materi object model hasil normalisasi awal.
-- `migrated-from-02-first-principles/`: sumber migrasi tahap 1.
+- `topics/`: materi utama yang dipakai belajar.
+- `docs/`: jalur belajar dan catatan pendukung.
+- `assets/`: visualisasi object model untuk memperjelas mental model.
+
+## Visualisasi Konsep
+- `assets/object-prototype-basics-map.svg`: peta own property vs prototype delegation.
+- `assets/prototype-chain-advanced-map.svg`: peta shadowing, delegation, dan mutasi shared prototype.
+- `assets/prototype-chain-lookup-map.svg`: peta lookup property sampai terminal `null`.
+- `assets/property-descriptor-map.svg`: peta descriptor (`writable`, `enumerable`, `configurable`, `get/set`).
+- `assets/class-constructor-new-map.svg`: peta lifecycle `new` dan prototype method sharing.
+- `assets/composition-vs-inheritance-map.svg`: peta keputusan desain composition vs inheritance.
+
+## Mulai Belajar
+1. Buka `docs/learning-path.md`.
+2. Ikuti urutan di `topics/README.md`.
+3. Lanjut ke track 05 saat mulai membahas memory lifecycle dan reference behavior mendalam.
 
 ## Exit Criteria
 - Bisa menjelaskan hubungan object, prototype, dan inheritance.
 - Bisa menganalisis bug dasar terkait object mutation dan lookup property.
-
-## Status Migrasi
-- `in_progress`
-- Konten baseline object/prototype sudah masuk ke `topics/`.
-- Tahap berikutnya: tambah materi descriptors dan composition patterns.
+- Bisa melacak sumber property (own vs inherited) secara konsisten.
+- Bisa menentukan kapan memakai inheritance vs composition.

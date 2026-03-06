@@ -1,22 +1,23 @@
-# Prototype Chain Lanjutan
+﻿# Prototype Chain Lanjutan
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/prototype-chain-advanced-map.svg`](../assets/prototype-chain-advanced-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`3` pada Advanced.
-- Prasyarat langsung: `../foundations/05-object-prototype-dasar.md`.
-- Lanjut setelah ini: `04-promise-async-await.md`.
+- Topik ini ada di urutan ke-`2` pada Track 04.
+- Prasyarat langsung: `01-object-prototype-dasar.md`.
+- Lanjut setelah ini: `03-prototype-chain-lookup.md`.
 
 Prasyarat topik:
 - Sudah paham lookup property dasar pada prototype chain.
 - Sudah paham perbedaan own property dan inherited property.
 
 Referensi remedial:
-- [`../foundations/05-object-prototype-dasar.md`](../foundations/05-object-prototype-dasar.md)
-- [`../docs/prasyarat/object-dasar.md`](../docs/prasyarat/object-dasar.md)
+- [`01-object-prototype-dasar.md`](./01-object-prototype-dasar.md)
+- [`../../02-javascript-runtime-first-principles/docs/prasyarat/object-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/object-dasar.md)
 
 Kamus mini topik:
 - `[baru]` Shadowing: property lokal menimpa property bernama sama dari prototype.
@@ -131,6 +132,8 @@ Langkah debug:
 - [ ] Bisa membaca alur lookup 3 level prototype tanpa menjalankan kode.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi topik dasar: `../foundations/05-object-prototype-dasar.md`.
+1. Ulangi topik dasar: `01-object-prototype-dasar.md`.
 2. Buat 3 level object (`root -> child -> grandChild`) lalu latih shadowing.
 3. Gunakan `hasOwnProperty` untuk memisahkan own vs inherited property.
+
+

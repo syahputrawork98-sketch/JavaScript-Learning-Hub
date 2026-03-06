@@ -1,23 +1,24 @@
-# Prototype Chain Lookup
+﻿# Prototype Chain Lookup
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/prototype-chain-lookup-map.svg`](../assets/prototype-chain-lookup-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`5` pada Internals.
-- Prasyarat langsung: `04-scope-chain-lookup.md`.
-- Lanjut setelah ini: `06-memory-lifecycle-garbage-collection.md`.
+- Topik ini ada di urutan ke-`3` pada Track 04.
+- Prasyarat langsung: `02-prototype-chain-lanjutan.md`.
+- Lanjut setelah ini: `04-property-descriptors-dasar.md`.
 
 Prasyarat topik:
 - Sudah paham object/prototype dasar dan prototype chain lanjutan.
 - Sudah paham perbedaan lookup identifier vs lookup property.
 
 Referensi remedial:
-- [`../foundations/05-object-prototype-dasar.md`](../foundations/05-object-prototype-dasar.md)
-- [`../advanced/03-prototype-chain-lanjutan.md`](../advanced/03-prototype-chain-lanjutan.md)
-- [`04-scope-chain-lookup.md`](./04-scope-chain-lookup.md)
+- [`01-object-prototype-dasar.md`](./01-object-prototype-dasar.md)
+- [`02-prototype-chain-lanjutan.md`](./02-prototype-chain-lanjutan.md)
+- [`../../02-javascript-runtime-first-principles/topics/09-scope-chain-lookup.md`](../../02-javascript-runtime-first-principles/topics/09-scope-chain-lookup.md)
 
 Kamus mini topik:
 - `[baru]` `[[Prototype]]` slot: referensi internal object ke prototype-nya.
@@ -120,6 +121,8 @@ Langkah debug:
 - [ ] Bisa menghindari bug akibat mutasi prototype shared.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `foundations/05-object-prototype-dasar.md`.
-2. Ulangi `advanced/03-prototype-chain-lanjutan.md`.
+1. Ulangi `01-object-prototype-dasar.md`.
+2. Ulangi `02-prototype-chain-lanjutan.md`.
 3. Latih tiga skenario: own hit, inherited hit, dan lookup miss.
+
+
