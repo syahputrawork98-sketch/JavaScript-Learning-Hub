@@ -3,7 +3,7 @@
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/internal-methods-get-set-defineownproperty-map.svg`](../assets/internal-methods-get-set-defineownproperty-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`9` pada Track 04.
@@ -110,3 +110,4 @@ Langkah debug:
 1. Ulangi `03-prototype-chain-lookup.md`.
 2. Ulangi `08-property-descriptors-lanjutan-dan-defineproperty.md`.
 3. Praktikkan `Object.getOwnPropertyDescriptor` saat debugging.
+

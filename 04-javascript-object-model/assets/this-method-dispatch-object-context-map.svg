@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><style>.t{font:700 34px 'Segoe UI',sans-serif;fill:#111827}.s{font:500 18px 'Segoe UI',sans-serif;fill:#374151}.b{fill:#fff;stroke:#0284c7;stroke-width:2;rx:12}.h{font:700 17px 'Segoe UI',sans-serif;fill:#0c4a6e}.p{font:500 14px 'Segoe UI',sans-serif;fill:#1f2937}.a{stroke:#0369a1;stroke-width:2.5;marker-end:url(#m)}</style><marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#0369a1"/></marker></defs>
+  <rect width="1200" height="760" fill="#f0f9ff"/>
+  <text x="50" y="70" class="t">🧭 This Method Dispatch Map</text>
+  <text x="50" y="102" class="s">Nilai this ditentukan call-site saat method dipanggil</text>
+  <rect x="80" y="170" width="300" height="150" class="b"/><text x="105" y="208" class="h">obj.fn()</text><text x="105" y="238" class="p">receiver = obj</text><text x="105" y="266" class="p">this stabil</text>
+  <rect x="450" y="170" width="300" height="150" class="b"/><text x="475" y="208" class="h">const f=obj.fn; f()</text><text x="475" y="238" class="p">receiver hilang</text><text x="475" y="266" class="p">this berubah</text>
+  <rect x="820" y="170" width="300" height="150" class="b"/><text x="845" y="208" class="h">fn.bind(obj)</text><text x="845" y="238" class="p">this dipatok</text><text x="845" y="266" class="p">aman utk callback</text>
+  <line x1="380" y1="245" x2="450" y2="245" class="a"/><line x1="750" y1="245" x2="820" y2="245" class="a"/>
+  <rect x="150" y="420" width="900" height="210" class="b"/>
+  <text x="180" y="460" class="h">⚠️ Common Failure</text>
+  <text x="180" y="492" class="p">detached method -> this undefined/wrong target -> TypeError atau state salah</text>
+  <text x="180" y="524" class="p">perbaikan: bind saat pass callback, atau wrapper arrow function</text>
+  <text x="180" y="556" class="p">catatan: method inherited tetap pakai receiver object pemanggil</text>
+</svg>

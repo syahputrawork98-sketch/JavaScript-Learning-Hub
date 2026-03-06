@@ -3,7 +3,7 @@
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/this-method-dispatch-object-context-map.svg`](../assets/this-method-dispatch-object-context-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`10` pada Track 04.
@@ -16,7 +16,7 @@ Prasyarat topik:
 
 Referensi remedial:
 - [`05-class-constructor-dan-new.md`](./05-class-constructor-dan-new.md)
-- `../../02-javascript-runtime-first-principles/topics/06-this-binding.md`
+- `../../02-javascript-runtime-first-principles/topics/06-this-binding-lanjutan.md`
 
 Kamus mini topik:
 - `[baru]` Method dispatch: cara runtime menentukan method dan context panggil.
@@ -113,3 +113,4 @@ Langkah debug:
 1. Ulangi topik `06-this-binding` di track 02.
 2. Uji perbedaan `obj.fn()` vs `const f=obj.fn; f()`.
 3. Praktikkan `bind` pada callback nyata.
+

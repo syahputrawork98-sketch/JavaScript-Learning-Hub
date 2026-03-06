@@ -1,5 +1,25 @@
 # Changelog - 04 JavaScript Object Model
 
+## 2026-03-06 - v0.3.1
+
+### Added
+- Menambahkan aset SVG untuk topik lanjutan:
+- `assets/object-create-delegation-patterns-map.svg`
+- `assets/property-descriptors-advanced-defineproperty-map.svg`
+- `assets/internal-methods-get-set-defineownproperty-map.svg`
+- `assets/this-method-dispatch-object-context-map.svg`
+- `assets/built-in-objects-behavior-khusus-map.svg`
+- `assets/proxy-reflect-metaprogramming-map.svg`
+
+### Changed
+- Memperbarui `README.md` track 04 agar daftar visualisasi mencakup topik `07` sampai `12`.
+- Menambahkan referensi visual map pada topik `07` sampai `12`.
+- Memperbaiki referensi remedial topik `10` ke file yang valid di track 02.
+
+### Validation
+- Link lokal area aktif track 04 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Seluruh aset SVG track 04 telah divalidasi XML parse dan valid.
+
 ## 2026-03-06 - v0.3.0
 
 ### Added

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><style>.t{font:700 34px 'Segoe UI',sans-serif;fill:#111827}.s{font:500 18px 'Segoe UI',sans-serif;fill:#374151}.b{fill:#fff;stroke:#ea580c;stroke-width:2;rx:12}.h{font:700 17px 'Segoe UI',sans-serif;fill:#9a3412}.p{font:500 14px 'Segoe UI',sans-serif;fill:#1f2937}.a{stroke:#c2410c;stroke-width:2.5;marker-end:url(#m)}</style><marker id="m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#c2410c"/></marker></defs>
+  <rect width="1200" height="760" fill="#fff7ed"/>
+  <text x="50" y="70" class="t">⚙️ Internal Methods Flow Map</text>
+  <text x="50" y="102" class="s">Model perilaku [[Get]], [[Set]], dan [[DefineOwnProperty]]</text>
+  <rect x="90" y="180" width="300" height="130" class="b"/><text x="115" y="218" class="h">Read: obj.x</text><text x="115" y="246" class="p">[[Get]] cek own prop</text><text x="115" y="270" class="p">lalu naik prototype chain</text>
+  <rect x="450" y="180" width="300" height="130" class="b"/><text x="475" y="218" class="h">Write: obj.x = v</text><text x="475" y="246" class="p">[[Set]] cek descriptor</text><text x="475" y="270" class="p">bisa shadow / bisa gagal</text>
+  <rect x="810" y="180" width="300" height="130" class="b"/><text x="835" y="218" class="h">Define Property</text><text x="835" y="246" class="p">[[DefineOwnProperty]]</text><text x="835" y="270" class="p">pakai descriptor eksplisit</text>
+  <line x1="390" y1="245" x2="450" y2="245" class="a"/><line x1="750" y1="245" x2="810" y2="245" class="a"/>
+  <rect x="120" y="420" width="960" height="220" class="b"/>
+  <text x="150" y="460" class="h">🔍 Key Debug Questions</text>
+  <text x="150" y="492" class="p">1) property ini own atau inherited?</text>
+  <text x="150" y="522" class="p">2) descriptor writable/configurable bagaimana?</text>
+  <text x="150" y="552" class="p">3) assignment membuat shadowing atau gagal diam-diam?</text>
+  <text x="150" y="582" class="p">4) strict mode mengubah silent fail jadi TypeError?</text>
+</svg>

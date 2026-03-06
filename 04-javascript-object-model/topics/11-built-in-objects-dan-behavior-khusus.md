@@ -3,7 +3,7 @@
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/built-in-objects-behavior-khusus-map.svg`](../assets/built-in-objects-behavior-khusus-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`11` pada Track 04.
@@ -99,3 +99,4 @@ Langkah debug:
 1. Ulangi `03-prototype-chain-lookup.md`.
 2. Cek prototype berbagai built-in via console.
 3. Bandingkan object biasa vs `Map` untuk key non-string.
+

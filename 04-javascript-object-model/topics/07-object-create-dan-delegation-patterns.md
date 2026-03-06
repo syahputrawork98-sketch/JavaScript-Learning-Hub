@@ -4,7 +4,7 @@
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Remedial prototype: [`02-prototype-chain-lanjutan.md`](./02-prototype-chain-lanjutan.md)
+- Visual map: [`../assets/object-create-delegation-patterns-map.svg`](../assets/object-create-delegation-patterns-map.svg)\n- Remedial prototype: [`02-prototype-chain-lanjutan.md`](./02-prototype-chain-lanjutan.md)
 
 Alur topik:
 - Topik ini ada di urutan ke-`7` pada Track 04.
@@ -110,3 +110,4 @@ Langkah debug:
 1. Ulangi `02-prototype-chain-lanjutan.md`.
 2. Uji `Object.getPrototypeOf` di beberapa object.
 3. Bandingkan factory class vs factory `Object.create`.
+

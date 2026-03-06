@@ -41,6 +41,12 @@ Track ini fokus memahami mekanisme object system JavaScript.
 - `assets/property-descriptor-map.svg`: peta descriptor (`writable`, `enumerable`, `configurable`, `get/set`).
 - `assets/class-constructor-new-map.svg`: peta lifecycle `new` dan prototype method sharing.
 - `assets/composition-vs-inheritance-map.svg`: peta keputusan desain composition vs inheritance.
+- `assets/object-create-delegation-patterns-map.svg`: peta factory delegation dengan `Object.create`.
+- `assets/property-descriptors-advanced-defineproperty-map.svg`: peta descriptor lanjutan dan kontrol mutasi.
+- `assets/internal-methods-get-set-defineownproperty-map.svg`: peta alur `[[Get]]`, `[[Set]]`, `[[DefineOwnProperty]]`.
+- `assets/this-method-dispatch-object-context-map.svg`: peta call-site method dispatch dan `this` context.
+- `assets/built-in-objects-behavior-khusus-map.svg`: peta perilaku built-in objects dan risiko patch prototype.
+- `assets/proxy-reflect-metaprogramming-map.svg`: peta trap Proxy dan fallback aman via Reflect.
 
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.

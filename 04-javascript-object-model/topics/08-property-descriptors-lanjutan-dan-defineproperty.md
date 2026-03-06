@@ -4,7 +4,7 @@
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/property-descriptor-map.svg`](../assets/property-descriptor-map.svg)
+- Visual map: [`../assets/property-descriptors-advanced-defineproperty-map.svg`](../assets/property-descriptors-advanced-defineproperty-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`8` pada Track 04.
@@ -109,3 +109,4 @@ Langkah debug:
 1. Ulangi `04-property-descriptors-dasar.md`.
 2. Coba `Object.getOwnPropertyDescriptor` di beberapa object nyata.
 3. Uji perilaku descriptor di strict dan non-strict mode.
+

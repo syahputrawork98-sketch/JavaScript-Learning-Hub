@@ -3,7 +3,7 @@
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/proxy-reflect-metaprogramming-map.svg`](../assets/proxy-reflect-metaprogramming-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`12` pada Track 04.
@@ -116,3 +116,4 @@ Langkah debug:
 1. Ulangi `09-internal-methods-get-set-dan-defineownproperty.md`.
 2. Uji trap `get` dan `set` di object kecil.
 3. Bandingkan versi kode dengan/ tanpa Proxy dari sisi kompleksitas.
+
