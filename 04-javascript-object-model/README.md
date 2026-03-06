@@ -15,6 +15,12 @@ Track ini fokus memahami mekanisme object system JavaScript.
 - `new` operator
 - Class syntax
 - Composition vs inheritance decision
+- `Object.create` dan delegation patterns
+- Descriptor lanjutan dan kontrol mutasi property
+- Internal methods `[[Get]]`, `[[Set]]`, `[[DefineOwnProperty]]`
+- Method dispatch dan `this` pada object context
+- Built-in objects behavior dan risiko patch prototype global
+- Proxy/Reflect dasar untuk metaprogramming
 
 ## Out of Scope
 - Framework-specific OOP patterns.

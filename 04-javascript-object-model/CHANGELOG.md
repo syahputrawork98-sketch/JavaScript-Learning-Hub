@@ -1,5 +1,28 @@
 # Changelog - 04 JavaScript Object Model
 
+## 2026-03-06 - v0.3.0
+
+### Added
+- Menambahkan topik baru:
+- `topics/07-object-create-dan-delegation-patterns.md`
+- `topics/08-property-descriptors-lanjutan-dan-defineproperty.md`
+- `topics/09-internal-methods-get-set-dan-defineownproperty.md`
+- `topics/10-this-method-dispatch-dan-object-context.md`
+- `topics/11-built-in-objects-dan-behavior-khusus.md`
+- `topics/12-proxy-reflect-dasar-dan-metaprogramming.md`
+
+### Changed
+- Menormalkan urutan topik aktif track 04 dari 6 menjadi 12 topik.
+- Memperbarui `README.md` agar scope mencakup object model lanjutan hingga metaprogramming dasar.
+- Memperbarui `topics/README.md` dan `docs/learning-path.md` agar sinkron dengan 12 topik aktif.
+- Menyelaraskan alur transisi topik `06` agar lanjut ke topik `07`.
+
+### Validation
+- Link lokal area aktif track 04 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+
+### Notes
+- Track 04 sekarang mencakup object model dari fondasi prototype sampai Proxy/Reflect dasar sebelum lanjut ke track 05.
+
 ## 2026-03-06 - v0.2.0
 
 ### Added

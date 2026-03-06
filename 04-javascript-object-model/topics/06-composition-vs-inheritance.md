@@ -9,7 +9,7 @@ Rujukan cepat:
 Alur topik:
 - Topik ini ada di urutan ke-`6` pada Track 04.
 - Prasyarat langsung: `05-class-constructor-dan-new.md`.
-- Lanjut setelah ini: `../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md`.
+- Lanjut setelah ini: `07-object-create-dan-delegation-patterns.md`.
 
 Prasyarat topik:
 - Sudah paham prototype chain dan class dasar.
