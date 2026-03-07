@@ -15,6 +15,9 @@
 - Menambahkan topik 10 untuk lexical environment dan environment record.
 - Menambahkan topik 11 untuk memory model high-level.
 - Menyelaraskan `README.md`, `topics/README.md`, dan `docs/learning-path.md` dengan urutan final 01-11.
+- Menyelaraskan `topics/09-scope-chain-lookup.md` agar alur lanjut topik tetap internal ke topik 10.
+- Menyelaraskan `docs/boundary-map.md` dengan cakupan final track 02 vs track 05.
+- Menyelaraskan `PRASYARAT-DAN-KAMUS-MINI.md` agar prasyarat internals lebih tepat untuk fokus sinkron track 02.
 
 ## 2026-03-06
 - Menormalisasi topik utama ke folder `topics/`.

@@ -10,15 +10,16 @@ Dokumen ini menetapkan batas konsep Track 02 terhadap track lain agar tidak over
 - Execution context lifecycle.
 - Call stack sebagai model eksekusi sinkron.
 - Scope chain lookup.
+- Memory model (high-level): primitive vs reference behavior, mutation sharing.
 
 ## Cross-Track Boundaries
 - Async queue details (event loop, task/microtask/job queue): Track 03.
 - Object internals/prototype chain detail: Track 04.
-- Memory lifecycle dan reference behavior: Track 05.
+- Memory lifecycle, reference behavior detail, dan GC lanjutan: Track 05.
 - Drill praktikum edge-cases: Track 06.
 
 ## Rule of Thumb
 - Jika fokus topik adalah "kenapa kode sync ini berjalan begitu" -> Track 02.
 - Jika fokus topik adalah "urutan async scheduling" -> Track 03.
 - Jika fokus topik adalah object/prototype mechanics -> Track 04.
-- Jika fokus topik adalah mutation/reference/GC impact -> Track 05.
+- Jika fokus topik adalah mutation/reference/GC detail mendalam -> Track 05.

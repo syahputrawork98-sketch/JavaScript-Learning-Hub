@@ -27,6 +27,10 @@ Dampaknya:
 
 Garbage collection secara umum membersihkan data yang sudah tidak terjangkau lagi oleh referensi aktif.
 
+## Diagram Konsep (Opsional)
+
+![Memory Model High-level Map](../assets/memory-model-high-level-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Primitive Copy Behavior

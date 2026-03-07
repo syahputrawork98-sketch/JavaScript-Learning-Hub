@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Memory Model High-level Map</title>
+  <desc id="desc">Visual map comparing primitive copy behavior and reference sharing behavior in JavaScript memory model at high level.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1f2937"/>
+    </marker>
+    <style>
+      .header{fill:url(#header);filter:url(#shadow);rx:16}
+      .card{fill:#ffffff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#shadow)}
+      .primitive{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}
+      .reference{fill:#e0f2fe;stroke:#075985;stroke-width:2;rx:12}
+      .warn{fill:#fee2e2;stroke:#991b1b;stroke-width:2;rx:12}
+      .title{font:700 32px 'Segoe UI','Trebuchet MS',sans-serif;fill:#ffffff}
+      .sub{font:500 17px 'Segoe UI','Trebuchet MS',sans-serif;fill:#dbeafe}
+      .h{font:700 20px 'Segoe UI','Trebuchet MS',sans-serif;fill:#0f172a}
+      .p{font:500 15px 'Segoe UI','Trebuchet MS',sans-serif;fill:#334155}
+      .small{font:600 13px 'Segoe UI','Trebuchet MS',sans-serif;fill:#1f2937}
+      .arrow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect width="1280" height="860" fill="url(#bg)"/>
+
+  <rect class="header" x="48" y="32" width="1184" height="112"/>
+  <text class="title" x="82" y="78">Memory Model (High-level)</text>
+  <text class="sub" x="82" y="106">Primitive copy vs reference sharing untuk reasoning efek samping runtime.</text>
+
+  <rect class="card" x="78" y="190" width="554" height="296"/>
+  <text class="h" x="102" y="228">A) Primitive Copy Behavior</text>
+  <rect class="primitive" x="102" y="248" width="506" height="126"/>
+  <text class="small" x="122" y="278">let a = 10</text>
+  <text class="small" x="122" y="304">let b = a</text>
+  <text class="small" x="122" y="330">b = 20</text>
+  <text class="p" x="122" y="358">Hasil: a tetap 10, b jadi 20 (nilai disalin).</text>
+  <text class="p" x="102" y="414">Perubahan pada `b` tidak memengaruhi `a`.</text>
+  <text class="p" x="102" y="438">Tidak ada shared object identity pada primitive.</text>
+
+  <rect class="card" x="650" y="190" width="554" height="296"/>
+  <text class="h" x="674" y="228">B) Reference Sharing Behavior</text>
+  <rect class="reference" x="674" y="248" width="506" height="126"/>
+  <text class="small" x="694" y="278">const userA = { name: "Ari" }</text>
+  <text class="small" x="694" y="304">const userB = userA</text>
+  <text class="small" x="694" y="330">userB.name = "Bima"</text>
+  <text class="p" x="694" y="358">Hasil: userA.name dan userB.name sama-sama "Bima".</text>
+  <text class="p" x="674" y="414">`userA` dan `userB` menunjuk object yang sama.</text>
+  <text class="p" x="674" y="438">Mutasi terlihat dari semua referensi yang berbagi acuan.</text>
+
+  <rect class="warn" x="78" y="520" width="1126" height="132"/>
+  <text class="h" x="102" y="556">Sumber Bug Umum</text>
+  <text class="p" x="102" y="582">Function memodifikasi object input tanpa salinan -> efek samping tak terduga di caller.</text>
+  <text class="p" x="102" y="606">Mitigasi: buat salinan dangkal/strategi copy sebelum mutasi jika dibutuhkan.</text>
+
+  <rect class="card" x="78" y="680" width="1126" height="142"/>
+  <text class="h" x="102" y="716">Checklist Debug Memory (High-level)</text>
+  <text class="small" x="122" y="744">1. Nilai ini primitive atau reference?</text>
+  <text class="small" x="122" y="768">2. Apakah ada assignment yang membuat shared reference?</text>
+  <text class="small" x="122" y="792">3. Apakah mutasi terjadi di function lain tanpa salinan?</text>
+
+  <path class="arrow" d="M355 374 L355 414"/>
+  <path class="arrow" d="M927 374 L927 414"/>
+  <path class="arrow" d="M355 486 L355 520"/>
+  <path class="arrow" d="M927 486 L927 520"/>
+</svg>

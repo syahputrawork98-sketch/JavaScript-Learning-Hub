@@ -125,4 +125,5 @@ Pertanyaan refleksi:
 
 ## Lanjut Setelah Ini
 
+- [10-lexical-environment-dan-environment-record.md](./10-lexical-environment-dan-environment-record.md)
 - Track lanjutan object lookup: [../../04-javascript-object-model/topics/03-prototype-chain-lookup.md](../../04-javascript-object-model/topics/03-prototype-chain-lookup.md)

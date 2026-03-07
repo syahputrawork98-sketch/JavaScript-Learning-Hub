@@ -27,6 +27,10 @@ Saat identifier diakses, engine melihat environment record saat ini. Jika tidak 
 
 Konsep ini adalah dasar mekanis untuk memahami scope chain lookup dan closure.
 
+## Diagram Konsep (Opsional)
+
+![Lexical Environment Map](../assets/lexical-environment-environment-record-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Binding pada Scope Lokal

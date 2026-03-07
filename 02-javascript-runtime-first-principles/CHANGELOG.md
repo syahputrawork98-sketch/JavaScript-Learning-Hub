@@ -2,6 +2,12 @@
 
 ## [0.3.0] - 2026-03-07
 
+### Added
+- Menambahkan `topics/10-lexical-environment-dan-environment-record.md`.
+- Menambahkan `topics/11-memory-model-high-level.md`.
+- Menambahkan `assets/lexical-environment-environment-record-map.svg`.
+- Menambahkan `assets/memory-model-high-level-map.svg`.
+
 ### Changed
 - Refactor `topics/01-values-types-coercion.md` ke format materi rilis (tujuan, konsep, multi-contoh, eksperimen, latihan, ringkasan).
 - Refactor `topics/02-scope-hoisting.md` ke format materi rilis.
@@ -16,10 +22,11 @@
 - Menyelaraskan `topics/README.md` dengan standar struktur topik saat ini.
 - Menyelaraskan `docs/learning-path.md` ke wording rilis non-migrasi.
 - Menyelaraskan `README.md` track 02 agar konsisten dengan scope final.
-
-### Added
-- Menambahkan `topics/10-lexical-environment-dan-environment-record.md`.
-- Menambahkan `topics/11-memory-model-high-level.md`.
+- Menyelaraskan alur `Lanjut Setelah Ini` di `topics/09-scope-chain-lookup.md` agar lanjut ke topik 10.
+- Menyelaraskan `docs/boundary-map.md` dengan scope final (lexical environment + memory high-level in-track).
+- Menyelaraskan prasyarat internals di `PRASYARAT-DAN-KAMUS-MINI.md` agar fokus sinkron track 02.
+- Menambahkan referensi diagram SVG ke `topics/10-lexical-environment-dan-environment-record.md` dan `topics/11-memory-model-high-level.md`.
+- Menambahkan daftar visualisasi baru di `README.md` track 02.
 
 ### Notes
 - Batch A selesai (topik 01-03).
@@ -28,19 +35,12 @@
 - Scope extension selesai (topik 10-11).
 - Seluruh topik utama track 02 telah melewati editorial pass.
 
-## 2026-03-06 - v0.2.0
+## [0.2.0] - 2026-03-06
 
 ### Added
 - Menambahkan folder `assets/` untuk visualisasi konsep runtime.
-- Menambahkan aset SVG:
-- `assets/execution-context-lifecycle-map.svg`
-- `assets/call-stack-web-api-queue-map.svg`
-- `assets/scope-chain-lookup-map.svg`
-- Menambahkan referensi visual map pada:
-- `README.md`
-- `topics/07-execution-context-lifecycle.md`
-- `topics/08-call-stack-web-apis-queues.md`
-- `topics/09-scope-chain-lookup.md`
+- Menambahkan aset SVG: `assets/execution-context-lifecycle-map.svg`, `assets/call-stack-web-api-queue-map.svg`, `assets/scope-chain-lookup-map.svg`.
+- Menambahkan referensi visual map pada `README.md`, `topics/07-execution-context-lifecycle.md`, `topics/08-call-stack-web-apis-queues.md`, dan `topics/09-scope-chain-lookup.md`.
 
 ### Changed
 - Merapikan metadata topik `topics/01` sampai `topics/09` (status `normalized` konsisten).
@@ -54,37 +54,25 @@
 ### Notes
 - Track 02 siap dipakai sebagai baseline audit manual sebelum lanjut ke track 03.
 
-## 2026-03-06
+## [0.1.0] - 2026-03-06
 
 ### Added
 - Menambahkan `PRASYARAT-DAN-KAMUS-MINI.md` ke track 02 sebagai rujukan prasyarat aktif.
-- Menambahkan folder `docs/prasyarat/` berisi dokumen remedial:
-- `console-dan-if-dasar.md`
-- `variabel-dasar.md`
-- `function-dasar.md`
-- `object-dasar.md`
-- `promise-dasar.md`
-- Menambahkan dokumen normalisasi:
-- `docs/boundary-map.md`
-- `docs/refinement-log.md`
+- Menambahkan folder `docs/prasyarat/` berisi: `console-dan-if-dasar.md`, `variabel-dasar.md`, `function-dasar.md`, `object-dasar.md`, `promise-dasar.md`.
+- Menambahkan dokumen normalisasi: `docs/boundary-map.md` dan `docs/refinement-log.md`.
 
 ### Changed
 - Menormalisasi struktur belajar track 02 agar `topics/` menjadi rute utama.
-- Memperbarui dokumen navigasi:
-- `README.md`
-- `docs/learning-path.md`
-- `topics/README.md`
+- Memperbarui dokumen navigasi `README.md`, `docs/learning-path.md`, dan `topics/README.md`.
 - Menambahkan metadata migrasi dan boundary note di seluruh topik aktif `topics/01` sampai `topics/09`.
 - Menormalkan referensi internal topik dari struktur lama ke struktur baru + cross-track (03/04/05).
 
 ### Removed
-- Menghapus artefak migrasi sementara:
-- `migrated-from-02-first-principles/`
-- `legacy-snapshot-from-02-first-principles/`
+- Menghapus artefak migrasi sementara: `migrated-from-02-first-principles/` dan `legacy-snapshot-from-02-first-principles/`.
 
 ### Validation
 - Link lokal aktif pada area track 02 (`README + docs + topics`) telah diverifikasi dan valid.
 
 ### Notes
 - Sumber legacy `02-javascript-first-principles` sudah didekomisioning.
-- Track 02 kini difokuskan pada materi aktif terkurasi tanpa folder arsip migrasi.
+- Track 02 difokuskan pada materi aktif terkurasi tanpa folder arsip migrasi.

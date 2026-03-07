@@ -21,7 +21,8 @@ File ini adalah ringkasan cepat untuk dibaca ulang kapan saja saat lupa istilah 
 
 ### Sebelum Internals
 - Sudah lulus seluruh topik Advanced.
-- Paham Promise dan `async/await` secara praktik.
+- Paham execution context, scope chain, dan call stack dasar.
+- Paham Promise dan `async/await` bersifat opsional (disarankan saat lanjut ke track 03).
 - Siap membaca alur eksekusi langkah demi langkah.
 
 ## Kamus Mini

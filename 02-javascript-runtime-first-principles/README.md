@@ -33,6 +33,8 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 - `assets/execution-context-lifecycle-map.svg`: peta creation phase -> execution phase.
 - `assets/call-stack-web-api-queue-map.svg`: peta call stack, Web APIs, queue handoff.
 - `assets/scope-chain-lookup-map.svg`: peta pencarian identifier dari local -> outer -> global.
+- `assets/lexical-environment-environment-record-map.svg`: peta environment record, outer reference, dan identifier lookup.
+- `assets/memory-model-high-level-map.svg`: peta primitive copy vs reference sharing pada memory model high-level.
 
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
