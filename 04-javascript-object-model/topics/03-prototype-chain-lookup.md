@@ -141,8 +141,7 @@ console.log(child.c);
 
 1. Buat tiga skenario lookup: property ditemukan di own object, di parent prototype, dan tidak ditemukan sama sekali.
 2. Prediksi hasil akses property tanpa menjalankan kode, lalu verifikasi dengan output aktual.
-3. Gunakan Object.getPrototypeOf berulang untuk memetakan jalur lookup sampai 
-`null`.
+3. Gunakan `Object.getPrototypeOf` berulang untuk memetakan jalur lookup sampai `null`.
 
 ### Debug Story
 
@@ -174,5 +173,6 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [04-property-descriptors-dasar.md](./04-property-descriptors-dasar.md)
+
 
 

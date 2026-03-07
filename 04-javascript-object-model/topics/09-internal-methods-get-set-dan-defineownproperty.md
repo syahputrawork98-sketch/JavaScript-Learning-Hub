@@ -17,7 +17,8 @@
 
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/internal-methods-get-set-defineownproperty-map.svg`](../assets/internal-methods-get-set-defineownproperty-map.svg)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/internal-methods-get-set-defineownproperty-map.svg`](../assets/internal-methods-get-set-defineownproperty-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`9` pada Buku 04.
@@ -158,5 +159,6 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [10-this-method-dispatch-dan-object-context.md](./10-this-method-dispatch-dan-object-context.md)
+
 
 

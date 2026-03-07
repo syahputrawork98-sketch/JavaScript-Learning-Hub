@@ -16,7 +16,8 @@
 
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/this-method-dispatch-object-context-map.svg`](../assets/this-method-dispatch-object-context-map.svg)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/this-method-dispatch-object-context-map.svg`](../assets/this-method-dispatch-object-context-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`10` pada Buku 04.
@@ -29,7 +30,7 @@ Prasyarat topik:
 
 Referensi remedial:
 - [`05-class-constructor-dan-new.md`](./05-class-constructor-dan-new.md)
-- `../../02-javascript-runtime-first-principles/topics/06-this-binding-lanjutan.md`
+- [`../../02-javascript-runtime-first-principles/topics/06-this-binding-lanjutan.md`](../../02-javascript-runtime-first-principles/topics/06-this-binding-lanjutan.md)
 
 Kamus mini topik:
 - `[baru]` Method dispatch: cara runtime menentukan method dan context panggil.
@@ -127,8 +128,8 @@ console.log(other.get());
 
 ## Latihan
 
-1. Buat tiga call-site berbeda untuk method yang sama (obj.fn(), detach call, dan call/apply) lalu bandingkan 	his.
-2. Temukan satu bug 	his hilang pada callback, lalu perbaiki dengan strategi yang paling tepat.
+1. Buat tiga call-site berbeda untuk method yang sama (obj.fn(), detach call, dan call/apply) lalu bandingkan `this`.
+2. Temukan satu bug `this` hilang pada callback, lalu perbaiki dengan strategi yang paling tepat.
 3. Jelaskan kapan perlu `bind` permanen dan kapan cukup pakai wrapper function.
 
 ### Debug Story
@@ -153,12 +154,13 @@ Langkah debug:
 
 ## Ringkasan
 
-- Nilai 	his ditentukan oleh call-site dispatch, bukan lokasi deklarasi method.
+- Nilai `this` ditentukan oleh call-site dispatch, bukan lokasi deklarasi method.
 - Pemisahan method dari object asal sering menjadi sumber bug context yang tersembunyi.
 - Pemilihan teknik binding yang tepat menjaga code tetap stabil dan mudah dipelihara.
 
 ## Lanjut Setelah Ini
 
 - [11-built-in-objects-dan-behavior-khusus.md](./11-built-in-objects-dan-behavior-khusus.md)
+
 
 

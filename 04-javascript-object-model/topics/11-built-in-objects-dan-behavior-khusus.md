@@ -16,7 +16,8 @@
 
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/built-in-objects-behavior-khusus-map.svg`](../assets/built-in-objects-behavior-khusus-map.svg)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/built-in-objects-behavior-khusus-map.svg`](../assets/built-in-objects-behavior-khusus-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`11` pada Buku 04.
@@ -146,5 +147,6 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [12-proxy-reflect-dasar-dan-metaprogramming.md](./12-proxy-reflect-dasar-dan-metaprogramming.md)
+
 
 

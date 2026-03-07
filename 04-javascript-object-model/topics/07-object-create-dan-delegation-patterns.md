@@ -159,3 +159,4 @@ Langkah debug:
 - [08-property-descriptors-lanjutan-dan-defineproperty.md](./08-property-descriptors-lanjutan-dan-defineproperty.md)
 
 
+

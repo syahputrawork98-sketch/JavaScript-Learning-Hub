@@ -17,7 +17,8 @@
 
 Rujukan cepat:
 - Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/proxy-reflect-metaprogramming-map.svg`](../assets/proxy-reflect-metaprogramming-map.svg)
+- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+- Visual map: [`../assets/proxy-reflect-metaprogramming-map.svg`](../assets/proxy-reflect-metaprogramming-map.svg)
 
 Alur topik:
 - Topik ini ada di urutan ke-`12` pada Buku 04.
@@ -164,5 +165,6 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md](./../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md)
+
 
 

@@ -151,7 +151,7 @@ console.log(grandChild.hasOwnProperty('status'));
 
 ## Latihan
 
-1. Bangun rantai oot -> child -> grandChild, lalu uji kapan nilai didapat dari delegation dan kapan tertutup karena shadowing.
+1. Bangun rantai `root -> child -> grandChild`, lalu uji kapan nilai didapat dari delegation dan kapan tertutup karena shadowing.
 2. Simulasikan mutasi pada prototype shared dan catat object turunan mana saja yang ikut berubah.
 3. Buat checklist debugging untuk kasus bug lintas modul yang dipicu perubahan prototype bersama.
 
@@ -184,5 +184,6 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [03-prototype-chain-lookup.md](./03-prototype-chain-lookup.md)
+
 
 

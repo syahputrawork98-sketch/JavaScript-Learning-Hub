@@ -144,8 +144,7 @@ console.log(p.hasOwnProperty('say'));
 
 1. Implementasikan class sederhana, lalu tunjukkan method mana yang shared di prototype dan mana yang instance-specific.
 2. Tuliskan ulang class menjadi function constructor + prototype untuk melihat kesetaraan modelnya.
-3. Eksperimen dengan memanggil constructor tanpa 
-ew (jika memungkinkan), lalu analisis konsekuensinya.
+3. Eksperimen dengan memanggil constructor tanpa `new` (jika memungkinkan), lalu analisis konsekuensinya.
 
 ### Debug Story
 
@@ -170,13 +169,12 @@ Langkah debug:
 ## Ringkasan
 
 - Syntax class adalah lapisan deklaratif di atas mekanisme constructor dan prototype JavaScript.
-- Operator 
-ew membentuk instance, mengikat prototype, dan mengatur konteks inisialisasi object.
-- Memahami proses internal 
-ew membantu menghindari bug instansiasi yang sulit dilacak.
+- Operator `new` membentuk instance, mengikat prototype, dan mengatur konteks inisialisasi object.
+- Memahami proses internal `new` membantu menghindari bug instansiasi yang sulit dilacak.
 
 ## Lanjut Setelah Ini
 
 - [06-composition-vs-inheritance.md](./06-composition-vs-inheritance.md)
+
 
 
