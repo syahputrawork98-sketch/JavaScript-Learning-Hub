@@ -10,7 +10,7 @@ Buku ini menjadi companion untuk menghubungkan konsep belajar dengan ECMAScript 
 ## Scope
 - Mapping concept -> spec section
 - Glossary istilah formal yang relevan
-- Guided reading notes per topik
+- Guided reading notes per topik (bertahap)
 - Strategi membaca abstract operation tanpa tersesat detail editorial
 
 ## Out of Scope
@@ -20,6 +20,7 @@ Buku ini menjadi companion untuk menghubungkan konsep belajar dengan ECMAScript 
 
 ## Output
 - Catatan companion yang membantu navigasi ke spesifikasi resmi.
+- Template membaca section spec: istilah -> algoritme -> validasi runtime.
 
 ## Struktur Konten
 - `topics/`: peta konsep ke section spesifikasi.

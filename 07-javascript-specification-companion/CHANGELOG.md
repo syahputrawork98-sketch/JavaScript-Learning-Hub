@@ -1,5 +1,17 @@
 ﻿# 07 JavaScript Specification Companion
 
+## 2026-03-08 - v0.3.1
+
+### Changed
+- Menyelaraskan wording scope di `README.md` agar status guided reading lebih presisi (`bertahap`).
+- Memperjelas label mapping function objects di `topics/04-this-binding-call-dan-function-object.md`.
+- Menormalkan phrasing di `topics/05-jobs-promise-dan-microtask.md` agar konsisten dengan istilah normatif spec vs istilah host queue.
+- Memperdalam `topics/01-cara-membaca-ecmascript-spec.md` dengan workflow baca, mini mapping contoh, dan checkpoint.
+- Menormalkan `topics/02` sampai `topics/08` ke format yang setara dengan topik 01 (workflow baca, mini mapping, checkpoint, jebakan umum).
+
+### Notes
+- Perubahan ini adalah quality pass editorial untuk mengurangi potensi miskonsepsi saat membaca ECMAScript spec.
+
 ## 2026-03-06 - v0.3.0
 
 ### Added
@@ -45,4 +57,5 @@
 
 ### Notes
 - Buku 07 siap dipakai sebagai companion formal untuk memperkuat reasoning lintas buku 02-06.
+
 

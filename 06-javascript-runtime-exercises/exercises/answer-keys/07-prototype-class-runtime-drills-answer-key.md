@@ -23,4 +23,4 @@ Output umum:
 X-BASE-CHILD
 TypeError
 ```
-Alasan: `obj.getLabel()` valid karena `this` adalah instance `Child`. Pada `detached()`, method dipanggil tanpa receiver object; `super.getLabel()` tetap ter-resolve, tetapi `Base.getLabel()` butuh `this.prefix`, sehingga di strict/module mode menghasilkan `TypeError`.
+Alasan: `obj.getLabel()` valid karena `this` adalah instance `Child`. Pada `detached()`, method dipanggil tanpa receiver object; `super.getLabel()` tetap ter-resolve, tetapi `Base.getLabel()` butuh `this.prefix`, sehingga untuk class method menghasilkan `TypeError`.
