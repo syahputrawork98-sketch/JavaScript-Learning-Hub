@@ -1,145 +1,125 @@
-﻿# this Binding Dasar
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# this Binding Dasar
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`4` pada Foundations.
-- Prasyarat langsung: `02-scope-hoisting.md`, `03-function-closure-dasar.md`.
-- Lanjut setelah ini: `05-closure-patterns.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- memahami bahwa nilai `this` ditentukan oleh call-site
+- membedakan method call dan function call biasa
+- menggunakan `call` atau `bind` untuk memperbaiki context yang hilang
 
-Prasyarat topik:
-- Sudah paham function dasar.
-- Sudah paham object dasar.
+## Konsep Utama
 
-Referensi remedial:
-- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
-- [`../docs/prasyarat/object-dasar.md`](../docs/prasyarat/object-dasar.md)
+- `this`
+- method call
+- function call
+- explicit binding (`call`, `apply`, `bind`)
+- perilaku dasar arrow function terhadap `this`
 
-Kamus mini topik:
-- `[baru]` `this`: referensi ke object konteks saat function dijalankan.
-- `[baru]` Method call: fungsi dipanggil lewat object, misalnya `obj.fn()`.
-- `[baru]` Explicit binding: mengikat `this` manual dengan `call`, `apply`, atau `bind`.
-- `[baru]` Arrow function: fungsi yang tidak punya `this` sendiri, mengambil `this` dari scope luar.
-- `[ulang]` Function call: pemanggilan fungsi biasa tanpa object receiver.
+## Penjelasan
 
-## Pengantar Singkat Topik
-`this` bukan milik fungsi secara tetap; nilainya ditentukan dari cara fungsi dipanggil. Topik ini membantu kamu membaca konteks eksekusi function agar tidak salah akses data object.
+`this` tidak ditentukan saat function ditulis, tetapi saat function dipanggil.
 
-## 1) Big Picture
-Bug context sering muncul ketika function yang sama dipanggil dari call-site berbeda sehingga nilai `this` berubah tanpa disadari. Topik ini menjelaskan aturan dasar binding (`method call`, `function call`, explicit binding, dan arrow behavior) agar perubahan context bisa diprediksi. Setelah paham, kamu bisa memutuskan kapan memakai `bind/call/apply`, kapan cukup method call biasa, dan kapan lebih jelas memakai closure.
+Aturan dasar:
+- `obj.fn()` -> `this` mengarah ke `obj`
+- `fn()` (strict mode) -> `this` adalah `undefined`
+- `fn.call(obj)` -> `this` dipaksa ke `obj`
+- arrow function tidak membuat `this` baru; ia mewarisi dari scope luar
 
-## 2) Small Picture
-1. Nilai `this` ditentukan saat function dipanggil, bukan saat ditulis (kecuali arrow function).
-2. Jika dipanggil sebagai method (`obj.fn()`), `this` menunjuk ke `obj`.
-3. Jika dipanggil dengan `call/apply/bind`, `this` mengikuti object yang kamu tentukan.
-4. Arrow function tidak membuat `this` baru, tapi mewarisi `this` dari lingkungan luarnya.
+Karena itu, context bug sering muncul saat method dilepas dari object lalu dipanggil sebagai fungsi biasa.
 
-## 3) Wireframe
-```text
-Alur utama:
-[Function yang sama] -> [cara panggil berubah] -> [nilai this ditentukan saat call]
+## Contoh Kode
 
-Alur jalan:
-[obj.fn()] -> [this = obj] -> [property object terbaca]
+### Contoh 1 - Method Call vs Function Call
 
-Alur error:
-[fn dipanggil langsung] -> [this hilang/undefined di strict mode] -> [TypeError atau hasil tak terduga]
-```
-
-## 4) Analogi
-Bayangkan `this` seperti kartu identitas ruangan rapat:
-- Function = pembicara.
-- Cara memanggil function = ruangan tempat pembicara diundang.
-- `this` = identitas ruangan aktif saat pembicara mulai bicara.
-Undangannya beda, identitas ruangannya juga bisa beda.
-
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: akses properti object saat membuat method, callback berbasis context, dan API object-oriented sederhana.
-- Alasan pakai: menjaga function tetap generik tapi bisa bekerja pada object berbeda.
-- Kapan tidak dipakai: hindari pola `this` rumit jika closure atau parameter eksplisit lebih jelas.
-
-## 6) Contoh Sederhana
-```js
+```javascript
 const user = {
-  name: 'Ari',
-  sayName() {
-    console.log(this.name);
-  },
-};
+  name: "Ari",
+  showName() {
+    console.log(this.name)
+  }
+}
 
-user.sayName(); // Ari
+user.showName() // Ari
 
-const say = user.sayName;
-// say(); // TypeError di mode strict, atau output global value di non-strict
-
-const admin = { name: 'Bima' };
-say.call(admin); // Bima
+const fn = user.showName
+// fn() // TypeError di strict mode
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `user.sayName()` dipanggil lewat object `user`, jadi `this` adalah `user`.
-2. Maka `this.name` menghasilkan `'Ari'`.
-3. `const say = user.sayName` memisahkan fungsi dari object asal.
-4. Saat `say()` dipanggil langsung, konteks object hilang, jadi `this` bukan `user`.
-5. Di mode strict, `this` menjadi `undefined` sehingga akses `this.name` memicu `TypeError`.
-6. Di non-strict, `this` bisa mengarah ke object global.
-7. `say.call(admin)` mengikat `this` secara eksplisit ke `admin`.
-8. Maka output menjadi `'Bima'`.
+### Contoh 2 - Explicit Binding dengan call
 
-## 7) Jebakan Umum
-- Mengira `this` selalu menunjuk object tempat fungsi ditulis.
-- Lupa konteks hilang saat method dipass sebagai callback.
-- Menggunakan arrow function sebagai method object padahal butuh `this` dinamis.
+```javascript
+function showRole(prefix) {
+  console.log(prefix, this.role)
+}
 
-## 8) Prediksi Output Drill
-```js
+const admin = { role: "admin" }
+const guest = { role: "guest" }
+
+showRole.call(admin, "Role:") // Role: admin
+showRole.call(guest, "Role:") // Role: guest
+```
+
+### Contoh 3 - Mini Kasus: Context Hilang di Callback
+
+```javascript
+const profile = {
+  name: "Naya",
+  print() {
+    console.log("Nama:", this.name)
+  }
+}
+
+setTimeout(profile.print.bind(profile), 0) // Nama: Naya
+```
+
+## Analogi Singkat (Opsional)
+
+`this` seperti badge identitas saat function mulai bekerja. Function yang sama bisa memakai badge berbeda tergantung dipanggil dari ruangan mana.
+
+## Eksperimen Kode
+
+Uji tiga cara panggil function yang sama dan amati nilai `this`.
+
+```javascript
 const team = {
-  name: 'Frontend',
+  name: "Frontend",
   show() {
-    console.log(this.name);
-  },
-};
+    console.log(this.name)
+  }
+}
 
-const other = { name: 'Backend' };
-const fn = team.show;
-
-team.show();
-// fn();
-fn.call(other);
+const detached = team.show
+team.show()
+// detached()
+detached.call({ name: "Backend" })
 ```
 
-### Kunci Jawaban Drill
-- `team.show()` -> `Frontend`
-- `fn()` jika diaktifkan -> `TypeError` di mode strict, atau nilai global di non-strict
-- `fn.call(other)` -> `Backend`
+Pertanyaan refleksi:
+1. Kenapa context hilang saat method disimpan ke variabel biasa?
+2. Kapan `bind` lebih tepat dibanding `call`?
 
-## 9) Debug Story
-Kasus: method object dipakai di `setTimeout`, tapi `this.name` jadi `undefined`.
-Langkah debug:
-1. Cek apakah method dipass langsung tanpa binding: `setTimeout(user.sayName, 100)`.
-2. Perbaiki dengan `bind`: `setTimeout(user.sayName.bind(user), 100)`.
-3. Atau bungkus dengan function: `setTimeout(() => user.sayName(), 100)`.
+## Common Misconception (Opsional)
 
-## 10) Checkpoint
-- [ ] Bisa jelaskan bahwa `this` ditentukan saat pemanggilan function.
-- [ ] Bisa membedakan method call dan function call biasa.
-- [ ] Bisa memperbaiki bug context hilang menggunakan `bind` atau wrapper function.
+- `this` bukan referensi permanen ke object tempat function ditulis.
+- Arrow function bukan pengganti semua function method.
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Jalankan contoh yang sama dengan 3 cara panggil berbeda.
-2. Fokus ke pertanyaan ini: "fungsi dipanggil lewat object apa?"
-3. Ulangi contoh `call` sampai bisa memprediksi output tanpa menjalankan.
+## Cakupan dan Batasan
 
+- Dibahas di topik ini: rule dasar `this` binding pada skenario umum.
+- Tidak dibahas di topik ini: pattern advanced binding yang kompleks.
 
+## Latihan
 
+1. Buat object `book` dengan method `printTitle()` yang memakai `this.title`.
+2. Lepaskan method ke variabel lalu perbaiki dengan `bind`.
+3. Uji method yang sama dengan `call` ke object lain.
 
+## Ringkasan
+
+- Nilai `this` ditentukan saat pemanggilan function.
+- Method call dan function call bisa menghasilkan `this` yang berbeda.
+- `call`/`bind` membantu mengontrol context secara eksplisit.
+
+## Lanjut Setelah Ini
+
+- [05-closure-patterns.md](./05-closure-patterns.md)

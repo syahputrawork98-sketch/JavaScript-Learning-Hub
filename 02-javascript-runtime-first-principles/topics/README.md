@@ -1,6 +1,7 @@
-﻿# Topics Index - Track 02
+# Topics Index - Track 02
 
 ## Start Belajar
+
 1. `01-values-types-coercion.md`
 2. `02-scope-hoisting.md`
 3. `03-function-closure-dasar.md`
@@ -11,12 +12,25 @@
 8. `08-call-stack-web-apis-queues.md`
 9. `09-scope-chain-lookup.md`
 
+## Standar Topik
+
+Setiap topik idealnya punya:
+- tujuan pembelajaran yang jelas
+- konsep utama
+- penjelasan runtime reasoning
+- beberapa contoh kode
+- eksperimen dan latihan
+- ringkasan + arah lanjut
+
 ## Aturan Navigasi
+
 - Folder `topics/` adalah materi utama yang dipakai belajar.
-- Jika topik mulai masuk async queue/object internals/memory internals, lanjut ke track 03/04/05.
+- Jika topik mulai masuk async scheduling detail, lanjut ke track 03.
+- Jika topik masuk object/prototype detail, lanjut ke track 04.
+- Jika topik masuk memory/reference behavior detail, lanjut ke track 05.
 
 ## Cross-Track
+
 - Async model: `../../03-asynchronous-javascript-model/topics/`
 - Object model: `../../04-javascript-object-model/topics/`
 - Memory and references: `../../05-javascript-memory-and-references/topics/`
-

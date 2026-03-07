@@ -1,134 +1,121 @@
-﻿# Call Stack, Web APIs, dan Queues
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Call Stack, Web APIs, dan Queues
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/call-stack-web-api-queue-map.svg`](../assets/call-stack-web-api-queue-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`2` pada Internals.
-- Prasyarat langsung: `07-execution-context-lifecycle.md`.
-- Lanjut setelah ini: `09-scope-chain-lookup.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menjelaskan peran call stack, Web APIs, dan queue pada runtime
+- memprediksi urutan output sync dan async sederhana
+- mengidentifikasi penyebab callback terlambat dieksekusi
 
-Prasyarat topik:
-- Sudah paham lifecycle execution context.
-- Sudah paham async dasar (`task queue`, `microtask queue`) pada level Foundations.
+## Konsep Utama
 
-Referensi remedial:
-- [`07-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
-- [`../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md`](../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md)
+- call stack
+- stack frame
+- Web APIs
+- queue handoff
+- run-to-completion
 
-Kamus mini topik:
-- `[baru]` Stack frame: satu unit eksekusi function di call stack.
-- `[baru]` Run-to-completion: satu frame harus selesai sebelum frame berikutnya diproses.
-- `[baru]` Web APIs: fasilitas environment (browser/runtime) untuk operasi async seperti timer/network.
-- `[baru]` Queue handoff: pemindahan callback dari API/queue ke call stack saat syarat terpenuhi.
-- `[ulang]` Call stack: struktur LIFO tempat function aktif dieksekusi.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Topik ini membahas interaksi antara call stack, Web APIs, dan antrean callback di runtime JavaScript. Fokusnya adalah memahami kapan callback benar-benar bisa dieksekusi, bukan sekadar kapan callback didaftarkan.
+JavaScript menjalankan kode sinkron di call stack (LIFO).
 
-## 1) Big Picture
-Kebanyakan bug async muncul karena asumsi "callback langsung jalan" padahal call stack masih sibuk atau callback masih menunggu handoff dari API/queue. Topik ini menjelaskan alur mekanis dari pemanggilan function sinkron, pendaftaran operasi async di Web APIs, sampai callback kembali masuk ke stack. Setelah paham, kamu bisa membuat keputusan desain alur async yang lebih tepat dan memprediksi urutan eksekusi dengan lebih akurat.
+Untuk operasi async (timer, I/O), callback tidak langsung masuk stack:
+1. callback didaftarkan ke Web APIs
+2. saat siap, callback masuk queue
+3. callback dipindah ke stack hanya jika stack kosong
 
-## 2) Small Picture
-1. Kode sync dieksekusi di call stack berdasarkan urutan push/pop frame.
-2. Operasi seperti `setTimeout` mendaftarkan callback ke Web APIs, bukan langsung ke stack.
-3. Setelah timer/network siap, callback ditempatkan ke queue yang relevan.
-4. Callback baru bisa di-push ke stack jika stack kosong (run-to-completion).
-5. Mekanisme ini berulang terus untuk menjaga eksekusi tetap deterministik.
+Aturan kunci: run-to-completion. Satu frame selesai dulu sebelum frame berikutnya diproses.
 
-## 3) Wireframe
-```text
-Alur utama:
-[sync function masuk stack] -> [async didaftarkan ke Web APIs] -> [callback masuk queue] -> [callback balik ke stack]
+## Contoh Kode
 
-Alur jalan:
-[stack kosong] -> [queue handoff] -> [callback dieksekusi] -> [hasil diproses]
+### Contoh 1 - Urutan Dasar Sync + Timer
 
-Alur error:
-[anggap callback langsung jalan] -> [state belum siap saat diakses] -> [race condition / output tak sesuai]
-```
-
-## 4) Analogi
-Bayangkan dapur restoran:
-- Call stack = chef yang mengerjakan satu tiket masakan aktif.
-- Web APIs = stasiun persiapan (oven/timer) yang bekerja paralel.
-- Queue = rak tiket siap saji.
-Chef hanya bisa ambil tiket baru dari rak saat tiket di tangan selesai dikerjakan.
-
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: memahami timing `setTimeout`, callback I/O, dan urutan output sync-async.
-- Alasan pakai: mengurangi asumsi salah tentang urutan eksekusi dan mempercepat debug timing bug.
-- Kapan tidak dipakai: tidak perlu mendalam saat sedang mengerjakan logic bisnis murni tanpa operasi async.
-
-## 6) Contoh Sederhana
-```js
-console.log('A');
+```javascript
+console.log("A")
 
 setTimeout(() => {
-  console.log('B');
-}, 0);
+  console.log("B")
+}, 0)
 
-console.log('C');
+console.log("C")
+// output: A, C, B
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `console.log('A')` masuk stack dan langsung dieksekusi.
-2. `setTimeout` mendaftarkan callback ke Web APIs dengan timer 0 ms.
-3. `console.log('C')` tetap dieksekusi dulu karena masih ada frame sync di stack.
-4. Setelah stack kosong dan timer siap, callback `B` dipindah dari queue ke stack.
-5. Output akhir tetap `A`, `C`, lalu `B`.
+### Contoh 2 - Stack Tertahan oleh Kerja Sinkron Berat
 
-## 7) Jebakan Umum
-- Mengira `setTimeout(..., 0)` berarti callback pasti dieksekusi paling cepat.
-- Mengabaikan prinsip run-to-completion saat membaca urutan log.
-- Menganggap Web APIs bagian dari bahasa inti JS, padahal milik environment runtime.
-
-## 8) Prediksi Output Drill
-```js
+```javascript
 function heavy() {
-  const end = Date.now() + 30;
+  const end = Date.now() + 30
   while (Date.now() < end) {}
 }
 
-console.log('start');
-setTimeout(() => console.log('timer'), 0);
-heavy();
-console.log('end');
+console.log("start")
+setTimeout(() => console.log("timer"), 0)
+heavy()
+console.log("end")
+// output: start, end, timer
 ```
 
-### Kunci Jawaban Drill
-- Urutan output: `start`, `end`, `timer`
-- Alasan: meski timer 0 ms, callback tetap menunggu stack kosong; `heavy()` menahan stack lebih dulu.
+### Contoh 3 - Mini Kasus: Callback Pipeline Sederhana
 
-## 9) Debug Story
-Kasus: notifikasi UI terlambat tampil setelah klik tombol.
-Langkah debug:
-1. Profiling callback chain untuk melihat apakah ada fungsi sync berat menahan stack.
-2. Cek operasi async didaftarkan ke API mana (timer, network, event).
-3. Pecah kerja sync panjang jadi batch kecil agar handoff queue tidak tertunda terlalu lama.
-4. Verifikasi ulang urutan log dengan timestamp sederhana.
+```javascript
+function fetchMock(callback) {
+  setTimeout(() => callback("data-ready"), 10)
+}
 
-## 10) Checkpoint
-- [ ] Bisa menjelaskan peran berbeda call stack, Web APIs, dan queue.
-- [ ] Bisa memprediksi kenapa callback timer tidak langsung dieksekusi.
-- [ ] Bisa menemukan sumber delay ketika callback async terlambat masuk stack.
+console.log("request")
+fetchMock((result) => {
+  console.log("callback:", result)
+})
+console.log("after-register")
+```
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `07-execution-context-lifecycle.md`.
-2. Ulangi `../../03-asynchronous-javascript-model/topics/01-async-javascript-dasar.md`.
-3. Jalankan 3 variasi `setTimeout` dengan operasi sync berat untuk melihat dampaknya.
+## Analogi Singkat (Opsional)
 
+Call stack seperti kasir yang melayani satu pelanggan aktif. Web APIs seperti bagian dapur. Pesanan dari dapur baru bisa diambil kasir saat pelanggan aktif selesai.
 
+## Eksperimen Kode
 
+Ubah durasi `heavy` dan lihat dampaknya ke timing callback.
 
+```javascript
+function heavy(ms) {
+  const end = Date.now() + ms
+  while (Date.now() < end) {}
+}
 
+setTimeout(() => console.log("timer done"), 0)
+heavy(100)
+console.log("main done")
+```
+
+Pertanyaan refleksi:
+1. Kenapa timer 0 ms tidak langsung tampil?
+2. Bagaimana kerja sinkron berat memengaruhi UX?
+
+## Common Misconception (Opsional)
+
+- `setTimeout(..., 0)` bukan jaminan callback dieksekusi paling awal.
+- Queue bukan bagian call stack; callback harus menunggu handoff.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: model umum stack-api-queue untuk reasoning runtime.
+- Tidak dibahas di topik ini: prioritas queue async detail lanjutan (dibahas di track 03).
+
+## Latihan
+
+1. Buat contoh urutan log sync + `setTimeout`.
+2. Tambahkan loop berat dan catat perubahan urutan/timing output.
+3. Jelaskan jalur callback dari registrasi sampai eksekusi.
+
+## Ringkasan
+
+- Kode sinkron berjalan di call stack.
+- Callback async menunggu di queue sampai stack kosong.
+- Memahami handoff stack-queue penting untuk debug timing issue.
+
+## Lanjut Setelah Ini
+
+- [09-scope-chain-lookup.md](./09-scope-chain-lookup.md)
+- Track lanjutan async: [03-asynchronous-javascript-model/topics](../../03-asynchronous-javascript-model/topics/)

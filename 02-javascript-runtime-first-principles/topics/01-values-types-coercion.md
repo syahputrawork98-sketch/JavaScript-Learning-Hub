@@ -1,139 +1,108 @@
-﻿# Values, Types, and Coercion
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Values, Types, dan Coercion
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`1` pada Foundations.
-- Prasyarat langsung: belum ada (topik pembuka).
-- Lanjut setelah ini: `02-scope-hoisting.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- membedakan nilai primitive dan reference pada level runtime reasoning
+- memprediksi coercion dasar pada operator yang umum dipakai
+- memilih perbandingan yang aman (`===`) untuk menghindari bug logika
 
-Prasyarat topik:
-- Sudah pernah pakai `let`, `const`, dan `console.log`.
-- Sudah pernah lihat `if` sederhana.
+## Konsep Utama
 
-Referensi remedial:
-- [`../docs/prasyarat/variabel-dasar.md`](../docs/prasyarat/variabel-dasar.md)
-- [`../docs/prasyarat/console-dan-if-dasar.md`](../docs/prasyarat/console-dan-if-dasar.md)
+- value dan type di JavaScript
+- primitive vs reference
+- implicit coercion vs explicit conversion
+- perbedaan `==` dan `===`
 
-Kamus mini topik:
-- `[baru]` Nilai (value): isi yang disimpan variabel.
-- `[baru]` Tipe data (type): jenis nilai, misalnya angka atau teks.
-- `[baru]` Coercion: perubahan tipe data secara otomatis oleh JavaScript.
-- `[baru]` Implicit: terjadi otomatis.
-- `[baru]` Explicit: kita ubah sendiri secara sengaja.
-- `[baru]` Primitive: nilai dasar yang disalin langsung nilainya.
-- `[baru]` Reference: nilai yang menyimpan acuan/alamat ke data.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Values, types, dan coercion adalah fondasi cara JavaScript memperlakukan data saat disimpan, dibandingkan, dan diolah. Dengan memahami bagian ini, kamu bisa membaca perilaku kode lebih akurat sebelum masuk ke scope, function, dan object.
+Pada runtime JavaScript, perilaku program sangat dipengaruhi jenis nilai yang diproses.
 
-## 1) Big Picture
-Di JavaScript, bug dasar sering muncul karena nilai terlihat sama tetapi tipe sebenarnya berbeda, atau karena coercion terjadi tanpa disadari. Topik ini menjelaskan aturan value, type, dan coercion supaya perubahan perilaku saat compare atau operasi campuran bisa diprediksi. Setelah paham, kamu bisa memutuskan kapan harus memakai `===`, kapan konversi eksplisit diperlukan, dan kapan risiko reference harus diwaspadai.
+Dua kategori besar:
+- primitive: `string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`
+- reference: `object`, `array`, `function`
 
-## 2) Small Picture
-1. JavaScript punya tipe primitive (`string`, `number`, `boolean`, `null`, `undefined`, `symbol`, `bigint`) dan reference (`object`, `array`, `function`).
-2. Coercion terjadi saat JS mengubah tipe secara otomatis (implicit) atau saat kita mengubah secara manual (explicit).
-3. Perbandingan (`==` vs `===`) dan operasi matematika/string memicu coercion dengan aturan tertentu.
+Coercion adalah perubahan tipe nilai:
+- implicit: terjadi otomatis karena operator/konteks
+- explicit: dilakukan sengaja oleh developer (`Number()`, `String()`, `Boolean()`)
 
-## 3) Wireframe
-```text
-Alur utama:
-[Value masuk] -> [Operator dipakai] -> [Rule coercion aktif] -> [Output]
+Untuk perbandingan, gunakan `===` sebagai default karena tidak melakukan coercion implisit.
 
-Alur jalan:
-['5' + 1] -> [number jadi string] -> ['51']
+## Contoh Kode
 
-Alur error:
-[Coercion tidak disadari] -> [logika if/comparison meleset] -> [bug hasil kondisi]
+### Contoh 1 - Perilaku Operator terhadap Coercion
+
+```javascript
+console.log("5" + 1) // "51"
+console.log("5" - 1) // 4
+console.log("10" * 2) // 20
 ```
 
-## 4) Analogi
-Bayangkan tipe data seperti wadah barang:
-- Primitive = barang kecil yang disalin per unit.
-- Reference = alamat gudang; yang disalin alamatnya, bukan isi gudangnya.
+### Contoh 2 - `==` vs `===`
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: validasi input, perbandingan nilai, manipulasi data.
-- Alasan pakai: mencegah bug logika dari coercion yang tidak disadari.
-- Kapan tidak dipakai: hindari `==` jika kamu tidak benar-benar butuh coercion implisit.
+```javascript
+console.log(0 == false)  // true
+console.log(0 === false) // false
 
-## 6) Contoh Sederhana
-```js
-console.log('5' + 1);   // '51'  (number jadi string)
-console.log('5' - 1);   // 4     (string jadi number)
-console.log(0 == false);  // true
-console.log(0 === false); // false
+console.log("" == 0)  // true
+console.log("" === 0) // false
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `'5' + 1`
-- Operator `+` jika ada string akan cenderung jadi gabung teks.
-- `1` diubah jadi `'1'`.
-- Hasil akhir: `'51'`.
+### Contoh 3 - Mini Kasus: Normalisasi Input Angka
 
-2. `'5' - 1`
-- Operator `-` butuh angka.
-- `'5'` diubah jadi `5`.
-- Hasil akhir: `4`.
+```javascript
+const rawInput = "42"
+const score = Number(rawInput)
 
-3. `0 == false`
-- `==` mengizinkan coercion.
-- `false` diperlakukan sebagai `0`.
-- Hasil akhir: `true`.
-
-4. `0 === false`
-- `===` tidak melakukan coercion.
-- Tipe `0` adalah `number`, tipe `false` adalah `boolean`.
-- Karena tipe beda, hasil langsung `false`.
-
-## 7) Jebakan Umum
-- Mengira `==` sama aman dengan `===`.
-- Mengira `const` membuat object jadi immutable (yang immutable hanya binding variabelnya).
-- Mengira salin object dengan `=` membuat object baru.
-
-## 8) Prediksi Output Drill
-```js
-const a = '10';
-const b = 2;
-console.log(a * b);
-console.log(a + b);
-console.log(Boolean('0'));
+if (Number.isNaN(score)) {
+  console.log("Input tidak valid")
+} else {
+  console.log("Nilai valid:", score)
+  console.log("Lulus:", score >= 75)
+}
 ```
 
-### Kunci Jawaban Drill
-- `a * b` -> `20` (string `'10'` diubah jadi number saat kali)
-- `a + b` -> `'102'` (operator `+` dengan string jadi gabung teks)
-- `Boolean('0')` -> `true` (string tidak kosong adalah truthy)
+## Analogi Singkat (Opsional)
 
-## 9) Debug Story
-Kasus: kondisi `if (userInput == 0)` sering lolos walau input kosong.
-Langkah debug:
-1. Log tipe data: `typeof userInput`.
-2. Cek sumber nilai apakah string kosong `''` atau `'0'`.
-3. Ganti ke validasi eksplisit dan gunakan `===`.
+Tipe data seperti label kontainer. Saat operator tertentu dipakai, JavaScript bisa memindahkan isi ke kontainer lain secara otomatis jika aturan coercion mengharuskannya.
 
-## 10) Checkpoint
-- [ ] Bisa jelaskan beda primitive vs reference tanpa lihat catatan.
-- [ ] Bisa jelaskan kapan coercion terjadi pada operator umum.
-- [ ] Bisa jelaskan alasan memilih `===` dibanding `==`.
+## Eksperimen Kode
 
-## Jika Masih Bingung, Baca Ini Dulu
-Urutan baca ulang cepat:
-1. Fokus dulu ke bedanya `==` dan `===`.
-2. Lanjut ke perilaku operator `+` vs `-` pada string angka.
-3. Ulangi 3 soal prediksi output sampai konsisten benar.
-4. Baru masuk lagi ke topik reference vs primitive.
+Ubah kombinasi nilai berikut dan prediksi output sebelum menjalankan.
 
+```javascript
+console.log(Boolean("0"))
+console.log(Boolean(""))
+console.log(Number("15"))
+console.log(Number("abc"))
+```
 
+Pertanyaan refleksi:
+1. Kenapa `Boolean("0")` bernilai `true`?
+2. Kapan lebih aman memakai conversion eksplisit daripada mengandalkan coercion?
 
+## Common Misconception (Opsional)
 
+- `==` bukan versi singkat dari `===`; keduanya punya aturan perilaku berbeda.
+- `const` tidak membuat object menjadi immutable; yang tidak bisa berubah adalah binding variabelnya.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: coercion dasar untuk reading runtime behavior.
+- Tidak dibahas di topik ini: abstract operation detail dari ECMAScript spec.
+
+## Latihan
+
+1. Buat 4 ekspresi yang memicu coercion dan prediksi outputnya.
+2. Ubah 4 ekspresi itu agar memakai conversion eksplisit.
+3. Bandingkan hasil sebelum dan sesudah conversion eksplisit.
+
+## Ringkasan
+
+- Runtime behavior JavaScript sangat dipengaruhi type dan coercion.
+- `===` lebih aman sebagai default untuk perbandingan.
+- Conversion eksplisit membuat intent kode lebih jelas dan mudah diprediksi.
+
+## Lanjut Setelah Ini
+
+- [02-scope-hoisting.md](./02-scope-hoisting.md)

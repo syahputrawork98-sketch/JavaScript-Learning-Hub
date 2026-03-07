@@ -1,132 +1,110 @@
-﻿# Scope dan Hoisting
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Scope dan Hoisting
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`2` pada Foundations.
-- Prasyarat langsung: `01-values-types-coercion.md`.
-- Lanjut setelah ini: `03-function-closure-dasar.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menjelaskan scope sebagai batas akses identifier
+- memahami efek hoisting pada `var`, `let`, `const`, dan function declaration
+- menghindari error akibat TDZ dan shadowing yang tidak disengaja
 
-Prasyarat topik:
-- Sudah paham variabel `let`, `const`, `var`.
-- Sudah paham fungsi dasar.
+## Konsep Utama
 
-Referensi remedial:
-- [`../docs/prasyarat/variabel-dasar.md`](../docs/prasyarat/variabel-dasar.md)
-- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
+- scope (`global`, `function`, `block`)
+- hoisting
+- TDZ (Temporal Dead Zone)
+- shadowing
 
-Kamus mini topik:
-- `[baru]` Scope: wilayah akses variabel.
-- `[baru]` Hoisting: perilaku deklarasi yang diproses lebih awal saat fase pembuatan konteks eksekusi.
-- `[baru]` TDZ (Temporal Dead Zone): area saat variabel `let`/`const` sudah ada tetapi belum boleh diakses.
-- `[ulang]` Declaration: proses deklarasi variabel/fungsi.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Scope dan hoisting membahas di mana variabel bisa diakses dan kapan deklarasi dianggap tersedia saat kode dijalankan. Topik ini penting supaya kamu bisa membaca urutan eksekusi dengan benar dan menghindari error akses variabel.
+Scope menentukan di mana variabel bisa diakses.
 
-## 1) Big Picture
-Error akses variabel sering terjadi karena developer tidak membedakan batas scope dan timing hoisting saat kode dieksekusi. Topik ini menjelaskan hubungan scope, creation phase, execution phase, dan TDZ agar perilaku `var`, `let`, `const`, serta function declaration jadi jelas. Setelah paham, kamu bisa memutuskan penempatan deklarasi dengan aman dan menghindari `ReferenceError` yang membingungkan.
+Hoisting menjelaskan fase persiapan context sebelum eksekusi baris kode:
+- function declaration: siap dipanggil lebih awal
+- `var`: diinisialisasi awal dengan `undefined`
+- `let`/`const`: di-hoist tetapi belum boleh diakses sebelum deklarasi (TDZ)
 
-## 2) Small Picture
-1. Saat kode masuk, JavaScript membuat execution context.
-2. Di fase creation, deklarasi function disiapkan penuh, `var` diinisialisasi `undefined`, sedangkan `let`/`const` masuk TDZ.
-3. Di fase execution, baris kode dijalankan berurutan dan nilai sebenarnya diisi.
+TDZ sering menyebabkan `ReferenceError` saat variabel `let/const` diakses terlalu cepat.
 
-## 3) Wireframe
-```text
-Alur utama:
-[Kode dibaca] -> [Creation phase] -> [Execution phase] -> [Akses variabel]
+## Contoh Kode
 
-Alur jalan:
-[Akses var sebelum assignment] -> [nilai awal undefined] -> [lanjut eksekusi]
+### Contoh 1 - Hoisting `var` vs TDZ `let`
 
-Alur error:
-[Akses let/const sebelum deklarasi] -> [kena TDZ] -> [ReferenceError]
+```javascript
+console.log(a) // undefined
+var a = 10
+
+// console.log(b) // ReferenceError
+let b = 20
 ```
 
-## 4) Analogi
-Bayangkan kantor:
-- Creation phase = daftar meja pegawai disiapkan.
-- Execution phase = pegawai mulai duduk dan bekerja.
-- `var` seperti meja kosong dengan label "belum ada orang".
-- `let/const` seperti meja yang masih ditutup kain, belum boleh dipakai sebelum waktunya (TDZ).
+### Contoh 2 - Function Declaration Hoisting
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: menghindari error akses variabel, merancang blok kode aman.
-- Alasan pakai: mencegah bug dari kebingungan urutan deklarasi dan akses.
-- Kapan tidak dipakai: jangan gunakan `var` untuk kode modern kecuali memang butuh perilaku lama.
+```javascript
+sayHello() // Halo
 
-## 6) Contoh Sederhana
-```js
-console.log(a); // undefined
-var a = 10;
-
-// console.log(b); // ReferenceError
-let b = 20;
-
-hello(); // 'halo'
-function hello() {
-  console.log('halo');
+function sayHello() {
+  console.log("Halo")
 }
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `var a` sudah terdaftar saat creation phase dengan nilai awal `undefined`.
-2. Maka `console.log(a)` pertama mencetak `undefined`, bukan error.
-3. `let b` ada di TDZ sampai baris deklarasinya dijalankan; akses sebelum itu memicu `ReferenceError`.
-4. Function declaration `hello` sudah siap penuh saat creation phase, jadi bisa dipanggil sebelum posisinya.
+### Contoh 3 - Mini Kasus: Shadowing yang Menipu Debug
 
-## 7) Jebakan Umum
-- Mengira hoisting berarti kode dipindah secara fisik ke atas.
-- Mengira `let` dan `var` sama perilakunya saat diakses sebelum deklarasi.
-- Mengira function expression bisa dipanggil sebelum deklarasi seperti function declaration.
+```javascript
+const config = "global-config"
 
-## 8) Prediksi Output Drill
-```js
-console.log(x);
-var x = 1;
-
-// console.log(y);
-let y = 2;
-
-say();
-function say() {
-  console.log('ok');
+function setup() {
+  var config = "local-config"
+  console.log("Di setup:", config)
 }
+
+setup()
+console.log("Di global:", config)
 ```
 
-### Kunci Jawaban Drill
-- `console.log(x)` -> `undefined`
-- `console.log(y)` jika diaktifkan -> `ReferenceError`
-- `say()` -> mencetak `ok`
+## Analogi Singkat (Opsional)
 
-## 9) Debug Story
-Kasus: aplikasi crash saat mengambil nilai config di awal file.
-Langkah debug:
-1. Cek apakah variabel config dideklarasikan dengan `let/const` setelah pemakaian.
-2. Cek apakah function yang dipanggil adalah declaration atau expression.
-3. Pindahkan akses variabel ke bawah deklarasi jika memang perlu.
+Creation phase seperti menyiapkan daftar meja sebelum kantor buka. `var` dapat meja kosong (`undefined`), sedangkan `let/const` mejanya ada tapi masih tertutup sampai waktu deklarasinya tiba.
 
-## 10) Checkpoint
-- [ ] Bisa menjelaskan beda hoisting `var`, `let`, `const`.
-- [ ] Bisa menjelaskan kenapa TDZ memunculkan `ReferenceError`.
-- [ ] Bisa membedakan function declaration vs function expression terkait hoisting.
+## Eksperimen Kode
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi contoh `var` vs `let` sampai hasilnya bisa diprediksi.
-2. Buat eksperimen kecil sendiri dengan 3 baris kode.
-3. Fokus ke dua fase: creation dan execution.
+Aktifkan baris yang dikomentari, lalu lihat perbedaan error dan output.
 
+```javascript
+function run() {
+  // console.log(total)
+  let total = 5
+  console.log(total)
+}
 
+run()
+```
 
+Pertanyaan refleksi:
+1. Kenapa `var` bisa terbaca `undefined` tapi `let` langsung error?
+2. Kapan shadowing membuat bug sulit dilacak?
 
+## Common Misconception (Opsional)
+
+- Hoisting bukan berarti baris kode dipindah secara fisik ke atas.
+- `let/const` tetap mengalami hoisting, tetapi berada di TDZ sebelum inisialisasi.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: scope dan hoisting untuk reasoning sinkron.
+- Tidak dibahas di topik ini: lexical environment internals detail spec-level.
+
+## Latihan
+
+1. Buat contoh yang menunjukkan `var` hoisting.
+2. Buat contoh TDZ dengan `let` lalu jelaskan error-nya.
+3. Buat nested scope yang menunjukkan shadowing variabel.
+
+## Ringkasan
+
+- Scope menentukan visibilitas variabel.
+- Hoisting memengaruhi timing akses variabel dan function.
+- TDZ membantu mencegah akses prematur pada `let/const`.
+
+## Lanjut Setelah Ini
+
+- [03-function-closure-dasar.md](./03-function-closure-dasar.md)

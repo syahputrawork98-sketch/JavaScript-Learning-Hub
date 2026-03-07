@@ -1,138 +1,113 @@
-﻿# Execution Context Lifecycle
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Execution Context Lifecycle
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/execution-context-lifecycle-map.svg`](../assets/execution-context-lifecycle-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`1` pada Internals.
-- Prasyarat langsung: `./06-this-binding-lanjutan.md`.
-- Lanjut setelah ini: `08-call-stack-web-apis-queues.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menjelaskan dua fase utama execution context (creation dan execution)
+- memprediksi efek hoisting berdasarkan lifecycle context
+- menggunakan model context untuk debug bug runtime sinkron
 
-Prasyarat topik:
-- Sudah paham scope dan hoisting dasar.
-- Sudah paham fungsi sebagai unit eksekusi.
+## Konsep Utama
 
-Referensi remedial:
-- [`./02-scope-hoisting.md`](./02-scope-hoisting.md)
-- [`./03-function-closure-dasar.md`](./03-function-closure-dasar.md)
+- execution context
+- creation phase
+- execution phase
+- lexical environment
+- hoisting
 
-Kamus mini topik:
-- `[baru]` Execution context: lingkungan eksekusi yang menyimpan variabel, `this`, dan referensi scope.
-- `[baru]` Creation phase: fase persiapan context sebelum baris kode dieksekusi.
-- `[baru]` Execution phase: fase saat statement berjalan baris demi baris.
-- `[baru]` Lexical environment: struktur scope tempat identifier dicari saat runtime.
-- `[ulang]` Hoisting: deklarasi diproses saat fase pembuatan context.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Execution context lifecycle menjelaskan apa yang mesin JavaScript siapkan sebelum kode berjalan, lalu bagaimana kode benar-benar dieksekusi. Topik ini jadi fondasi untuk memahami call stack dan event loop secara mekanis.
+Setiap kali script atau function dijalankan, JavaScript membuat execution context.
 
-## 1) Big Picture
-Banyak kebingungan runtime muncul karena kita melihat kode seolah dieksekusi "langsung", padahal engine melewati fase persiapan dulu. Topik ini menjelaskan dua fase utama context (creation dan execution) supaya perilaku hoisting, binding `this`, dan akses identifier bisa diprediksi. Setelah paham, kamu bisa mengambil keputusan debug berdasarkan model mesin, bukan tebakan urutan baris.
+Lifecycle sederhananya:
+1. creation phase: engine menyiapkan binding variabel/function dan struktur scope
+2. execution phase: statement dijalankan berurutan
 
-## 2) Small Picture
-1. Saat script/function dipanggil, engine membuat execution context baru.
-2. Di creation phase, engine menyiapkan memory untuk declaration dan hubungan scope.
-3. Function declaration siap penuh; `var` diinisialisasi `undefined`; `let/const` dibuat tetapi belum bisa diakses (TDZ).
-4. Di execution phase, assignment, expression, dan call dijalankan berurutan.
-5. Setiap pemanggilan function membuat context baru yang punya lifecycle sendiri.
+Dampak runtime yang paling terasa:
+- function declaration siap dipanggil saat execution dimulai
+- `var` punya nilai awal `undefined`
+- `let/const` belum bisa diakses sebelum deklarasi (TDZ)
 
-## 3) Wireframe
-```text
-Alur utama:
-[kode masuk engine] -> [creation phase] -> [execution phase] -> [hasil runtime]
+## Contoh Kode
 
-Alur jalan:
-[function dipanggil] -> [context baru dibuat] -> [statement function dieksekusi]
+### Contoh 1 - Creation vs Execution pada `var`
 
-Alur error:
-[akses let/const sebelum inisialisasi] -> [masih di TDZ] -> [ReferenceError]
+```javascript
+console.log(title) // undefined
+var title = "JS Runtime"
+console.log(title) // JS Runtime
 ```
 
-## 4) Analogi
-Bayangkan panggung teater:
-- Creation phase = kru menata panggung, lampu, dan properti dulu.
-- Execution phase = aktor mulai memainkan adegan.
-- Kalau aktor minta properti yang belum siap, pertunjukan berhenti (error).
+### Contoh 2 - Function Context Baru per Pemanggilan
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: membaca perilaku hoisting, memahami scope lookup, dan debugging runtime error.
-- Alasan pakai: memberi mental model mesin yang konsisten sebelum masuk call stack/event loop detail.
-- Kapan tidak dipakai: jangan terlalu tenggelam di detail internal saat problem bisa selesai dengan refactor sederhana.
-
-## 6) Contoh Sederhana
-```js
-console.log(title); // undefined
-var title = 'JS Internals';
-
-run();
-
-function run() {
-  // console.log(count); // ReferenceError (TDZ)
-  let count = 1;
-  console.log(`run-${count}`);
+```javascript
+function run(label) {
+  console.log("run:", label)
 }
+
+run("A")
+run("B")
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. Global execution context dibuat.
-2. Creation phase global: `var title` disiapkan `undefined`, `function run` siap dipanggil.
-3. Execution phase global: `console.log(title)` mencetak `undefined`, lalu `title` diisi `'JS Internals'`.
-4. `run()` dipanggil dan membuat function execution context baru.
-5. Di dalam `run`, `let count` ada di TDZ sebelum deklarasi; setelah inisialisasi, log mencetak `run-1`.
+### Contoh 3 - Mini Kasus: Shadowing dari Context Lokal
 
-## 7) Jebakan Umum
-- Mengira hoisting berarti baris kode benar-benar dipindah ke atas.
-- Menganggap `let/const` tidak di-hoist (sebenarnya di-hoist, tetapi belum usable karena TDZ).
-- Lupa bahwa setiap pemanggilan function punya execution context baru.
+```javascript
+var config = "global"
 
-## 8) Prediksi Output Drill
-```js
-var a = 1;
+function start() {
+  console.log(config) // undefined (var lokal di-hoist)
+  var config = "local"
+  console.log(config) // local
+}
 
+start()
+console.log(config) // global
+```
+
+## Analogi Singkat (Opsional)
+
+Execution context seperti briefing sebelum kerja dimulai. Semua peran dan alat disiapkan dulu (creation), baru pekerjaan benar-benar berjalan (execution).
+
+## Eksperimen Kode
+
+Coba aktifkan baris `let` berikut dan amati error TDZ.
+
+```javascript
 function test() {
-  console.log(a);
-  var a = 2;
-  return a;
+  // console.log(count)
+  let count = 1
+  console.log(count)
 }
 
-console.log(test());
-console.log(a);
+test()
 ```
 
-### Kunci Jawaban Drill
-- `console.log(a)` di dalam `test` -> `undefined`
-- `console.log(test())` -> `2`
-- `console.log(a)` global -> `1`
-- Alasan: `var a` lokal di-hoist ke context function dengan nilai awal `undefined`, menutupi `a` global.
+Pertanyaan refleksi:
+1. Kenapa `var` bisa terbaca `undefined` di awal?
+2. Kenapa `let` sebelum deklarasi menghasilkan `ReferenceError`?
 
-## 9) Debug Story
-Kasus: nilai config global tampak "hilang" saat masuk function util.
-Langkah debug:
-1. Cari deklarasi lokal bernama sama (`shadowing`) di function tersebut.
-2. Cek apakah deklarasi lokal memakai `var` dan terbaca sebelum assignment.
-3. Ubah nama variabel lokal atau pindah assignment agar niat kode eksplisit.
-4. Ulangi test dengan log `typeof` dan scope terdekat.
+## Common Misconception (Opsional)
 
-## 10) Checkpoint
-- [ ] Bisa menjelaskan beda creation phase dan execution phase tanpa lihat catatan.
-- [ ] Bisa memprediksi efek hoisting `var` vs `let/const` di contoh baru.
-- [ ] Bisa melacak bug sederhana yang disebabkan context lokal menutupi nilai global.
+- Hoisting bukan pemindahan fisik baris kode.
+- `let/const` tetap di-hoist, tapi tidak usable sebelum inisialisasi.
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `02-scope-hoisting.md`.
-2. Jalankan ulang contoh sambil menandai fase creation dan execution per baris.
-3. Latih 3 soal kecil yang membandingkan `var` lokal vs variabel global.
+## Cakupan dan Batasan
 
+- Dibahas di topik ini: model lifecycle execution context pada kode sinkron.
+- Tidak dibahas di topik ini: detail algoritma specification level.
 
+## Latihan
 
+1. Buat contoh `var` yang menunjukkan nilai awal `undefined`.
+2. Buat contoh shadowing di dalam function.
+3. Buat contoh TDZ dengan `let` lalu jelaskan urutan fasenya.
 
+## Ringkasan
+
+- Execution context punya fase persiapan dan fase eksekusi.
+- Hoisting adalah efek dari fase persiapan context.
+- Model context membantu menjelaskan banyak perilaku runtime secara konsisten.
+
+## Lanjut Setelah Ini
+
+- [08-call-stack-web-apis-queues.md](./08-call-stack-web-apis-queues.md)

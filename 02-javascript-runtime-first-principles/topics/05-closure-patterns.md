@@ -1,157 +1,140 @@
-﻿# Closure Patterns
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Closure Patterns
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`1` pada Advanced.
-- Prasyarat langsung: `03-function-closure-dasar.md`.
-- Lanjut setelah ini: `06-this-binding-lanjutan.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menerapkan closure untuk membuat state privat
+- membangun API kecil yang terkontrol lewat factory function
+- mengenali risiko stale closure pada alur callback
 
-Prasyarat topik:
-- Sudah paham closure dasar (counter, factory function).
-- Sudah paham scope dan lexical environment.
+## Konsep Utama
 
-Referensi remedial:
-- [`./03-function-closure-dasar.md`](./03-function-closure-dasar.md)
-- [`../docs/prasyarat/function-dasar.md`](../docs/prasyarat/function-dasar.md)
+- factory function
+- encapsulation dengan closure
+- state privat
+- stale closure
 
-Kamus mini topik:
-- `[baru]` Factory function: function yang menghasilkan object/function baru.
-- `[baru]` Encapsulation: menyembunyikan detail internal, expose API yang dibutuhkan saja.
-- `[baru]` Data privacy: menjaga state internal agar tidak bisa diubah sembarangan dari luar.
-- `[baru]` Stale closure: closure yang menyimpan nilai lama saat context sudah berubah.
-- `[ulang]` Closure: fungsi yang tetap bisa akses lexical scope saat dibuat.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Closure patterns adalah cara memanfaatkan closure untuk membangun modul kecil dengan state privat dan API publik yang jelas. Pola ini sering dipakai saat butuh enkapsulasi tanpa harus langsung memakai class.
+Closure patterns dipakai saat kita ingin menyimpan state tanpa mengekspos semua detail internal.
 
-## 1) Big Picture
-Topik ini membahas pola closure tingkat lanjut untuk membuat state privat, API yang bersih, dan logika modular tanpa class.
+Pola umum:
+1. outer function membuat state internal
+2. outer function mengembalikan function/object sebagai public API
+3. API berinteraksi dengan state lewat closure
 
-## 2) Small Picture
-1. Buat outer function sebagai ruang privat state.
-2. Simpan state penting di variabel lokal outer function.
-3. Return object/function yang menjadi public API.
-4. Public API berinteraksi dengan state via closure.
-5. Dari luar, state tidak bisa diakses langsung kecuali lewat API tersebut.
+Manfaat utama:
+- data privat lebih aman
+- API lebih kecil dan fokus
+- mengurangi ketergantungan global state
 
-## 3) Wireframe
-```text
-Alur utama:
-[Create module()] -> [state privat dibuat] -> [public API di-return]
+## Contoh Kode
 
-Alur jalan:
-[API dipanggil] -> [closure akses state internal] -> [state berubah terkontrol]
+### Contoh 1 - State Privat Sederhana
 
-Alur error:
-[nilai closure stale / validasi lemah] -> [state tidak sesuai ekspektasi] -> [output salah]
-```
+```javascript
+function createCounter() {
+  let count = 0
 
-## 4) Analogi
-Bayangkan mesin vending:
-- Bagian dalam mesin (stok, uang, logika) = state privat closure.
-- Tombol di luar mesin = public API.
-Orang luar hanya bisa tekan tombol, tidak bisa langsung otak-atik komponen dalam.
-
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: module kecil, cache sederhana, rate limiter, stateful utilities.
-- Alasan pakai: mengurangi global state, mencegah perubahan data liar, dan menjaga kontrak API.
-- Kapan tidak dipakai: jika state besar/kompleks dan tim butuh pola lebih eksplisit (misalnya class/store pattern).
-
-## 6) Contoh Sederhana
-```js
-function createBankAccount(initialBalance = 0) {
-  let balance = initialBalance;
-
-  function deposit(amount) {
-    if (amount <= 0) return 'Jumlah harus lebih dari 0';
-    balance += amount;
-    return balance;
+  return {
+    inc() {
+      count += 1
+      return count
+    },
+    get() {
+      return count
+    }
   }
-
-  function withdraw(amount) {
-    if (amount > balance) return 'Saldo tidak cukup';
-    balance -= amount;
-    return balance;
-  }
-
-  function getBalance() {
-    return balance;
-  }
-
-  return { deposit, withdraw, getBalance };
 }
 
-const acc = createBankAccount(100);
-console.log(acc.getBalance()); // 100
-console.log(acc.deposit(50));  // 150
-console.log(acc.withdraw(40)); // 110
-console.log(acc.balance);      // undefined
+const c = createCounter()
+console.log(c.inc()) // 1
+console.log(c.inc()) // 2
+console.log(c.get()) // 2
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `createBankAccount(100)` membuat scope baru dengan `balance = 100`.
-2. Method `deposit/withdraw/getBalance` menutup akses ke `balance` lewat closure.
-3. Saat `deposit(50)`, `balance` internal jadi `150`.
-4. Saat `withdraw(40)`, `balance` internal jadi `110`.
-5. `acc.balance` `undefined` karena `balance` tidak diexpose sebagai property publik.
+### Contoh 2 - Factory Function dengan Validasi
 
-## 7) Jebakan Umum
-- Menaruh terlalu banyak tanggung jawab dalam satu closure besar.
-- Lupa validasi input sehingga state internal mudah rusak.
-- Menganggap closure otomatis lebih baik untuk semua kasus.
-- Terkena stale closure saat nilai yang ditutup tidak disegarkan sesuai alur.
+```javascript
+function createWallet(initial = 0) {
+  let balance = initial
 
-## 8) Prediksi Output Drill
-```js
+  return {
+    deposit(amount) {
+      if (amount <= 0) return "invalid"
+      balance += amount
+      return balance
+    },
+    withdraw(amount) {
+      if (amount > balance) return "insufficient"
+      balance -= amount
+      return balance
+    }
+  }
+}
+```
+
+### Contoh 3 - Mini Kasus: Rate Limiter Closure
+
+```javascript
 function createLimiter(limit) {
-  let count = 0;
+  let count = 0
+
   return function () {
-    if (count >= limit) return 'blocked';
-    count += 1;
-    return `ok-${count}`;
-  };
+    if (count >= limit) return "blocked"
+    count += 1
+    return `ok-${count}`
+  }
 }
 
-const hit = createLimiter(2);
-console.log(hit());
-console.log(hit());
-console.log(hit());
+const hit = createLimiter(2)
+console.log(hit()) // ok-1
+console.log(hit()) // ok-2
+console.log(hit()) // blocked
 ```
 
-### Kunci Jawaban Drill
-- `hit()` pertama -> `ok-1`
-- `hit()` kedua -> `ok-2`
-- `hit()` ketiga -> `blocked`
-- Alasan: `count` disimpan di closure dan tetap hidup antar pemanggilan.
+## Analogi Singkat (Opsional)
 
-## 9) Debug Story
-Kasus: cache function selalu mengembalikan data lama walau input sudah berubah.
-Langkah debug:
-1. Cek variabel apa saja yang disimpan closure dan kapan nilainya diupdate.
-2. Pastikan key cache dibentuk dari input terbaru, bukan variabel lama.
-3. Tambahkan log key + state cache tiap panggilan untuk menemukan stale closure.
+Closure pattern seperti mesin vending: bagian dalam mesin (stok/logika) tidak bisa diakses langsung, pengguna hanya memakai tombol API di luar.
 
-## 10) Checkpoint
-- [ ] Bisa membuat module sederhana dengan state privat memakai closure.
-- [ ] Bisa menjelaskan kapan closure dipakai untuk encapsulation.
-- [ ] Bisa mengidentifikasi risiko stale closure pada kode async/callback.
+## Eksperimen Kode
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi dulu `03-function-closure-dasar.md`.
-2. Ubah contoh bank account: tambah method `transfer` tanpa membuka `balance`.
-3. Latih satu pola kecil: buat `createToggle()` dengan state privat boolean.
+Buat dua instance module dari factory yang sama dan bandingkan state-nya.
 
+```javascript
+const c1 = createLimiter(1)
+const c2 = createLimiter(3)
 
+console.log(c1(), c1())
+console.log(c2(), c2(), c2(), c2())
+```
 
+Pertanyaan refleksi:
+1. Kenapa setiap instance punya state terpisah?
+2. Kapan closure bisa jadi masalah memory jika tidak hati-hati?
 
+## Common Misconception (Opsional)
+
+- Closure pattern bukan otomatis lebih baik daripada class; pilih sesuai kompleksitas kasus.
+- State privat bukan berarti bebas dari bug, validasi tetap wajib.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: closure pattern untuk module kecil stateful.
+- Tidak dibahas di topik ini: memory leak patterns mendalam.
+
+## Latihan
+
+1. Buat `createToggle()` yang mengembalikan `true/false` bergantian.
+2. Buat `createScoreBoard()` dengan method `add(point)` dan `getTotal()`.
+3. Uji dua instance berbeda dan jelaskan kenapa tidak saling memengaruhi.
+
+## Ringkasan
+
+- Closure pattern membantu enkapsulasi state secara sederhana.
+- Factory function cocok untuk membuat instance dengan state privat masing-masing.
+- Tetap perlu validasi agar state internal tidak rusak.
+
+## Lanjut Setelah Ini
+
+- [06-this-binding-lanjutan.md](./06-this-binding-lanjutan.md)

@@ -1,6 +1,6 @@
-﻿# Learning Path - 02 JavaScript Runtime First Principles
+# Learning Path - 02 JavaScript Runtime First Principles
 
-Dokumen ini adalah jalur belajar aktif untuk track 02 setelah normalisasi migrasi.
+Dokumen ini adalah jalur belajar aktif untuk track 02.
 
 ## Start Here
 1. `../topics/01-values-types-coercion.md`

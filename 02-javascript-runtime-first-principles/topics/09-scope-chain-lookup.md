@@ -1,145 +1,128 @@
-﻿# Scope Chain Lookup
-## Metadata Migrasi
-- Status: `normalized`
-- Source: `02-javascript-first-principles (decommissioned legacy source)`
-- Boundary:
-  - Async queue detail -> ../../03-asynchronous-javascript-model/topics/
-  - Object/prototype detail -> ../../04-javascript-object-model/topics/
-  - Memory/reference detail -> ../../05-javascript-memory-and-references/topics/
+# Scope Chain Lookup
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/scope-chain-lookup-map.svg`](../assets/scope-chain-lookup-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`4` pada Internals.
-- Prasyarat langsung: `08-call-stack-web-apis-queues.md`.
-- Lanjut setelah ini: `../../04-javascript-object-model/topics/03-prototype-chain-lookup.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menjelaskan urutan pencarian identifier dari local ke global
+- mengenali efek shadowing pada hasil lookup
+- membedakan `undefined` dan `ReferenceError` saat lookup gagal
 
-Prasyarat topik:
-- Sudah paham execution context dan lexical environment.
-- Sudah paham scope dasar (`global`, `function`, `block`) dari Foundations.
+## Konsep Utama
 
-Referensi remedial:
-- [`07-execution-context-lifecycle.md`](./07-execution-context-lifecycle.md)
-- [`./02-scope-hoisting.md`](./02-scope-hoisting.md)
+- identifier resolution
+- scope chain
+- outer environment reference
+- shadowing
+- unresolvable reference
 
-Kamus mini topik:
-- `[baru]` Identifier resolution: proses mesin mencari sumber nilai identifier.
-- `[baru]` Outer environment reference: pointer dari satu environment ke environment luar.
-- `[baru]` Shadowing lookup: kondisi lookup berhenti pada variabel lokal yang menutupi variabel luar.
-- `[baru]` Unresolvable reference: identifier tidak ditemukan di seluruh rantai scope.
-- `[ulang]` Scope chain: rantai lexical environment untuk pencarian variabel.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Scope chain lookup membedah cara engine menemukan nilai variabel saat kode dieksekusi. Dengan paham lookup step-by-step, kamu bisa menjelaskan kenapa suatu variabel terbaca nilai tertentu atau memicu `ReferenceError`.
+Saat JavaScript menemukan identifier, engine mencari nilainya bertahap:
+1. cek lexical environment saat ini
+2. jika tidak ada, naik ke outer environment
+3. ulangi sampai global environment
+4. jika tetap tidak ada, hasilnya `ReferenceError`
 
-## 1) Big Picture
-Bug logika sering terjadi ketika developer mengira variabel diambil dari scope tertentu, padahal engine berhenti di scope yang berbeda karena shadowing. Topik ini menjelaskan mekanisme lookup identifier melalui outer environment reference sampai nilai ditemukan atau dinyatakan tidak ada. Setelah paham, kamu bisa mengambil keputusan penamaan variabel, struktur function, dan strategi debug scope secara lebih presisi.
+Lookup berhenti di temuan pertama. Ini sebabnya shadowing bisa "menutup" nilai dari scope luar.
 
-## 2) Small Picture
-1. Saat identifier diakses, engine cek lexical environment saat ini.
-2. Jika ada nama yang cocok, lookup berhenti dan nilai dikembalikan.
-3. Jika tidak ada, engine naik ke outer environment reference.
-4. Proses berulang sampai global environment.
-5. Jika tetap tidak ada, engine menghasilkan unresolvable reference (`ReferenceError`).
+## Contoh Kode
 
-## 3) Wireframe
-```text
-Alur utama:
-[akses identifier] -> [cek environment lokal] -> [naik ke outer environment] -> [nilai ditemukan]
+### Contoh 1 - Lookup Naik ke Outer Scope
 
-Alur jalan:
-[nama sama di scope lokal] -> [shadowing terjadi] -> [lookup berhenti lebih cepat]
-
-Alur error:
-[identifier tidak ada di seluruh chain] -> [unresolvable reference] -> [ReferenceError]
-```
-
-## 4) Analogi
-Bayangkan mencari dokumen dalam organisasi:
-- Meja kerja sendiri = scope lokal.
-- Supervisor = outer scope pertama.
-- Divisi pusat = scope lebih luar.
-Kamu berhenti saat dokumen pertama ditemukan; tidak lanjut mencari ke level atas.
-
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: debug variabel `undefined`/`ReferenceError`, desain nested function, dan audit shadowing.
-- Alasan pakai: memberi model mental jelas tentang "variabel ini sebenarnya diambil dari mana".
-- Kapan tidak dipakai: tidak perlu terlalu detail jika kode flat tanpa nested scope.
-
-## 6) Contoh Sederhana
-```js
-const name = 'global';
+```javascript
+const name = "global"
 
 function outer() {
-  const name = 'outer';
+  const name = "outer"
 
   function inner() {
-    const role = 'dev';
-    console.log(name, role);
+    console.log(name)
   }
 
-  inner();
+  inner()
 }
 
-outer();
+outer() // outer
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `inner` mengakses `name`, tetapi tidak ada `name` lokal di `inner`.
-2. Engine naik ke outer environment (`outer`) dan menemukan `name = 'outer'`.
-3. `role` ditemukan langsung di scope `inner`.
-4. Output menjadi `outer dev`.
-5. `name` global tidak dipakai karena lookup sudah berhenti di scope `outer`.
+### Contoh 2 - Shadowing yang Mengubah Sumber Nilai
 
-## 7) Jebakan Umum
-- Mengira lookup selalu langsung ke global jika variabel tidak ada di baris terdekat.
-- Menamai variabel lokal sama dengan variabel luar tanpa sadar (shadowing tidak disengaja).
-- Menganggap `undefined` selalu berarti variabel tidak ada (bisa jadi ada, tapi nilainya memang `undefined`).
-
-## 8) Prediksi Output Drill
-```js
-const x = 'global';
+```javascript
+const x = "global"
 
 function a() {
-  const x = 'a';
+  const x = "a"
   function b() {
-    console.log(x);
+    console.log(x)
   }
-  b();
+  b()
 }
 
-a();
-console.log(x);
+a()          // a
+console.log(x) // global
 ```
 
-### Kunci Jawaban Drill
-- `console.log(x)` di `b` -> `a`
-- `console.log(x)` global -> `global`
-- Alasan: lookup di `b` naik ke `a` dan berhenti di sana karena menemukan `x` lokal `a`.
+### Contoh 3 - Mini Kasus: Unresolvable Reference
 
-## 9) Debug Story
-Kasus: helper mengambil config salah meski global config sudah diubah.
-Langkah debug:
-1. Cari apakah ada variable shadowing bernama `config` di function wrapper.
-2. Lacak chain nested function dan catat sumber nilai `config` yang terbaca.
-3. Rename variable lokal agar tidak menutupi config global tanpa sengaja.
-4. Tambahkan log sumber scope saat debug sementara.
+```javascript
+function readConfig() {
+  // console.log(appConfig) // ReferenceError jika tidak ada di semua scope
+  const appConfig = "local"
+  console.log(appConfig)
+}
 
-## 10) Checkpoint
-- [ ] Bisa menjelaskan urutan lookup identifier dari local ke global.
-- [ ] Bisa membedakan kasus shadowing vs unresolvable reference.
-- [ ] Bisa memperbaiki bug scope dengan perubahan nama/struktur yang tepat.
+readConfig()
+```
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `02-scope-hoisting.md`.
-2. Jalankan contoh nested function sambil menandai scope per variabel.
-3. Buat dua variasi: dengan dan tanpa shadowing, lalu bandingkan outputnya.
+## Analogi Singkat (Opsional)
 
+Scope chain seperti mencari dokumen berjenjang: mulai dari meja sendiri, lalu atasan, lalu arsip pusat. Begitu ketemu, pencarian berhenti.
 
+## Eksperimen Kode
 
+Ubah nama variabel lokal dan lihat apakah lookup masih mengambil nilai yang sama.
 
+```javascript
+const role = "global-role"
 
+function run() {
+  const role = "local-role"
+  function print() {
+    console.log(role)
+  }
+  print()
+}
+
+run()
+console.log(role)
+```
+
+Pertanyaan refleksi:
+1. Kenapa output dalam `print` bukan `global-role`?
+2. Bedanya kapan muncul `undefined` dan kapan `ReferenceError`?
+
+## Common Misconception (Opsional)
+
+- `undefined` tidak selalu berarti variabel tidak ada; bisa jadi variabel ada tapi nilainya memang `undefined`.
+- Engine tidak melompati scope lokal begitu saja jika nama sudah ditemukan.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: lookup identifier pada lexical scope chain.
+- Tidak dibahas di topik ini: prototype chain lookup (dibahas di track 04).
+
+## Latihan
+
+1. Buat nested function 3 tingkat dan lacak sumber nilai satu variabel.
+2. Buat contoh shadowing disengaja lalu jelaskan outputnya.
+3. Buat satu contoh yang menghasilkan `ReferenceError` karena identifier benar-benar tidak ada.
+
+## Ringkasan
+
+- Identifier dicari dari scope lokal ke luar secara berantai.
+- Shadowing membuat lookup berhenti lebih cepat di scope lokal.
+- Memahami lookup chain mempercepat debug bug variabel pada runtime.
+
+## Lanjut Setelah Ini
+
+- Track lanjutan object lookup: [../../04-javascript-object-model/topics/03-prototype-chain-lookup.md](../../04-javascript-object-model/topics/03-prototype-chain-lookup.md)

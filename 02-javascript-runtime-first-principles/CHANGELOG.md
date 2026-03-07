@@ -1,4 +1,26 @@
-﻿# Changelog - 02 JavaScript Runtime First Principles
+# Changelog - 02 JavaScript Runtime First Principles
+
+## [0.3.0] - 2026-03-07
+
+### Changed
+- Refactor `topics/01-values-types-coercion.md` ke format materi rilis (tujuan, konsep, multi-contoh, eksperimen, latihan, ringkasan).
+- Refactor `topics/02-scope-hoisting.md` ke format materi rilis.
+- Refactor `topics/03-function-closure-dasar.md` ke format materi rilis.
+- Refactor `topics/04-this-binding-dasar.md` ke format materi rilis.
+- Refactor `topics/05-closure-patterns.md` ke format materi rilis.
+- Refactor `topics/06-this-binding-lanjutan.md` ke format materi rilis.
+- Refactor `topics/07-execution-context-lifecycle.md` ke format materi rilis.
+- Refactor `topics/08-call-stack-web-apis-queues.md` ke format materi rilis.
+- Refactor `topics/09-scope-chain-lookup.md` ke format materi rilis.
+- Menghapus section metadata migrasi dari seluruh topik (`01-09`) agar materi lebih fokus ke pembaca.
+- Menyelaraskan `topics/README.md` dengan standar struktur topik saat ini.
+- Menyelaraskan `docs/learning-path.md` ke wording rilis non-migrasi.
+
+### Notes
+- Batch A selesai (topik 01-03).
+- Batch B selesai (topik 04-06).
+- Batch C selesai (topik 07-09).
+- Seluruh topik utama track 02 telah melewati editorial pass.
 
 ## 2026-03-06 - v0.2.0
 
