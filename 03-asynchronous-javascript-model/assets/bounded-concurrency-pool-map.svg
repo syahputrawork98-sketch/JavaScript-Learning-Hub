@@ -1,0 +1,30 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Bounded Concurrency Pool Map</title>
+  <desc id="desc">Map for worker pool pattern and bounded concurrency flow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fffef8"/><stop offset="100%" stop-color="#eef7ff"/></linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f766e"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.15"/></filter>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0,10 3,0 6" fill="#1f2937"/></marker>
+    <style>.h{font:700 30px 'Segoe UI',sans-serif;fill:#fff}.s{font:500 16px 'Segoe UI',sans-serif;fill:#dbeafe}.t{font:700 19px 'Segoe UI',sans-serif;fill:#0f172a}.p{font:500 14px 'Segoe UI',sans-serif;fill:#334155}.card{fill:#fff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#s)}.ok{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}.warn{fill:#fee2e2;stroke:#991b1b;stroke-width:2;rx:12}.flow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+  </defs>
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <rect x="48" y="32" width="1184" height="108" rx="16" fill="url(#hdr)" filter="url(#s)"/>
+  <text class="h" x="82" y="76">Bounded Concurrency + Worker Pool 🚦</text>
+  <text class="s" x="82" y="104">Batasi task aktif agar throughput stabil dan resource tidak meledak.</text>
+
+  <rect class="card" x="80" y="190" width="320" height="170"/><text class="t" x="104" y="228">Task Queue 📥</text><text class="p" x="104" y="254">T1 T2 T3 T4 T5 T6 ...</text><text class="p" x="104" y="278">menunggu worker kosong</text>
+  <rect class="card" x="460" y="190" width="360" height="170"/><text class="t" x="484" y="228">Worker Pool (N=3) 👷</text><text class="p" x="484" y="254">W1: running</text><text class="p" x="484" y="278">W2: running</text><text class="p" x="484" y="302">W3: running</text>
+  <rect class="card" x="880" y="190" width="320" height="170"/><text class="t" x="904" y="228">Results 📤</text><text class="p" x="904" y="254">hasil per task index</text><text class="p" x="904" y="278">urutan final bisa dipertahankan</text>
+
+  <rect class="ok" x="80" y="410" width="560" height="170"/><text class="t" x="104" y="448">Keuntungan ✅</text><text class="p" x="104" y="474">- resource lebih terkontrol</text><text class="p" x="104" y="498">- mengurangi error burst</text><text class="p" x="104" y="522">- lebih aman untuk production</text>
+  <rect class="warn" x="680" y="410" width="520" height="170"/><text class="t" x="704" y="448">Risiko jika tanpa limit ⚠️</text><text class="p" x="704" y="474">- CPU/network spike</text><text class="p" x="704" y="498">- throttling dari provider</text><text class="p" x="704" y="522">- timeout massal</text>
+
+  <rect class="card" x="80" y="620" width="1120" height="180"/><text class="t" x="104" y="658">Rule of Thumb 📏</text>
+  <text class="p" x="104" y="684">1. Mulai dari concurrency kecil (2-5) lalu ukur.</text>
+  <text class="p" x="104" y="708">2. Naikkan bertahap jika latency/error rate stabil.</text>
+  <text class="p" x="104" y="732">3. Selalu monitor timeout, reject rate, dan throughput.</text>
+
+  <path class="flow" d="M400 274 L460 274"/><path class="flow" d="M820 274 L880 274"/><path class="flow" d="M260 360 L260 410"/><path class="flow" d="M940 360 L940 410"/><path class="flow" d="M640 494 L680 494"/><path class="flow" d="M940 580 L940 620"/>
+</svg>
+

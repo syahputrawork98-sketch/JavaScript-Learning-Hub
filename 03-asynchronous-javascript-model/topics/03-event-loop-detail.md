@@ -1,127 +1,119 @@
-﻿# Event Loop Detail
+# Event Loop Detail
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/event-loop-flow-map.svg`](../assets/event-loop-flow-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`3` pada Track 03.
-- Prasyarat langsung: `02-promise-async-await.md`.
-- Lanjut setelah ini: `04-error-handling-async.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menjelaskan cara event loop memproses task dan microtask per tick
+- mengidentifikasi gejala microtask starvation
+- menganalisis delay callback berdasarkan prioritas queue
 
-Prasyarat topik:
-- Sudah paham hubungan call stack, Web APIs, dan queue handoff.
-- Sudah paham Promise dan `setTimeout` dasar.
+## Konsep Utama
 
-Referensi remedial:
-- [`../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md`](../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md)
-- [`01-async-javascript-dasar.md`](./01-async-javascript-dasar.md)
-- [`02-promise-async-await.md`](./02-promise-async-await.md)
+- event loop tick
+- task queue
+- microtask queue
+- microtask drain
+- starvation
 
-Kamus mini topik:
-- `[baru]` Tick: satu putaran pengambilan kerja oleh event loop.
-- `[baru]` Microtask starvation: kondisi microtask terus terisi sehingga task lain tertunda.
-- `[baru]` Render opportunity: momen runtime/browser berpeluang melakukan render setelah antrean tertentu selesai.
-- `[baru]` Scheduling fairness: keseimbangan agar semua jenis antrean tetap dapat jatah eksekusi.
-- `[ulang]` Microtask queue: antrean prioritas tinggi (Promise jobs, dll).
+## Penjelasan
 
-## Pengantar Singkat Topik
-Event loop detail membahas aturan prioritas dan timing yang lebih halus saat runtime memilih kerja berikutnya. Topik ini membantu membaca kenapa Promise callbacks sering menang prioritas terhadap timer callback.
+Setiap tick event loop secara umum berjalan seperti ini:
+1. ambil task saat call stack kosong
+2. jalankan task sampai selesai
+3. habiskan microtask queue
+4. lanjut ke tick berikutnya
 
-## 1) Big Picture
-Masalah umum di kode async bukan cuma "urutan salah", tetapi starvation dan delay karena prioritas antrean tidak dipahami dengan tepat. Topik ini menjelaskan bagaimana event loop memproses microtask dan task per tick, termasuk dampaknya ke rendering dan responsivitas. Setelah paham, kamu bisa memutuskan strategi scheduling yang lebih adil, menghindari chain microtask berlebihan, dan mendiagnosis lag dengan lebih sistematis.
+Karena microtask selalu didahulukan setelah task selesai, rantai microtask panjang bisa menunda task lain (timer, UI task, dll).
 
-## 2) Small Picture
-1. Satu tick event loop memilih task yang siap dieksekusi saat stack kosong.
-2. Setelah task selesai, runtime menghabiskan microtask queue sampai kosong.
-3. Jika microtask menambahkan microtask baru terus-menerus, antrean task lain bisa tertunda (starvation).
-4. Setelah microtask drain, runtime dapat memberi kesempatan render (di browser).
-5. Siklus ini berulang pada tick berikutnya.
+## Diagram Konsep (Opsional)
 
-## 3) Wireframe
-```text
-Alur utama:
-[task masuk stack] -> [task selesai] -> [microtask drain] -> [render opportunity] -> [tick berikutnya]
+![Event Loop Flow](../assets/event-loop-flow-map.svg)
 
-Alur jalan:
-[Promise resolve] -> [callback ke microtask] -> [dieksekusi sebelum timer task]
+## Contoh Kode
 
-Alur error:
-[chain microtask tanpa batas] -> [task/render tertunda] -> [UI lag / starvation]
-```
+### Contoh 1 - Prioritas Microtask
 
-## 4) Analogi
-Bayangkan loket layanan:
-- Task queue = antrean umum.
-- Microtask queue = antrean prioritas.
-Setiap kali loket selesai melayani satu orang dari antrean umum, loket wajib habiskan semua antrean prioritas dulu. Kalau antrean prioritas terus bertambah, antrean umum jadi lama menunggu.
+```javascript
+console.log("S")
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: debug urutan Promise vs timer, analisis UI lag, dan desain callback scheduling.
-- Alasan pakai: memberi kontrol mental model saat memilih antara microtask-heavy flow dan task-based yielding.
-- Kapan tidak dipakai: hindari over-optimasi scheduling jika bottleneck utama justru operasi CPU berat murni.
-
-## 6) Contoh Sederhana
-```js
-console.log('S');
-
-setTimeout(() => console.log('T'), 0);
+setTimeout(() => console.log("T"), 0)
 
 Promise.resolve()
-  .then(() => console.log('P1'))
-  .then(() => console.log('P2'));
+  .then(() => console.log("P1"))
+  .then(() => console.log("P2"))
 
-console.log('E');
+console.log("E")
+// urutan: S, E, P1, P2, T
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `S` dan `E` dieksekusi sinkron di call stack.
-2. Timer callback `T` masuk task queue.
-3. `Promise.then` mendaftarkan `P1` ke microtask queue.
-4. Setelah stack kosong, event loop menjalankan microtask dulu: `P1`, lalu `P2`.
-5. Setelah microtask drain selesai, baru task timer `T` dijalankan.
+### Contoh 2 - Microtask Tambah Microtask
 
-## 7) Jebakan Umum
-- Mengira `setTimeout(..., 0)` akan menang dari Promise callbacks.
-- Membuat rantai `then` panjang tanpa jeda sehingga task/render tertunda.
-- Menyamakan perilaku semua runtime tanpa cek detail environment.
-
-## 8) Prediksi Output Drill
-```js
-console.log('A');
-
-setTimeout(() => console.log('B'), 0);
-
+```javascript
 Promise.resolve().then(() => {
-  console.log('C');
-  Promise.resolve().then(() => console.log('D'));
-});
+  console.log("A")
+  Promise.resolve().then(() => console.log("B"))
+})
 
-console.log('E');
+setTimeout(() => console.log("C"), 0)
+// urutan: A, B, C
 ```
 
-### Kunci Jawaban Drill
-- Urutan output: `A`, `E`, `C`, `D`, `B`
-- Alasan: seluruh microtask (`C`, lalu `D`) harus habis dulu sebelum task timer `B`.
+### Contoh 3 - Mini Kasus: Delay karena Kerja Sinkron
 
-## 9) Debug Story
-Kasus: tombol terasa lambat merespons saat aplikasi melakukan chain Promise panjang.
-Langkah debug:
-1. Cek apakah ada loop/chain yang terus menambah microtask tanpa yielding.
-2. Tambahkan pemecahan batch agar sebagian kerja dipindah ke task berikutnya.
-3. Ukur ulang dengan timestamp per fase (sync, microtask, task).
-4. Validasi apakah render frame kembali stabil setelah perubahan scheduling.
+```javascript
+function heavy(ms) {
+  const end = Date.now() + ms
+  while (Date.now() < end) {}
+}
 
-## 10) Checkpoint
-- [ ] Bisa menjelaskan prioritas microtask vs task dalam satu tick.
-- [ ] Bisa memprediksi urutan output kombinasi Promise dan `setTimeout`.
-- [ ] Bisa mengidentifikasi gejala microtask starvation sederhana.
+setTimeout(() => console.log("timer done"), 0)
+heavy(80)
+console.log("main done")
+```
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `../../02-javascript-runtime-first-principles/topics/08-call-stack-web-apis-queues.md`.
-2. Ulangi contoh dengan menambah satu `then` baru setiap langkah.
-3. Bandingkan hasil saat sebagian kerja dipindah dari Promise ke timer task.
+## Analogi Singkat (Opsional)
 
+Event loop seperti loket yang wajib menyelesaikan antrean prioritas (microtask) sebelum kembali melayani antrean reguler (task).
 
+## Eksperimen Kode
+
+Tambahkan `.then(...)` berantai lebih panjang dan amati kapan timer dieksekusi.
+
+```javascript
+setTimeout(() => console.log("task"), 0)
+
+Promise.resolve()
+  .then(() => console.log("m1"))
+  .then(() => console.log("m2"))
+  .then(() => console.log("m3"))
+```
+
+Pertanyaan refleksi:
+1. Kenapa timer tertunda sampai semua microtask selesai?
+2. Apa dampaknya jika microtask chain terlalu panjang di UI app?
+
+## Common Misconception (Opsional)
+
+- `setTimeout(0)` bukan prioritas tertinggi.
+- Event loop bukan hanya soal timer; Promise jobs sangat memengaruhi urutan.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: prioritas queue dan timing dasar event loop.
+- Tidak dibahas di topik ini: perbedaan implementasi event loop per runtime secara mendalam.
+
+## Latihan
+
+1. Buat contoh yang menghasilkan urutan `sync -> microtask -> task`.
+2. Buat chain microtask 4 langkah dan prediksi output.
+3. Tambahkan loop sinkron berat dan jelaskan efek ke timer.
+
+## Ringkasan
+
+- Event loop memproses task dan microtask dengan aturan prioritas tertentu.
+- Microtask drain bisa menunda task jika chain terlalu panjang.
+- Memahami detail event loop mempercepat debug masalah urutan async.
+
+## Lanjut Setelah Ini
+
+- [04-error-handling-async.md](./04-error-handling-async.md)

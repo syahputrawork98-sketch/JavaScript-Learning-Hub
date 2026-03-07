@@ -1,0 +1,39 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Cancellation Timeout Retry Map</title>
+  <desc id="desc">Flow map for cancellation, timeout, and retry strategy in async operations.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fffdf6"/><stop offset="100%" stop-color="#eef6ff"/></linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1f2937"/><stop offset="100%" stop-color="#0f766e"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.15"/></filter>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0,10 3,0 6" fill="#1f2937"/></marker>
+    <style>
+      .h{font:700 30px 'Segoe UI',sans-serif;fill:#fff}.s{font:500 16px 'Segoe UI',sans-serif;fill:#dbeafe}
+      .t{font:700 19px 'Segoe UI',sans-serif;fill:#0f172a}.p{font:500 14px 'Segoe UI',sans-serif;fill:#334155}
+      .card{fill:#fff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#s)}
+      .ok{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}.warn{fill:#fee2e2;stroke:#991b1b;stroke-width:2;rx:12}
+      .flow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <rect x="48" y="32" width="1184" height="108" rx="16" fill="url(#hdr)" filter="url(#s)"/>
+  <text class="h" x="82" y="76">Cancellation + Timeout + Retry ⏱️</text>
+  <text class="s" x="82" y="104">Kontrol lifecycle async agar request usang, lambat, atau transien tidak merusak flow.</text>
+
+  <rect class="card" x="80" y="190" width="340" height="150"/><text class="t" x="104" y="228">1) Start Request 🚀</text><text class="p" x="104" y="254">Kirim operasi async + simpan context.</text><text class="p" x="104" y="278">Tambahkan traceId/attempt metadata.</text>
+  <rect class="card" x="470" y="190" width="340" height="150"/><text class="t" x="494" y="228">2) Apply Timeout ⏳</text><text class="p" x="494" y="254">Batasi durasi dengan Promise.race.</text><text class="p" x="494" y="278">Jika lewat batas -> timeout error.</text>
+  <rect class="card" x="860" y="190" width="340" height="150"/><text class="t" x="884" y="228">3) Classify Error 🧪</text><text class="p" x="884" y="254">Transien? boleh retry.</text><text class="p" x="884" y="278">Permanen? langsung fail.</text>
+
+  <rect class="ok" x="80" y="390" width="540" height="170"/><text class="t" x="104" y="430">Retry Branch 🔁</text><text class="p" x="104" y="456">- attempt + 1</text><text class="p" x="104" y="480">- delay backoff</text><text class="p" x="104" y="504">- retry sampai max</text><text class="p" x="104" y="528">- jika sukses: return result</text>
+  <rect class="warn" x="660" y="390" width="540" height="170"/><text class="t" x="684" y="430">Fail Branch ❌</text><text class="p" x="684" y="456">- timeout melebihi batas</text><text class="p" x="684" y="480">- cancellation karena context berubah</text><text class="p" x="684" y="504">- error permanen (validasi/auth)</text><text class="p" x="684" y="528">- return fallback atau throw</text>
+
+  <rect class="card" x="80" y="610" width="1120" height="190"/><text class="t" x="104" y="648">Checklist Keputusan 🧭</text>
+  <text class="p" x="104" y="674">1. Apakah request masih relevan? Jika tidak, cancel.</text>
+  <text class="p" x="104" y="698">2. Apakah waktu tunggu melewati SLA? Jika ya, timeout.</text>
+  <text class="p" x="104" y="722">3. Apakah error transien? Jika ya, retry terbatas.</text>
+  <text class="p" x="104" y="746">4. Jika semua gagal, fallback terukur atau propagate error.</text>
+
+  <path class="flow" d="M420 264 L470 264"/><path class="flow" d="M810 264 L860 264"/>
+  <path class="flow" d="M1030 340 L1030 390"/><path class="flow" d="M250 340 L250 390"/>
+  <path class="flow" d="M620 474 L660 474"/><path class="flow" d="M930 560 L930 610"/>
+</svg>
+

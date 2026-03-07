@@ -1,120 +1,115 @@
 # Concurrency Patterns
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/concurrency-patterns-map.svg`](../assets/concurrency-patterns-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`5` pada Track 03.
-- Prasyarat langsung: `04-error-handling-async.md`.
-- Lanjut setelah ini: `06-cancellation-timeout-dan-retry-strategy.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- memilih combinator Promise yang tepat sesuai requirement
+- membedakan fail-fast, partial success, dan first winner
+- merancang orchestration async yang efisien dan terkontrol
 
-Prasyarat topik:
-- Sudah paham Promise dasar dan `async/await`.
-- Sudah paham error handling async.
+## Konsep Utama
 
-Referensi remedial:
-- [`02-promise-async-await.md`](./02-promise-async-await.md)
-- [`04-error-handling-async.md`](./04-error-handling-async.md)
+- `Promise.all`
+- `Promise.allSettled`
+- `Promise.race`
+- `Promise.any`
+- sequential vs parallel orchestration
 
-Kamus mini topik:
-- `[baru]` Concurrency: beberapa pekerjaan berjalan tumpang tindih dalam waktu.
-- `[baru]` Fail-fast: proses gabungan gagal cepat saat ada satu kegagalan.
-- `[baru]` Partial success: sebagian task sukses, sebagian gagal.
-- `[baru]` First winner: hasil pertama yang selesai dipakai.
-- `[ulang]` Parallel async: task independen dijalankan bersamaan.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Concurrency patterns membantu memilih API Promise yang tepat untuk kebutuhan alur: semua harus sukses, boleh sebagian gagal, atau cukup hasil pertama.
+Concurrency bukan sekadar membuat semua request paralel. Kuncinya memilih perilaku hasil yang benar:
+- `all`: semua harus sukses
+- `allSettled`: kumpulkan semua hasil termasuk gagal
+- `race`: ambil yang settle pertama (resolve/reject)
+- `any`: ambil resolve pertama, gagal jika semua reject
 
-## 1) Big Picture
-Keputusan concurrency mempengaruhi performa, keandalan, dan pengalaman pengguna. Topik ini membedah kapan pakai `Promise.all`, `Promise.allSettled`, `Promise.race`, dan `Promise.any` agar flow async tidak hanya cepat, tapi juga tepat secara perilaku error.
+Pemilihan combinator harus mengikuti kebutuhan bisnis, bukan preferensi gaya kode.
 
-## 2) Small Picture
-1. `Promise.all`: butuh semua sukses, gagal cepat jika satu reject.
-2. `Promise.allSettled`: ingin tahu hasil semua task tanpa fail-fast.
-3. `Promise.race`: butuh hasil pertama settle (resolve/reject).
-4. `Promise.any`: butuh resolve pertama; reject hanya jika semua gagal.
-5. Pilih berdasarkan requirement bisnis, bukan preferensi syntax.
+## Diagram Konsep (Opsional)
 
-## 3) Wireframe
-```text
-Alur utama:
-[punya banyak async task] -> [pilih combinator tepat] -> [hasil sesuai requirement]
+![Concurrency Patterns Map](../assets/concurrency-patterns-map.svg)
 
-Alur jalan:
-[task independen] -> [run parallel] -> [waktu total lebih efisien]
+## Contoh Kode
 
-Alur error:
-[pakai combinator yang salah] -> [perilaku fail/fallback tidak sesuai] -> [bug bisnis]
+### Contoh 1 - `Promise.all` (Fail-fast)
+
+```javascript
+const p1 = Promise.resolve("A")
+const p2 = Promise.reject(new Error("B failed"))
+
+Promise.all([p1, p2])
+  .then((result) => console.log(result))
+  .catch((err) => console.log("catch:", err.message))
 ```
 
-## 4) Analogi
-Pesan makanan dari 4 restoran:
-- `all`: semua pesanan wajib datang.
-- `allSettled`: catat mana yang datang/gagal, tetap lanjut.
-- `race`: ambil yang paling duluan (apa pun hasilnya).
-- `any`: ambil yang pertama berhasil; yang gagal diabaikan dulu.
+### Contoh 2 - `Promise.allSettled` (Partial Success)
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: dashboard multi-endpoint, fallback provider, timeout race, batch processing.
-- Alasan pakai: menyelaraskan performa dan toleransi error dengan kebutuhan produk.
-- Kapan tidak dipakai: jangan memaksa parallel jika ada dependency data antar langkah.
-
-## 6) Contoh Sederhana
-```js
-const p1 = Promise.resolve('A');
-const p2 = Promise.reject(new Error('B fail'));
-const p3 = Promise.resolve('C');
-
-Promise.allSettled([p1, p2, p3]).then((result) => {
-  console.log(result.map((x) => x.status));
-});
+```javascript
+Promise.allSettled([
+  Promise.resolve("ok"),
+  Promise.reject(new Error("fail"))
+]).then((result) => {
+  console.log(result.map((x) => x.status))
+})
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. Tiga promise dijalankan bersamaan.
-2. Satu promise reject, dua resolve.
-3. `allSettled` tetap menunggu semuanya selesai.
-4. Hasil berisi status tiap item (`fulfilled`/`rejected`).
-5. Cocok untuk skenario partial success.
+### Contoh 3 - Mini Kasus: Fallback Provider dengan `Promise.any`
 
-## 7) Jebakan Umum
-- Memakai `Promise.all` padahal requirement menerima partial success.
-- Mengira `Promise.race` selalu memberi resolve pertama (padahal bisa reject).
-- Lupa menangani kasus semua gagal pada `Promise.any`.
-- Menjalankan parallel request terlalu banyak tanpa kontrol beban.
+```javascript
+const primary = Promise.reject(new Error("provider-1 down"))
+const secondary = Promise.resolve("provider-2 result")
 
-## 8) Prediksi Output Drill
-```js
-const a = Promise.reject('x');
-const b = Promise.resolve('y');
-
-Promise.any([a, b])
-  .then((v) => console.log('ok', v))
-  .catch(() => console.log('all failed'));
+Promise.any([primary, secondary])
+  .then((value) => console.log("winner:", value))
+  .catch(() => console.log("all providers failed"))
 ```
 
-### Kunci Jawaban Drill
-- Output: `ok y`
-- Alasan: `Promise.any` mengambil resolve pertama; reject dari `a` tidak langsung menggagalkan hasil.
+## Analogi Singkat (Opsional)
 
-## 9) Debug Story
-Kasus: halaman dashboard gagal total saat satu widget API error.
-Langkah debug:
-1. Cek apakah orchestration memakai `Promise.all`.
-2. Jika widget boleh gagal parsial, ubah ke `Promise.allSettled`.
-3. Map hasil sukses ke UI, tampilkan fallback pada widget gagal.
-4. Log kegagalan per-widget untuk observability.
+Memesan dari beberapa vendor: kadang semua vendor wajib berhasil, kadang cukup satu yang berhasil paling cepat.
 
-## 10) Checkpoint
-- [ ] Bisa memilih combinator Promise sesuai kebutuhan.
-- [ ] Bisa menjelaskan beda fail-fast vs partial success.
-- [ ] Bisa membaca dampak performa dari sequential vs parallel orchestration.
+## Eksperimen Kode
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `02-promise-async-await.md`.
-2. Ulangi `04-error-handling-async.md`.
-3. Uji empat combinator Promise dengan input resolve/reject campuran.
+Ubah kombinasi resolve/reject di tiap promise dan cek perbedaan hasil antar combinator.
+
+```javascript
+const jobs = [
+  Promise.resolve("X"),
+  Promise.reject(new Error("Y")),
+  Promise.resolve("Z")
+]
+
+Promise.race(jobs)
+  .then((v) => console.log("race:", v))
+  .catch((e) => console.log("race err:", e.message))
+```
+
+Pertanyaan refleksi:
+1. Kapan `allSettled` lebih tepat daripada `all`?
+2. Apa risiko memakai `race` tanpa guard?
+
+## Common Misconception (Opsional)
+
+- `Promise.race` tidak selalu sukses duluan; bisa juga reject duluan.
+- `Promise.any` tidak sama dengan `race`.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: combinator Promise untuk orkestrasi umum.
+- Tidak dibahas di topik ini: bounded concurrency implementation detail lanjutan.
+
+## Latihan
+
+1. Buat contoh `all`, `allSettled`, `race`, `any` dengan input campuran.
+2. Tulis prediksi output masing-masing.
+3. Tentukan combinator paling tepat untuk skenario dashboard multi-widget.
+
+## Ringkasan
+
+- Pilihan combinator menentukan perilaku sukses/gagal flow async.
+- `all` fail-fast, `allSettled` cocok untuk partial success.
+- Gunakan combinator sesuai kebutuhan bisnis dan toleransi error.
+
+## Lanjut Setelah Ini
+
+- [06-cancellation-timeout-dan-retry-strategy.md](./06-cancellation-timeout-dan-retry-strategy.md)

@@ -1,0 +1,32 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Async Iteration Flow Map</title>
+  <desc id="desc">Flow map of async iterable consumption with for-await-of and backpressure points.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fffef8"/><stop offset="100%" stop-color="#eef7ff"/></linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.15"/></filter>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0,10 3,0 6" fill="#1f2937"/></marker>
+    <style>.h{font:700 30px 'Segoe UI',sans-serif;fill:#fff}.s{font:500 16px 'Segoe UI',sans-serif;fill:#dbeafe}.t{font:700 19px 'Segoe UI',sans-serif;fill:#0f172a}.p{font:500 14px 'Segoe UI',sans-serif;fill:#334155}.card{fill:#fff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#s)}.ok{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}.warn{fill:#fee2e2;stroke:#991b1b;stroke-width:2;rx:12}.flow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+  </defs>
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <rect x="48" y="32" width="1184" height="108" rx="16" fill="url(#hdr)" filter="url(#s)"/>
+  <text class="h" x="82" y="76">Async Iteration + for-await-of 🔄</text>
+  <text class="s" x="82" y="104">Konsumsi data bertahap tanpa menunggu semua item tersedia sekaligus.</text>
+
+  <rect class="card" x="80" y="190" width="360" height="170"/><text class="t" x="104" y="228">Producer (Async Iterable) 📦</text><text class="p" x="104" y="254">yield item sebagai Promise/value</text><text class="p" x="104" y="278">item tersedia bertahap</text><text class="p" x="104" y="302">cocok untuk stream/paging</text>
+  <rect class="card" x="470" y="190" width="360" height="170"/><text class="t" x="494" y="228">Consumer Loop 🧵</text><text class="p" x="494" y="254">for await (const item of source)</text><text class="p" x="494" y="278">await item lalu proses</text><text class="p" x="494" y="302">lanjut ke item berikutnya</text>
+  <rect class="card" x="860" y="190" width="340" height="170"/><text class="t" x="884" y="228">Result 🎯</text><text class="p" x="884" y="254">output incremental</text><text class="p" x="884" y="278">memori lebih stabil</text><text class="p" x="884" y="302">kontrol error granular</text>
+
+  <rect class="ok" x="80" y="410" width="560" height="170"/><text class="t" x="104" y="448">When to Use</text><text class="p" x="104" y="474">- data datang bertahap</text><text class="p" x="104" y="498">- butuh proses per item</text><text class="p" x="104" y="522">- tidak ingin buffer semua data</text>
+  <rect class="warn" x="680" y="410" width="520" height="170"/><text class="t" x="704" y="448">Backpressure Risk ⚠️</text><text class="p" x="704" y="474">consumer terlalu lambat -> antrean menumpuk</text><text class="p" x="704" y="498">solusi: batching, concurrency kecil, cancel</text><text class="p" x="704" y="522">monitor throughput per interval</text>
+
+  <rect class="card" x="80" y="620" width="1120" height="180"/><text class="t" x="104" y="658">Perbandingan Cepat</text>
+  <text class="p" x="104" y="684">Promise.all: cocok saat semua task independen dan butuh hasil sekaligus.</text>
+  <text class="p" x="104" y="708">for-await-of: cocok saat data bertahap dan perlu diproses incremental.</text>
+  <text class="p" x="104" y="732">Pilih model berdasarkan bentuk data dan kebutuhan memori/latency.</text>
+
+  <path class="flow" d="M440 276 L470 276"/><path class="flow" d="M830 276 L860 276"/>
+  <path class="flow" d="M260 360 L260 410"/><path class="flow" d="M960 360 L960 410"/>
+  <path class="flow" d="M640 494 L680 494"/><path class="flow" d="M960 580 L960 620"/>
+</svg>
+

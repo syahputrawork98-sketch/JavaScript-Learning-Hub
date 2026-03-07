@@ -1,125 +1,127 @@
 # Error Handling Async
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/error-handling-async-map.svg`](../assets/error-handling-async-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`4` pada Track 03.
-- Prasyarat langsung: `03-event-loop-detail.md`.
-- Lanjut setelah ini: `05-concurrency-patterns.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menangani rejection dengan `try/catch` dan `.catch()` secara konsisten
+- membedakan jalur fallback vs jalur rethrow
+- mencegah unhandled rejection pada flow async
 
-Prasyarat topik:
-- Sudah paham Promise, `async/await`, dan perilaku event loop dasar.
-- Sudah paham beda synchronous error vs asynchronous rejection.
+## Konsep Utama
 
-Referensi remedial:
-- [`02-promise-async-await.md`](./02-promise-async-await.md)
-- [`03-event-loop-detail.md`](./03-event-loop-detail.md)
+- Promise rejection
+- error propagation
+- `try/catch` pada `async/await`
+- `.catch()` pada promise chain
+- fallback strategy
 
-Kamus mini topik:
-- `[baru]` Rejection: kondisi Promise gagal.
-- `[baru]` Propagation: aliran error ke level pemanggil di atasnya.
-- `[baru]` Unhandled rejection: rejection yang tidak ditangani `.catch` atau `try/catch`.
-- `[baru]` Fail-safe fallback: nilai/aksi cadangan saat proses gagal.
-- `[ulang]` `try/catch`: mekanisme menangkap error saat `await`.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Error handling async menentukan apakah aplikasi tetap stabil saat request gagal, timeout, atau dependency eksternal bermasalah. Topik ini fokus ke pola penanganan error yang jelas, konsisten, dan bisa diprediksi.
+Error async muncul sebagai rejection, bukan selalu exception sinkron biasa.
 
-## 1) Big Picture
-Mayoritas bug async production bukan di syntax, tetapi di jalur gagal yang tidak tertangani. Topik ini membahas strategi error handling dari level fungsi kecil sampai orchestration antar fungsi async agar error tidak hilang diam-diam. Setelah paham, kamu bisa menentukan kapan melempar ulang error, kapan memberi fallback, dan kapan menghentikan flow.
+Prinsip praktis:
+- pakai `try/catch` jika memakai `await`
+- pakai `.catch()` jika memakai chaining
+- jika tidak bisa recovery di level ini, rethrow ke caller
+- jangan swallow error tanpa logging/context
 
-## 2) Small Picture
-1. Gunakan `try/catch` pada fungsi `async` saat memakai `await`.
-2. Gunakan `.catch(...)` pada chaining Promise jika tidak memakai `await`.
-3. Jangan menelan error tanpa logging atau context.
-4. Jika tidak bisa recovery di level sekarang, rethrow agar caller bisa memutuskan.
-5. Pastikan ada handler global untuk unhandled rejection sebagai safety net.
+Dengan pola ini, alur gagal tetap terkontrol dan UI tidak menggantung.
 
-## 3) Wireframe
-```text
-Alur utama:
-[async operation] -> [resolve/reject] -> [handle success/error]
+## Diagram Konsep (Opsional)
 
-Alur jalan:
-[error tertangkap] -> [log + fallback / rethrow] -> [alur tetap terkontrol]
+![Error Handling Async Map](../assets/error-handling-async-map.svg)
 
-Alur error:
-[rejection tanpa handler] -> [unhandled rejection] -> [state aplikasi tidak terduga]
-```
+## Contoh Kode
 
-## 4) Analogi
-Bayangkan layanan pelanggan:
-- Error handling lokal = petugas front desk menyelesaikan masalah sederhana.
-- Rethrow/escalate = kasus dinaikkan ke supervisor.
-- Handler global = pusat komplain terakhir jika tidak ada petugas yang menangani.
+### Contoh 1 - `try/catch` dengan `await`
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: API call, retry flow, fallback UI/data, logging error.
-- Alasan pakai: mencegah crash diam-diam dan mempermudah diagnosis saat gagal.
-- Kapan tidak dipakai: jangan over-catch jika error seharusnya dipropagasikan ke level atas.
-
-## 6) Contoh Sederhana
-```js
-async function loadUserProfile(id) {
+```javascript
+async function loadUser(id) {
   try {
-    const user = await fetchUser(id);
-    return { ok: true, data: user };
+    const user = await fetchUser(id)
+    return { ok: true, data: user }
   } catch (err) {
-    console.error('loadUserProfile failed:', err.message);
-    return { ok: false, data: null, reason: 'PROFILE_UNAVAILABLE' };
+    return { ok: false, reason: err.message }
   }
 }
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `fetchUser(id)` bisa resolve atau reject.
-2. Jika resolve, data dikembalikan normal.
-3. Jika reject, `catch` menangkap error.
-4. Fungsi mengembalikan fallback object agar caller tetap punya bentuk data konsisten.
-5. Caller tidak perlu crash hanya karena satu request gagal.
+### Contoh 2 - Promise Chain dengan `.catch()`
 
-## 7) Jebakan Umum
-- Menangkap error tapi tidak melakukan apa-apa (silent failure).
-- Mengembalikan fallback tanpa mencatat sumber error.
-- Mencampur `await` dan `.then/.catch` tanpa pola jelas.
-- Mengira `try/catch` luar otomatis menangkap semua error async yang tidak di-`await`.
+```javascript
+fetchData()
+  .then((data) => transform(data))
+  .then((result) => console.log(result))
+  .catch((err) => {
+    console.error("flow failed:", err.message)
+  })
+```
 
-## 8) Prediksi Output Drill
-```js
+### Contoh 3 - Mini Kasus: Fallback + Rethrow
+
+```javascript
+async function getDashboard() {
+  try {
+    return await fetchDashboard()
+  } catch (err) {
+    console.warn("primary failed, fallback to cache")
+
+    const cached = await readDashboardCache()
+    if (cached) return cached
+
+    throw err
+  }
+}
+```
+
+## Analogi Singkat (Opsional)
+
+Error handling seperti prosedur eskalasi layanan: masalah kecil diselesaikan di frontdesk, masalah besar diteruskan ke level lebih tinggi.
+
+## Eksperimen Kode
+
+Ubah salah satu promise menjadi reject dan amati jalur penanganannya.
+
+```javascript
 async function run() {
   try {
-    await Promise.reject(new Error('boom'));
-    console.log('after await');
+    await Promise.resolve("ok")
+    await Promise.reject(new Error("boom"))
+    console.log("after")
   } catch (err) {
-    console.log('caught', err.message);
+    console.log("caught:", err.message)
   }
 }
 
-run();
+run()
 ```
 
-### Kunci Jawaban Drill
-- Output: `caught boom`
-- Alasan: rejection pada `await` dilempar sebagai exception dan ditangkap oleh `catch`.
+Pertanyaan refleksi:
+1. Kapan sebaiknya fallback dipakai?
+2. Kapan error harus di-rethrow ke caller?
 
-## 9) Debug Story
-Kasus: API gagal tapi UI tetap menampilkan loading tanpa henti.
-Langkah debug:
-1. Cek apakah jalur `catch` menutup loading state.
-2. Cek apakah error di-rethrow tanpa handler di caller.
-3. Tambahkan logging terstruktur untuk request id + endpoint + message.
-4. Tambahkan fallback state supaya UI tetap responsif saat gagal.
+## Common Misconception (Opsional)
 
-## 10) Checkpoint
-- [ ] Bisa membedakan kapan pakai `try/catch` vs `.catch`.
-- [ ] Bisa menjelaskan risiko unhandled rejection.
-- [ ] Bisa merancang fallback sederhana tanpa menutupi akar masalah.
+- Menggunakan `try/catch` luar tidak otomatis menangkap promise yang tidak di-`await`.
+- Menangkap error tanpa logging bukan penanganan yang aman.
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `02-promise-async-await.md`.
-2. Jalankan contoh error kecil lalu cek jalur `catch`-nya.
-3. Latih pola: log -> fallback atau rethrow (pilih salah satu dengan alasan jelas).
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: strategi penanganan error async untuk aplikasi umum.
+- Tidak dibahas di topik ini: observability stack trace lintas service terdistribusi.
+
+## Latihan
+
+1. Buat fungsi async yang kadang reject.
+2. Tangani reject dengan fallback value.
+3. Tambahkan satu versi yang rethrow agar caller menangani error.
+
+## Ringkasan
+
+- Error async harus ditangani eksplisit lewat `catch`/`try-catch`.
+- Pilih fallback atau rethrow berdasarkan tanggung jawab layer.
+- Tujuan utama: mencegah unhandled rejection dan state aplikasi yang tidak jelas.
+
+## Lanjut Setelah Ini
+
+- [05-concurrency-patterns.md](./05-concurrency-patterns.md)

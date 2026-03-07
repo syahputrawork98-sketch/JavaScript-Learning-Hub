@@ -1,132 +1,124 @@
-ï»¿# Promise, Async, dan Await
+# Promise, Async, dan Await
 
-## 0) Prasyarat dan Kamus Mini
-Rujukan cepat:
-- Dasar umum: [`../PRASYARAT-DAN-KAMUS-MINI.md`](../PRASYARAT-DAN-KAMUS-MINI.md)
-- Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)
-- Visual map: [`../assets/sequential-vs-parallel-map.svg`](../assets/sequential-vs-parallel-map.svg)
+## Tujuan Pembelajaran
 
-Alur topik:
-- Topik ini ada di urutan ke-`2` pada Track 03.
-- Prasyarat langsung: `01-async-javascript-dasar.md`.
-- Lanjut setelah ini: `03-event-loop-detail.md`.
+Setelah mempelajari topik ini, pembaca dapat:
+- menggunakan Promise chaining dan `async/await` dengan benar
+- memilih sequential vs parallel execution untuk task async
+- memahami perilaku fail-fast pada `Promise.all`
 
-Prasyarat topik:
-- Sudah paham event loop dasar, task queue, dan microtask queue.
-- Sudah paham Promise dasar (`then/catch`) secara umum.
+## Konsep Utama
 
-Referensi remedial:
-- [`01-async-javascript-dasar.md`](./01-async-javascript-dasar.md)
-- [`../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md`](../../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md)
+- Promise lifecycle (resolve/reject)
+- Promise chaining (`then/catch`)
+- `async` / `await`
+- sequential vs parallel await
+- fail-fast behavior
 
-Kamus mini topik:
-- `[baru]` Promise chaining: menyusun beberapa operasi async berurutan.
-- `[baru]` Sequential await: menunggu proses satu per satu.
-- `[baru]` Parallel await: menjalankan banyak proses bersamaan lalu tunggu semua.
-- `[baru]` Fail-fast: satu promise gagal membuat keseluruhan alur gagal (contoh `Promise.all`).
-- `[ulang]` Microtask queue: antrean prioritas untuk callback Promise.
+## Penjelasan
 
-## Pengantar Singkat Topik
-Promise dan `async/await` adalah fondasi menulis alur asynchronous yang rapi, terbaca, dan mudah dirawat. Topik ini menekankan kapan perlu eksekusi berurutan dan kapan harus paralel untuk efisiensi.
+Promise memberi kontrak hasil async: sukses (`resolve`) atau gagal (`reject`).
 
-## 1) Big Picture
-Alur asynchronous mudah jadi lambat atau rapuh jika semua operasi ditulis berantai tanpa strategi sequencing yang tepat. Topik ini menjelaskan cara menggabungkan Promise dan `async/await` agar alur tetap terbaca, error handling jelas, dan eksekusi bisa dioptimalkan (sequential vs parallel). Setelah paham, kamu bisa memutuskan pola orkestrasi async berdasarkan dependency nyata, bukan sekadar kebiasaan penulisan.
+`async/await` membuat alur async lebih linear dan mudah dibaca. Namun performa bisa turun jika semua `await` ditulis berurutan padahal task independen.
 
-## 2) Small Picture
-1. Promise memberi bentuk standar untuk hasil async: sukses atau gagal.
-2. `then/catch` cocok untuk chaining berbasis callback fungsional.
-3. `async/await` membuat kode async terlihat seperti alur sync.
-4. Gunakan `await` berurutan hanya jika memang ada dependency antar langkah.
-5. Untuk tugas independen, jalankan paralel (misalnya `Promise.all`) agar lebih efisien.
+Aturan praktis:
+- pakai sequential jika ada dependency antar langkah
+- pakai parallel (`Promise.all`) jika task saling independen
 
-## 3) Wireframe
-```text
-Alur utama:
-[mulai async task] -> [Promise resolve/reject] -> [hasil ditangani]
+## Diagram Konsep (Opsional)
 
-Alur jalan:
-[task independen] -> [jalan paralel dengan Promise.all] -> [hasil gabungan]
+![Sequential vs Parallel](../assets/sequential-vs-parallel-map.svg)
 
-Alur error:
-[satu promise reject] -> [fail-fast / throw] -> [masuk catch / fallback]
+## Contoh Kode
+
+### Contoh 1 - Promise Chaining
+
+```javascript
+function getValue() {
+  return Promise.resolve(10)
+}
+
+getValue()
+  .then((n) => n * 2)
+  .then((n) => console.log(n)) // 20
+  .catch((err) => console.error(err))
 ```
 
-## 4) Analogi
-Bayangkan kamu mengurus 3 dokumen:
-- Jika dokumen saling bergantung, kamu urus satu-satu (sequential).
-- Jika tidak bergantung, kamu kirim semua sekaligus (parallel).
-`async/await` membantu kamu menulis langkah-langkah itu dengan jelas.
+### Contoh 2 - Sequential vs Parallel
 
-## 5) Dipakai untuk Apa + Alasan
-- Dipakai untuk: API calls, file/network operations, orchestration async flow.
-- Alasan pakai: alur lebih rapi, error handling lebih eksplisit, dan performa bisa dioptimalkan (parallel).
-- Kapan tidak dipakai: hindari `await` berantai jika pekerjaan sebenarnya bisa paralel.
-
-## 6) Contoh Sederhana
-```js
+```javascript
 function wait(ms, label) {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(label), ms);
-  });
+  return new Promise((resolve) => setTimeout(() => resolve(label), ms))
 }
 
 async function run() {
-  const a = await wait(100, 'A');
-  const b = await wait(100, 'B');
-  console.log('Sequential:', a, b);
+  const a = await wait(100, "A")
+  const b = await wait(100, "B")
+  console.log("sequential:", a, b)
 
-  const [x, y] = await Promise.all([
-    wait(100, 'X'),
-    wait(100, 'Y'),
-  ]);
-  console.log('Parallel:', x, y);
+  const [x, y] = await Promise.all([wait(100, "X"), wait(100, "Y")])
+  console.log("parallel:", x, y)
 }
 
-run();
+run()
 ```
 
-### Bedah Output (Langkah Demi Langkah)
-1. `await wait(100, 'A')` menunggu selesai dulu, baru lanjut ke `B`.
-2. Karena `A` dan `B` berurutan, total waktu kira-kira dua kali lebih lama.
-3. Pada `Promise.all`, `X` dan `Y` berjalan bersamaan.
-4. `await Promise.all(...)` menunggu keduanya selesai sekaligus.
-5. Untuk kerja independen, pola parallel lebih efisien dari sequential.
+### Contoh 3 - Mini Kasus: Fail-fast Promise.all
 
-## 7) Jebakan Umum
-- Menulis banyak `await` berurutan padahal task bisa paralel.
-- Lupa `try/catch` di fungsi `async` sehingga error tidak tertangani.
-- Menganggap `Promise.all` aman untuk partial success (padahal fail-fast).
-- Mencampur style `then` dan `await` tanpa alasan jelas sehingga alur sulit dibaca.
+```javascript
+const p1 = Promise.resolve("ok-1")
+const p2 = Promise.reject(new Error("fail-2"))
+const p3 = Promise.resolve("ok-3")
 
-## 8) Prediksi Output Drill
-```js
-const p1 = Promise.resolve('ok-1');
-const p2 = Promise.reject(new Error('fail-2'));
-
-Promise.all([p1, p2])
-  .then((result) => console.log('then', result))
-  .catch((err) => console.log('catch', err.message));
+Promise.all([p1, p2, p3])
+  .then((values) => console.log(values))
+  .catch((err) => console.log("caught:", err.message))
 ```
 
-### Kunci Jawaban Drill
-- Output: `catch fail-2`
-- Alasan: `Promise.all` fail-fast, satu reject langsung lompat ke `catch`.
+## Analogi Singkat (Opsional)
 
-## 9) Debug Story
-Kasus: loading data dashboard lambat padahal endpoint tidak saling bergantung.
-Langkah debug:
-1. Cari apakah tiap request ditulis pakai `await` berurutan.
-2. Ganti jadi parallel dengan `Promise.all` untuk request independen.
-3. Tambahkan `try/catch` dan fallback UI agar kegagalan satu request tetap terkontrol.
+Jika kamu mengurus dokumen berantai, kamu harus tunggu dokumen sebelumnya selesai (sequential). Jika dokumen tidak saling bergantung, kirim sekaligus lebih efisien (parallel).
 
-## 10) Checkpoint
-- [ ] Bisa memilih kapan pakai sequential vs parallel await.
-- [ ] Bisa menjelaskan perilaku fail-fast pada `Promise.all`.
-- [ ] Bisa menulis `async` flow dengan error handling yang jelas.
+## Eksperimen Kode
 
-## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi `01-async-javascript-dasar.md`.
-2. Coba ubah contoh sequential jadi parallel, lalu bandingkan waktu eksekusi.
-3. Latih skenario reject satu promise dan lihat jalur `catch`.
+Ubah `Promise.all` menjadi `Promise.allSettled` dan bandingkan hasilnya.
 
+```javascript
+const jobs = [
+  Promise.resolve("A"),
+  Promise.reject(new Error("B failed")),
+  Promise.resolve("C")
+]
 
+Promise.allSettled(jobs).then((result) => console.log(result.map((x) => x.status)))
+```
+
+Pertanyaan refleksi:
+1. Kapan `Promise.all` tepat dipakai?
+2. Kapan `Promise.allSettled` lebih sesuai kebutuhan bisnis?
+
+## Common Misconception (Opsional)
+
+- `await` bukan “membuat async jadi sync”, tapi menunggu Promise dalam context async function.
+- Menulis semua `await` berurutan bukan selalu benar dari sisi performa.
+
+## Cakupan dan Batasan
+
+- Dibahas di topik ini: orchestration async dasar berbasis Promise/await.
+- Tidak dibahas di topik ini: cancellation/retry strategy (dibahas topik 06).
+
+## Latihan
+
+1. Tulis dua fungsi async independen lalu jalankan sequential dan parallel.
+2. Catat perbedaan durasi total.
+3. Tambahkan satu task reject dan observasi perilaku `Promise.all`.
+
+## Ringkasan
+
+- Promise dan `async/await` adalah fondasi utama flow async modern.
+- Pilihan sequential vs parallel menentukan efisiensi alur.
+- `Promise.all` fail-fast; pahami konsekuensinya sebelum dipakai.
+
+## Lanjut Setelah Ini
+
+- [03-event-loop-detail.md](./03-event-loop-detail.md)

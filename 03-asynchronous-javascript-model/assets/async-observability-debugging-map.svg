@@ -1,0 +1,30 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Async Observability and Debugging Map</title>
+  <desc id="desc">Map for async observability strategy: structured logs, correlation ID, and debugging steps.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fffef8"/><stop offset="100%" stop-color="#eef7ff"/></linearGradient>
+    <linearGradient id="hdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.15"/></filter>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0,10 3,0 6" fill="#1f2937"/></marker>
+    <style>.h{font:700 30px 'Segoe UI',sans-serif;fill:#fff}.s{font:500 16px 'Segoe UI',sans-serif;fill:#dbeafe}.t{font:700 19px 'Segoe UI',sans-serif;fill:#0f172a}.p{font:500 14px 'Segoe UI',sans-serif;fill:#334155}.card{fill:#fff;stroke:#1e293b;stroke-width:2;rx:14;filter:url(#s)}.ok{fill:#dcfce7;stroke:#166534;stroke-width:2;rx:12}.warn{fill:#fee2e2;stroke:#991b1b;stroke-width:2;rx:12}.flow{stroke:#1f2937;stroke-width:3;fill:none;marker-end:url(#a)}</style>
+  </defs>
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <rect x="48" y="32" width="1184" height="108" rx="16" fill="url(#hdr)" filter="url(#s)"/>
+  <text class="h" x="82" y="76">Async Observability + Debugging 🔎</text>
+  <text class="s" x="82" y="104">Trace flow async dari start hingga fail/success dengan correlation ID.</text>
+
+  <rect class="card" x="80" y="190" width="350" height="170"/><text class="t" x="104" y="228">Instrument 🛠️</text><text class="p" x="104" y="254">- traceId/requestId</text><text class="p" x="104" y="278">- structured logging JSON</text><text class="p" x="104" y="302">- event names konsisten</text>
+  <rect class="card" x="470" y="190" width="350" height="170"/><text class="t" x="494" y="228">Trace Points 📍</text><text class="p" x="494" y="254">start -> attempt -> retry -> success/fail</text><text class="p" x="494" y="278">sertakan elapsed time</text><text class="p" x="494" y="302">sertakan context endpoint/use-case</text>
+  <rect class="card" x="860" y="190" width="340" height="170"/><text class="t" x="884" y="228">Debug Outcome ✅</text><text class="p" x="884" y="254">akar masalah lebih cepat ditemukan</text><text class="p" x="884" y="278">race condition lebih terlihat</text><text class="p" x="884" y="302">incident lebih reproducible</text>
+
+  <rect class="ok" x="80" y="410" width="560" height="170"/><text class="t" x="104" y="448">Good Log Fields</text><text class="p" x="104" y="474">traceId, event, attempt, status</text><text class="p" x="104" y="498">elapsedMs, endpoint, errorMessage</text><text class="p" x="104" y="522">service/module name</text>
+  <rect class="warn" x="680" y="410" width="520" height="170"/><text class="t" x="704" y="448">Bad Patterns ⚠️</text><text class="p" x="704" y="474">- log acak tanpa format</text><text class="p" x="704" y="498">- tidak ada correlation id</text><text class="p" x="704" y="522">- error ditelan tanpa context</text>
+
+  <rect class="card" x="80" y="620" width="1120" height="180"/><text class="t" x="104" y="658">Debugging Playbook 📘</text>
+  <text class="p" x="104" y="684">1. Filter log berdasarkan traceId.</text>
+  <text class="p" x="104" y="708">2. Ikuti urutan event dari start ke fail/success.</text>
+  <text class="p" x="104" y="732">3. Cocokkan timing retry/timeout/cancel untuk isolasi akar masalah.</text>
+
+  <path class="flow" d="M430 274 L470 274"/><path class="flow" d="M820 274 L860 274"/><path class="flow" d="M260 360 L260 410"/><path class="flow" d="M940 360 L940 410"/><path class="flow" d="M640 494 L680 494"/><path class="flow" d="M940 580 L940 620"/>
+</svg>
+
