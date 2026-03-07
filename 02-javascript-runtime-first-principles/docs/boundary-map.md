@@ -5,6 +5,7 @@ Dokumen ini menetapkan batas konsep Track 02 terhadap track lain agar tidak over
 ## In Track 02 (Runtime First Principles)
 - Values, types, coercion (sebagai fondasi runtime reasoning).
 - Scope, hoisting, closure.
+- Lexical environment dan environment record (high-level reasoning).
 - `this` binding.
 - Execution context lifecycle.
 - Call stack sebagai model eksekusi sinkron.
