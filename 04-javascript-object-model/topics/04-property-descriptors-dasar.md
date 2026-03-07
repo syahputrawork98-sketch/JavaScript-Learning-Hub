@@ -21,7 +21,7 @@ Rujukan cepat:
 - Visual map: [`../assets/property-descriptor-map.svg`](../assets/property-descriptor-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`4` pada Track 04.
+- Topik ini ada di urutan ke-`4` pada Buku 04.
 - Prasyarat langsung: `03-prototype-chain-lookup.md`.
 - Lanjut setelah ini: `05-class-constructor-dan-new.md`.
 
@@ -169,4 +169,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [05-class-constructor-dan-new.md](./05-class-constructor-dan-new.md)
+
 

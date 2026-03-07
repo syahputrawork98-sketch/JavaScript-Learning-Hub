@@ -1,4 +1,4 @@
-# Exercises Index - Track 06
+﻿# Exercises Index - Buku 06
 
 ## Paket Latihan
 1. `01-closure-behavior-drills.md`
@@ -22,3 +22,4 @@
 ## Target Kompetensi
 - Mampu memprediksi perilaku runtime dari pattern closure, `this`, async order, mutation, dan error propagation.
 - Mampu menganalisis interaksi event loop, prototype lookup, dan bug kombinasi lintas konsep.
+

@@ -21,7 +21,7 @@ Rujukan cepat:
 - Visual map: [`../assets/class-constructor-new-map.svg`](../assets/class-constructor-new-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`5` pada Track 04.
+- Topik ini ada di urutan ke-`5` pada Buku 04.
 - Prasyarat langsung: `04-property-descriptors-dasar.md`.
 - Lanjut setelah ini: `06-composition-vs-inheritance.md`.
 
@@ -178,4 +178,5 @@ ew membantu menghindari bug instansiasi yang sulit dilacak.
 ## Lanjut Setelah Ini
 
 - [06-composition-vs-inheritance.md](./06-composition-vs-inheritance.md)
+
 

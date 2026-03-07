@@ -22,7 +22,7 @@ Rujukan cepat:
 - Visual map: [`../assets/prototype-chain-advanced-map.svg`](../assets/prototype-chain-advanced-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`2` pada Track 04.
+- Topik ini ada di urutan ke-`2` pada Buku 04.
 - Prasyarat langsung: `01-object-prototype-dasar.md`.
 - Lanjut setelah ini: `03-prototype-chain-lookup.md`.
 
@@ -184,4 +184,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [03-prototype-chain-lookup.md](./03-prototype-chain-lookup.md)
+
 

@@ -19,12 +19,12 @@ Rujukan cepat:
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/this-method-dispatch-object-context-map.svg`](../assets/this-method-dispatch-object-context-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`10` pada Track 04.
+- Topik ini ada di urutan ke-`10` pada Buku 04.
 - Prasyarat langsung: `09-internal-methods-get-set-dan-defineownproperty.md`.
 - Lanjut setelah ini: `11-built-in-objects-dan-behavior-khusus.md`.
 
 Prasyarat topik:
-- Sudah paham call-site `this` dari track 02.
+- Sudah paham call-site `this` dari buku 02.
 - Sudah paham method pada object/prototype.
 
 Referensi remedial:
@@ -147,7 +147,7 @@ Langkah debug:
 
 ### Bacaan Remedial
 
-1. Ulangi topik `06-this-binding` di track 02.
+1. Ulangi topik `06-this-binding` di buku 02.
 2. Uji perbedaan `obj.fn()` vs `const f=obj.fn; f()`.
 3. Praktikkan `bind` pada callback nyata.
 
@@ -160,4 +160,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [11-built-in-objects-dan-behavior-khusus.md](./11-built-in-objects-dan-behavior-khusus.md)
+
 

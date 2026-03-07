@@ -1,4 +1,4 @@
-# Learning Path - 04 JavaScript Object Model
+﻿# Learning Path - 04 JavaScript Object Model
 
 ## Start Here
 1. `../topics/01-object-prototype-dasar.md`
@@ -14,15 +14,16 @@
 11. `../topics/11-built-in-objects-dan-behavior-khusus.md`
 12. `../topics/12-proxy-reflect-dasar-dan-metaprogramming.md`
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Fondasi runtime sinkron: `../../02-javascript-runtime-first-principles/topics/`
 - Async model: `../../03-asynchronous-javascript-model/topics/`
 - Memory/reference behavior: `../../05-javascript-memory-and-references/topics/`
 
-## Exit Criteria Track 04
+## Exit Criteria Buku 04
 - Bisa membedakan own property vs inherited property.
 - Bisa menjelaskan alur lookup property sampai terminal `null`.
 - Bisa mengenali risiko mutasi prototype shared.
 - Bisa memilih inheritance vs composition sesuai kebutuhan perubahan.
 - Bisa menjelaskan perilaku descriptor lanjutan dan dampaknya saat write/update.
 - Bisa mengenali kapan Proxy/Reflect layak dipakai untuk metaprogramming dasar.
+

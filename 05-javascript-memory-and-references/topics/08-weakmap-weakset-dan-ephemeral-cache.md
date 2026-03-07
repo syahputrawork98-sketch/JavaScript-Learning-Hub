@@ -1,4 +1,4 @@
-# WeakMap, WeakSet, dan Ephemeral Cache
+﻿# WeakMap, WeakSet, dan Ephemeral Cache
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -7,9 +7,9 @@ Rujukan cepat:
 - Visual map: [`../assets/weakmap-weakset-ephemeral-cache-map.svg`](../assets/weakmap-weakset-ephemeral-cache-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`8` pada Track 05.
+- Topik ini ada di urutan ke-`8` pada Buku 05.
 - Prasyarat langsung: `07-closure-retention-dan-memory-traps.md`.
-- Lanjut setelah ini: lanjut latihan lintas track.
+- Lanjut setelah ini: lanjut latihan lintas buku.
 
 Prasyarat topik:
 - Sudah paham reachability.
@@ -100,3 +100,4 @@ Langkah debug:
 ## Jika Masih Bingung, Baca Ini Dulu
 1. Ulangi topik 01 dan 05.
 2. Coba eksperimen metadata object dengan Map dan WeakMap.
+

@@ -1,4 +1,4 @@
-# Closure Retention dan Memory Traps
+﻿# Closure Retention dan Memory Traps
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/closure-retention-memory-traps-map.svg`](../assets/closure-retention-memory-traps-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`7` pada Track 05.
+- Topik ini ada di urutan ke-`7` pada Buku 05.
 - Prasyarat langsung: `06-copy-strategies-shallow-vs-deep.md`.
 - Lanjut setelah ini: `08-weakmap-weakset-dan-ephemeral-cache.md`.
 
@@ -100,5 +100,6 @@ Langkah debug:
 - [ ] Bisa menemukan trap closure pada callback long-lived.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi closure dasar di track 02.
-2. Ulangi topik 05 track ini.
+1. Ulangi closure dasar di buku 02.
+2. Ulangi topik 05 buku ini.
+

@@ -22,7 +22,7 @@ Rujukan cepat:
 - Visual map: [`../assets/prototype-chain-lookup-map.svg`](../assets/prototype-chain-lookup-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`3` pada Track 04.
+- Topik ini ada di urutan ke-`3` pada Buku 04.
 - Prasyarat langsung: `02-prototype-chain-lanjutan.md`.
 - Lanjut setelah ini: `04-property-descriptors-dasar.md`.
 
@@ -174,4 +174,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [04-property-descriptors-dasar.md](./04-property-descriptors-dasar.md)
+
 

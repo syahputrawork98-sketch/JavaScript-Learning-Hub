@@ -1,6 +1,6 @@
-# 03 - Asynchronous JavaScript Model
+﻿# 03 - Asynchronous JavaScript Model
 
-Track ini fokus pada model asynchronous JavaScript agar urutan eksekusi async bisa diprediksi dengan tepat.
+Buku ini fokus pada model asynchronous JavaScript agar urutan eksekusi async bisa diprediksi dengan tepat.
 
 ## Tujuan
 - Memahami event loop, queue, Promise, dan `async/await`.
@@ -48,11 +48,12 @@ Track ini fokus pada model asynchronous JavaScript agar urutan eksekusi async bi
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
-3. Gunakan drill async di track 06 setelah menyelesaikan topik 10.
+3. Gunakan drill async di buku 06 setelah menyelesaikan topik 10.
 
 ## Exit Criteria
 - Bisa memprediksi output async umum sebelum menjalankan kode.
 - Bisa menjelaskan perbedaan task queue vs microtask queue secara praktis.
 - Bisa memilih pola orchestration async yang tepat (sequential vs parallel).
 - Bisa menerapkan bounded concurrency dasar dan observability async sederhana.
+
 

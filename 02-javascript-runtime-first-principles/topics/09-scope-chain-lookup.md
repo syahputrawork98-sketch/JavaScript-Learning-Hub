@@ -1,4 +1,4 @@
-# Scope Chain Lookup
+﻿# Scope Chain Lookup
 
 ## Tujuan Pembelajaran
 
@@ -109,7 +109,7 @@ Pertanyaan refleksi:
 ## Cakupan dan Batasan
 
 - Dibahas di topik ini: lookup identifier pada lexical scope chain.
-- Tidak dibahas di topik ini: prototype chain lookup (dibahas di track 04).
+- Tidak dibahas di topik ini: prototype chain lookup (dibahas di buku 04).
 
 ## Latihan
 
@@ -126,4 +126,5 @@ Pertanyaan refleksi:
 ## Lanjut Setelah Ini
 
 - [10-lexical-environment-dan-environment-record.md](./10-lexical-environment-dan-environment-record.md)
-- Track lanjutan object lookup: [../../04-javascript-object-model/topics/03-prototype-chain-lookup.md](../../04-javascript-object-model/topics/03-prototype-chain-lookup.md)
+- Buku lanjutan object lookup: [../../04-javascript-object-model/topics/03-prototype-chain-lookup.md](../../04-javascript-object-model/topics/03-prototype-chain-lookup.md)
+

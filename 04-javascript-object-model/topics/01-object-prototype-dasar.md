@@ -23,7 +23,7 @@ Rujukan cepat:
 - Visual map: [`../assets/object-prototype-basics-map.svg`](../assets/object-prototype-basics-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`1` pada Track 04.
+- Topik ini ada di urutan ke-`1` pada Buku 04.
 - Prasyarat langsung: `../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md`.
 - Lanjut setelah ini: `02-prototype-chain-lanjutan.md`.
 
@@ -177,4 +177,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [02-prototype-chain-lanjutan.md](./02-prototype-chain-lanjutan.md)
+
 

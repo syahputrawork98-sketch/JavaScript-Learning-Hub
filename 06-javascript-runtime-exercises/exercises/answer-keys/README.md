@@ -1,4 +1,4 @@
-# Answer Keys - Track 06
+﻿# Answer Keys - Buku 06
 
 ## Daftar Kunci
 1. `01-closure-behavior-drills-answer-key.md`
@@ -14,3 +14,4 @@
 - Baseline utama: script mode non-strict (misalnya snippet dijalankan langsung sebagai script biasa).
 - Pada strict/module mode, beberapa contoh `this` dapat berubah dari `undefined/NaN` menjadi `TypeError`.
 - Jika output berbeda antar-environment, prioritaskan reasoning call-site, queue order, dan reference behavior.
+

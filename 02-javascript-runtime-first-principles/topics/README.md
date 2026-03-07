@@ -1,4 +1,4 @@
-# Topics Index - Track 02
+﻿# Topics Index - Buku 02
 
 ## Start Belajar
 
@@ -27,13 +27,14 @@ Setiap topik idealnya punya:
 ## Aturan Navigasi
 
 - Folder `topics/` adalah materi utama yang dipakai belajar.
-- Jika topik mulai masuk async scheduling detail, lanjut ke track 03.
-- Jika topik masuk object/prototype detail, lanjut ke track 04.
-- Jika topik masuk memory/reference behavior detail mendalam, lanjut ke track 05.
+- Jika topik mulai masuk async scheduling detail, lanjut ke buku 03.
+- Jika topik masuk object/prototype detail, lanjut ke buku 04.
+- Jika topik masuk memory/reference behavior detail mendalam, lanjut ke buku 05.
 
-## Cross-Track
+## Cross-Buku
 
 - Async model: `../../03-asynchronous-javascript-model/topics/`
 - Object model: `../../04-javascript-object-model/topics/`
 - Memory and references: `../../05-javascript-memory-and-references/topics/`
 - Spec companion: `../../07-javascript-specification-companion/topics/`
+

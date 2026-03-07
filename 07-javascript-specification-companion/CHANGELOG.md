@@ -1,4 +1,4 @@
-# 07 JavaScript Specification Companion
+﻿# 07 JavaScript Specification Companion
 
 ## 2026-03-06 - v0.3.0
 
@@ -12,10 +12,10 @@
 - `assets/completion-record-flow-map.svg`
 
 ### Changed
-- Memperbarui `README.md` track 07 dengan section visualisasi konsep spec companion.
+- Memperbarui `README.md` buku 07 dengan section visualisasi konsep spec companion.
 
 ### Validation
-- Seluruh aset SVG track 07 telah divalidasi XML parse dan valid.
+- Seluruh aset SVG buku 07 telah divalidasi XML parse dan valid.
 
 ## 2026-03-06 - v0.2.0
 
@@ -37,11 +37,12 @@
 - `topics/08-completion-record-dan-abrupt-completion.md`
 
 ### Changed
-- Menormalkan `README.md` track 07 agar `topics/` + `docs/` menjadi rute belajar utama.
+- Menormalkan `README.md` buku 07 agar `topics/` + `docs/` menjadi rute belajar utama.
 - Menghapus narasi migrasi bertahap dan menggantinya dengan status aktif siap pakai.
 
 ### Validation
-- Link lokal area aktif track 07 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Link lokal area aktif buku 07 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
 
 ### Notes
-- Track 07 siap dipakai sebagai companion formal untuk memperkuat reasoning lintas track 02-06.
+- Buku 07 siap dipakai sebagai companion formal untuk memperkuat reasoning lintas buku 02-06.
+

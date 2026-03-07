@@ -1,4 +1,4 @@
-# Refinement Log - Track 02
+﻿# Refinement Log - Buku 02
 
 ## 2026-03-07
 - Menyelesaikan Batch A editorial pass untuk topik 01-03.
@@ -16,14 +16,14 @@
 - Menambahkan topik 11 untuk memory model high-level.
 - Menyelaraskan `README.md`, `topics/README.md`, dan `docs/learning-path.md` dengan urutan final 01-11.
 - Menyelaraskan `topics/09-scope-chain-lookup.md` agar alur lanjut topik tetap internal ke topik 10.
-- Menyelaraskan `docs/boundary-map.md` dengan cakupan final track 02 vs track 05.
-- Menyelaraskan `PRASYARAT-DAN-KAMUS-MINI.md` agar prasyarat internals lebih tepat untuk fokus sinkron track 02.
+- Menyelaraskan `docs/boundary-map.md` dengan cakupan final buku 02 vs buku 05.
+- Menyelaraskan `PRASYARAT-DAN-KAMUS-MINI.md` agar prasyarat internals lebih tepat untuk fokus sinkron buku 02.
 
 ## 2026-03-06
 - Menormalisasi topik utama ke folder `topics/`.
-- Menambahkan `docs/boundary-map.md` untuk mencegah overlap dengan track 03/04/05/06.
-- Mengaktifkan kembali dokumen `PRASYARAT-DAN-KAMUS-MINI.md` dan `docs/prasyarat/` pada track 02 agar referensi topik valid.
-- Menormalisasi link topik dari struktur lama (`foundations/advanced`) ke struktur baru (`topics/` + cross-track).
+- Menambahkan `docs/boundary-map.md` untuk mencegah overlap dengan buku 03/04/05/06.
+- Mengaktifkan kembali dokumen `PRASYARAT-DAN-KAMUS-MINI.md` dan `docs/prasyarat/` pada buku 02 agar referensi topik valid.
+- Menormalisasi link topik dari struktur lama (`foundations/advanced`) ke struktur baru (`topics/` + cross-buku).
 - Menambahkan metadata migrasi pada semua topik aktif.
 
 ## Definition of Done (Editorial Pass)
@@ -32,3 +32,4 @@
 - [x] Batch C (topik 07-09).
 - [x] Scope extension (topik 10-11).
 - [x] Final consistency pass lintas seluruh topik.
+

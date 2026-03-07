@@ -20,7 +20,7 @@ Rujukan cepat:
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/internal-methods-get-set-defineownproperty-map.svg`](../assets/internal-methods-get-set-defineownproperty-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`9` pada Track 04.
+- Topik ini ada di urutan ke-`9` pada Buku 04.
 - Prasyarat langsung: `08-property-descriptors-lanjutan-dan-defineproperty.md`.
 - Lanjut setelah ini: `10-this-method-dispatch-dan-object-context.md`.
 
@@ -158,4 +158,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [10-this-method-dispatch-dan-object-context.md](./10-this-method-dispatch-dan-object-context.md)
+
 

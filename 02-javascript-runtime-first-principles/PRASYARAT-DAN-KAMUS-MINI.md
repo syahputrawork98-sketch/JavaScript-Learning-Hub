@@ -1,4 +1,4 @@
-# Prasyarat dan Kamus Mini
+﻿# Prasyarat dan Kamus Mini
 
 File ini adalah ringkasan cepat untuk dibaca ulang kapan saja saat lupa istilah dasar JavaScript.
 
@@ -22,7 +22,7 @@ File ini adalah ringkasan cepat untuk dibaca ulang kapan saja saat lupa istilah 
 ### Sebelum Internals
 - Sudah lulus seluruh topik Advanced.
 - Paham execution context, scope chain, dan call stack dasar.
-- Paham Promise dan `async/await` bersifat opsional (disarankan saat lanjut ke track 03).
+- Paham Promise dan `async/await` bersifat opsional (disarankan saat lanjut ke buku 03).
 - Siap membaca alur eksekusi langkah demi langkah.
 
 ## Kamus Mini
@@ -47,3 +47,4 @@ File ini adalah ringkasan cepat untuk dibaca ulang kapan saja saat lupa istilah 
 - Hindari `var` untuk kode modern kecuali ada alasan kuat.
 - Pahami bedanya nilai primitive vs reference untuk menghindari bug state.
 - Saat bingung async, pecah alurnya ke: call stack -> microtask -> task queue.
+

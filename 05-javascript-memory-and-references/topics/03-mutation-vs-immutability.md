@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/mutation-vs-immutability-map.svg`](../assets/mutation-vs-immutability-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`3` pada Track 05.
+- Topik ini ada di urutan ke-`3` pada Buku 05.
 - Prasyarat langsung: `02-primitive-vs-reference-behavior.md`.
 - Lanjut setelah ini: `04-referential-equality.md`.
 
@@ -96,4 +96,5 @@ Langkah debug:
 ## Jika Masih Bingung, Baca Ini Dulu
 1. Ulangi topik 02.
 2. Coba eksperimen nested object dengan spread.
+
 

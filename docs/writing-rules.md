@@ -36,6 +36,9 @@ Framework hanya boleh disebut jika diperlukan sebagai konteks tambahan.
 
 Gunakan istilah teknis yang sesuai dengan konsep JavaScript.
 
+Untuk istilah struktur repository, gunakan istilah `buku` secara konsisten.
+Hindari penggunaan istilah `track` untuk menyebut unit materi utama.
+
 Contoh istilah yang sering digunakan:
 
 - Execution Context

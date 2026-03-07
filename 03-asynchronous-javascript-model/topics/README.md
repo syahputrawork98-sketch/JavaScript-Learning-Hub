@@ -1,4 +1,4 @@
-# Topics Index - Track 03
+﻿# Topics Index - Buku 03
 
 ## Start Belajar
 
@@ -26,10 +26,11 @@ Setiap topik idealnya punya:
 ## Catatan Navigasi
 
 - Ikuti urutan 01 -> 10 tanpa lompat.
-- Jika bingung di fondasi call stack/scope sync, kembali ke track 02.
+- Jika bingung di fondasi call stack/scope sync, kembali ke buku 02.
 - Setelah topik 10, lanjut drill async: `../../06-javascript-runtime-exercises/exercises/03-async-order-drills.md`.
 
-## Cross-Track
+## Cross-Buku
 
 - Fondasi runtime sinkron: `../../02-javascript-runtime-first-principles/topics/`
 - Latihan runtime drill: `../../06-javascript-runtime-exercises/exercises/`
+

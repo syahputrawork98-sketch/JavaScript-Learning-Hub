@@ -1,6 +1,6 @@
-# Source Update Playbook - Track 03
+﻿# Source Update Playbook - Buku 03
 
-Dokumen ini dipakai saat ada update dari sumber belajar eksternal agar track 03 tetap sinkron dan konsisten.
+Dokumen ini dipakai saat ada update dari sumber belajar eksternal agar buku 03 tetap sinkron dan konsisten.
 
 ## Kapan Dipakai
 - ada topik async baru di sumber utama
@@ -38,4 +38,5 @@ Dokumen ini dipakai saat ada update dari sumber belajar eksternal agar track 03 
 - pertahankan format topik rilis yang sama
 - jika menambah topik, sambungkan alur `Lanjut Setelah Ini`
 - jika contoh berubah, perbarui latihan dan ringkasan agar sinkron
-- hindari membawa detail framework spesifik ke track 03
+- hindari membawa detail framework spesifik ke buku 03
+

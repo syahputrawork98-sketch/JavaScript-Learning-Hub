@@ -1,7 +1,7 @@
-﻿# Prasyarat dan Kamus Mini - Track 03
+﻿# Prasyarat dan Kamus Mini - Buku 03
 
 ## Prasyarat Global
-- Sudah menyelesaikan track 02 atau setara pemahaman runtime sinkron.
+- Sudah menyelesaikan buku 02 atau setara pemahaman runtime sinkron.
 - Paham function, scope, closure, dan call stack dasar.
 - Pernah mencoba Promise atau `async/await` minimal satu contoh.
 
@@ -12,6 +12,7 @@
 - Sequential async: menunggu proses satu per satu.
 - Parallel async: menjalankan banyak proses independen secara bersamaan.
 
-## Rujukan Lintas Track
+## Rujukan Lintas Buku
 - Fondasi runtime: `../02-javascript-runtime-first-principles/PRASYARAT-DAN-KAMUS-MINI.md`
 - Promise dasar: `../02-javascript-runtime-first-principles/docs/prasyarat/promise-dasar.md`
+

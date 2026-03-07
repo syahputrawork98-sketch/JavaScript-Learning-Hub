@@ -10,14 +10,15 @@
 7. `../topics/07-closure-retention-dan-memory-traps.md`
 8. `../topics/08-weakmap-weakset-dan-ephemeral-cache.md`
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Runtime sinkron dasar: `../../02-javascript-runtime-first-principles/topics/`
 - Object/prototype mechanics: `../../04-javascript-object-model/topics/`
 
-## Exit Criteria Track 05
+## Exit Criteria Buku 05
 - Bisa membedakan copy value vs copy reference.
 - Bisa mencegah mutasi tak sengaja pada object/array.
 - Bisa menjelaskan kapan object eligible untuk GC berdasarkan reachability.
 - Bisa mengidentifikasi leak pattern dasar dan strategi cleanup.
 - Bisa memilih strategi copy shallow/deep sesuai kebutuhan.
 - Bisa menjelaskan kapan WeakMap/WeakSet relevan untuk cache metadata sementara.
+

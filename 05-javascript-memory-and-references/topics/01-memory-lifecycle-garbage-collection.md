@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/memory-lifecycle-gc-map.svg`](../assets/memory-lifecycle-gc-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`1` pada Track 05.
+- Topik ini ada di urutan ke-`1` pada Buku 05.
 - Prasyarat langsung: `../../04-javascript-object-model/topics/03-prototype-chain-lookup.md`.
 - Lanjut setelah ini: `02-primitive-vs-reference-behavior.md`.
 
@@ -132,5 +132,6 @@ Langkah debug:
 1. Ulangi `../../02-javascript-runtime-first-principles/topics/01-values-types-coercion.md` bagian reference.
 2. Ulangi `../../02-javascript-runtime-first-principles/topics/03-function-closure-dasar.md` untuk efek closure pada lifecycle data.
 3. Latih eksperimen kecil: object dengan 2 reference, lalu lepas satu per satu sambil prediksi eligibility GC.
+
 
 

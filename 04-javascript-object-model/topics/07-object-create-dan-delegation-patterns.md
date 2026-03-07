@@ -20,7 +20,7 @@ Rujukan cepat:
 - Visual map: [`../assets/object-create-delegation-patterns-map.svg`](../assets/object-create-delegation-patterns-map.svg)\n- Remedial prototype: [`02-prototype-chain-lanjutan.md`](./02-prototype-chain-lanjutan.md)
 
 Alur topik:
-- Topik ini ada di urutan ke-`7` pada Track 04.
+- Topik ini ada di urutan ke-`7` pada Buku 04.
 - Prasyarat langsung: `06-composition-vs-inheritance.md`.
 - Lanjut setelah ini: `08-property-descriptors-lanjutan-dan-defineproperty.md`.
 
@@ -157,4 +157,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [08-property-descriptors-lanjutan-dan-defineproperty.md](./08-property-descriptors-lanjutan-dan-defineproperty.md)
+
 

@@ -1,4 +1,4 @@
-﻿# Topics Index - Track 05
+﻿# Topics Index - Buku 05
 
 ## Daftar Topik
 1. `01-memory-lifecycle-garbage-collection.md`
@@ -12,4 +12,5 @@
 
 ## Catatan
 - Ikuti urutan 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> 08 tanpa lompat.
-- Jika bingung di object/prototype, ulangi track 04 dulu.
+- Jika bingung di object/prototype, ulangi buku 04 dulu.
+

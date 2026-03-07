@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/primitive-vs-reference-map.svg`](../assets/primitive-vs-reference-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`2` pada Track 05.
+- Topik ini ada di urutan ke-`2` pada Buku 05.
 - Prasyarat langsung: `01-memory-lifecycle-garbage-collection.md`.
 - Lanjut setelah ini: `03-mutation-vs-immutability.md`.
 
@@ -98,6 +98,7 @@ Langkah debug:
 - [ ] Bisa memprediksi efek assignment object sederhana.
 
 ## Jika Masih Bingung, Baca Ini Dulu
-1. Ulangi topik values-types di track 02.
+1. Ulangi topik values-types di buku 02.
 2. Jalankan contoh dengan object dan array kecil.
+
 

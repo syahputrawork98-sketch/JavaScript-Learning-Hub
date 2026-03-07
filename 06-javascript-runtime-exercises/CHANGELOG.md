@@ -1,4 +1,4 @@
-# 06 JavaScript Runtime Exercises
+﻿# 06 JavaScript Runtime Exercises
 
 ## 2026-03-06 - v0.3.4
 
@@ -12,10 +12,10 @@
 - `assets/promise-error-flow-map.svg`
 
 ### Changed
-- Memperbarui `README.md` track 06 dengan section visualisasi konsep runtime.
+- Memperbarui `README.md` buku 06 dengan section visualisasi konsep runtime.
 
 ### Validation
-- Seluruh aset SVG track 06 telah divalidasi XML parse dan valid.
+- Seluruh aset SVG buku 06 telah divalidasi XML parse dan valid.
 
 ## 2026-03-06 - v0.3.3
 
@@ -66,16 +66,16 @@
 - `exercises/08-integrative-runtime-debugging-drills.md`
 
 ### Changed
-- Memperluas scope track 06 dari 4 menjadi 8 topik runtime exercises.
+- Memperluas scope buku 06 dari 4 menjadi 8 topik runtime exercises.
 - Memperbarui `README.md` agar urutan belajar mengarah ke paket 8 topik.
 - Memperbarui `exercises/README.md` dan `docs/learning-path.md` agar sinkron dengan 8 topik aktif.
 
 ### Validation
 - Struktur topik aktif di folder `exercises/` telah diverifikasi berjumlah 8 file.
-- Link lokal pada area aktif track 06 tetap valid setelah penambahan topik.
+- Link lokal pada area aktif buku 06 tetap valid setelah penambahan topik.
 
 ### Notes
-- Track 06 siap dipakai sebagai paket latihan runtime bertahap dari konsep tunggal ke debugging integratif.
+- Buku 06 siap dipakai sebagai paket latihan runtime bertahap dari konsep tunggal ke debugging integratif.
 
 ## 2026-03-06 - v0.2.0
 
@@ -86,7 +86,7 @@
 - `docs/learning-path.md`
 
 ### Changed
-- Menormalkan `README.md` track 06 agar `exercises/` + `docs/` menjadi rute belajar utama.
+- Menormalkan `README.md` buku 06 agar `exercises/` + `docs/` menjadi rute belajar utama.
 - Memperbarui `exercises/README.md` menjadi index aktif berbasis workflow drill.
 - Menghapus narasi status migrasi yang sudah tidak relevan.
 
@@ -96,7 +96,8 @@
 - `migrated-from-04-exercises-katas/`
 
 ### Validation
-- Link lokal area aktif track 06 (`README + PRASYARAT + docs + exercises`) telah diverifikasi dan valid.
+- Link lokal area aktif buku 06 (`README + PRASYARAT + docs + exercises`) telah diverifikasi dan valid.
 
 ### Notes
-- Track 06 siap dipakai untuk penguatan runtime berbasis drill sebelum masuk companion specification.
+- Buku 06 siap dipakai untuk penguatan runtime berbasis drill sebelum masuk companion specification.
+

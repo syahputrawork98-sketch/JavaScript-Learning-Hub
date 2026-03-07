@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/referential-equality-map.svg`](../assets/referential-equality-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`4` pada Track 05.
+- Topik ini ada di urutan ke-`4` pada Buku 05.
 - Prasyarat langsung: `03-mutation-vs-immutability.md`.
 - Lanjut setelah ini: `05-memory-leak-patterns-dan-cleanup.md`.
 
@@ -95,4 +95,5 @@ Langkah debug:
 ## Jika Masih Bingung, Baca Ini Dulu
 1. Ulangi topik 02 dan 03.
 2. Latih perbandingan `===` pada primitive vs object.
+
 

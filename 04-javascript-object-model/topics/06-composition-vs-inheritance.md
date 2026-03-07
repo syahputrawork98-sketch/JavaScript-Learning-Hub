@@ -21,7 +21,7 @@ Rujukan cepat:
 - Visual map: [`../assets/composition-vs-inheritance-map.svg`](../assets/composition-vs-inheritance-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`6` pada Track 04.
+- Topik ini ada di urutan ke-`6` pada Buku 04.
 - Prasyarat langsung: `05-class-constructor-dan-new.md`.
 - Lanjut setelah ini: `07-object-create-dan-delegation-patterns.md`.
 
@@ -169,4 +169,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [07-object-create-dan-delegation-patterns.md](./07-object-create-dan-delegation-patterns.md)
+
 

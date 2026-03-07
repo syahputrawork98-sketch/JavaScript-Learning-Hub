@@ -20,7 +20,7 @@ Rujukan cepat:
 - Alur topik: [`../docs/learning-path.md`](../docs/learning-path.md)\n- Visual map: [`../assets/proxy-reflect-metaprogramming-map.svg`](../assets/proxy-reflect-metaprogramming-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`12` pada Track 04.
+- Topik ini ada di urutan ke-`12` pada Buku 04.
 - Prasyarat langsung: `11-built-in-objects-dan-behavior-khusus.md`.
 - Lanjut setelah ini: `../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md`.
 
@@ -42,7 +42,7 @@ Kamus mini topik:
 
 ### Pengantar Singkat Topik
 
-Topik ini menutup track 04 dengan pengantar metaprogramming dasar menggunakan `Proxy` dan `Reflect` secara aman dan terukur.
+Topik ini menutup buku 04 dengan pengantar metaprogramming dasar menggunakan `Proxy` dan `Reflect` secara aman dan terukur.
 
 ### Big Picture
 
@@ -164,4 +164,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md](./../../05-javascript-memory-and-references/topics/01-memory-lifecycle-garbage-collection.md)
+
 

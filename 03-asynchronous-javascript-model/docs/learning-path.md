@@ -1,4 +1,4 @@
-# Learning Path - 03 Asynchronous JavaScript Model
+﻿# Learning Path - 03 Asynchronous JavaScript Model
 
 ## Start Here
 1. `../topics/01-async-javascript-dasar.md`
@@ -12,17 +12,18 @@
 9. `../topics/09-bounded-concurrency-dan-pool-pattern.md`
 10. `../topics/10-async-observability-dan-debugging-strategy.md`
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Fondasi runtime sinkron: `../../02-javascript-runtime-first-principles/topics/`
 - Latihan kasus async: `../../06-javascript-runtime-exercises/exercises/03-async-order-drills.md`
 
 ## Dokumen Pendukung
 - `./source-update-playbook.md`
 
-## Exit Criteria Track 03
+## Exit Criteria Buku 03
 - Bisa memprediksi urutan output kombinasi sync, Promise, dan timer.
 - Bisa menjelaskan prioritas microtask vs task queue dalam satu tick event loop.
 - Bisa memilih sequential vs parallel async sesuai dependency kerja.
 - Bisa merancang timeout/retry/cancellation strategy sederhana.
 - Bisa mengidentifikasi anti-pattern async yang memicu unhandled rejection.
 - Bisa menerapkan bounded concurrency dan observability async dasar.
+

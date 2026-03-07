@@ -1,4 +1,4 @@
-# Copy Strategies: Shallow vs Deep
+﻿# Copy Strategies: Shallow vs Deep
 
 ## 0) Prasyarat dan Kamus Mini
 Rujukan cepat:
@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/copy-strategies-shallow-vs-deep-map.svg`](../assets/copy-strategies-shallow-vs-deep-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`6` pada Track 05.
+- Topik ini ada di urutan ke-`6` pada Buku 05.
 - Prasyarat langsung: `05-memory-leak-patterns-dan-cleanup.md`.
 - Lanjut setelah ini: `07-closure-retention-dan-memory-traps.md`.
 
@@ -29,7 +29,7 @@ Kamus mini topik:
 Topik ini membantu memilih strategi copy data yang tepat agar perubahan nested data tidak menimbulkan efek samping yang mengejutkan.
 
 ## 1) Big Picture
-Mayoritas bug state modern muncul saat developer merasa sudah “copy object”, padahal yang terjadi hanya shallow copy dan nested data tetap sharing reference. Dengan memahami strategi copy, kamu bisa menghindari mutasi tersembunyi.
+Mayoritas bug state modern muncul saat developer merasa sudah â€œcopy objectâ€, padahal yang terjadi hanya shallow copy dan nested data tetap sharing reference. Dengan memahami strategi copy, kamu bisa menghindari mutasi tersembunyi.
 
 ## 2) Small Picture
 1. Spread/Object.assign membuat shallow copy.
@@ -101,3 +101,4 @@ Langkah debug:
 ## Jika Masih Bingung, Baca Ini Dulu
 1. Ulangi topik 03.
 2. Latih eksperimen nested object 2-3 level.
+

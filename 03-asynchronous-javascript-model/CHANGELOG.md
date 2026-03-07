@@ -1,4 +1,4 @@
-# Changelog - 03 Asynchronous JavaScript Model
+﻿# Changelog - 03 Asynchronous JavaScript Model
 
 ## [0.5.0] - 2026-03-07
 
@@ -12,13 +12,13 @@
 - Menambahkan `assets/async-observability-debugging-map.svg`.
 
 ### Changed
-- Menyelaraskan `README.md` track 03 agar mencakup scope 10 topik.
+- Menyelaraskan `README.md` buku 03 agar mencakup scope 10 topik.
 - Menyelaraskan `topics/README.md` dan `docs/learning-path.md` untuk urutan 01-10.
 - Menambahkan referensi diagram SVG ke topik 06-10.
-- Menambahkan daftar visualisasi baru di `README.md` track 03.
+- Menambahkan daftar visualisasi baru di `README.md` buku 03.
 
 ### Notes
-- Track 03 kini terdiri dari 10 topik end-to-end.
+- Buku 03 kini terdiri dari 10 topik end-to-end.
 - Strategi update sumber eksternal sudah terdokumentasi.
 
 ## [0.4.0] - 2026-03-07
@@ -36,8 +36,8 @@
 - Menyelaraskan `topics/README.md` dan `docs/learning-path.md` dengan standar rilis terbaru.
 
 ### Notes
-- Batch normalisasi track 03 selesai untuk topik 01-08.
-- Final consistency pass lintas track 03 selesai.
+- Batch normalisasi buku 03 selesai untuk topik 01-08.
+- Final consistency pass lintas buku 03 selesai.
 
 ## [0.3.0] - 2026-03-06
 
@@ -50,13 +50,13 @@
 ### Changed
 - Menormalkan urutan topik aktif menjadi 8 topik async model.
 - Memperbarui `topics/README.md` dan `docs/learning-path.md` agar sinkron dengan 8 topik aktif.
-- Menyelaraskan alur lanjutan dari topik `05` ke topik `06` sebelum drill track 06.
+- Menyelaraskan alur lanjutan dari topik `05` ke topik `06` sebelum drill buku 06.
 
 ### Validation
-- Link lokal area aktif track 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Link lokal area aktif buku 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
 
 ### Notes
-- Track 03 sekarang mencakup fondasi async hingga desain arsitektur async dan anti-pattern production.
+- Buku 03 sekarang mencakup fondasi async hingga desain arsitektur async dan anti-pattern production.
 
 ## [0.2.0] - 2026-03-06
 
@@ -75,9 +75,9 @@
   - `assets/concurrency-patterns-map.svg`
 
 ### Changed
-- Menormalkan `README.md` track 03 agar `topics/` + `docs/` menjadi rute belajar utama.
+- Menormalkan `README.md` buku 03 agar `topics/` + `docs/` menjadi rute belajar utama.
 - Menormalkan urutan topik aktif menjadi 5 topik (`01` sampai `05`).
-- Memperbarui referensi prasyarat/remedial/cross-track pada topik `01` sampai `05`.
+- Memperbarui referensi prasyarat/remedial/cross-buku pada topik `01` sampai `05`.
 - Menambahkan referensi visual map pada topik `01` sampai `05`.
 - Menyelaraskan catatan drill async agar dilakukan setelah menyelesaikan topik `05`.
 
@@ -87,9 +87,10 @@
   - `migrated-from-03-advanced-patterns/`
 
 ### Validation
-- Link lokal area aktif track 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
-- Seluruh aset SVG track 03 telah divalidasi XML parse dan valid.
+- Link lokal area aktif buku 03 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Seluruh aset SVG buku 03 telah divalidasi XML parse dan valid.
 
 ### Notes
-- Track 03 siap dipakai sebagai rute belajar async model yang utuh sebelum lanjut ke drill track 06.
+- Buku 03 siap dipakai sebagai rute belajar async model yang utuh sebelum lanjut ke drill buku 06.
+
 

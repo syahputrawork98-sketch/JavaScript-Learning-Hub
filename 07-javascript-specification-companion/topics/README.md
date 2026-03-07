@@ -1,4 +1,4 @@
-# Topics Index - Track 07
+﻿# Topics Index - Buku 07
 
 ## Daftar Topik Companion
 1. `01-cara-membaca-ecmascript-spec.md`
@@ -13,4 +13,5 @@
 ## Cara Pakai
 - Baca ringkasan konsep dulu, lalu buka tautan spec section.
 - Fokus ke istilah normatif yang dipakai algoritme.
-- Cocokkan dengan snippet runtime dari track 06 untuk validasi.
+- Cocokkan dengan snippet runtime dari buku 06 untuk validasi.
+

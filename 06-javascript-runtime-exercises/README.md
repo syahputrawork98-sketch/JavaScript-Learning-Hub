@@ -1,6 +1,6 @@
-# 06 - JavaScript Runtime Exercises
+﻿# 06 - JavaScript Runtime Exercises
 
-Track ini fokus penguatan lewat eksperimen runtime terstruktur.
+Buku ini fokus penguatan lewat eksperimen runtime terstruktur.
 
 ## Tujuan
 - Menguji mental model runtime dengan latihan yang menantang.
@@ -42,7 +42,8 @@ Track ini fokus penguatan lewat eksperimen runtime terstruktur.
 2. Ikuti urutan latihan di `docs/learning-path.md`.
 3. Gunakan `exercises/README.md` sebagai index navigasi cepat.
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Fondasi runtime sinkron: `../02-javascript-runtime-first-principles/topics/`
 - Model asynchronous: `../03-asynchronous-javascript-model/topics/`
 - Model object/prototype/reference: `../04-javascript-object-model/topics/` dan `../05-javascript-memory-and-references/topics/`
+

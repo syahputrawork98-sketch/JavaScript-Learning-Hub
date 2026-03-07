@@ -1,6 +1,6 @@
 ﻿# 05 - JavaScript Memory and References
 
-Track ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
+Buku ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 
 ## Tujuan
 - Memahami primitive vs reference values.
@@ -43,7 +43,7 @@ Track ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
-3. Kembali ke track 04 jika masih bingung sumber property/prototype behavior.
+3. Kembali ke buku 04 jika masih bingung sumber property/prototype behavior.
 
 ## Exit Criteria
 - Bisa mengidentifikasi bug referensi pada object/array.
@@ -51,3 +51,4 @@ Track ini fokus memahami bagaimana data disimpan, direferensikan, dan berubah.
 - Bisa membaca indikasi memory leak dan menentukan cleanup yang tepat.
 - Bisa memilih strategi copy shallow/deep secara sadar.
 - Bisa memahami kapan WeakMap/WeakSet cocok dipakai.
+

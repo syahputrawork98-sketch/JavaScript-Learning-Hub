@@ -1,6 +1,6 @@
 ﻿# 04 - JavaScript Object Model
 
-Track ini fokus memahami mekanisme object system JavaScript.
+Buku ini fokus memahami mekanisme object system JavaScript.
 
 ## Tujuan
 - Memahami object internals yang relevan untuk praktik.
@@ -51,10 +51,11 @@ Track ini fokus memahami mekanisme object system JavaScript.
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
-3. Lanjut ke track 05 saat mulai membahas memory lifecycle dan reference behavior mendalam.
+3. Lanjut ke buku 05 saat mulai membahas memory lifecycle dan reference behavior mendalam.
 
 ## Exit Criteria
 - Bisa menjelaskan hubungan object, prototype, dan inheritance.
 - Bisa menganalisis bug dasar terkait object mutation dan lookup property.
 - Bisa melacak sumber property (own vs inherited) secara konsisten.
 - Bisa menentukan kapan memakai inheritance vs composition.
+

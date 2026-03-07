@@ -1,6 +1,6 @@
-# Learning Path - 02 JavaScript Runtime First Principles
+﻿# Learning Path - 02 JavaScript Runtime First Principles
 
-Dokumen ini adalah jalur belajar aktif untuk track 02.
+Dokumen ini adalah jalur belajar aktif untuk buku 02.
 
 ## Start Here
 1. `../topics/01-values-types-coercion.md`
@@ -15,7 +15,7 @@ Dokumen ini adalah jalur belajar aktif untuk track 02.
 10. `../topics/10-lexical-environment-dan-environment-record.md`
 11. `../topics/11-memory-model-high-level.md`
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Async queue/event loop detail lanjutan: `../../03-asynchronous-javascript-model/topics/`
 - Object/prototype mechanics lanjutan: `../../04-javascript-object-model/topics/`
 - Memory/reference behavior lanjutan: `../../05-javascript-memory-and-references/topics/`
@@ -26,7 +26,8 @@ Dokumen ini adalah jalur belajar aktif untuk track 02.
 - `./prasyarat/`
 - `../PRASYARAT-DAN-KAMUS-MINI.md`
 
-## Exit Criteria Track 02
+## Exit Criteria Buku 02
 - Bisa menjelaskan execution context, lexical environment, scope, closure, hoisting, `this`, dan call stack dengan bahasa sendiri.
 - Bisa memprediksi output sync/closure/this cases sebelum run.
 - Bisa menjelaskan memory model high-level untuk primitive vs reference behavior.
+

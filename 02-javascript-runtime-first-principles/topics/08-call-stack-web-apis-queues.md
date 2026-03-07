@@ -1,9 +1,9 @@
-# Call Stack, Web APIs, dan Queues
+﻿# Call Stack, Host APIs, dan Queues
 
 ## Tujuan Pembelajaran
 
 Setelah mempelajari topik ini, pembaca dapat:
-- menjelaskan peran call stack, Web APIs, dan queue pada runtime
+- menjelaskan peran call stack, host/runtime APIs, dan queue pada runtime
 - memprediksi urutan output sync dan async sederhana
 - mengidentifikasi penyebab callback terlambat dieksekusi
 
@@ -11,7 +11,7 @@ Setelah mempelajari topik ini, pembaca dapat:
 
 - call stack
 - stack frame
-- Web APIs
+- host/runtime APIs
 - queue handoff
 - run-to-completion
 
@@ -20,11 +20,12 @@ Setelah mempelajari topik ini, pembaca dapat:
 JavaScript menjalankan kode sinkron di call stack (LIFO).
 
 Untuk operasi async (timer, I/O), callback tidak langsung masuk stack:
-1. callback didaftarkan ke Web APIs
+1. callback didaftarkan ke host/runtime APIs
 2. saat siap, callback masuk queue
 3. callback dipindah ke stack hanya jika stack kosong
 
 Aturan kunci: run-to-completion. Satu frame selesai dulu sebelum frame berikutnya diproses.
+Catatan boundary: buku ini memakai model queue umum; prioritas microtask vs task dibahas detail di buku 03.
 
 ## Contoh Kode
 
@@ -72,7 +73,7 @@ console.log("after-register")
 
 ## Analogi Singkat (Opsional)
 
-Call stack seperti kasir yang melayani satu pelanggan aktif. Web APIs seperti bagian dapur. Pesanan dari dapur baru bisa diambil kasir saat pelanggan aktif selesai.
+Call stack seperti kasir yang melayani satu pelanggan aktif. Host APIs seperti bagian dapur. Pesanan dari dapur baru bisa diambil kasir saat pelanggan aktif selesai.
 
 ## Eksperimen Kode
 
@@ -101,7 +102,7 @@ Pertanyaan refleksi:
 ## Cakupan dan Batasan
 
 - Dibahas di topik ini: model umum stack-api-queue untuk reasoning runtime.
-- Tidak dibahas di topik ini: prioritas queue async detail lanjutan (dibahas di track 03).
+- Tidak dibahas di topik ini: prioritas queue async detail lanjutan (dibahas di buku 03).
 
 ## Latihan
 
@@ -118,4 +119,5 @@ Pertanyaan refleksi:
 ## Lanjut Setelah Ini
 
 - [09-scope-chain-lookup.md](./09-scope-chain-lookup.md)
-- Track lanjutan async: [03-asynchronous-javascript-model/topics](../../03-asynchronous-javascript-model/topics/)
+- Buku lanjutan async: [03-asynchronous-javascript-model/topics](../../03-asynchronous-javascript-model/topics/)
+

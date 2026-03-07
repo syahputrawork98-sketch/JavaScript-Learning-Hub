@@ -1,4 +1,4 @@
-# Changelog - 05 JavaScript Memory and References
+﻿# Changelog - 05 JavaScript Memory and References
 
 ## 2026-03-06 - v0.2.0
 
@@ -28,9 +28,9 @@
 - `assets/weakmap-weakset-ephemeral-cache-map.svg`
 
 ### Changed
-- Menormalkan `README.md` track 05 agar `topics/` + `docs/` menjadi rute belajar utama.
+- Menormalkan `README.md` buku 05 agar `topics/` + `docs/` menjadi rute belajar utama.
 - Menormalkan urutan topik aktif menjadi 8 topik dari memory lifecycle hingga WeakMap/WeakSet.
-- Memperbarui referensi prasyarat/remedial/cross-track pada topik `01` sampai `08`.
+- Memperbarui referensi prasyarat/remedial/cross-buku pada topik `01` sampai `08`.
 - Menambahkan referensi visual map pada topik `01` sampai `08`.
 - Menyelaraskan index topik dan learning path agar konsisten dengan 8 topik aktif.
 
@@ -39,8 +39,9 @@
 - `migrated-from-02-first-principles/`
 
 ### Validation
-- Link lokal area aktif track 05 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
-- Seluruh aset SVG track 05 telah divalidasi XML parse dan valid.
+- Link lokal area aktif buku 05 (`README + PRASYARAT + docs + topics`) telah diverifikasi dan valid.
+- Seluruh aset SVG buku 05 telah divalidasi XML parse dan valid.
 
 ### Notes
-- Track 05 siap dipakai sebagai rute belajar memory/reference lengkap sebelum lanjut ke latihan lintas track.
+- Buku 05 siap dipakai sebagai rute belajar memory/reference lengkap sebelum lanjut ke latihan lintas buku.
+

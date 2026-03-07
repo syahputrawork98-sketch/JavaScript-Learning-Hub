@@ -1,6 +1,6 @@
-# 07 - JavaScript Specification Companion
+﻿# 07 - JavaScript Specification Companion
 
-Track ini menjadi companion untuk menghubungkan konsep belajar dengan ECMAScript specification.
+Buku ini menjadi companion untuk menghubungkan konsep belajar dengan ECMAScript specification.
 
 ## Tujuan
 - Membiasakan membaca istilah formal dalam spesifikasi.
@@ -46,9 +46,10 @@ Track ini menjadi companion untuk menghubungkan konsep belajar dengan ECMAScript
 - Bisa membaca alur abstract operation sederhana tanpa kehilangan konteks.
 - Bisa menghubungkan bug runtime nyata ke istilah formal spec.
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Runtime first principles: `../02-javascript-runtime-first-principles/topics/`
 - Async model: `../03-asynchronous-javascript-model/topics/`
 - Object model: `../04-javascript-object-model/topics/`
 - Memory and references: `../05-javascript-memory-and-references/topics/`
 - Runtime drills: `../06-javascript-runtime-exercises/exercises/`
+

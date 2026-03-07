@@ -20,7 +20,7 @@ Rujukan cepat:
 - Visual map: [`../assets/property-descriptors-advanced-defineproperty-map.svg`](../assets/property-descriptors-advanced-defineproperty-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`8` pada Track 04.
+- Topik ini ada di urutan ke-`8` pada Buku 04.
 - Prasyarat langsung: `07-object-create-dan-delegation-patterns.md`.
 - Lanjut setelah ini: `09-internal-methods-get-set-dan-defineownproperty.md`.
 
@@ -156,4 +156,5 @@ Langkah debug:
 ## Lanjut Setelah Ini
 
 - [09-internal-methods-get-set-dan-defineownproperty.md](./09-internal-methods-get-set-dan-defineownproperty.md)
+
 

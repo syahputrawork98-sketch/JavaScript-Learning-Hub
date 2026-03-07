@@ -1,6 +1,6 @@
-# 02 - JavaScript Runtime First Principles
+﻿# 02 - JavaScript Runtime First Principles
 
-Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi oleh engine.
+Buku ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi oleh engine.
 
 ## Tujuan
 - Memahami execution context, lexical environment, scope, closure, hoisting, dan `this` binding.
@@ -8,6 +8,7 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 - Mampu menjelaskan sebab-akibat perilaku runtime kode.
 
 ## Scope
+- Values, Types, dan Coercion
 - Execution Context
 - Lexical Environment
 - Scope
@@ -25,13 +26,13 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 - Catatan konsep runtime inti + contoh eksperimen kecil.
 
 ## Struktur Konten
-- `topics/`: materi utama track 02.
-- `docs/`: dokumen pendukung track (learning path, catatan).
+- `topics/`: materi utama buku 02.
+- `docs/`: dokumen pendukung buku (learning path, catatan).
 - `assets/`: visualisasi konsep runtime untuk pembaca pemula.
 
 ## Visualisasi Konsep
 - `assets/execution-context-lifecycle-map.svg`: peta creation phase -> execution phase.
-- `assets/call-stack-web-api-queue-map.svg`: peta call stack, Web APIs, queue handoff.
+- `assets/call-stack-web-api-queue-map.svg`: peta call stack, host/runtime APIs, queue handoff.
 - `assets/scope-chain-lookup-map.svg`: peta pencarian identifier dari local -> outer -> global.
 - `assets/lexical-environment-environment-record-map.svg`: peta environment record, outer reference, dan identifier lookup.
 - `assets/memory-model-high-level-map.svg`: peta primitive copy vs reference sharing pada memory model high-level.
@@ -39,9 +40,10 @@ Track ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi o
 ## Mulai Belajar
 1. Buka `docs/learning-path.md`.
 2. Ikuti urutan di `topics/README.md`.
-3. Gunakan `docs/boundary-map.md` saat topik mulai overlap ke track 03/04/05.
+3. Gunakan `docs/boundary-map.md` saat topik mulai overlap ke buku 03/04/05.
 
 ## Exit Criteria
 - Bisa menjelaskan alur eksekusi kode sync secara internal.
 - Bisa menganalisis bug dasar terkait scope/closure/hoisting/`this`.
 - Bisa menjelaskan perilaku primitive vs reference pada level high-level.
+

@@ -1,4 +1,4 @@
-# Changelog - 02 JavaScript Runtime First Principles
+﻿# Changelog - 02 JavaScript Runtime First Principles
 
 ## [0.3.0] - 2026-03-07
 
@@ -21,19 +21,19 @@
 - Menghapus section metadata migrasi dari seluruh topik (`01-09`) agar materi lebih fokus ke pembaca.
 - Menyelaraskan `topics/README.md` dengan standar struktur topik saat ini.
 - Menyelaraskan `docs/learning-path.md` ke wording rilis non-migrasi.
-- Menyelaraskan `README.md` track 02 agar konsisten dengan scope final.
+- Menyelaraskan `README.md` buku 02 agar konsisten dengan scope final.
 - Menyelaraskan alur `Lanjut Setelah Ini` di `topics/09-scope-chain-lookup.md` agar lanjut ke topik 10.
-- Menyelaraskan `docs/boundary-map.md` dengan scope final (lexical environment + memory high-level in-track).
-- Menyelaraskan prasyarat internals di `PRASYARAT-DAN-KAMUS-MINI.md` agar fokus sinkron track 02.
+- Menyelaraskan `docs/boundary-map.md` dengan scope final (lexical environment + memory high-level in-buku).
+- Menyelaraskan prasyarat internals di `PRASYARAT-DAN-KAMUS-MINI.md` agar fokus sinkron buku 02.
 - Menambahkan referensi diagram SVG ke `topics/10-lexical-environment-dan-environment-record.md` dan `topics/11-memory-model-high-level.md`.
-- Menambahkan daftar visualisasi baru di `README.md` track 02.
+- Menambahkan daftar visualisasi baru di `README.md` buku 02.
 
 ### Notes
 - Batch A selesai (topik 01-03).
 - Batch B selesai (topik 04-06).
 - Batch C selesai (topik 07-09).
 - Scope extension selesai (topik 10-11).
-- Seluruh topik utama track 02 telah melewati editorial pass.
+- Seluruh topik utama buku 02 telah melewati editorial pass.
 
 ## [0.2.0] - 2026-03-06
 
@@ -48,31 +48,32 @@
 - Menghapus section `Status Migrasi` dari `README.md` untuk menyiapkan audit/review manual.
 
 ### Validation
-- Validasi link lokal area track 02 (`README + topics + docs`) lulus tanpa broken link.
+- Validasi link lokal area buku 02 (`README + topics + docs`) lulus tanpa broken link.
 - Validasi XML seluruh aset SVG lulus.
 
 ### Notes
-- Track 02 siap dipakai sebagai baseline audit manual sebelum lanjut ke track 03.
+- Buku 02 siap dipakai sebagai baseline audit manual sebelum lanjut ke buku 03.
 
 ## [0.1.0] - 2026-03-06
 
 ### Added
-- Menambahkan `PRASYARAT-DAN-KAMUS-MINI.md` ke track 02 sebagai rujukan prasyarat aktif.
+- Menambahkan `PRASYARAT-DAN-KAMUS-MINI.md` ke buku 02 sebagai rujukan prasyarat aktif.
 - Menambahkan folder `docs/prasyarat/` berisi: `console-dan-if-dasar.md`, `variabel-dasar.md`, `function-dasar.md`, `object-dasar.md`, `promise-dasar.md`.
 - Menambahkan dokumen normalisasi: `docs/boundary-map.md` dan `docs/refinement-log.md`.
 
 ### Changed
-- Menormalisasi struktur belajar track 02 agar `topics/` menjadi rute utama.
+- Menormalisasi struktur belajar buku 02 agar `topics/` menjadi rute utama.
 - Memperbarui dokumen navigasi `README.md`, `docs/learning-path.md`, dan `topics/README.md`.
 - Menambahkan metadata migrasi dan boundary note di seluruh topik aktif `topics/01` sampai `topics/09`.
-- Menormalkan referensi internal topik dari struktur lama ke struktur baru + cross-track (03/04/05).
+- Menormalkan referensi internal topik dari struktur lama ke struktur baru + cross-buku (03/04/05).
 
 ### Removed
 - Menghapus artefak migrasi sementara: `migrated-from-02-first-principles/` dan `legacy-snapshot-from-02-first-principles/`.
 
 ### Validation
-- Link lokal aktif pada area track 02 (`README + docs + topics`) telah diverifikasi dan valid.
+- Link lokal aktif pada area buku 02 (`README + docs + topics`) telah diverifikasi dan valid.
 
 ### Notes
 - Sumber legacy `02-javascript-first-principles` sudah didekomisioning.
-- Track 02 difokuskan pada materi aktif terkurasi tanpa folder arsip migrasi.
+- Buku 02 difokuskan pada materi aktif terkurasi tanpa folder arsip migrasi.
+

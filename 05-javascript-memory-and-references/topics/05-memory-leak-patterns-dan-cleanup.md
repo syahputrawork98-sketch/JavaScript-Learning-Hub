@@ -7,7 +7,7 @@ Rujukan cepat:
 - Visual map: [`../assets/memory-leak-patterns-cleanup-map.svg`](../assets/memory-leak-patterns-cleanup-map.svg)
 
 Alur topik:
-- Topik ini ada di urutan ke-`5` pada Track 05.
+- Topik ini ada di urutan ke-`5` pada Buku 05.
 - Prasyarat langsung: `04-referential-equality.md`.
 - Lanjut setelah ini: `06-copy-strategies-shallow-vs-deep.md`.
 
@@ -103,4 +103,5 @@ Langkah debug:
 ## Jika Masih Bingung, Baca Ini Dulu
 1. Ulangi topik 01.
 2. Latih satu kasus listener + cleanup.
+
 

@@ -1,4 +1,4 @@
-# Learning Path - 07 JavaScript Specification Companion
+﻿# Learning Path - 07 JavaScript Specification Companion
 
 ## Start Here
 1. `../topics/01-cara-membaca-ecmascript-spec.md`
@@ -15,13 +15,14 @@
 - Cocokkan nama konsep yang kamu tahu dengan istilah formal spec.
 - Jalankan snippet kecil untuk memvalidasi interpretasi section yang dibaca.
 
-## Boundary ke Track Lain
+## Boundary ke Buku Lain
 - Latihan prediksi runtime: `../../06-javascript-runtime-exercises/exercises/`
 - Pendalaman object/prototype: `../../04-javascript-object-model/topics/`
 - Pendalaman memory/reference: `../../05-javascript-memory-and-references/topics/`
 
-## Exit Criteria Track 07
+## Exit Criteria Buku 07
 - Bisa menemukan section spec dengan keyword konsep secara konsisten.
 - Bisa membaca abstract operation sederhana dan menjelaskan maksud tiap langkah.
 - Bisa menjelaskan hubungan Promise job queue di spec dengan urutan output runtime.
 - Bisa mengaitkan error runtime dengan model Completion Record.
+
