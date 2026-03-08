@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 320" role="img" aria-labelledby="title desc">
+  <title id="title">Program Pertama Flow Map</title>
+  <desc id="desc">Alur dasar membuat file JavaScript, menjalankan dengan Node.js, dan melihat output console.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .text { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .sub { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="320" />
+  <text class="title" x="28" y="42">01 Program Pertama 🚀</text>
+
+  <rect class="box" x="28" y="78" width="280" height="150" />
+  <text class="text" x="48" y="110">1. Tulis file `.js`</text>
+  <text class="sub" x="48" y="135">Contoh: `hello.js`</text>
+  <text class="sub" x="48" y="156">Isi dengan `console.log(...)`</text>
+
+  <rect class="box" x="350" y="78" width="280" height="150" />
+  <text class="text" x="370" y="110">2. Jalankan lewat Node.js</text>
+  <text class="sub" x="370" y="135">Perintah: `node hello.js`</text>
+  <text class="sub" x="370" y="156">Runtime mengeksekusi baris kode</text>
+
+  <rect class="box" x="672" y="78" width="280" height="150" />
+  <text class="text" x="692" y="110">3. Lihat output console</text>
+  <text class="sub" x="692" y="135">Hasil tampil sesuai urutan kode</text>
+  <text class="sub" x="692" y="156">Gunakan output untuk verifikasi</text>
+
+  <path class="arrow" d="M308 153 L350 153" />
+  <path class="arrow" d="M630 153 L672 153" />
+</svg>

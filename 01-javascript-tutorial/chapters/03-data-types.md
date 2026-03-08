@@ -27,6 +27,10 @@ JavaScript punya beberapa tipe data dasar yang sering dipakai di awal belajar:
 
 Memahami tipe data membantu kita menulis logika yang benar, misalnya saat membuat kondisi atau operasi perhitungan.
 
+## Visualisasi Konsep
+
+![Data Types Basics Map](../assets/03-data-types-basics-map.svg)
+
 ## Contoh Kode
 
 ```javascript

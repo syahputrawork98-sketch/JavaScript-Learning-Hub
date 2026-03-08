@@ -26,6 +26,10 @@ Cara akses property:
 
 Method adalah function yang disimpan sebagai property object.
 
+## Visualisasi Konsep
+
+![Objects Literal Property Method Map](../assets/09-objects-literal-property-method-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar Object Literal

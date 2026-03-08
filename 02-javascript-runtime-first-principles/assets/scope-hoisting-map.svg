@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 380" role="img" aria-labelledby="title desc">
+  <title id="title">Scope Hoisting Map</title>
+  <desc id="desc">Ringkasan scope, hoisting, TDZ, dan shadowing pada JavaScript runtime.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .warn { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 7; }
+      .ok { fill: #ecfeff; stroke: #67e8f9; stroke-width: 1.5; rx: 7; }
+      .k { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #334155; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="980" height="380" />
+  <text class="title" x="28" y="42">Scope &amp; Hoisting &#129513;</text>
+
+  <rect class="card" x="28" y="76" width="300" height="214" />
+  <text class="h" x="48" y="108">Scope</text>
+  <text class="t" x="48" y="132">Global / Function / Block</text>
+  <text class="t" x="48" y="154">Lookup berjalan dari lokal ke luar.</text>
+  <rect class="ok" x="48" y="174" width="260" height="36" />
+  <text class="k" x="62" y="197">Shadowing: nama lokal menutup outer</text>
+
+  <rect class="card" x="340" y="76" width="300" height="214" />
+  <text class="h" x="360" y="108">Hoisting</text>
+  <text class="t" x="360" y="132">`var` -> awal `undefined`</text>
+  <text class="t" x="360" y="154">function declaration -> siap dipanggil</text>
+  <rect class="warn" x="360" y="174" width="260" height="36" />
+  <text class="k" x="374" y="197">`let/const` di TDZ sebelum deklarasi</text>
+
+  <rect class="card" x="652" y="76" width="300" height="214" />
+  <text class="h" x="672" y="108">Praktik Aman</text>
+  <text class="t" x="672" y="132">- Hindari akses variabel sebelum deklarasi</text>
+  <text class="t" x="672" y="154">- Pakai nama variabel yang tidak ambigu</text>
+  <text class="t" x="672" y="176">- Lacak scope aktif saat debug</text>
+
+  <rect class="card" x="28" y="306" width="924" height="54" />
+  <text class="t" x="48" y="338">Kunci: bug scope/hoisting biasanya berasal dari timing deklarasi dan shadowing yang tidak disadari.</text>
+</svg>

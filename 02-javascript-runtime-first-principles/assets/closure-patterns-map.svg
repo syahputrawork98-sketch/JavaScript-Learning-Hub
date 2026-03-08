@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">Closure Patterns Map</title>
+  <desc id="desc">Pola closure untuk state privat dengan factory function dan API kecil.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .code { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #334155; }
+      .good { fill: #ecfdf5; stroke: #86efac; stroke-width: 1.5; rx: 7; }
+      .warn { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 7; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="980" height="360" />
+  <text class="title" x="28" y="42">Closure Patterns &#127968;</text>
+
+  <rect class="card" x="28" y="76" width="300" height="210" />
+  <text class="h" x="48" y="108">Factory Function</text>
+  <text class="code" x="48" y="134">function createX() {</text>
+  <text class="code" x="48" y="156">  let state = ...</text>
+  <text class="code" x="48" y="178">  return { api }</text>
+  <text class="code" x="48" y="200">}</text>
+
+  <rect class="card" x="340" y="76" width="300" height="210" />
+  <text class="h" x="360" y="108">Private State</text>
+  <rect class="good" x="360" y="122" width="260" height="36" />
+  <text class="t" x="374" y="145">State tidak diakses langsung dari luar.</text>
+  <text class="t" x="360" y="178">Akses hanya lewat method API.</text>
+
+  <rect class="card" x="652" y="76" width="300" height="210" />
+  <text class="h" x="672" y="108">Tradeoff</text>
+  <rect class="warn" x="672" y="122" width="260" height="36" />
+  <text class="t" x="686" y="145">Waspada stale closure dan retention.</text>
+  <text class="t" x="672" y="178">Validasi input tetap diperlukan.</text>
+
+  <rect class="card" x="28" y="306" width="924" height="40" />
+  <text class="t" x="48" y="332">Closure patterns efektif untuk module kecil stateful dengan API fokus dan minim global state.</text>
+</svg>

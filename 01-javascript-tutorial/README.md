@@ -37,6 +37,24 @@ Fokus buku 01 adalah penggunaan bahasa: menulis kode, menyusun logika dasar, dan
 - `assets/`: diagram pendukung
 - `docs/`: aturan editorial dan template penulisan
 
+## Visualisasi Konsep (SVG)
+
+Visual map yang sudah tersedia:
+
+- `assets/01-program-pertama-flow-map.svg`
+- `assets/02-variables-let-const-var-map.svg`
+- `assets/03-data-types-basics-map.svg`
+- `assets/04-operators-basics-map.svg`
+- `assets/05-conditionals-decision-flow-map.svg`
+- `assets/06-loops-control-flow-map.svg`
+- `assets/07-functions-input-process-output-map.svg`
+- `assets/08-arrays-basics-map.svg`
+- `assets/09-objects-literal-property-method-map.svg`
+- `assets/10-modules-export-import-flow-map.svg`
+- `assets/11-error-handling-try-catch-throw-map.svg`
+
+Target: setiap bab (`01` sampai `11`) memiliki minimal 1 SVG inti.
+
 ## Cara Belajar
 
 1. Baca `chapters/README.md`.

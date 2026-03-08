@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 380" role="img" aria-labelledby="title desc">
+  <title id="title">Operators Basics Map</title>
+  <desc id="desc">Peta operator dasar JavaScript: arithmetic, comparison, logical, dan assignment.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .chipA { fill: #eff6ff; stroke: #93c5fd; stroke-width: 1.5; rx: 7; }
+      .chipB { fill: #ecfeff; stroke: #67e8f9; stroke-width: 1.5; rx: 7; }
+      .chipC { fill: #f5f3ff; stroke: #c4b5fd; stroke-width: 1.5; rx: 7; }
+      .chipD { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 7; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .k { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #1e293b; }
+      .note { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="380" />
+  <text class="title" x="28" y="42">04 Operators &#9881;&#65039;</text>
+
+  <rect class="card" x="28" y="76" width="220" height="152" />
+  <text class="h" x="46" y="106">Arithmetic</text>
+  <rect class="chipA" x="46" y="118" width="184" height="30" />
+  <text class="k" x="58" y="138">+  -  *  /  %</text>
+  <text class="t" x="46" y="168">Untuk hitung nilai angka.</text>
+
+  <rect class="card" x="264" y="76" width="220" height="152" />
+  <text class="h" x="282" y="106">Comparison</text>
+  <rect class="chipB" x="282" y="118" width="184" height="30" />
+  <text class="k" x="294" y="138">===  !==  &gt;  &lt;  &gt;=  &lt;=</text>
+  <text class="t" x="282" y="168">Hasil selalu boolean.</text>
+
+  <rect class="card" x="500" y="76" width="220" height="152" />
+  <text class="h" x="518" y="106">Logical</text>
+  <rect class="chipC" x="518" y="118" width="184" height="30" />
+  <text class="k" x="530" y="138">&amp;&amp;  ||  !</text>
+  <text class="t" x="518" y="168">Gabung atau balik kondisi.</text>
+
+  <rect class="card" x="736" y="76" width="216" height="152" />
+  <text class="h" x="754" y="106">Assignment</text>
+  <rect class="chipD" x="754" y="118" width="180" height="30" />
+  <text class="k" x="766" y="138">=  +=  -=  *=  /=</text>
+  <text class="t" x="754" y="168">Update nilai lebih ringkas.</text>
+
+  <rect class="card" x="28" y="246" width="924" height="104" />
+  <text class="note" x="46" y="278">Tips praktis:</text>
+  <text class="t" x="46" y="302">- Utamakan `===` dan `!==` untuk perbandingan yang konsisten.</text>
+  <text class="t" x="46" y="324">- Gunakan assignment operator untuk update nilai tanpa menulis ekspresi berulang panjang.</text>
+</svg>

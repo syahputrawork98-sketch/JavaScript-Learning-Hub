@@ -28,6 +28,10 @@ Coercion adalah perubahan tipe nilai:
 
 Untuk perbandingan, gunakan `===` sebagai default karena tidak melakukan coercion implisit.
 
+## Diagram Konsep (Opsional)
+
+![Values Types Coercion Map](../assets/values-types-coercion-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Perilaku Operator terhadap Coercion

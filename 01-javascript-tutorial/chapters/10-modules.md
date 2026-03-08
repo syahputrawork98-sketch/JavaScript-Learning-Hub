@@ -28,6 +28,10 @@ Alur dasar:
 2. file B mengimpor value/function tersebut
 3. file B menggunakan hasil import dalam logika program
 
+## Visualisasi Konsep
+
+![Modules Export Import Flow Map](../assets/10-modules-export-import-flow-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Named Export dan Import

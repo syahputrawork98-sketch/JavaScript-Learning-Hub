@@ -28,6 +28,10 @@ Kontrol loop:
 
 Selalu pastikan kondisi loop bisa berhenti agar tidak menjadi infinite loop.
 
+## Visualisasi Konsep
+
+![Loops Control Flow Map](../assets/06-loops-control-flow-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar for Loop

@@ -22,6 +22,10 @@ Closure terjadi saat function dalam tetap bisa mengakses variabel dari scope lua
 
 Ini penting untuk runtime reasoning karena state bisa "bertahan" lewat closure tanpa menyimpan global variable.
 
+## Diagram Konsep (Opsional)
+
+![Function Closure Dasar Map](../assets/function-closure-dasar-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Function Dasar dengan Parameter dan Return

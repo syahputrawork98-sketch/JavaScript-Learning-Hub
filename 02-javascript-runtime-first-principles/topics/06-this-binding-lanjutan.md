@@ -26,6 +26,10 @@ Perbedaan utama:
 
 Gunakan `bind` saat function akan dipanggil berkali-kali (event/timer/callback pipeline).
 
+## Diagram Konsep (Opsional)
+
+![This Binding Lanjutan Map](../assets/this-binding-lanjutan-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - call, apply, bind

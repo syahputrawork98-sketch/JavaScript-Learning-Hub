@@ -27,6 +27,10 @@ Untuk operasi async (timer, I/O), callback tidak langsung masuk stack:
 Aturan kunci: run-to-completion. Satu frame selesai dulu sebelum frame berikutnya diproses.
 Catatan boundary: buku ini memakai model queue umum; prioritas microtask vs task dibahas detail di buku 03.
 
+## Diagram Konsep (Opsional)
+
+![Call Stack Web API Queue Map](../assets/call-stack-web-api-queue-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Urutan Dasar Sync + Timer

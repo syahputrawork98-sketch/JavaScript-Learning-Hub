@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 380" role="img" aria-labelledby="title desc">
+  <title id="title">Modules Export Import Flow Map</title>
+  <desc id="desc">Alur dasar modul JavaScript: export dari satu file dan import ke file lain.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .arrow { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#a); }
+      .code { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #3730a3; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="380" />
+  <text class="title" x="28" y="42">10 Modules 📦</text>
+
+  <rect class="box" x="28" y="86" width="290" height="186" />
+  <text class="h" x="48" y="118">File A (Provider)</text>
+  <text class="t" x="48" y="142">Mengekspor fungsi / nilai</text>
+  <text class="code" x="48" y="170">export function add(a, b) { ... }</text>
+  <text class="code" x="48" y="192">export default function greet() { ... }</text>
+
+  <rect class="box" x="346" y="86" width="290" height="186" />
+  <text class="h" x="366" y="118">File B (Consumer)</text>
+  <text class="t" x="366" y="142">Mengimpor dari File A</text>
+  <text class="code" x="366" y="170">import { add } from "./math.js"</text>
+  <text class="code" x="366" y="192">import greet from "./greeting.js"</text>
+
+  <rect class="box" x="664" y="86" width="288" height="186" />
+  <text class="h" x="684" y="118">Pemakaian di Program</text>
+  <text class="t" x="684" y="142">Function import dipakai di logika</text>
+  <text class="code" x="684" y="170">const total = add(2, 3)</text>
+  <text class="code" x="684" y="192">console.log(greet("Sita"))</text>
+
+  <path class="arrow" d="M318 180 L346 180" />
+  <path class="arrow" d="M636 180 L664 180" />
+
+  <rect class="box" x="28" y="292" width="924" height="62" />
+  <text class="t" x="48" y="328">Inti: pecah kode per tanggung jawab, ekspor dari satu file, impor di file lain, lalu pakai ulang secara terstruktur.</text>
+</svg>

@@ -26,6 +26,10 @@ Kelompok yang paling sering dipakai di tahap awal:
 
 Utamakan `===` dan `!==` untuk perbandingan agar hasil lebih konsisten dan mudah diprediksi.
 
+## Visualisasi Konsep
+
+![Operators Basics Map](../assets/04-operators-basics-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar Arithmetic dan Comparison

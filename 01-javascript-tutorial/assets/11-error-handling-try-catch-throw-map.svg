@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 390" role="img" aria-labelledby="title desc">
+  <title id="title">Error Handling Try Catch Throw Map</title>
+  <desc id="desc">Peta alur try, catch, throw untuk menangani error dasar di JavaScript.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .warn { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 8; }
+      .ok { fill: #ecfeff; stroke: #67e8f9; stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #64748b; stroke-width: 2.4; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="390" />
+  <text class="title" x="28" y="42">11 Error Handling 🛟</text>
+
+  <rect class="box" x="28" y="86" width="286" height="176" />
+  <text class="h" x="48" y="118">`try`</text>
+  <text class="t" x="48" y="142">Jalankan kode berisiko error.</text>
+  <rect class="ok" x="48" y="158" width="246" height="40" />
+  <text class="t" x="62" y="182">Jika aman -> lanjut normal</text>
+
+  <rect class="box" x="346" y="86" width="286" height="176" />
+  <text class="h" x="366" y="118">`throw`</text>
+  <text class="t" x="366" y="142">Lempar error saat kondisi tidak valid.</text>
+  <rect class="warn" x="366" y="158" width="246" height="40" />
+  <text class="t" x="380" y="182">Contoh: `throw new Error(\"...\")`</text>
+
+  <rect class="box" x="664" y="86" width="288" height="176" />
+  <text class="h" x="684" y="118">`catch`</text>
+  <text class="t" x="684" y="142">Tangkap error dan tampilkan pesan.</text>
+  <rect class="ok" x="684" y="158" width="248" height="40" />
+  <text class="t" x="698" y="182">`error.message` untuk feedback</text>
+
+  <path class="arrow" d="M314 174 L346 174" />
+  <path class="arrow" d="M632 174 L664 174" />
+
+  <rect class="box" x="28" y="286" width="924" height="72" />
+  <text class="t" x="48" y="317">Tujuan utama: program tetap terkontrol, pesan error jelas, dan validasi input lebih aman.</text>
+  <text class="t" x="48" y="339">Pola dasar: bungkus operasi berisiko di `try`, lempar `throw` jika invalid, tangani di `catch`.</text>
+</svg>

@@ -24,6 +24,10 @@ Untuk tahap awal, jalankan program melalui Node.js:
 
 `console.log` dipakai untuk menampilkan nilai ke console. Ini adalah alat utama saat belajar karena kita bisa melihat hasil eksekusi secara langsung.
 
+## Visualisasi Konsep
+
+![Program Pertama Flow](../assets/01-program-pertama-flow-map.svg)
+
 ## Contoh Kode
 
 ```javascript

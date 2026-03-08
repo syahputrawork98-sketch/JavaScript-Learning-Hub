@@ -31,6 +31,12 @@ Buku ini fokus membangun mental model tentang bagaimana JavaScript dieksekusi ol
 - `assets/`: visualisasi konsep runtime untuk pembaca pemula.
 
 ## Visualisasi Konsep
+- `assets/values-types-coercion-map.svg`: peta kategori nilai, coercion, dan pilihan comparison yang aman.
+- `assets/scope-hoisting-map.svg`: peta scope, hoisting, TDZ, dan shadowing.
+- `assets/function-closure-dasar-map.svg`: peta function input-output dan closure dasar.
+- `assets/this-binding-dasar-map.svg`: peta call-site rules untuk `this` dasar.
+- `assets/closure-patterns-map.svg`: peta factory closure pattern untuk state privat.
+- `assets/this-binding-lanjutan-map.svg`: peta strategi `call`/`apply`/`bind` pada callback context.
 - `assets/execution-context-lifecycle-map.svg`: peta creation phase -> execution phase.
 - `assets/call-stack-web-api-queue-map.svg`: peta call stack, host/runtime APIs, queue handoff.
 - `assets/scope-chain-lookup-map.svg`: peta pencarian identifier dari local -> outer -> global.

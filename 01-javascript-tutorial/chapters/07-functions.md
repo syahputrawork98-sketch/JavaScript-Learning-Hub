@@ -30,6 +30,10 @@ Komponen penting:
 
 Jika function tidak mengembalikan nilai secara eksplisit, hasilnya `undefined`.
 
+## Visualisasi Konsep
+
+![Functions Input Process Output Map](../assets/07-functions-input-process-output-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar Function Declaration

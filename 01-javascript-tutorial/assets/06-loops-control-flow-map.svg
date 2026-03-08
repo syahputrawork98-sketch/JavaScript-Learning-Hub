@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" role="img" aria-labelledby="title desc">
+  <title id="title">Loops Control Flow Map</title>
+  <desc id="desc">Peta pemilihan for dan while, serta kontrol break dan continue.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .flow { fill: #ecfeff; stroke: #67e8f9; stroke-width: 1.5; rx: 8; }
+      .flow2 { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 8; }
+      .k { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #155e75; }
+      .w { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #9a3412; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="420" />
+  <text class="title" x="28" y="42">06 Loops 🔁</text>
+
+  <rect class="card" x="28" y="76" width="452" height="132" />
+  <text class="h" x="48" y="108">`for` loop</text>
+  <text class="t" x="48" y="132">Gunakan saat jumlah iterasi relatif jelas.</text>
+  <text class="t" x="48" y="154">Struktur: init -> condition -> update</text>
+
+  <rect class="card" x="500" y="76" width="452" height="132" />
+  <text class="h" x="520" y="108">`while` loop</text>
+  <text class="t" x="520" y="132">Gunakan saat berhenti berdasarkan kondisi dinamis.</text>
+  <text class="t" x="520" y="154">Pastikan nilai kondisi berubah agar loop berhenti.</text>
+
+  <rect class="card" x="28" y="230" width="924" height="150" />
+  <text class="h" x="48" y="262">Kontrol Alur Iterasi</text>
+
+  <rect class="flow" x="48" y="278" width="420" height="78" />
+  <text class="k" x="66" y="306">`continue` -> lewati iterasi saat ini</text>
+  <text class="t" x="66" y="328">Loop lanjut ke iterasi berikutnya.</text>
+
+  <rect class="flow2" x="504" y="278" width="420" height="78" />
+  <text class="w" x="522" y="306">`break` -> keluar dari loop sekarang</text>
+  <text class="t" x="522" y="328">Loop berhenti total saat kondisi break terpenuhi.</text>
+</svg>

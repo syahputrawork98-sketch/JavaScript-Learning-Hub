@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">Function Closure Dasar Map</title>
+  <desc id="desc">Peta function sebagai unit reusable dan closure sebagai akses lexical scope yang bertahan.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .code { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #334155; }
+      .arrow { stroke: #64748b; stroke-width: 2.2; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#64748b" />
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="980" height="360" />
+  <text class="title" x="28" y="42">Function &amp; Closure &#128273;</text>
+
+  <rect class="card" x="28" y="76" width="282" height="206" />
+  <text class="h" x="48" y="108">Function</text>
+  <text class="t" x="48" y="132">Input (parameter) -> proses -> output (return)</text>
+  <text class="code" x="48" y="160">function add(a, b) { return a + b }</text>
+
+  <rect class="card" x="350" y="76" width="282" height="206" />
+  <text class="h" x="370" y="108">Outer Scope</text>
+  <text class="code" x="370" y="136">function createCounter() {</text>
+  <text class="code" x="370" y="158">  let count = 0</text>
+  <text class="code" x="370" y="180">  return function() { ... }</text>
+  <text class="code" x="370" y="202">}</text>
+
+  <rect class="card" x="672" y="76" width="280" height="206" />
+  <text class="h" x="692" y="108">Closure Effect</text>
+  <text class="t" x="692" y="132">Inner function tetap akses `count`.</text>
+  <text class="t" x="692" y="154">State bisa bertahan antar pemanggilan.</text>
+
+  <path class="arrow" d="M310 178 L350 178" />
+  <path class="arrow" d="M632 178 L672 178" />
+
+  <rect class="card" x="28" y="300" width="924" height="44" />
+  <text class="t" x="48" y="328">Closure penting untuk state privat tanpa global variable, tapi tetap perlu kontrol agar tidak menahan data berlebihan.</text>
+</svg>

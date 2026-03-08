@@ -25,6 +25,10 @@ Alur dasar:
 
 Dengan error handling, kita bisa memberi pesan yang lebih informatif dan menjaga alur aplikasi tetap terkontrol.
 
+## Visualisasi Konsep
+
+![Error Handling Try Catch Throw Map](../assets/11-error-handling-try-catch-throw-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar try catch

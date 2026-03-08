@@ -21,8 +21,13 @@ Setiap topik idealnya punya:
 - konsep utama
 - penjelasan runtime reasoning
 - beberapa contoh kode
+- diagram konsep (SVG)
 - eksperimen dan latihan
 - ringkasan + arah lanjut
+
+## Status Visualisasi
+
+Seluruh topik aktif `01` sampai `11` sudah memiliki diagram konsep (`assets/*.svg`) yang direferensikan dari masing-masing file topik.
 
 ## Aturan Navigasi
 

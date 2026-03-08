@@ -25,6 +25,10 @@ Hoisting menjelaskan fase persiapan context sebelum eksekusi baris kode:
 
 TDZ sering menyebabkan `ReferenceError` saat variabel `let/const` diakses terlalu cepat.
 
+## Diagram Konsep (Opsional)
+
+![Scope Hoisting Map](../assets/scope-hoisting-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Hoisting `var` vs TDZ `let`

@@ -59,7 +59,7 @@ Urutan mengikuti alur:
 ## Daftar Bab dan Cakupan
 
 1. `01-program-pertama`: cara menjalankan JavaScript dan `console.log`
-2. `02-variables`: `let`, `const`, deklarasi, inisialisasi, reassignment
+2. `02-variables`: `let`, `const`, pengenalan `var`, deklarasi, inisialisasi, reassignment
 3. `03-data-types`: number, string, boolean, null, undefined
 4. `04-operators`: arithmetic, comparison, logical, assignment
 5. `05-conditionals`: `if`, `else if`, `else`, ternary
@@ -76,3 +76,21 @@ Urutan mengikuti alur:
 - contoh kode kecil, fokus satu konsep per blok
 - istilah teknis konsisten lintas bab
 - hindari overlap ke buku 02-07 kecuali catatan singkat "dibahas lanjut di buku lain"
+
+## Roadmap Visualisasi (SVG)
+
+Target minimum buku 01: setiap bab memiliki minimal 1 SVG inti (`*-map.svg`).
+
+Status implementasi saat ini:
+
+- `01-program-pertama`: `assets/01-program-pertama-flow-map.svg` (tersedia)
+- `02-variables`: `assets/02-variables-let-const-var-map.svg` (tersedia)
+- `03-data-types`: `assets/03-data-types-basics-map.svg` (tersedia)
+- `04-operators`: `assets/04-operators-basics-map.svg` (tersedia)
+- `05-conditionals`: `assets/05-conditionals-decision-flow-map.svg` (tersedia)
+- `06-loops`: `assets/06-loops-control-flow-map.svg` (tersedia)
+- `07-functions`: `assets/07-functions-input-process-output-map.svg` (tersedia)
+- `08-arrays`: `assets/08-arrays-basics-map.svg` (tersedia)
+- `09-objects`: `assets/09-objects-literal-property-method-map.svg` (tersedia)
+- `10-modules`: `assets/10-modules-export-import-flow-map.svg` (tersedia)
+- `11-error-handling`: `assets/11-error-handling-try-catch-throw-map.svg` (tersedia)

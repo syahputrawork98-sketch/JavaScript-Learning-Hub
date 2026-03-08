@@ -25,6 +25,10 @@ Saat JavaScript menemukan identifier, engine mencari nilainya bertahap:
 
 Lookup berhenti di temuan pertama. Ini sebabnya shadowing bisa "menutup" nilai dari scope luar.
 
+## Diagram Konsep (Opsional)
+
+![Scope Chain Lookup Map](../assets/scope-chain-lookup-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Lookup Naik ke Outer Scope

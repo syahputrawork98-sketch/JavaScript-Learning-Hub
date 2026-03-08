@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 380" role="img" aria-labelledby="title desc">
+  <title id="title">Arrays Basics Map</title>
+  <desc id="desc">Peta array dasar: index, length, push, pop, dan iterasi.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .slot { fill: #eef2ff; stroke: #c7d2fe; stroke-width: 1.5; rx: 6; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .s { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #3730a3; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="380" />
+  <text class="title" x="28" y="42">08 Arrays 📦</text>
+
+  <rect class="card" x="28" y="76" width="924" height="110" />
+  <text class="h" x="48" y="108">Array = daftar nilai berurutan (index mulai dari 0)</text>
+
+  <rect class="slot" x="48" y="122" width="120" height="44" />
+  <text class="s" x="68" y="149">[0] "apel"</text>
+  <rect class="slot" x="182" y="122" width="120" height="44" />
+  <text class="s" x="202" y="149">[1] "jeruk"</text>
+  <rect class="slot" x="316" y="122" width="120" height="44" />
+  <text class="s" x="336" y="149">[2] "mangga"</text>
+
+  <text class="t" x="480" y="149">`length` = 3</text>
+
+  <rect class="card" x="28" y="206" width="452" height="142" />
+  <text class="h" x="48" y="238">Mutasi dasar</text>
+  <text class="t" x="48" y="262">- `push(x)`: tambah elemen di akhir</text>
+  <text class="t" x="48" y="284">- `pop()`: hapus elemen terakhir</text>
+  <text class="t" x="48" y="306">Struktur tetap berurutan berdasarkan index.</text>
+
+  <rect class="card" x="500" y="206" width="452" height="142" />
+  <text class="h" x="520" y="238">Iterasi</text>
+  <text class="t" x="520" y="262">Gunakan loop untuk baca semua elemen:</text>
+  <text class="t" x="520" y="284">`for (let i = 0; i &lt; arr.length; i++) { ... }`</text>
+  <text class="t" x="520" y="306">Pola ini dipakai di banyak operasi array dasar.</text>
+</svg>

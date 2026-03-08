@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 380" role="img" aria-labelledby="title desc">
+  <title id="title">Data Types Basics Map</title>
+  <desc id="desc">Ringkasan lima tipe data dasar: number, string, boolean, null, undefined.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .hint { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="380" />
+  <text class="title" x="28" y="42">03 Data Types 🧠</text>
+
+  <rect class="card" x="28" y="76" width="176" height="120" />
+  <text class="h" x="46" y="108">number</text>
+  <text class="t" x="46" y="132">Contoh: `10`, `3.14`</text>
+  <text class="t" x="46" y="154">Untuk hitung nilai numerik</text>
+
+  <rect class="card" x="222" y="76" width="176" height="120" />
+  <text class="h" x="240" y="108">string</text>
+  <text class="t" x="240" y="132">Contoh: `\"Halo\"`</text>
+  <text class="t" x="240" y="154">Untuk data teks</text>
+
+  <rect class="card" x="416" y="76" width="176" height="120" />
+  <text class="h" x="434" y="108">boolean</text>
+  <text class="t" x="434" y="132">Nilai: `true` / `false`</text>
+  <text class="t" x="434" y="154">Untuk logika kondisi</text>
+
+  <rect class="card" x="610" y="76" width="176" height="120" />
+  <text class="h" x="628" y="108">null</text>
+  <text class="t" x="628" y="132">Nilai sengaja dikosongkan</text>
+  <text class="t" x="628" y="154">Intentional empty value</text>
+
+  <rect class="card" x="804" y="76" width="148" height="120" />
+  <text class="h" x="820" y="108">undefined</text>
+  <text class="t" x="820" y="132">Variabel belum diisi</text>
+  <text class="t" x="820" y="154">Default uninitialized</text>
+
+  <text class="hint" x="28" y="246">Cek tipe saat belajar:</text>
+  <rect class="card" x="28" y="262" width="924" height="86" />
+  <text class="t" x="46" y="292">`typeof 42` -> `number`</text>
+  <text class="t" x="46" y="314">`typeof \"42\"` -> `string`</text>
+  <text class="t" x="280" y="292">`typeof true` -> `boolean`</text>
+  <text class="t" x="280" y="314">`typeof undefined` -> `undefined`</text>
+  <text class="t" x="560" y="292">Catatan: `null` adalah nilai khusus.</text>
+  <text class="t" x="560" y="314">Gunakan `null` saat kamu sengaja mengosongkan nilai.</text>
+</svg>

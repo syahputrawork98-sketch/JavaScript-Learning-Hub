@@ -135,6 +135,54 @@ Jika relevan, penjelasan dapat menghubungkan konsep dengan:
 
 ---
 
+# Aturan Visualisasi SVG
+
+Visualisasi SVG digunakan untuk mempercepat pemahaman mental model.
+
+Aturan dasarnya:
+
+- setiap topik idealnya memiliki minimal 1 SVG inti (`*-map.svg`)
+- SVG harus menjelaskan konsep, bukan dekorasi
+- isi diagram harus sinkron dengan materi topik yang sedang dibahas
+- jika materi berubah signifikan, SVG terkait wajib diperbarui
+
+## Standar Kualitas SVG
+
+Setiap SVG harus:
+
+- terbaca jelas pada ukuran normal README (desktop dan mobile)
+- memiliki hirarki visual yang jelas (judul, node utama, alur)
+- menggunakan kontras warna yang aman dan konsisten
+- menjaga teks tetap ringkas, teknis, dan akurat
+
+Hindari:
+
+- diagram terlalu padat
+- terlalu banyak warna tanpa fungsi
+- label panjang yang sulit dipindai
+
+## Aturan Emoji pada SVG
+
+Emoji diperbolehkan untuk memperkuat identitas visual, dengan batasan:
+
+- emoji digunakan secara terkontrol (maksimal 1-3 per SVG)
+- emoji hanya dipakai pada judul atau label level atas
+- node teknis inti tetap memakai istilah formal tanpa emoji
+- jangan gunakan emoji jika membuat diagram terasa ramai atau ambigu
+
+## Penamaan dan Lokasi File
+
+- simpan SVG di folder `assets/` pada buku terkait
+- gunakan nama deskriptif dan konsisten, misalnya: `execution-context-lifecycle-map.svg`
+- untuk topik yang punya lebih dari satu visual, gunakan suffix yang jelas
+
+## Integrasi ke Materi
+
+- setiap SVG harus direferensikan dari `README.md` buku dan/atau file topik terkait
+- tambahkan 1 kalimat konteks sebelum/after diagram agar pembaca tahu fungsi diagram
+
+---
+
 # Hal yang Perlu Dihindari
 
 Beberapa hal berikut sebaiknya dihindari dalam penulisan materi:

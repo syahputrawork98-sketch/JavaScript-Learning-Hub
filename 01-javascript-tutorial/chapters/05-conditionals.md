@@ -25,6 +25,10 @@ Struktur dasar:
 
 Ternary operator berguna untuk keputusan sederhana dalam satu baris.
 
+## Visualisasi Konsep
+
+![Conditionals Decision Flow Map](../assets/05-conditionals-decision-flow-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar if else

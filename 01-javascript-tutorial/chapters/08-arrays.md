@@ -27,6 +27,10 @@ Method dasar yang sering dipakai:
 - `push`: tambah elemen di akhir
 - `pop`: hapus elemen terakhir
 
+## Visualisasi Konsep
+
+![Arrays Basics Map](../assets/08-arrays-basics-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Dasar Membuat dan Mengakses Array

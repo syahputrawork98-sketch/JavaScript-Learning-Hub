@@ -28,6 +28,10 @@ Manfaat utama:
 - API lebih kecil dan fokus
 - mengurangi ketergantungan global state
 
+## Diagram Konsep (Opsional)
+
+![Closure Patterns Map](../assets/closure-patterns-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - State Privat Sederhana

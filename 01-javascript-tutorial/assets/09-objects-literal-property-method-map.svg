@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 390" role="img" aria-labelledby="title desc">
+  <title id="title">Objects Literal Property Method Map</title>
+  <desc id="desc">Peta object literal: property, akses dot/bracket, dan method dasar.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .obj { fill: #ecfeff; stroke: #67e8f9; stroke-width: 1.5; rx: 8; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .code { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #155e75; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="390" />
+  <text class="title" x="28" y="42">09 Objects 🧱</text>
+
+  <rect class="card" x="28" y="76" width="360" height="286" />
+  <text class="h" x="48" y="108">Object literal</text>
+  <rect class="obj" x="48" y="124" width="320" height="220" />
+  <text class="code" x="66" y="150">const user = {</text>
+  <text class="code" x="66" y="172">  name: "Andi",</text>
+  <text class="code" x="66" y="194">  age: 20,</text>
+  <text class="code" x="66" y="216">  greet() { ... }</text>
+  <text class="code" x="66" y="238">}</text>
+
+  <rect class="card" x="412" y="76" width="540" height="136" />
+  <text class="h" x="432" y="108">Akses property</text>
+  <text class="t" x="432" y="132">- Dot notation: `user.name`</text>
+  <text class="t" x="432" y="154">- Bracket notation: `user[\"name\"]`</text>
+  <text class="t" x="432" y="176">Bracket berguna saat key dinamis.</text>
+
+  <rect class="card" x="412" y="226" width="540" height="136" />
+  <text class="h" x="432" y="258">Method</text>
+  <text class="t" x="432" y="282">Method adalah function di dalam object.</text>
+  <text class="t" x="432" y="304">Dipakai untuk perilaku yang terkait data object.</text>
+  <text class="t" x="432" y="326">Contoh: `student.getAverage()`</text>
+</svg>

@@ -27,6 +27,10 @@ Aturan dasar:
 
 Karena itu, context bug sering muncul saat method dilepas dari object lalu dipanggil sebagai fungsi biasa.
 
+## Diagram Konsep (Opsional)
+
+![This Binding Dasar Map](../assets/this-binding-dasar-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Method Call vs Function Call

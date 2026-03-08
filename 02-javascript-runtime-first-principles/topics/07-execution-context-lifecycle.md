@@ -28,6 +28,10 @@ Dampak runtime yang paling terasa:
 - `var` punya nilai awal `undefined`
 - `let/const` belum bisa diakses sebelum deklarasi (TDZ)
 
+## Diagram Konsep (Opsional)
+
+![Execution Context Lifecycle Map](../assets/execution-context-lifecycle-map.svg)
+
 ## Contoh Kode
 
 ### Contoh 1 - Creation vs Execution pada `var`

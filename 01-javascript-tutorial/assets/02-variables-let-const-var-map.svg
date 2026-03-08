@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">Variables Let Const Var Map</title>
+  <desc id="desc">Perbandingan penggunaan let, const, dan var pada level dasar.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .h { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .ok { fill: #ecfdf5; stroke: #86efac; stroke-width: 1.5; rx: 8; }
+      .warn { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; rx: 8; }
+      .k { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #166534; }
+      .w { font: 700 12px 'Segoe UI', Arial, sans-serif; fill: #9a3412; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="980" height="360" />
+  <text class="title" x="28" y="42">02 Variables 🧩</text>
+
+  <rect class="card" x="28" y="76" width="294" height="220" />
+  <text class="h" x="48" y="108">`const`</text>
+  <text class="t" x="48" y="136">Default untuk nilai yang tidak di-reassign.</text>
+  <text class="t" x="48" y="160">Contoh: `const appName = \"Learn JS\"`</text>
+  <rect class="ok" x="48" y="184" width="246" height="34" />
+  <text class="k" x="62" y="205">Rekomendasi utama untuk kode baru</text>
+
+  <rect class="card" x="343" y="76" width="294" height="220" />
+  <text class="h" x="363" y="108">`let`</text>
+  <text class="t" x="363" y="136">Dipakai jika nilai memang perlu berubah.</text>
+  <text class="t" x="363" y="160">Contoh: `let score = 10; score = 20`</text>
+  <rect class="ok" x="363" y="184" width="246" height="34" />
+  <text class="k" x="377" y="205">Gunakan saat butuh reassignment</text>
+
+  <rect class="card" x="658" y="76" width="294" height="220" />
+  <text class="h" x="678" y="108">`var`</text>
+  <text class="t" x="678" y="136">Ada di kode lama, tetap perlu dikenali.</text>
+  <text class="t" x="678" y="160">Hindari sebagai default di kode baru.</text>
+  <rect class="warn" x="678" y="184" width="246" height="34" />
+  <text class="w" x="692" y="205">Pakai seperlunya (legacy context)</text>
+
+  <text class="t" x="28" y="334">Aturan praktis: mulai dari `const`, pindah ke `let` jika perlu ubah nilai, pahami `var` untuk membaca legacy code.</text>
+</svg>

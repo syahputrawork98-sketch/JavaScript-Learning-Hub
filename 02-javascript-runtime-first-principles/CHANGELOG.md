@@ -1,4 +1,20 @@
-﻿# Changelog - 02 JavaScript Runtime First Principles
+# Changelog - 02 JavaScript Runtime First Principles
+
+## [0.3.1] - 2026-03-08
+
+### Added
+- Menambahkan aset SVG baru untuk topik 01-06:
+  - `assets/values-types-coercion-map.svg`
+  - `assets/scope-hoisting-map.svg`
+  - `assets/function-closure-dasar-map.svg`
+  - `assets/this-binding-dasar-map.svg`
+  - `assets/closure-patterns-map.svg`
+  - `assets/this-binding-lanjutan-map.svg`
+
+### Changed
+- Menambahkan section `Diagram Konsep (Opsional)` pada topik `01` sampai `09` agar setiap topik memiliki referensi visual.
+- Memperbarui daftar visualisasi pada `README.md` buku 02 untuk mencakup seluruh aset aktif.
+- Memperbarui `topics/README.md` dengan standar topik yang mencantumkan diagram SVG dan status visualisasi `01-11`.
 
 ## [0.3.0] - 2026-03-07
 
@@ -76,4 +92,3 @@
 ### Notes
 - Sumber legacy `02-javascript-first-principles` sudah didekomisioning.
 - Buku 02 difokuskan pada materi aktif terkurasi tanpa folder arsip migrasi.
-

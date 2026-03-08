@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">This Binding Dasar Map</title>
+  <desc id="desc">Peta aturan dasar this: method call, function call, explicit binding, dan arrow inheritance.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .card { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 10; }
+      .h { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .t { font: 600 12px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .k { font: 700 12px 'Consolas', 'Courier New', monospace; fill: #334155; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="980" height="360" />
+  <text class="title" x="28" y="42">this Binding Dasar &#129529;</text>
+
+  <rect class="card" x="28" y="76" width="224" height="196" />
+  <text class="h" x="46" y="106">Method Call</text>
+  <text class="k" x="46" y="132">obj.fn()</text>
+  <text class="t" x="46" y="156">`this` -> `obj`</text>
+
+  <rect class="card" x="268" y="76" width="224" height="196" />
+  <text class="h" x="286" y="106">Function Call</text>
+  <text class="k" x="286" y="132">fn()</text>
+  <text class="t" x="286" y="156">strict mode: `undefined`</text>
+
+  <rect class="card" x="508" y="76" width="224" height="196" />
+  <text class="h" x="526" y="106">Explicit Binding</text>
+  <text class="k" x="526" y="132">fn.call(obj)</text>
+  <text class="t" x="526" y="156">`this` dipaksa ke `obj`</text>
+
+  <rect class="card" x="748" y="76" width="204" height="196" />
+  <text class="h" x="766" y="106">Arrow Function</text>
+  <text class="k" x="766" y="132">() =&gt; {}</text>
+  <text class="t" x="766" y="156">Mewarisi `this` luar</text>
+
+  <rect class="card" x="28" y="292" width="924" height="44" />
+  <text class="t" x="48" y="320">Kunci runtime reasoning: nilai `this` ditentukan saat pemanggilan (call-site), bukan saat function ditulis.</text>
+</svg>
