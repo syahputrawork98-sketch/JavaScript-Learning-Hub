@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">
+    C05 Blocks dan Struktur File Map
+  </text>
+
+  <rect x="60" y="110" width="520" height="180" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Statement Block</text>
+  <text x="90" y="185" font-family="Consolas, monospace" font-size="18" fill="#1e293b">if (isActive) {</text>
+  <text x="130" y="215" font-family="Consolas, monospace" font-size="18" fill="#1e293b">console.log('User active');</text>
+  <text x="130" y="245" font-family="Consolas, monospace" font-size="18" fill="#1e293b">updateLastSeen();</text>
+  <text x="90" y="275" font-family="Consolas, monospace" font-size="18" fill="#1e293b">}</text>
+
+  <rect x="620" y="110" width="520" height="180" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="650" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">File Structure</text>
+  <text x="650" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">1. Konstanta / konfigurasi</text>
+  <text x="650" y="215" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">2. Fungsi</text>
+  <text x="650" y="245" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">3. Eksekusi utama</text>
+  <text x="650" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">Tujuan: mudah dibaca dan dipelihara</text>
+
+  <line x1="580" y1="200" x2="620" y2="200" stroke="#334155" stroke-width="3"/>
+  <polygon points="620,200 608,193 608,207" fill="#334155"/>
+
+  <rect x="60" y="330" width="1090" height="170" rx="12" fill="#ecfeff" stroke="#22d3ee" stroke-width="2"/>
+  <text x="90" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0e7490">Best Practice</text>
+  <text x="90" y="405" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#164e63">
+    - Selalu pakai block walau 1 baris statement
+  </text>
+  <text x="90" y="435" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#164e63">
+    - Konsisten indentasi dan jarak antar bagian file
+  </text>
+  <text x="90" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#164e63">
+    - Hindari campur deklarasi dan eksekusi tanpa pola
+  </text>
+</svg>

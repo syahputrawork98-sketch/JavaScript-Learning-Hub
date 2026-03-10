@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">
+    C13 Reserved Words, Contextual, and Future Map
+  </text>
+
+  <rect x="60" y="110" width="340" height="180" rx="12" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="90" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#7f1d1d">Reserved words</text>
+  <text x="90" y="185" font-family="Consolas, monospace" font-size="18" fill="#991b1b">if, for, return, class, const</text>
+  <text x="90" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#7f1d1d">
+    Tidak boleh jadi identifier biasa.
+  </text>
+
+  <rect x="430" y="110" width="340" height="180" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="460" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Contextual keywords</text>
+  <text x="460" y="185" font-family="Consolas, monospace" font-size="18" fill="#0f172a">as, from, get, set, of</text>
+  <text x="460" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#334155">
+    Makna khusus hanya di konteks grammar tertentu.
+  </text>
+
+  <rect x="800" y="110" width="340" height="180" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="830" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#14532d">Future reserved</text>
+  <text x="830" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#166534">
+    Dicadangkan untuk kompatibilitas bahasa.
+  </text>
+  <text x="830" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#166534">
+    Strict/module context cenderung lebih ketat.
+  </text>
+
+  <rect x="60" y="320" width="1080" height="180" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Safe naming strategy</text>
+  <text x="90" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Pilih nama deskriptif domain: userRole, orderStatus, paymentState.
+  </text>
+  <text x="90" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Hindari nama yang dekat dengan keyword bahasa.
+  </text>
+  <text x="90" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Gunakan linter/parser modern untuk deteksi konflik lebih awal.
+  </text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">
+    C04 Literals Dasar Map
+  </text>
+
+  <rect x="60" y="110" width="250" height="150" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="90" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Number</text>
+  <text x="90" y="190" font-family="Consolas, monospace" font-size="18" fill="#0f172a">21, 19.99</text>
+  <text x="90" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#334155">Nilai numerik</text>
+
+  <rect x="340" y="110" width="250" height="150" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="370" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#14532d">String</text>
+  <text x="370" y="190" font-family="Consolas, monospace" font-size="18" fill="#0f172a">'Arta', \"Bandung\"</text>
+  <text x="370" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#334155">Nilai teks</text>
+
+  <rect x="620" y="110" width="250" height="150" rx="12" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+  <text x="650" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#78350f">Boolean</text>
+  <text x="650" y="190" font-family="Consolas, monospace" font-size="18" fill="#0f172a">true, false</text>
+  <text x="650" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#334155">Nilai kondisi</text>
+
+  <rect x="900" y="110" width="250" height="150" rx="12" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="930" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#7f1d1d">Null</text>
+  <text x="930" y="190" font-family="Consolas, monospace" font-size="18" fill="#0f172a">null</text>
+  <text x="930" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#334155">Sengaja tidak ada nilai</text>
+
+  <rect x="60" y="300" width="1090" height="200" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="345" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Literal in code</text>
+  <text x="90" y="385" font-family="Consolas, monospace" font-size="18" fill="#1e293b">
+    const age = 21; const firstName = 'Arta'; const isActive = true; const selectedUser = null;
+  </text>
+  <text x="90" y="430" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    Literal = representasi langsung nilai pada source code.
+  </text>
+  <text x="90" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    Gunakan naming jelas agar tipe nilai mudah dibaca saat code review.
+  </text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">
+    C14 Hashbang and Host Text Conventions Map
+  </text>
+
+  <rect x="60" y="110" width="420" height="180" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="90" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Hashbang</text>
+  <text x="90" y="185" font-family="Consolas, monospace" font-size="18" fill="#0f172a">#!/usr/bin/env node</text>
+  <text x="90" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#334155">
+    Harus di baris pertama untuk script CLI host tertentu.
+  </text>
+  <text x="90" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#334155">
+    Relevan terutama untuk Node CLI (Unix-like).
+  </text>
+
+  <rect x="510" y="110" width="630" height="180" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="540" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#14532d">Host text conventions</text>
+  <text x="540" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#166534">
+    - UTF-8 encoding
+  </text>
+  <text x="540" y="215" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#166534">
+    - line ending consistency (LF/CRLF)
+  </text>
+  <text x="540" y="245" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#166534">
+    - avoid hidden BOM/characters at file start
+  </text>
+
+  <rect x="60" y="320" width="1080" height="180" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Portability checklist</text>
+  <text x="90" y="395" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Tetapkan aturan line ending di repo (.gitattributes/editor config).
+  </text>
+  <text x="90" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Verifikasi script CLI di OS target.
+  </text>
+  <text x="90" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#334155">
+    - Jangan asumsi perilaku host selalu identik antara browser, Node, dan tooling.
+  </text>
+</svg>
