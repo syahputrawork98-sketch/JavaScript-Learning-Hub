@@ -4,10 +4,10 @@ Fondasi cara membaca dan menulis bentuk sintaks JavaScript.
 
 ## Status
 
-- Struktur awal buku sudah dibuat.
-- Outline bab lengkap `C01-C15` sudah ditetapkan.
-- Draft awal `C01-C06` sudah dibuat.
-- Skeleton bab lanjutan `C07-C15` sudah dibuat.
+- Rilis baseline selesai.
+- Versi: `v1.0.0`
+- Kode versi: `JVS-R01-B01-v1.0.0`
+- Tanggal rilis: `2026-03-10`
 
 ## Struktur
 
