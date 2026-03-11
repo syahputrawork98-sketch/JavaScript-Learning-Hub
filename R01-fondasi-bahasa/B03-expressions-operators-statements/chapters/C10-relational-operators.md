@@ -57,11 +57,9 @@ new Date() instanceof Date; // true
 2. Kenapa `'10' < '2'` bisa `true`?
 3. Kapan wajib konversi ke number sebelum perbandingan?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Relational operator membandingkan urutan/relasi antar nilai.
-- Analogi: Seperti menyusun peserta berdasarkan urutan lalu cek siapa lebih depan.
-- Batas Analogi: Perbandingan string mengikuti code point, bukan makna bahasa alami.
+Relational operator itu seperti menyusun urutan peserta lalu mengecek siapa lebih depan atau lebih belakang. JavaScript tetap membandingkan berdasarkan aturan tipe dan representasi nilainya, bukan sekadar intuisi manusia.
 
 ## Ringkasan
 

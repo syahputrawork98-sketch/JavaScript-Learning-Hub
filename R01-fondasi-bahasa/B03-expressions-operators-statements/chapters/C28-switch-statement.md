@@ -54,11 +54,9 @@ Tanpa `break`, eksekusi lanjut ke case berikutnya.
 2. Apa efek jika `break` tidak ditulis?
 3. Kapan fallthrough dianggap valid?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Switch memilih cabang berdasarkan nilai case yang cocok.
-- Analogi: Seperti mesin tiket yang mengeksekusi prosedur sesuai kode tujuan.
-- Batas Analogi: Tanpa `break`, eksekusi bisa jatuh ke case berikutnya (fall-through).
+Switch itu seperti mesin pilihan jalur yang membaca satu kode lalu menjalankan cabang yang cocok. Ia terasa mudah, tetapi butuh disiplin `break` agar alurnya tidak bocor ke case berikutnya.
 
 ## Ringkasan
 

@@ -53,11 +53,9 @@ Unary sebelum basis eksponensial butuh grouping yang benar.
 2. Kenapa `-2 ** 2` tidak valid tanpa kurung?
 3. Kapan lebih baik pecah rumus ke variabel antara?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Exponentiation menghitung pemangkatan dengan associativity khusus.
-- Analogi: Seperti pertumbuhan berlapis yang efeknya meningkat sangat cepat.
-- Batas Analogi: `**` right-associative dan punya batasan dengan unary minus.
+Exponentiation bisa dibayangkan seperti pertumbuhan bertingkat yang efeknya cepat membesar. Walau terlihat sederhana, urutan pembacaannya tidak selalu sama dengan intuisi kalkulator biasa.
 
 ## Ringkasan
 

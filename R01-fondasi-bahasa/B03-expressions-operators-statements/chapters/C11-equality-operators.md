@@ -53,6 +53,10 @@ NaN === NaN;       // false
 2. Kapan `== null` masih layak dipakai?
 3. Cara benar mengecek `NaN` apa?
 
+## Analogi Singkat
+
+Equality operator bisa dibayangkan seperti dua mode pemeriksaan identitas: satu ketat, satu longgar. Karena ada mode yang mau menyesuaikan bentuk input dulu, hasil perbandingan bisa mengejutkan.
+
 ## Analogi
 
 - Intuisi Singkat: Equality operator mengecek kesetaraan dengan aturan longgar atau ketat.

@@ -53,6 +53,10 @@ Expression menghasilkan nilai, statement mengatur jalannya program.
 2. Contoh abrupt flow apa saja?
 3. Kenapa urutan statement penting untuk hasil program?
 
+## Analogi Singkat
+
+Statement itu seperti sutradara yang tidak fokus menghasilkan barang, tetapi mengatur kapan adegan dimulai, dilewati, atau dihentikan. Ia menentukan jalannya program, bukan sekadar nilai yang keluar dari satu ekspresi.
+
 ## Analogi
 
 - Intuisi Singkat: Statement mengatur alur eksekusi, bukan sekadar menghasilkan nilai.

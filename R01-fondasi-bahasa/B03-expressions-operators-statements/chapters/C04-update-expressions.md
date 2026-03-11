@@ -56,11 +56,9 @@ Keterbacaan menurun saat update expression dicampur dengan operasi lain secara b
 2. Kenapa `1++` invalid?
 3. Kapan lebih baik mengganti `x++` dengan `x = x + 1`?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Update expression menggabungkan baca nilai dan ubah nilai dalam satu langkah.
-- Analogi: Seperti melihat angka meteran lalu langsung menambah satu klik.
-- Batas Analogi: Prefix dan postfix memberi hasil nilai balik yang berbeda.
+Update expression itu seperti melihat angka pada meter lalu langsung menambah atau menguranginya saat itu juga. Yang sering mengecoh adalah kapan nilainya dibaca dan kapan perubahan akhirnya dianggap terjadi.
 
 ## Ringkasan
 

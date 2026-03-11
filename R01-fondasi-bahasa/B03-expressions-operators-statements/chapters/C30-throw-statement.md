@@ -48,11 +48,9 @@ Error yang dilempar bisa ditangkap oleh `catch` di call stack yang relevan.
 2. Kapan `throw` tepat digunakan?
 3. Apa hubungan `throw` dengan `try/catch`?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Throw menghentikan flow normal dengan melempar exception.
-- Analogi: Seperti alarm darurat yang memaksa proses normal berhenti.
-- Batas Analogi: Nilai apa pun bisa dilempar, tapi `Error` lebih baik untuk debugging.
+Throw itu seperti menyalakan alarm saat proses normal sudah tidak aman untuk diteruskan. Begitu dilempar, alur biasa berhenti dan program berpindah ke mekanisme penanganan error.
 
 ## Ringkasan
 

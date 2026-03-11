@@ -44,11 +44,9 @@ Gunakan `debugger` untuk inspeksi mendalam, logging untuk jejak eksekusi umum.
 2. Kenapa `debugger` tidak boleh tinggal di produksi?
 3. Apa kombinasi ideal antara debugger dan logging?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Debugger statement menandai titik jeda inspeksi runtime.
-- Analogi: Seperti tanda pause saat latihan agar detail gerakan bisa diperiksa.
-- Batas Analogi: Efek terlihat saat debugger aktif; tanpa debugger biasanya tidak tampak.
+Debugger statement itu seperti memberi tanda pause di titik tertentu agar runtime bisa diperiksa lebih dekat. Ia membantu observasi, bukan mengubah logika inti program.
 
 ## Ringkasan
 

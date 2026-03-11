@@ -48,6 +48,10 @@ Setelah logging/transformasi, error dapat di-throw lagi jika perlu.
 2. Kenapa area `try` sebaiknya kecil?
 3. Kapan error sebaiknya dilempar ulang?
 
+## Analogi Singkat
+
+`try...catch...finally` itu seperti prosedur kerja teknisi: coba jalankan proses, tangani jika gagal, lalu tetap rapikan area kerja pada akhirnya. Susunan ini membantu program tetap terkontrol saat sesuatu berjalan tidak sesuai rencana.
+
 ## Analogi
 
 - Intuisi Singkat: Try/catch/finally menangani kegagalan sambil menjaga cleanup.

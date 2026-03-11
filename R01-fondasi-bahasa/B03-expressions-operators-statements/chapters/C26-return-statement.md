@@ -50,11 +50,9 @@ Di top-level script biasa, `return` tidak valid.
 2. Kenapa early return mempermudah keterbacaan?
 3. Risiko apa jika return type tidak konsisten?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Return mengakhiri fungsi dan mengirim hasil ke pemanggil.
-- Analogi: Seperti kurir kembali ke kantor membawa hasil tugas.
-- Batas Analogi: `return` valid dalam fungsi, bukan sembarang blok.
+Return itu seperti mengakhiri tugas lalu langsung membawa hasilnya kembali ke pemanggil. Setelah `return`, sisa langkah di fungsi yang sama tidak lagi diteruskan.
 
 ## Ringkasan
 

@@ -58,11 +58,9 @@ Operator ini bekerja pada representasi 32-bit integer.
 2. Kenapa `delete` cocok untuk properti object, bukan variabel `let/const`?
 3. Kapan `!!value` layak dipakai?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Unary operator memproses satu operand untuk mengubah nilai atau tipe.
-- Analogi: Seperti satu tombol efek pada foto: satu input, satu output baru.
-- Batas Analogi: Setiap unary operator punya aturan efek yang berbeda.
+Unary operator itu seperti satu tombol transformasi yang bekerja pada satu nilai sekaligus. Satu input bisa diubah bentuk, tanda, atau perilakunya tergantung operator yang dipakai.
 
 ## Ringkasan
 

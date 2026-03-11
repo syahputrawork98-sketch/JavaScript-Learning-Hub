@@ -51,11 +51,9 @@ Terlalu banyak `continue` bisa membuat jalur eksekusi sulit diikuti.
 2. Risiko `continue` pada `while` apa?
 3. Kapan lebih baik ganti ke `if` biasa tanpa continue?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Continue melewati sisa proses iterasi saat ini dan lompat ke berikutnya.
-- Analogi: Seperti sortir barang yang langsung melewati item rusak ke item selanjutnya.
-- Batas Analogi: Hanya valid di konteks loop yang sesuai.
+Continue itu seperti petugas sortir yang melewati item bermasalah lalu langsung lanjut ke item berikutnya. Ia tidak menghentikan seluruh loop, hanya memotong sisa langkah pada putaran saat ini.
 
 ## Ringkasan
 

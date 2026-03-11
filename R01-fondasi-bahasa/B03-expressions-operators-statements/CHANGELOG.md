@@ -4,7 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.1`.
+Belum ada perubahan setelah rilis `v1.0.2`.
+
+## [v1.0.2] - 2026-03-12
+
+Kode versi: `JVS-R01-B03-v1.0.2`
+
+- Menyesuaikan strategi analogi B03 agar lebih fleksibel sesuai kebutuhan materi.
+- Mengubah chapter bertipe sederhana untuk memakai `Analogi Singkat` saja.
+- Menambahkan `Analogi Singkat` pada chapter bertipe abstrak yang direkomendasikan memiliki dua lapis analogi.
 
 ## [v1.0.1] - 2026-03-11
 

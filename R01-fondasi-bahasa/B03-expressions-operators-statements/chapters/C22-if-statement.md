@@ -54,11 +54,9 @@ Expression kondisi dievaluasi dengan aturan truthy/falsy.
 2. Apa manfaat guard clause pada fungsi?
 3. Kenapa urutan kondisi penting?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: If statement memilih cabang eksekusi berdasarkan kondisi.
-- Analogi: Seperti petugas parkir yang mengarahkan masuk atau putar balik.
-- Batas Analogi: Kondisi dinilai lewat truthiness, tidak harus boolean literal.
+If statement itu seperti petugas yang memilih jalur masuk atau keluar berdasarkan satu kondisi. Konsepnya dekat dengan keputusan sehari-hari sehingga cukup butuh jembatan intuitif singkat.
 
 ## Ringkasan
 

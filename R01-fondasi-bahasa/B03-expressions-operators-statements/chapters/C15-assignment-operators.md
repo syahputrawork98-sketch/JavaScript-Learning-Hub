@@ -59,11 +59,9 @@ const { id } = { id: 10 };
 2. Apa risiko assignment di dalam kondisi `if`?
 3. Kapan compound assignment membantu keterbacaan?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Assignment operator menyimpan hasil evaluasi ke target valid.
-- Analogi: Seperti memperbarui stok gudang dengan nilai terbaru.
-- Batas Analogi: Compound assignment tetap tunduk pada evaluasi dan coercion JS.
+Assignment operator itu seperti menulis hasil terbaru ke papan catatan kerja. Begitu nilai dihitung, hasilnya disimpan ke target yang valid agar bisa dipakai lagi setelahnya.
 
 ## Ringkasan
 

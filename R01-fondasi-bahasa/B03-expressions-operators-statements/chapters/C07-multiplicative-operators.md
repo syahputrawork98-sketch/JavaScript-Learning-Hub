@@ -54,11 +54,9 @@ Operator multiplicative sering muncul pada perhitungan bisnis dan iterasi, serta
 2. Kenapa `0 / 0` tidak menghasilkan `0`?
 3. Kapan coercion implicit pada `*`/`/` harus dihindari?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Multiplicative operators bekerja pada kali, bagi, dan sisa bagi.
-- Analogi: Seperti membagi isi kardus lalu mengecek sisa barangnya.
-- Batas Analogi: `%` di JS adalah remainder, bukan modulo matematis murni di semua kasus.
+Multiplicative operator itu seperti menghitung isi kardus, membaginya, lalu melihat apakah masih ada sisa. Konsep dasarnya familiar, tetapi JavaScript tetap punya aturan hasil yang perlu diperhatikan.
 
 ## Ringkasan
 

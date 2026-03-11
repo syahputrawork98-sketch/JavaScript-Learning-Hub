@@ -50,11 +50,9 @@ Labelled break dipakai untuk keluar dari nested loop tertentu.
 2. Kenapa `break` penting di `switch`?
 3. Kapan labelled break layak dipertimbangkan?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Break menghentikan loop atau switch lebih cepat.
-- Analogi: Seperti tombol stop darurat pada mesin.
-- Batas Analogi: Tanpa label, ia hanya keluar dari struktur terdekat.
+Break itu seperti tombol stop darurat yang menghentikan proses yang sedang berlangsung di struktur terdekat. Karena efeknya langsung memotong alur, penggunaannya biasanya ingin sangat jelas.
 
 ## Ringkasan
 
