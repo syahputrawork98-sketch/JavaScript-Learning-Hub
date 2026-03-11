@@ -71,6 +71,14 @@ console.log(qty ?? 10); // 0
 - `&&` dan `||` bekerja dengan short-circuit dan mengembalikan operand.
 - Pilih `||` atau `??` sesuai makna default yang diinginkan.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.1.2`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C09 Coercion ke Boolean Map](../assets/C09-coercion-ke-boolean-map.svg)
@@ -79,5 +87,3 @@ console.log(qty ?? 10); // 0
 
 - Lihat contoh: `../examples/C09-coercion-ke-boolean/example.js`
 - Panduan: `../examples/C09-coercion-ke-boolean/README.md`
-
-

@@ -71,6 +71,20 @@ Dua object dengan isi identik tetap berbeda jika referensinya berbeda.
 - Assignment object berbagi referensi yang sama.
 - Equality object bergantung pada referensi, bukan isi.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1.7`
+- `7.1.18`
+- `7.2.2`
+- `7.2.3`
+- `7.2.4`
+- `7.2.5`
+- `7.2.6`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C03 Non-Primitive dan Reference Intro Map](../assets/C03-non-primitive-reference-intro-map.svg)
@@ -79,5 +93,3 @@ Dua object dengan isi identik tetap berbeda jika referensinya berbeda.
 
 - Lihat contoh: `../examples/C03-non-primitive-dan-reference-intro/example.js`
 - Panduan: `../examples/C03-non-primitive-dan-reference-intro/README.md`
-
-

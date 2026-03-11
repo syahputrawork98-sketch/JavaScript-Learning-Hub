@@ -4,7 +4,18 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.0`.
+Belum ada perubahan setelah rilis `v1.1.0`.
+
+## [v1.1.0] - 2026-03-11
+
+Kode versi: `JVS-R01-B02-v1.1.0`
+
+- Menambahkan `docs/spec-mapping-56.md` untuk memetakan cakupan B02 ke 56 section ECMAScript yang relevan (`6.1.*`, `7.1.*`, `7.2.*`).
+- Memperbarui `docs/README.md` dengan referensi ke dokumen mapping spec.
+- Menambahkan section `Spec Coverage` pada chapter `C01-C12` untuk menautkan setiap bab ke section ECMAScript yang paling relevan.
+- Menyelaraskan `examples/C01-C12/README.md` dengan `Spec Coverage` chapter melalui section `Spec Alignment` (tautan ke chapter dan `docs/spec-mapping-56.md`).
+- Mengoreksi mapping `C04-typeof-dan-deteksi-tipe-praktis.md` ke section yang lebih relevan (`7.2.2`, `7.2.3`, `7.2.8`).
+- Menormalkan seluruh file Markdown B02 ke UTF-8 tanpa BOM dan merapikan trailing blank lines.
 
 ## [v1.0.0] - 2026-03-11
 

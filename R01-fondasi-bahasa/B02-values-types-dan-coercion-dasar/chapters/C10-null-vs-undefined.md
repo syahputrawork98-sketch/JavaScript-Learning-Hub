@@ -78,6 +78,16 @@ Pola `value != null` dipakai untuk mengecek bukan `null` dan bukan `undefined` s
 - `null` berarti nilai sengaja dikosongkan.
 - Tetapkan konvensi dan konsistenkan di seluruh codebase.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1.1`
+- `6.1.2`
+- `7.2.1`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C10 null vs undefined Map](../assets/C10-null-vs-undefined-map.svg)
@@ -86,5 +96,3 @@ Pola `value != null` dipakai untuk mengecek bukan `null` dan bukan `undefined` s
 
 - Lihat contoh: `../examples/C10-null-vs-undefined/example.js`
 - Panduan: `../examples/C10-null-vs-undefined/README.md`
-
-

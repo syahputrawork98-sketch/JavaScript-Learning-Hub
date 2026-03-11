@@ -86,6 +86,22 @@ Perubahan di `b` tidak memengaruhi `a`.
 - Primitive bersifat immutable.
 - Assignment primitive menyalin nilai, bukan berbagi referensi.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1.1`
+- `6.1.2`
+- `6.1.3`
+- `6.1.4`
+- `6.1.5`
+- `6.1.5.1`
+- `6.1.6`
+- `6.1.6.1`
+- `6.1.6.2`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C02 Primitive Types Dasar Map](../assets/C02-primitive-types-dasar-map.svg)
@@ -94,5 +110,3 @@ Perubahan di `b` tidak memengaruhi `a`.
 
 - Lihat contoh: `../examples/C02-primitive-types-dasar/example.js`
 - Panduan: `../examples/C02-primitive-types-dasar/README.md`
-
-

@@ -13,3 +13,14 @@ Contoh runnable untuk bab **C01 - Values dan Types Overview**.
 - `node example.js`
 - `node example-02.js`
 - `node example-03.js`
+
+## Spec Alignment
+
+Contoh pada folder ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1`
+- `7.1`
+- `7.2`
+
+Referensi chapter: `../../chapters/C01-values-dan-types-overview.md`.
+Referensi mapping penuh: `../../docs/spec-mapping-56.md`.

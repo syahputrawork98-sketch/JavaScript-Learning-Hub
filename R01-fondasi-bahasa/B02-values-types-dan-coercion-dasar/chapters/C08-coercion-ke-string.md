@@ -71,6 +71,17 @@ Gunakan `String(value)` jika nilai bisa nullish.
 - `String(...)` memberi konversi eksplisit yang aman.
 - Template literal membantu kode lebih jelas dan minim bug format.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.1.1`
+- `7.1.1.1`
+- `7.1.17`
+- `7.1.19`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C08 Coercion ke String Map](../assets/C08-coercion-ke-string-map.svg)
@@ -79,5 +90,3 @@ Gunakan `String(value)` jika nilai bisa nullish.
 
 - Lihat contoh: `../examples/C08-coercion-ke-string/example.js`
 - Panduan: `../examples/C08-coercion-ke-string/README.md`
-
-

@@ -15,6 +15,7 @@ Dokumen ini mengatur aturan khusus buku B02.
 - Pola urutan bab: dari fondasi nilai/tipe ke coercion dan debugging.
 - Pola latihan: checkpoint singkat per bab + contoh pembanding.
 - Pola visual: secukupnya untuk memperjelas relasi konsep.
+- Mapping sumber spec ke chapter: `docs/spec-mapping-56.md` (cakupan 56 section untuk B02).
 
 ## Catatan Operasional
 

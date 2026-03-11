@@ -73,6 +73,30 @@ Selalu verifikasi hasil jika sumber data berasal dari input user.
 - `Number`, `parseInt`, dan `parseFloat` punya perilaku berbeda.
 - Validasi `NaN` wajib pada data dari sumber eksternal.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.1.3`
+- `7.1.4`
+- `7.1.4.1`
+- `7.1.4.1.1`
+- `7.1.4.1.2`
+- `7.1.4.1.3`
+- `7.1.5`
+- `7.1.6`
+- `7.1.7`
+- `7.1.8`
+- `7.1.9`
+- `7.1.10`
+- `7.1.11`
+- `7.1.12`
+- `7.1.20`
+- `7.1.21`
+- `7.1.22`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C07 Coercion ke Number Map](../assets/C07-coercion-ke-number-map.svg)
@@ -81,5 +105,3 @@ Selalu verifikasi hasil jika sumber data berasal dari input user.
 
 - Lihat contoh: `../examples/C07-coercion-ke-number/example.js`
 - Panduan: `../examples/C07-coercion-ke-number/README.md`
-
-

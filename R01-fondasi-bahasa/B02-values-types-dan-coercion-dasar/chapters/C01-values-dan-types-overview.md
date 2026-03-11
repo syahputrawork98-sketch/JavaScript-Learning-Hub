@@ -76,6 +76,16 @@ Operator yang berbeda bisa memicu coercion yang berbeda.
 - JavaScript punya dua kelompok besar nilai: primitive dan non-primitive.
 - Type menentukan perilaku operasi dan coercion.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1`
+- `7.1`
+- `7.2`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C01 Values dan Types Overview Map](../assets/C01-values-types-overview-map.svg)
@@ -84,5 +94,3 @@ Operator yang berbeda bisa memicu coercion yang berbeda.
 
 - Lihat contoh: `../examples/C01-values-types-overview/example.js`
 - Panduan: `../examples/C01-values-types-overview/README.md`
-
-

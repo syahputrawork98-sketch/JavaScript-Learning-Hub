@@ -69,6 +69,19 @@ console.log(NaN === NaN);        // false
 - `==` melakukan coercion dengan aturan khusus.
 - Pahami edge case sebelum memakai loose equality.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.2.9`
+- `7.2.10`
+- `7.2.11`
+- `7.2.12`
+- `7.2.13`
+- `7.2.14`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C06 Equality Strict vs Loose Map](../assets/C06-equality-strict-vs-loose-map.svg)
@@ -77,5 +90,3 @@ console.log(NaN === NaN);        // false
 
 - Lihat contoh: `../examples/C06-equality-strict-vs-loose/example.js`
 - Panduan: `../examples/C06-equality-strict-vs-loose/README.md`
-
-

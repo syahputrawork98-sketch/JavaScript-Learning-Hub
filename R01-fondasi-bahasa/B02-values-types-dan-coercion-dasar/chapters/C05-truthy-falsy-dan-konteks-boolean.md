@@ -75,6 +75,14 @@ console.log(fallback); // Anonymous
 - Nilai selain daftar tersebut adalah truthy.
 - Konteks boolean perlu desain kondisi yang eksplisit.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.1.2`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C05 Truthy Falsy dan Konteks Boolean Map](../assets/C05-truthy-falsy-konteks-boolean-map.svg)
@@ -83,5 +91,3 @@ console.log(fallback); // Anonymous
 
 - Lihat contoh: `../examples/C05-truthy-falsy-dan-konteks-boolean/example.js`
 - Panduan: `../examples/C05-truthy-falsy-dan-konteks-boolean/README.md`
-
-

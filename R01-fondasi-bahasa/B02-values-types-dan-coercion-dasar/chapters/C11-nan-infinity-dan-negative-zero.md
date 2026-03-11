@@ -76,6 +76,19 @@ function isFiniteNumber(value) {
 - Validasi `Number.isFinite` penting untuk jalur perhitungan kritikal.
 - `Object.is` menyediakan perbandingan presisi untuk kasus spesifik.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `6.1.6`
+- `6.1.6.1`
+- `7.1.4`
+- `7.1.5`
+- `7.1.6`
+- `7.1.7`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C11 NaN, Infinity, dan Negative Zero Map](../assets/C11-nan-infinity-negative-zero-map.svg)
@@ -84,5 +97,3 @@ function isFiniteNumber(value) {
 
 - Lihat contoh: `../examples/C11-nan-infinity-dan-negative-zero/example.js`
 - Panduan: `../examples/C11-nan-infinity-dan-negative-zero/README.md`
-
-

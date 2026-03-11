@@ -78,6 +78,16 @@ function detectType(value) {
 - `null` dan array butuh perlakuan khusus.
 - Deteksi tipe praktis sebaiknya sederhana, konsisten, dan eksplisit.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.2.2`
+- `7.2.3`
+- `7.2.8`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C04 typeof dan Deteksi Tipe Praktis Map](../assets/C04-typeof-deteksi-tipe-praktis-map.svg)
@@ -86,5 +96,3 @@ function detectType(value) {
 
 - Lihat contoh: `../examples/C04-typeof-dan-deteksi-tipe-praktis/example.js`
 - Panduan: `../examples/C04-typeof-dan-deteksi-tipe-praktis/README.md`
-
-

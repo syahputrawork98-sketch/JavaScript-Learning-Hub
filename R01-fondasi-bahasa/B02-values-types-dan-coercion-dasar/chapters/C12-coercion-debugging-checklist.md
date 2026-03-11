@@ -77,6 +77,19 @@ Minimal tambahkan test untuk:
 - Reproduksi minimal mempercepat penemuan akar masalah.
 - Konversi eksplisit + test edge case adalah penutup yang aman.
 
+## Spec Coverage
+
+Bab ini terutama selaras dengan section ECMAScript berikut:
+
+- `7.1.13`
+- `7.1.14`
+- `7.1.14.1`
+- `7.1.14.2`
+- `7.1.15`
+- `7.1.16`
+
+Referensi mapping penuh: `../docs/spec-mapping-56.md`.
+
 ## Visual Map
 
 ![C12 Coercion Debugging Checklist Map](../assets/C12-coercion-debugging-checklist-map.svg)
@@ -85,5 +98,3 @@ Minimal tambahkan test untuk:
 
 - Lihat contoh: `../examples/C12-coercion-debugging-checklist/example.js`
 - Panduan: `../examples/C12-coercion-debugging-checklist/README.md`
-
-
