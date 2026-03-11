@@ -45,3 +45,7 @@ Urutan ini disusun agar pembaca tidak belajar teknik sebelum fondasi istilah dan
 - Mandek di `B02`: ulang konsep truthy/falsy dan equality sebelum lanjut.
 - Mandek di `B04`: kembali ke latihan `B03` untuk memperkuat alur logika.
 - Mandek di `B06`: sederhanakan dulu struktur jadi 2 modul sebelum menambah file.
+
+## Visual Map
+
+![C03 Peta Buku B01-B06 Map](../assets/C03-peta-buku-b01-b06-map.svg)

@@ -22,3 +22,9 @@ Fungsinya memastikan pembaca tahu urutan belajar, batas scope, dan target kelulu
 
 - Wajib berurutan dari `C01` sampai `C06`.
 - Jika pembaca sudah familiar dengan JavaScript dasar, boleh lompat ke `C03` lalu kembali ke `C04-C06`.
+
+## Status
+
+- Chapter `C01-C06` sudah tersedia penuh.
+- `C01`, `C03`, `C05`, dan `C06` sudah memiliki visual map pendukung.
+- Penyempurnaan berikutnya bisa berfokus pada batch visual map lanjutan atau perapian editorial kecil.

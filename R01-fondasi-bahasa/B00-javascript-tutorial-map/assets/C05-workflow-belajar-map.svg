@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">C05 Workflow Belajar Map</text>
+
+  <rect x="60" y="110" width="160" height="95" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="121" y="153" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Baca</text>
+  <text x="93" y="183" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#1e3a8a">tujuan + konsep</text>
+
+  <rect x="250" y="110" width="160" height="95" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="299" y="153" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#166534">Jalankan</text>
+  <text x="288" y="183" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#166534">contoh kode</text>
+
+  <rect x="440" y="110" width="160" height="95" rx="12" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+  <text x="489" y="153" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#92400e">Latihan</text>
+  <text x="468" y="183" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#92400e">checkpoint</text>
+
+  <rect x="630" y="110" width="160" height="95" rx="12" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="682" y="153" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#991b1b">Ringkas</text>
+  <text x="664" y="183" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#991b1b">3-5 poin</text>
+
+  <rect x="820" y="110" width="160" height="95" rx="12" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text x="871" y="153" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#5b21b6">Review</text>
+  <text x="849" y="183" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#5b21b6">ulang bila perlu</text>
+
+  <line x1="220" y1="158" x2="250" y2="158" stroke="#334155" stroke-width="3"/>
+  <polygon points="250,158 238,151 238,165" fill="#334155"/>
+  <line x1="410" y1="158" x2="440" y2="158" stroke="#334155" stroke-width="3"/>
+  <polygon points="440,158 428,151 428,165" fill="#334155"/>
+  <line x1="600" y1="158" x2="630" y2="158" stroke="#334155" stroke-width="3"/>
+  <polygon points="630,158 618,151 618,165" fill="#334155"/>
+  <line x1="790" y1="158" x2="820" y2="158" stroke="#334155" stroke-width="3"/>
+  <polygon points="820,158 808,151 808,165" fill="#334155"/>
+
+  <rect x="60" y="270" width="500" height="270" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Ritme Belajar</text>
+  <text x="90" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">45-90 menit per sesi</text>
+  <text x="90" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">1-2 bab per hari maksimum</text>
+  <text x="90" y="450" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">Sisakan 10-15 menit untuk review akhir</text>
+
+  <rect x="640" y="270" width="500" height="270" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="670" y="320" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Exit Criteria</text>
+  <text x="670" y="370" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">1. Bisa menjelaskan ulang konsep inti.</text>
+  <text x="670" y="410" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">2. Contoh utama bisa dijalankan ulang.</text>
+  <text x="670" y="450" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">3. Minimal 80% checkpoint selesai benar.</text>
+</svg>

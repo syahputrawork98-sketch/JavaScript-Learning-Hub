@@ -53,3 +53,7 @@ Gunakan struktur catatan sederhana:
 - `penyebab`
 - `perbaikan`
 - `pelajaran utama`
+
+## Visual Map
+
+![C05 Workflow Belajar Map](../assets/C05-workflow-belajar-map.svg)

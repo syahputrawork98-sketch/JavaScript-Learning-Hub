@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">C06 Checklist Kelulusan dan Next Step Map</text>
+
+  <rect x="60" y="110" width="300" height="110" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="143" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#166534">Checklist</text>
+  <text x="95" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#166534">7 kemampuan inti harus dicek</text>
+
+  <rect x="450" y="110" width="300" height="110" rx="12" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+  <text x="546" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#92400e">Skor</text>
+  <text x="501" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#92400e">0, 1, 2 per indikator</text>
+
+  <rect x="840" y="110" width="300" height="110" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="932" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Next Step</text>
+  <text x="899" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#1e3a8a">lanjut ke R02 jika stabil</text>
+
+  <line x1="360" y1="165" x2="450" y2="165" stroke="#334155" stroke-width="3"/>
+  <polygon points="450,165 438,158 438,172" fill="#334155"/>
+  <line x1="750" y1="165" x2="840" y2="165" stroke="#334155" stroke-width="3"/>
+  <polygon points="840,165 828,158 828,172" fill="#334155"/>
+
+  <rect x="60" y="280" width="500" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="325" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Syarat Lulus</text>
+  <text x="90" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">Skor total minimal 11/14</text>
+  <text x="90" y="415" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">Tidak ada indikator bernilai 0</text>
+  <text x="90" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">Minimal 5 indikator berada di skor 2</text>
+
+  <rect x="640" y="280" width="500" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="670" y="325" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Validasi Sebelum R02</text>
+  <text x="670" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">1. Program kecil multi-file berjalan.</text>
+  <text x="670" y="415" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">2. Bisa mengolah data array/object dasar.</text>
+  <text x="670" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">3. Bisa menangani error dasar dan membawa catatan miskonsepsi.</text>
+</svg>

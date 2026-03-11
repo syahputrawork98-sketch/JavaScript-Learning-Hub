@@ -46,3 +46,7 @@ Sebelum memilih rute, tentukan profil awal:
 - [ ] Menyelesaikan target buku sesuai rute.
 - [ ] Menutup minggu dengan review singkat miskonsepsi.
 - [ ] Menyesuaikan rute minggu berikutnya berdasarkan hasil checkpoint.
+
+## Visual Map
+
+![C01 Cara Pakai R01 Map](../assets/C01-cara-pakai-r01-map.svg)

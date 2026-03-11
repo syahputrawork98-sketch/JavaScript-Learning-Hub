@@ -54,3 +54,7 @@ Jika mini tugas belum stabil, ulang buku yang paling terkait dulu (`B03-B06`).
 
 - `R01` memastikan pembaca bisa memakai JavaScript dengan benar.
 - `R02` membantu pembaca memahami mengapa perilaku JavaScript terjadi.
+
+## Visual Map
+
+![C06 Checklist Kelulusan dan Next Step Map](../assets/C06-checklist-kelulusan-dan-next-step-map.svg)
