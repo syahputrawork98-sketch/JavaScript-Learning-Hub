@@ -14,18 +14,11 @@ Setelah bentuk dasar dipahami, kita perlu membaca bagaimana async generator diin
 2. Setiap langkah `next()` menghasilkan Promise yang harus di-`await`.
 3. Perpindahan state dipengaruhi oleh kombinasi `await`, `yield`, `return`, dan `throw`.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan async generator seperti dashboard pengiriman yang hanya menampilkan update berikutnya setelah sistem selesai memproses status terbaru. Setiap kali kita meminta pembaruan, kita tidak langsung menerima jawaban final; kita menunggu sebentar sampai sistem mengirim langkah berikutnya. Dalam JavaScript, itulah sebabnya `next()` pada async generator menghasilkan Promise dan state-nya bergerak bertahap.
-
-Contoh alur:
-
-```js
-async function* flow() {
-  const a = yield 'step-1';
-  yield a + 1;
-}
-```
+- Intuisi Singkat: Instansiasi dan evaluasi async generator menambah lapisan async pada state machine generator.
+- Analogi: Seperti mesin antrean yang tiap langkahnya bisa menunggu sinyal dari sistem eksternal sebelum lanjut.
+- Batas Analogi: Debugging-nya perlu melihat dua hal sekaligus: state generator dan penyelesaian async.
 
 ## Praktik yang Direkomendasikan
 

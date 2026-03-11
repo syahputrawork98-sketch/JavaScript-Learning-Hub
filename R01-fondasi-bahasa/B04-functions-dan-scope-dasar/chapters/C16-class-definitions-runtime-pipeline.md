@@ -14,21 +14,11 @@ Sesudah melihat jembatan dari static checks ke runtime, langkah berikutnya adala
 2. Class expression dievaluasi di tempat ekspresi itu muncul, sehingga timing pembentukannya lebih eksplisit.
 3. Constructor, methods, fields, dan inheritance dipasang sebagai bagian dari pipeline pembentukan class, bukan saat instance pertama dibuat.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan class seperti mesin produksi yang harus dirakit penuh sebelum dipakai operator. Nama mesinnya mungkin sudah direncanakan, tetapi selama perakitannya belum selesai, mesin itu belum aman dinyalakan. Dalam JavaScript, class baru benar-benar siap dipakai setelah pipeline pembentukannya selesai, termasuk binding, methods, dan fields-nya.
-
-Contoh singkat:
-
-```js
-class User {
-  static role = 'member';
-
-  constructor(name) {
-    this.name = name;
-  }
-}
-```
+- Intuisi Singkat: Runtime pipeline class menjelaskan kapan binding, methods, fields, dan inheritance dibentuk.
+- Analogi: Seperti mesin produksi yang harus dirakit penuh sebelum boleh dinyalakan operator.
+- Batas Analogi: Class tidak siap dipakai hanya karena namanya sudah terlihat; pipeline pembentukannya harus selesai dulu.
 
 ## Praktik yang Direkomendasikan
 

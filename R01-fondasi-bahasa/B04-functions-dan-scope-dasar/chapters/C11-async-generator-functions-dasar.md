@@ -14,18 +14,11 @@ Async generator menggabungkan dua ide penting: `async` dan `yield`. Topik ini pe
 2. Nilai dikirim keluar dengan `yield`, tetapi konsumsinya perlu `for await...of` atau `await iterator.next()`.
 3. Di dalam body, kita bisa memakai `await` dan `yield` dalam satu alur.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan async generator seperti kurir yang mengirim paket satu per satu, tetapi di antara pengiriman itu ia kadang harus menunggu barang berikutnya siap dulu. Jadi alurnya tidak sekaligus selesai, melainkan kirim, tunggu, lalu kirim lagi. Dalam JavaScript, pola ini muncul saat `await` dan `yield` dipakai bersama untuk menghasilkan nilai bertahap secara asynchronous.
-
-Contoh dasar:
-
-```js
-async function* sequence() {
-  yield 1;
-  yield 2;
-}
-```
+- Intuisi Singkat: Async generator menggabungkan pola generator dengan alur async.
+- Analogi: Seperti jalur distribusi yang bisa berhenti per paket sambil tetap menunggu kiriman dari luar.
+- Batas Analogi: Ia tidak hanya pause-resume, tetapi juga terikat pada penyelesaian promise dan async flow.
 
 ## Praktik yang Direkomendasikan
 

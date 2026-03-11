@@ -14,9 +14,11 @@ Semua bentuk function di JavaScript diawali dari parameter list. Jika dasar ini 
 2. Tidak semua bentuk parameter legal; ada validasi sintaks (early errors).
 3. Bentuk parameter memengaruhi keterbacaan dan behavior saat function dipanggil.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan parameter list seperti kolom isian pada formulir pendaftaran. Setiap kolom punya posisi dan aturan sendiri: mana yang wajib, mana yang boleh dikumpulkan sebagai sisa, dan mana yang tidak boleh ditulis ganda. Dalam JavaScript, early errors itu seperti petugas yang menolak formulir yang formatnya salah bahkan sebelum formulir itu diproses lebih jauh.
+- Intuisi Singkat: Parameter list adalah kontrak input yang harus valid sejak awal.
+- Analogi: Seperti formulir pendaftaran: kolomnya harus disusun benar sebelum petugas mau memproses isinya.
+- Batas Analogi: Jika format parameter salah, JavaScript bisa menolaknya sebagai early error bahkan sebelum runtime berjalan.
 
 ## Praktik yang Direkomendasikan
 

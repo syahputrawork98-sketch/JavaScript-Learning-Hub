@@ -14,19 +14,11 @@ Default initializer sering terlihat sederhana, tetapi punya aturan evaluasi yang
 2. Initializer dievaluasi dari kiri ke kanan, sehingga urutan parameter penting.
 3. `function.length` merepresentasikan expected argument count dengan aturan tertentu.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan initializer seperti isian default di formulir online. Kalau pengguna membiarkan satu kolom kosong, sistem akan mengisi nilai bawaan, tetapi urutan kolom tetap penting karena satu kolom bisa bergantung pada kolom sebelumnya. Dalam JavaScript, pola ini terlihat saat parameter default dijalankan dan saat `function.length` hanya menghitung bagian signature yang dianggap "wajib" lebih dulu.
-
-Contoh initializer:
-
-```js
-function greet(name = 'Guest') {
-  return `Hello, ${name}`;
-}
-```
-
-`greet(undefined)` memakai default, tetapi `greet(null)` tidak memakai default.
+- Intuisi Singkat: Initializer, rest parameter, dan expected argument count mengatur cara input dibaca function.
+- Analogi: Seperti meja registrasi yang punya nilai default, kotak sisa berkas, dan hitungan minimum data penting.
+- Batas Analogi: Aturan ini memengaruhi perilaku pemanggilan function, bukan hanya tampilan daftar parameter.
 
 ## Praktik yang Direkomendasikan
 

@@ -80,11 +80,9 @@ const tax = total * 0.11;
 2. Kenapa semicolon eksplisit lebih aman untuk pemula?
 3. Kapan komentar diperlukan, dan kapan sebaiknya dihindari?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Whitespace, line terminator, dan komentar memengaruhi cara kode dipisah/dibaca.
-- Analogi: Seperti tanda jeda, paragraf, dan catatan pinggir di naskah editor.
-- Batas Analogi: Sebagian tampak “kosong”, tapi efeknya ke parsing bisa nyata pada konteks tertentu.
+Whitespace, line terminator, dan komentar itu seperti jeda, pergantian paragraf, dan catatan pinggir di naskah. Sekilas terlihat bukan isi utama, tetapi mereka membantu menentukan bagaimana kode dibaca dan dipisahkan.
 
 ## Ringkasan
 

@@ -14,23 +14,11 @@ Sesudah memahami aturan statis pada class, kita perlu melihat momen ketika struk
 2. Beberapa bagian class, seperti computed property names dan `extends`, dievaluasi saat class dibentuk.
 3. Hasil evaluasi runtime itu lalu menentukan method, field, dan relasi pewarisan yang benar-benar dipasang pada class.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan kita sedang merakit papan nama digital untuk sebuah toko. Sebelum dinyalakan, desainnya dicek dulu; setelah lolos, lampu, tulisan bergerak, dan sambungan listriknya mulai aktif satu per satu. Dalam JavaScript, static semantics memastikan bentuk class valid lebih dulu, lalu bagian runtime seperti computed names dan `extends` benar-benar dievaluasi saat class dibentuk.
-
-Contoh singkat:
-
-```js
-const methodName = 'hello';
-
-class Greeter {
-  static label = 'greeter';
-
-  [methodName]() {
-    return 'Hi';
-  }
-}
-```
+- Intuisi Singkat: Static semantics menjadi jembatan antara bentuk class di source code dan perilaku runtime-nya.
+- Analogi: Seperti blueprint yang menghubungkan gambar rancangan ke proses pembangunan nyata.
+- Batas Analogi: Tanpa jembatan ini, sulit memahami kenapa class tertentu lolos parser tetapi gagal di tahap lain.
 
 ## Praktik yang Direkomendasikan
 

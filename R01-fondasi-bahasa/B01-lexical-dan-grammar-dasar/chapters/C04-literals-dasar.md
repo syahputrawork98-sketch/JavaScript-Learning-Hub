@@ -83,11 +83,9 @@ Untuk level fondasi, cukup pahami bahwa `null` sering dipakai sebagai nilai awal
 2. Kapan sebaiknya memakai backtick?
 3. Manakah boolean literal yang valid selain `true`/`false`?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Literal adalah cara menuliskan nilai langsung di source code.
-- Analogi: Seperti menempel label nilai langsung di formulir tanpa hitung tambahan.
-- Batas Analogi: Bentuk literal berbeda-beda per tipe dan punya aturan sintaks ketat.
+Literal itu seperti menulis isi jawaban langsung di formulir tanpa perlu menghitung atau mengambil dari tempat lain. Di JavaScript, kita menaruh nilainya langsung di source code dengan bentuk penulisan yang sudah ditentukan.
 
 ## Ringkasan
 

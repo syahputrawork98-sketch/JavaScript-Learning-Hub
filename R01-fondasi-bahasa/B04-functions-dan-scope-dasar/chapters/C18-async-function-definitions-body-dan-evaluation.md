@@ -14,18 +14,11 @@ Setelah bentuk async function dipahami, kita perlu melihat apa yang terjadi saat
 2. Body async function berjalan sampai bertemu `await`, lalu melanjutkan kembali setelah Promise terkait selesai.
 3. `return` dan `throw` menentukan apakah Promise hasil akan resolve atau reject.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan async function seperti koki yang mulai memasak, lalu berhenti sebentar menunggu bahan matang atau datang dari dapur lain. Setelah bahan siap, koki melanjutkan proses sampai makanan selesai atau gagal disajikan. Dalam JavaScript, `await` adalah titik tunggu itu, sedangkan `return` dan `throw` menentukan bagaimana hasil akhirnya dikirim ke pemanggil.
-
-Contoh singkat:
-
-```js
-async function load() {
-  const data = await Promise.resolve('ok');
-  return data;
-}
-```
+- Intuisi Singkat: Body dan evaluasi async function menjelaskan bagaimana `await` mengatur jeda dan kelanjutan alur.
+- Analogi: Seperti jalur kerja yang berhenti di titik tunggu lalu lanjut ketika bahan yang ditunggu datang.
+- Batas Analogi: Yang terlihat seperti alur lurus sebenarnya dipecah menjadi beberapa tahap async oleh engine.
 
 ## Praktik yang Direkomendasikan
 

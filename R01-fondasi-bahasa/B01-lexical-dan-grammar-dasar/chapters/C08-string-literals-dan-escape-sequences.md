@@ -116,6 +116,10 @@ Gunakan `\n` atau template literal.
 3. Bagaimana menulis string `It's OK` dengan single quote pembungkus?
 4. Kapan lebih tepat pakai template literal dibanding single/double quote?
 
+## Analogi Singkat
+
+String dengan escape sequence itu seperti menulis teks yang sesekali butuh kode khusus agar simbol tertentu tidak disalahartikan. Kita tetap menulis satu kalimat, tetapi beberapa bagian perlu aturan penulisan tambahan supaya hasilnya benar.
+
 ## Analogi
 
 - Intuisi Singkat: String literal dan escape sequence mengatur cara karakter khusus ditulis aman.

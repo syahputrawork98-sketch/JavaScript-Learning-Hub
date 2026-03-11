@@ -14,17 +14,11 @@ Tail position calls adalah topik yang sering muncul saat membahas struktur evalu
 2. Tidak semua pemanggilan di akhir baris otomatis berada pada tail position.
 3. Walau optimasi tidak selalu diaktifkan engine, cara berpikir tail position tetap berguna untuk membaca struktur fungsi rekursif dan alur return.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan tail position seperti estafet terakhir dalam lomba lari. Pelari terakhir hanya menerima tongkat dan langsung menyentuh garis akhir, tanpa ada langkah tambahan dari tim setelah itu. Dalam JavaScript, sebuah call berada pada tail position bila hasil call itu langsung menjadi hasil akhir function, tanpa operasi lanjutan sesudahnya.
-
-Contoh singkat:
-
-```js
-function forward(value) {
-  return identity(value);
-}
-```
+- Intuisi Singkat: Tail position calls membahas posisi pemanggilan yang secara teori bisa dioptimalkan.
+- Analogi: Seperti menyerahkan tugas terakhir langsung ke petugas berikut tanpa kembali menumpuk pekerjaan lama.
+- Batas Analogi: Di praktik JavaScript modern, konsep ini penting dipahami, tetapi dukungan optimasinya terbatas di banyak engine.
 
 ## Praktik yang Direkomendasikan
 

@@ -14,24 +14,11 @@ Banyak miskonsepsi function berasal dari salah paham urutan proses: parsing, ins
 2. Function expression dievaluasi saat baris ekspresinya dijalankan.
 3. Perbedaan waktu instansiasi memengaruhi kapan function bisa dipanggil.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan ada dua jenis stan di acara pameran: stan permanen yang sudah siap sejak pintu dibuka, dan stan lipat yang baru aktif setelah panitianya datang dan memasangnya. Keduanya bisa dipakai pengunjung, tetapi waktu siapnya berbeda. Dalam JavaScript, declaration mirip stan permanen, sedangkan expression mirip stan yang baru tersedia saat proses evaluasi sampai ke sana.
-
-Contoh singkat:
-
-```js
-sayHi(); // valid untuk function declaration
-
-function sayHi() {
-  console.log('hi');
-}
-
-// sayBye(); // ReferenceError jika dipanggil sebelum inisialisasi
-const sayBye = function () {
-  console.log('bye');
-};
-```
+- Intuisi Singkat: Runtime pipeline function definition menjelaskan kapan function object dibentuk dan siap dipakai.
+- Analogi: Seperti dapur yang punya urutan kerja: resep disiapkan, alat dirakit, lalu masakan baru bisa disajikan.
+- Batas Analogi: Yang dibahas bukan hanya hasil akhir function, tetapi langkah pembentukannya di engine.
 
 ## Praktik yang Direkomendasikan
 

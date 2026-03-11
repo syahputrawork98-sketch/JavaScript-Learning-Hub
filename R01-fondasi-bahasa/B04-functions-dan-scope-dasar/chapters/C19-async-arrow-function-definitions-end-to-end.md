@@ -14,15 +14,11 @@ Async arrow function menggabungkan dua karakter penting: bentuk ringkas arrow fu
 2. Ia tetap memakai perilaku lexical khas arrow function, seperti `this` yang mengikuti scope luar.
 3. Hasil akhirnya tetap Promise, sehingga konsumsi nilainya perlu `await` atau `.then()`.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan async arrow function seperti catatan singkat yang dikirim asisten atas nama timnya, sambil tetap membawa konteks ruangan tempat catatan itu dibuat. Catatannya pendek, tetapi hasil kerjanya bisa tetap datang belakangan. Dalam JavaScript, async arrow menggabungkan bentuk ringkas arrow dengan hasil Promise dan konteks lexical dari scope luar.
-
-Contoh singkat:
-
-```js
-const doubleLater = async (value) => value * 2;
-```
+- Intuisi Singkat: Async arrow function menggabungkan keringkasan arrow dengan perilaku async.
+- Analogi: Seperti catatan instruksi cepat yang sekaligus terhubung ke sistem notifikasi penundaan.
+- Batas Analogi: Ia tetap mewarisi sifat lexical arrow function, jadi tidak sama dengan async function biasa dalam semua hal.
 
 ## Praktik yang Direkomendasikan
 

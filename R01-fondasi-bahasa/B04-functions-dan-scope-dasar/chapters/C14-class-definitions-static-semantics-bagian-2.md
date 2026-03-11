@@ -14,23 +14,11 @@ Setelah aturan awal class dipahami, kita perlu masuk ke static semantics lanjuta
 2. Non-constructor elements membantu kita melihat bagian class selain constructor.
 3. Private identifiers harus valid dan konsisten di seluruh body class.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan class seperti gedung sekolah yang punya fasilitas bersama dan loker pribadi. Papan pengumuman sekolah dipakai semua orang, sedangkan isi loker hanya boleh diakses pemiliknya. Dalam JavaScript, elemen `static` mirip fasilitas bersama milik class, sedangkan `#private` mirip loker yang aksesnya dibatasi ketat di dalam body class.
-
-Contoh singkat:
-
-```js
-class Counter {
-  static description = 'shared metadata';
-  #count = 0;
-
-  inc() {
-    this.#count += 1;
-    return this.#count;
-  }
-}
-```
+- Intuisi Singkat: Bagian lanjutan static semantics class memperdalam aturan validitas elemen-elemen class.
+- Analogi: Seperti audit lanjutan yang memeriksa detail struktur ruangan, akses, dan sambungan teknis.
+- Batas Analogi: Aturan ini sering terasa abstrak, tetapi penting untuk mencegah bentuk class yang kontradiktif.
 
 ## Praktik yang Direkomendasikan
 

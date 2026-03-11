@@ -14,23 +14,11 @@ Setelah bentuk method dipahami, langkah berikutnya adalah runtime behavior: kapa
 2. Call-site (`obj.method()`) menentukan `this` pada method biasa.
 3. Memindahkan reference method ke variabel lepas bisa mengubah konteks `this`.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan method seperti mikrofon ruangan yang suaranya bergantung pada ruangan tempat ia dipakai. Saat mikrofon itu masih dipakai di ruangan aslinya, suaranya sesuai konteks; ketika dilepas dan dipindah sembarang tempat, konteks suaranya bisa hilang. Dalam JavaScript, call-site menentukan konteks `this`, bukan sekadar lokasi method itu pertama kali ditulis.
-
-Contoh call-site:
-
-```js
-const counter = {
-  value: 1,
-  inc() {
-    this.value += 1;
-    return this.value;
-  }
-};
-```
-
-Pemanggilan `counter.inc()` berbeda efek dengan menyimpan `const fn = counter.inc; fn();`.
+- Intuisi Singkat: Evaluasi method definition menentukan kapan method dibentuk dan bagaimana referensi internalnya bekerja.
+- Analogi: Seperti memasang modul kontrol ke perangkat sebelum perangkat bisa dipakai penuh.
+- Batas Analogi: Yang penting bukan cuma isi method, tetapi waktu dan konteks saat method itu dibuat.
 
 ## Praktik yang Direkomendasikan
 

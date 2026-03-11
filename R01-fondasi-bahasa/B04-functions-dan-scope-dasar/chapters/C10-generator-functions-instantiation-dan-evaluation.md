@@ -14,19 +14,11 @@ Setelah konsep dasar generator dipahami, langkah berikutnya adalah memahami kapa
 2. Setiap `next(value)` melanjutkan evaluasi dari titik `yield` terakhir.
 3. Generator bisa selesai normal (`done: true`) atau selesai lebih awal (`return`/`throw`).
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan generator seperti permainan langkah demi langkah yang punya posisi terakhir tersimpan. Setiap kali pemain menekan tombol lanjut, permainan kembali berjalan dari posisi terakhir itu sambil membawa input baru kalau ada. Dalam JavaScript, state generator disimpan di antara `yield`, lalu diaktifkan lagi lewat `next(value)`.
-
-Contoh alur state:
-
-```js
-function* flow() {
-  const a = yield 'step-1';
-  const b = yield a + 1;
-  return b + 1;
-}
-```
+- Intuisi Singkat: Instansiasi dan evaluasi generator mengatur perpindahan state tiap `next()`.
+- Analogi: Seperti panel langkah demi langkah yang menyimpan posisi proses terakhir sebelum dilanjutkan lagi.
+- Batas Analogi: Input `next(value)` masuk ke titik `yield` sebelumnya, jadi timing nilainya penting.
 
 ## Praktik yang Direkomendasikan
 

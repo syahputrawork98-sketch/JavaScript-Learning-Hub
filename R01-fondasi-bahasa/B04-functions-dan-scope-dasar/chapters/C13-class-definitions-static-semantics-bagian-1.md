@@ -14,23 +14,11 @@ Class definitions memperluas model function dan method dengan aturan statis tamb
 2. Constructor method punya peran khusus dan tidak diperlakukan seperti method biasa.
 3. Static semantics membantu membedakan elemen class sebelum runtime evaluation dimulai.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan class seperti cetakan resmi untuk membuat kartu identitas. Sebelum kartu itu dipakai, cetakannya harus dicek dulu: formatnya harus benar, bagian utamanya harus lengkap, dan tidak boleh ada dua slot yang sama untuk fungsi khusus. Dalam JavaScript, static semantics melakukan pengecekan struktur class lebih dulu sebelum class benar-benar masuk ke tahap runtime.
-
-Contoh class dasar:
-
-```js
-class User {
-  constructor(name) {
-    this.name = name;
-  }
-
-  greet() {
-    return `Hi, ${this.name}`;
-  }
-}
-```
+- Intuisi Singkat: Static semantics class membantu memeriksa validitas struktur class sebelum runtime penuh.
+- Analogi: Seperti pemeriksaan gambar teknik gedung sebelum pembangunan dimulai.
+- Batas Analogi: Banyak aturan class diverifikasi lebih awal agar error tidak terlambat muncul saat eksekusi.
 
 ## Praktik yang Direkomendasikan
 

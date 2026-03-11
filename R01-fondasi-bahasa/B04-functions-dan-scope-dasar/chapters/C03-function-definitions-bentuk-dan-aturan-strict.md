@@ -14,21 +14,11 @@ Sebelum membahas pipeline runtime, kita harus paham bentuk sintaks function mana
 2. Strict mode memperketat beberapa aturan, termasuk duplicate parameter pada function biasa.
 3. Bentuk function yang benar membantu engine membangun perilaku runtime secara konsisten.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan function seperti dokumen resmi yang bisa diumumkan sebagai pengumuman umum atau disimpan sebagai lampiran khusus. Keduanya sama-sama berisi aturan kerja, tetapi cara dokumen itu diperkenalkan memengaruhi kapan orang lain bisa memakainya. Dalam JavaScript, perbedaan declaration, expression, dan strict mode menentukan kapan function tersedia dan aturan apa yang langsung diberlakukan.
-
-Contoh bentuk dasar:
-
-```js
-function add(a, b) {
-  return a + b;
-}
-
-const multiply = function (a, b) {
-  return a * b;
-};
-```
+- Intuisi Singkat: Function definition punya bentuk sintaks dan aturan strict yang memengaruhi validitas deklarasi.
+- Analogi: Seperti rancangan bangunan yang harus lolos standar teknis sebelum boleh dibangun.
+- Batas Analogi: Beberapa kesalahan terdeteksi saat parsing, bukan menunggu function dipanggil.
 
 ## Praktik yang Direkomendasikan
 

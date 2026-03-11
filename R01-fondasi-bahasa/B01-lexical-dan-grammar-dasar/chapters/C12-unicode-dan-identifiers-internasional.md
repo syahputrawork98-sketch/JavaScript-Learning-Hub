@@ -90,11 +90,9 @@ Akibatnya, kode tampak benar di satu lingkungan tetapi membingungkan di lingkung
 3. Apa risiko confusable characters dalam code review?
 4. Kapan Unicode di string sangat berguna?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Unicode identifiers memungkinkan penamaan variabel lintas bahasa/skrip.
-- Analogi: Seperti formulir global yang menerima nama dari banyak alfabet.
-- Batas Analogi: Fleksibel tapi perlu konsistensi tim agar keterbacaan dan tooling tetap stabil.
+Unicode identifiers itu seperti formulir global yang menerima nama dari banyak alfabet, bukan hanya huruf Latin dasar. Ini memberi fleksibilitas lebih luas, meski tim tetap perlu menjaga keterbacaan dan konsistensi penamaan.
 
 ## Ringkasan
 

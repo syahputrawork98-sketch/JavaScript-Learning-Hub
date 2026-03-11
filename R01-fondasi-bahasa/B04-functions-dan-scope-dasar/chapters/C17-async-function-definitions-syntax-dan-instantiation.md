@@ -14,17 +14,11 @@ Async function menjadi pintu utama untuk menulis alur asynchronous yang lebih te
 2. Instansiasi async function declaration mirip function biasa, tetapi body-nya dievaluasi dalam model Promise.
 3. Bentuk declaration dan async method perlu dibedakan dari sisi lokasi penulisannya, walau sama-sama menghasilkan Promise saat dipanggil.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan async function seperti mengambil nomor pesanan di kedai minuman. Saat kamu memesan, kamu belum langsung menerima minumannya; kamu menerima tanda bahwa pesanan sedang diproses dan hasilnya akan datang belakangan. Dalam JavaScript, tanda itu adalah Promise yang langsung dikembalikan oleh async function saat dipanggil.
-
-Contoh singkat:
-
-```js
-async function getName() {
-  return 'Syahputra';
-}
-```
+- Intuisi Singkat: Async function definition punya aturan sintaks dan instansiasi yang berbeda dari function sinkron.
+- Analogi: Seperti loket layanan yang sejak awal dirancang untuk proses bertahap, bukan serah-terima langsung.
+- Batas Analogi: Keyword `async` mengubah cara hasil function dibungkus dan dievaluasi sejak definisinya.
 
 ## Praktik yang Direkomendasikan
 

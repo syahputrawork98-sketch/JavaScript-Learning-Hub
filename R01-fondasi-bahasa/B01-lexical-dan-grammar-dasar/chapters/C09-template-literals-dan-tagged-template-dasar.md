@@ -110,6 +110,10 @@ Sintaks `tag\`...\`` berbeda dari `tag(...)`, jadi jangan mencampur keduanya.
 3. Apa parameter pertama yang diterima fungsi tag?
 4. Kapan tagged template sebaiknya dipakai?
 
+## Analogi Singkat
+
+Template literal mirip format pesan yang punya tempat kosong untuk diisi nilai saat dibutuhkan. Bentuk ini terasa alami untuk teks yang berubah-ubah atau punya beberapa baris.
+
 ## Analogi
 
 - Intuisi Singkat: Template literal memudahkan multi-line string dan interpolasi nilai.

@@ -84,11 +84,9 @@ Struktur ini membuat pembaca cepat menangkap bagian "setup", "logic", dan "run".
 2. Pada file sederhana, bagian apa yang idealnya ditaruh paling atas?
 3. Apa risiko jika deklarasi dan eksekusi dicampur tanpa pola?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Block dan struktur file memberi batas ruang baca dan organisasi kode.
-- Analogi: Seperti membagi dokumen besar menjadi bab dan subbab agar alurnya jelas.
-- Batas Analogi: Blok bukan sekadar visual; ia bisa memengaruhi scope dan flow program.
+Block dan struktur file itu seperti membagi dokumen besar menjadi bab, subbab, dan bagian-bagian yang mudah diikuti. Susunan yang rapi membantu pembaca melihat batas tiap bagian kode dengan lebih cepat.
 
 ## Ringkasan
 

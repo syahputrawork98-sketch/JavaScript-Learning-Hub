@@ -106,11 +106,9 @@ Jika perlu, konversi dulu secara eksplisit.
 3. Kenapa `10n + 5` error?
 4. Kapan lebih tepat memakai BigInt dibanding Number?
 
-## Analogi
+## Analogi Singkat
 
-- Intuisi Singkat: Numeric literals menyediakan notasi angka berbeda untuk konteks berbeda.
-- Analogi: Seperti menulis nilai uang dalam desimal, atau kode mesin dalam heksadesimal.
-- Batas Analogi: Notasi hanya cara tulis; hasil akhirnya tetap nilai numerik dengan batas representasi JS.
+Numeric literal itu seperti menulis angka dengan gaya yang berbeda sesuai kebutuhan, misalnya angka biasa untuk manusia dan notasi khusus untuk konteks teknis. Bentuk tulisannya bisa berubah, tetapi nilainya tetap dibaca sebagai angka oleh JavaScript.
 
 ## Ringkasan
 

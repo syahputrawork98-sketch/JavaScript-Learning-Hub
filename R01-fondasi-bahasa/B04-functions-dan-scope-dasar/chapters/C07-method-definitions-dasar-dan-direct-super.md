@@ -14,20 +14,11 @@ Method definitions adalah jembatan antara function biasa dan object-oriented beh
 2. Method dapat memakai `super` jika berada pada konteks yang memiliki `[[HomeObject]]`.
 3. Pemakaian `super` terutama relevan untuk delegasi ke prototype parent.
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan method seperti alat yang memang ditempelkan ke satu kotak peralatan tertentu. Karena alat itu milik kotak tersebut, ia bisa melihat isi kotak sendiri dan kadang merujuk ke versi alat dari kotak induknya. Dalam JavaScript, method shorthand memberi konteks object yang dibutuhkan agar `super` bisa bekerja dengan benar.
-
-Contoh method ringkas:
-
-```js
-const user = {
-  name: 'Arta',
-  greet() {
-    return `Hi, ${this.name}`;
-  }
-};
-```
+- Intuisi Singkat: Method definition membentuk perilaku method yang menempel pada object/class dengan aturan khusus.
+- Analogi: Seperti tombol bawaan pada mesin yang terpasang langsung di panel utama.
+- Batas Analogi: Method punya semantik yang berbeda dari sekadar menyimpan function ke properti biasa.
 
 ## Praktik yang Direkomendasikan
 

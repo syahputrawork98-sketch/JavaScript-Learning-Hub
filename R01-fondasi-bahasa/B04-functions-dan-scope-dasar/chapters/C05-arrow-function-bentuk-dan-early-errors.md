@@ -14,18 +14,11 @@ Arrow function sangat sering dipakai pada callback dan functional-style code. Ji
 2. Arrow function tidak punya `prototype` untuk dipakai sebagai constructor.
 3. Beberapa bentuk sintaks memicu early error (misalnya penggunaan parameter duplikat dalam konteks strict-like tertentu).
 
-## Analogi Singkat
+## Analogi
 
-Bayangkan arrow function seperti catatan singkat yang dipakai saat kita ingin menulis instruksi cepat. Karena bentuknya ringkas, formatnya juga lebih ketat: kalau penulisannya meleset sedikit, catatan itu langsung sulit dibaca. Dalam JavaScript, arrow function memang mempersingkat penulisan, tetapi aturan sintaksnya lebih sensitif daripada function biasa.
-
-Contoh bentuk dasar:
-
-```js
-const add = (a, b) => a + b;
-const log = (value) => {
-  console.log(value);
-};
-```
+- Intuisi Singkat: Arrow function itu ringkas, tetapi formatnya lebih sensitif terhadap aturan sintaks.
+- Analogi: Seperti catatan instruksi singkat yang cepat ditulis tapi harus sangat rapi agar tidak ambigu.
+- Batas Analogi: Ringkas bukan berarti lebih bebas; beberapa pola justru lebih mudah memicu early error.
 
 ## Praktik yang Direkomendasikan
 
