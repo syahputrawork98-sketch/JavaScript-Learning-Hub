@@ -14,6 +14,10 @@ Sesudah melihat jembatan dari static checks ke runtime, langkah berikutnya adala
 2. Class expression dievaluasi di tempat ekspresi itu muncul, sehingga timing pembentukannya lebih eksplisit.
 3. Constructor, methods, fields, dan inheritance dipasang sebagai bagian dari pipeline pembentukan class, bukan saat instance pertama dibuat.
 
+## Analogi Singkat
+
+Runtime pipeline class itu seperti merakit mesin lengkap sebelum operator boleh menyalakannya. Nama mesinnya mungkin sudah diketahui, tetapi selama proses perakitan belum selesai, ia belum siap dipakai.
+
 ## Analogi
 
 - Intuisi Singkat: Runtime pipeline class menjelaskan kapan binding, methods, fields, dan inheritance dibentuk.

@@ -14,6 +14,10 @@ Setelah bentuk async function dipahami, kita perlu melihat apa yang terjadi saat
 2. Body async function berjalan sampai bertemu `await`, lalu melanjutkan kembali setelah Promise terkait selesai.
 3. `return` dan `throw` menentukan apakah Promise hasil akan resolve atau reject.
 
+## Analogi Singkat
+
+Body async function itu seperti jalur kerja yang sesekali berhenti di titik tunggu, lalu lanjut lagi ketika bahan yang dinanti datang. Dari luar tampak lurus, tetapi sebenarnya ada jeda-jeda penting yang dikelola engine.
+
 ## Analogi
 
 - Intuisi Singkat: Body dan evaluasi async function menjelaskan bagaimana `await` mengatur jeda dan kelanjutan alur.

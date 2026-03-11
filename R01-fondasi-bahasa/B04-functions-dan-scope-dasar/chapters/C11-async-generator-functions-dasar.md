@@ -14,6 +14,10 @@ Async generator menggabungkan dua ide penting: `async` dan `yield`. Topik ini pe
 2. Nilai dikirim keluar dengan `yield`, tetapi konsumsinya perlu `for await...of` atau `await iterator.next()`.
 3. Di dalam body, kita bisa memakai `await` dan `yield` dalam satu alur.
 
+## Analogi Singkat
+
+Async generator itu seperti jalur distribusi yang bisa berhenti di tiap paket sambil tetap menunggu kiriman baru dari luar. Jadi ia bukan hanya pause-resume, tetapi juga hidup dalam alur async.
+
 ## Analogi
 
 - Intuisi Singkat: Async generator menggabungkan pola generator dengan alur async.

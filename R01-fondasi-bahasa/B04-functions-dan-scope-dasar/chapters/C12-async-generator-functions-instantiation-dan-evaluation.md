@@ -14,6 +14,10 @@ Setelah bentuk dasar dipahami, kita perlu membaca bagaimana async generator diin
 2. Setiap langkah `next()` menghasilkan Promise yang harus di-`await`.
 3. Perpindahan state dipengaruhi oleh kombinasi `await`, `yield`, `return`, dan `throw`.
 
+## Analogi Singkat
+
+Evaluasi async generator itu seperti mesin antrean yang tiap langkahnya bisa berhenti menunggu sinyal eksternal sebelum bergerak lagi. Kita harus melihat urutan langkahnya sekaligus waktu tunggunya.
+
 ## Analogi
 
 - Intuisi Singkat: Instansiasi dan evaluasi async generator menambah lapisan async pada state machine generator.

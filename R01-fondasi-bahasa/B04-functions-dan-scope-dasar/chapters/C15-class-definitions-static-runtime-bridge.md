@@ -14,6 +14,10 @@ Sesudah memahami aturan statis pada class, kita perlu melihat momen ketika struk
 2. Beberapa bagian class, seperti computed property names dan `extends`, dievaluasi saat class dibentuk.
 3. Hasil evaluasi runtime itu lalu menentukan method, field, dan relasi pewarisan yang benar-benar dipasang pada class.
 
+## Analogi Singkat
+
+Bab ini seperti jembatan antara blueprint dan proses pembangunan nyata. Ia membantu kita melihat bagaimana aturan di level bentuk class akhirnya berpengaruh ke perilaku runtime.
+
 ## Analogi
 
 - Intuisi Singkat: Static semantics menjadi jembatan antara bentuk class di source code dan perilaku runtime-nya.

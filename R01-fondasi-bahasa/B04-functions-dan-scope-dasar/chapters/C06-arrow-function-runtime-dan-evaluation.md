@@ -14,6 +14,10 @@ Setelah bentuk sintaks dipahami, langkah berikutnya adalah memahami bagaimana ar
 2. Arrow function tidak memiliki `arguments` sendiri; yang dipakai adalah `arguments` milik scope terdekat non-arrow.
 3. Instansiasi arrow function terjadi saat ekspresinya dievaluasi.
 
+## Analogi Singkat
+
+Arrow function runtime itu seperti alat sambungan yang mengambil konteks dari tempat ia dipasang, bukan membawa panel kontrol sendiri. Karena itu perilakunya terasa ringan, tetapi juga sangat bergantung pada lingkungan sekitarnya.
+
 ## Analogi
 
 - Intuisi Singkat: Arrow function runtime dan evaluasi berbeda dari function biasa, terutama pada konteks lexical.

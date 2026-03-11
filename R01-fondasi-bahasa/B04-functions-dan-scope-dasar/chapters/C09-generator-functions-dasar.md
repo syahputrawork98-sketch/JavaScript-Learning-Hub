@@ -14,6 +14,10 @@ Generator memperkenalkan model eksekusi bertahap (`pause` dan `resume`) yang ber
 2. Kata kunci `yield` menghentikan sementara eksekusi dan mengembalikan nilai.
 3. Pemanggilan generator tidak langsung menjalankan body sampai `next()` dipanggil.
 
+## Analogi Singkat
+
+Generator itu seperti permainan yang bisa dijeda lalu dilanjutkan lagi dari checkpoint terakhir. Ia tidak memaksa seluruh proses selesai sekaligus, sehingga langkah-langkahnya bisa dikontrol lebih halus.
+
 ## Analogi
 
 - Intuisi Singkat: Generator function memungkinkan eksekusi berhenti-lanjut sambil menjaga state.

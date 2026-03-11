@@ -14,6 +14,10 @@ Setelah konsep dasar generator dipahami, langkah berikutnya adalah memahami kapa
 2. Setiap `next(value)` melanjutkan evaluasi dari titik `yield` terakhir.
 3. Generator bisa selesai normal (`done: true`) atau selesai lebih awal (`return`/`throw`).
 
+## Analogi Singkat
+
+Instansiasi dan evaluasi generator itu seperti panel langkah demi langkah yang selalu ingat posisi terakhirnya. Setiap perintah lanjut tidak memulai dari nol, tetapi meneruskan dari titik jeda sebelumnya.
+
 ## Analogi
 
 - Intuisi Singkat: Instansiasi dan evaluasi generator mengatur perpindahan state tiap `next()`.

@@ -14,6 +14,10 @@ Banyak miskonsepsi function berasal dari salah paham urutan proses: parsing, ins
 2. Function expression dievaluasi saat baris ekspresinya dijalankan.
 3. Perbedaan waktu instansiasi memengaruhi kapan function bisa dipanggil.
 
+## Analogi Singkat
+
+Runtime pipeline function bisa dibayangkan seperti dapur yang tidak langsung menyajikan makanan begitu resep ditulis. Ada urutan kerja yang harus selesai dulu sebelum hasil akhirnya benar-benar siap dipakai.
+
 ## Analogi
 
 - Intuisi Singkat: Runtime pipeline function definition menjelaskan kapan function object dibentuk dan siap dipakai.

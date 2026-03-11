@@ -14,6 +14,10 @@ Method definitions adalah jembatan antara function biasa dan object-oriented beh
 2. Method dapat memakai `super` jika berada pada konteks yang memiliki `[[HomeObject]]`.
 3. Pemakaian `super` terutama relevan untuk delegasi ke prototype parent.
 
+## Analogi Singkat
+
+Method definition itu seperti tombol bawaan yang memang dirancang menjadi bagian dari mesin. Saat ada `super`, tombol itu juga bisa meneruskan kerja ke panel induk dengan aturan yang lebih khusus.
+
 ## Analogi
 
 - Intuisi Singkat: Method definition membentuk perilaku method yang menempel pada object/class dengan aturan khusus.

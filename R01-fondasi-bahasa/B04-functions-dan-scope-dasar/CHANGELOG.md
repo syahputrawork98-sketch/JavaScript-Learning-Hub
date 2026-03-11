@@ -4,9 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-- Menstandarkan section analogi pada seluruh chapter `C01-C20` dari `Analogi Singkat` menjadi `Analogi`.
-- Menyamakan format analogi B04 dengan modul lain menjadi tiga poin: `Intuisi Singkat`, `Analogi`, dan `Batas Analogi`.
-- Memperbarui `docs/writing-rules.md` agar aturan editorial B04 selaras dengan pola `B01-B03`.
+Belum ada perubahan setelah rilis `v1.0.1`.
+
+## [v1.0.1] - 2026-03-12
+
+Kode versi: `JVS-R01-B04-v1.0.1`
+
+- Menyesuaikan strategi analogi B04 agar lebih fleksibel sesuai kebutuhan materi.
+- Menambahkan `Analogi Singkat` pada chapter bertipe abstrak yang direkomendasikan memiliki dua lapis analogi.
+- Mempertahankan chapter bertipe `Panjang` pada format `Analogi` agar penjelasan tetap fokus dan tidak berlebihan.
 
 ## [v1.0.0] - 2026-03-11
 
