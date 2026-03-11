@@ -64,6 +64,10 @@ Path seperti `./config.js` penting karena JavaScript perlu tahu file sumber yang
 - `import` mengambil nilai dari module lain.
 - Path file yang benar adalah bagian penting dari alur modularisasi.
 
+## Visual Map
+
+![C08 export dan import Dasar Map](../assets/C08-export-dan-import-dasar-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C08-export-dan-import-dasar/example.js`

@@ -74,6 +74,10 @@ Setelah error dilempar, alurnya bisa ditangani lebih tinggi dengan `catch`.
 - `throw` berguna untuk validasi sederhana yang harus menghentikan alur.
 - Pesan error yang jelas membuat debugging dan penggunaan fungsi lebih mudah.
 
+## Visual Map
+
+![C05 throw Dasar untuk Validasi Map](../assets/C05-throw-dasar-untuk-validasi-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C05-throw-dasar-untuk-validasi/example.js`

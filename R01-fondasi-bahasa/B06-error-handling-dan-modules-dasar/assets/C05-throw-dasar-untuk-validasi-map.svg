@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <text x="60" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">C05 throw Dasar untuk Validasi Map</text>
+
+  <rect x="60" y="110" width="300" height="110" rx="12" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="130" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#1e3a8a">Validasi</text>
+  <text x="95" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#1e3a8a">cek syarat penting dulu</text>
+
+  <rect x="450" y="110" width="300" height="110" rx="12" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="561" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#991b1b">throw</text>
+  <text x="511" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#991b1b">hentikan alur tak valid</text>
+
+  <rect x="840" y="110" width="300" height="110" rx="12" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="942" y="156" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#166534">catch</text>
+  <text x="883" y="188" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#166534">tangani di level pemanggil</text>
+
+  <line x1="360" y1="165" x2="450" y2="165" stroke="#334155" stroke-width="3"/>
+  <polygon points="450,165 438,158 438,172" fill="#334155"/>
+  <line x1="750" y1="165" x2="840" y2="165" stroke="#334155" stroke-width="3"/>
+  <polygon points="840,165 828,158 828,172" fill="#334155"/>
+
+  <rect x="60" y="280" width="500" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="325" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Contoh</text>
+  <text x="90" y="375" font-family="Consolas, monospace" font-size="18" fill="#1e293b">if (b === 0) {</text>
+  <text x="90" y="410" font-family="Consolas, monospace" font-size="18" fill="#1e293b">  throw new Error('Pembagi tidak boleh 0');</text>
+  <text x="90" y="445" font-family="Consolas, monospace" font-size="18" fill="#1e293b">}</text>
+  <text x="90" y="495" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#475569">Validasi menjaga aturan fungsi tetap jelas.</text>
+
+  <rect x="640" y="280" width="500" height="260" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="670" y="325" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#0f172a">Poin Inti</text>
+  <text x="670" y="375" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">1. throw dipakai saat syarat penting gagal.</text>
+  <text x="670" y="415" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">2. Pesan error harus jelas dan spesifik.</text>
+  <text x="670" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">3. Pemanggil bisa menangani error lewat try...catch.</text>
+  <text x="670" y="495" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#334155">4. throw bukan untuk hal remeh yang bisa diabaikan biasa.</text>
+</svg>

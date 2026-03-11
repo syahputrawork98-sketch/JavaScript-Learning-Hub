@@ -4,7 +4,7 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.0`.
+- Menambahkan batch awal visual map SVG untuk `C01`, `C03`, `C05`, `C08`, `C10`, dan `C11`, lalu menghubungkannya ke chapter terkait.
 
 ## [v1.0.0] - 2026-03-12
 

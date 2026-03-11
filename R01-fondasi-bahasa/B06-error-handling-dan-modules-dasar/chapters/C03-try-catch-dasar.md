@@ -75,6 +75,10 @@ Tujuan `try...catch` adalah menangani kegagalan dengan sadar, bukan menutupi bug
 - `catch` menerima error runtime yang dilempar dari blok `try`.
 - `try...catch` membantu program menangani kegagalan dengan lebih terkontrol.
 
+## Visual Map
+
+![C03 try catch Dasar Map](../assets/C03-try-catch-dasar-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C03-try-catch-dasar/example.js`

@@ -78,6 +78,10 @@ Sebuah module tidak bisa memiliki banyak default export sekaligus. Jika sebuah f
 - Satu module hanya bisa punya satu default export.
 - Named export sering lebih eksplisit jika module punya beberapa nilai penting.
 
+## Visual Map
+
+![C10 Default export dan Kapan Memakainya Map](../assets/C10-default-export-dan-kapan-memakainya-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C10-default-export-dan-kapan-memakainya/example.js`

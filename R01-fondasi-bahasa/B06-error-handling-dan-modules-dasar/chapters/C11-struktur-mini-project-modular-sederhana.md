@@ -67,6 +67,10 @@ Saat logic format berubah, kita tidak harus membongkar seluruh file utama.
 - Entry point, logic, dan utilitas sederhana sebaiknya dipisah secukupnya.
 - Tujuan utamanya adalah kejelasan tanggung jawab, bukan kompleksitas struktur.
 
+## Visual Map
+
+![C11 Struktur Mini Project Modular Sederhana Map](../assets/C11-struktur-mini-project-modular-sederhana-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C11-struktur-mini-project-modular-sederhana/example.js`

@@ -72,6 +72,10 @@ Saat melihat error, pertanyaan awal yang sehat adalah:
 - Pesan error biasanya memberi jenis masalah, penjelasan singkat, dan lokasi kejadian.
 - Membaca error dengan tenang adalah langkah dasar sebelum memperbaiki program.
 
+## Visual Map
+
+![C01 Mengapa Error Terjadi dan Cara Membacanya Map](../assets/C01-mengapa-error-terjadi-dan-cara-membacanya-map.svg)
+
 ## Contoh Runnable
 
 - Lihat contoh: `../examples/C01-mengapa-error-terjadi-dan-cara-membacanya/example.js`

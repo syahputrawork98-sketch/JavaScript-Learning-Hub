@@ -4,8 +4,8 @@ Folder ini berisi visual pendukung untuk chapter B06.
 
 ## Status
 
-- Folder assets disiapkan sebagai fondasi awal buku.
-- Visual map akan ditambahkan bertahap saat chapter mulai stabil.
+- Batch awal visual map untuk `C01`, `C03`, `C05`, `C08`, `C10`, dan `C11` sudah tersedia.
+- Visual map berikutnya bisa ditambahkan bertahap saat chapter lain perlu jembatan visual tambahan.
 
 ## Aturan Singkat
 
