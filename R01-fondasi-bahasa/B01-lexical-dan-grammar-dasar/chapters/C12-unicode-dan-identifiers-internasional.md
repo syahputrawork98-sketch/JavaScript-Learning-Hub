@@ -1,4 +1,4 @@
-﻿# C12 - Unicode dan Identifiers Internasional
+# C12 - Unicode dan Identifiers Internasional
 
 ## Tujuan
 
@@ -89,6 +89,12 @@ Akibatnya, kode tampak benar di satu lingkungan tetapi membingungkan di lingkung
 2. Apakah identifier non-ASCII selalu ide yang baik di semua proyek?
 3. Apa risiko confusable characters dalam code review?
 4. Kapan Unicode di string sangat berguna?
+
+## Analogi
+
+- Intuisi Singkat: Unicode identifiers memungkinkan penamaan variabel lintas bahasa/skrip.
+- Analogi: Seperti formulir global yang menerima nama dari banyak alfabet.
+- Batas Analogi: Fleksibel tapi perlu konsistensi tim agar keterbacaan dan tooling tetap stabil.
 
 ## Ringkasan
 

@@ -94,6 +94,12 @@ Nama variabel lama yang kebetulan mirip keyword baru berisiko jadi masalah saat 
 3. Mengapa penamaan variabel perlu memikirkan kompatibilitas masa depan?
 4. Apa langkah praktis untuk mencegah konflik keyword?
 
+## Analogi
+
+- Intuisi Singkat: Reserved words contextual/future adalah kata yang sensitif pada konteks grammar.
+- Analogi: Seperti istilah legal yang kadang boleh dipakai umum, kadang terlarang di dokumen resmi tertentu.
+- Batas Analogi: Kata yang aman hari ini bisa jadi bermakna khusus di konteks atau versi masa depan.
+
 ## Ringkasan
 
 - Tidak semua keyword berperilaku sama; ada yang selalu terlarang, ada yang kontekstual.

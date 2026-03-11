@@ -104,6 +104,12 @@ Tentukan valid atau tidak:
 4. `const _userName = 'A';`
 5. `const user name = 'A';`
 
+## Analogi
+
+- Intuisi Singkat: Identifier dan reserved words menentukan nama mana yang sah dipakai kode.
+- Analogi: Seperti aturan penamaan akun: ada nama bebas, ada kata khusus yang dicadangkan sistem.
+- Batas Analogi: Validitas nama bergantung aturan grammar dan konteks pemakaian, bukan selera penulis.
+
 ## Ringkasan
 
 - Identifier adalah nama entitas dalam program JavaScript.

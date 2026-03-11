@@ -104,6 +104,12 @@ Untuk level fondasi, hindari style yang ambigu dan tulis expression secara jelas
 3. Apa strategi paling aman untuk pemula terkait semicolon?
 4. Sebutkan satu contoh bug yang dipicu ASI.
 
+## Analogi
+
+- Intuisi Singkat: ASI menyisipkan semicolon otomatis di kondisi tertentu saat parsing.
+- Analogi: Seperti editor yang menebak titik akhir kalimat saat penulis lupa menaruh titik.
+- Batas Analogi: Tebakan parser tidak selalu sesuai niat penulis; semicolon eksplisit sering lebih aman.
+
 ## Ringkasan
 
 - ASI adalah mekanisme parser, bukan jaminan kode selalu aman tanpa semicolon.

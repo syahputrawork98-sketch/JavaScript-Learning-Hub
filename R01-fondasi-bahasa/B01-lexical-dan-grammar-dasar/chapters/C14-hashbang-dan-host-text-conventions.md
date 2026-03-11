@@ -81,6 +81,12 @@ Campuran `LF` dan `CRLF` bisa menimbulkan noise di diff, linting tidak stabil, a
 3. Apa risiko line ending campur dalam satu repository?
 4. Kenapa encoding file termasuk topik penting meski bukan logika program?
 
+## Analogi
+
+- Intuisi Singkat: Hashbang dan host text conventions membantu kode dikenali lingkungan eksekusi.
+- Analogi: Seperti label pengiriman yang memberi tahu kurir jalur pemrosesan paket.
+- Batas Analogi: Perilakunya dipengaruhi host environment, tidak murni grammar bahasa saja.
+
 ## Ringkasan
 
 - Hashbang adalah petunjuk interpreter untuk host tertentu, terutama script CLI.

@@ -64,6 +64,12 @@ Untuk konteks belajar di `R01`, gunakan strict mode agar:
 2. Kenapa assignment ke variabel yang belum dideklarasikan jadi error di strict mode?
 3. Di mana posisi paling aman menaruh `'use strict';` pada file sederhana?
 
+## Analogi
+
+- Intuisi Singkat: Strict mode menyalakan aturan yang lebih tegas untuk mencegah pola berisiko.
+- Analogi: Seperti mengaktifkan mode audit ketat dalam sistem operasi kerja.
+- Batas Analogi: Kode lama yang “jalan” di sloppy mode bisa gagal di strict mode.
+
 ## Ringkasan
 
 - Strict mode membuat aturan JavaScript lebih ketat.

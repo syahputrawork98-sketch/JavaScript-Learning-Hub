@@ -84,6 +84,12 @@ Struktur ini membuat pembaca cepat menangkap bagian "setup", "logic", dan "run".
 2. Pada file sederhana, bagian apa yang idealnya ditaruh paling atas?
 3. Apa risiko jika deklarasi dan eksekusi dicampur tanpa pola?
 
+## Analogi
+
+- Intuisi Singkat: Block dan struktur file memberi batas ruang baca dan organisasi kode.
+- Analogi: Seperti membagi dokumen besar menjadi bab dan subbab agar alurnya jelas.
+- Batas Analogi: Blok bukan sekadar visual; ia bisa memengaruhi scope dan flow program.
+
 ## Ringkasan
 
 - Block (`{}`) adalah kelompok statement yang membentuk unit logika.

@@ -110,6 +110,12 @@ Sintaks `tag\`...\`` berbeda dari `tag(...)`, jadi jangan mencampur keduanya.
 3. Apa parameter pertama yang diterima fungsi tag?
 4. Kapan tagged template sebaiknya dipakai?
 
+## Analogi
+
+- Intuisi Singkat: Template literal memudahkan multi-line string dan interpolasi nilai.
+- Analogi: Seperti template surat yang punya slot variabel untuk diisi otomatis.
+- Batas Analogi: Kemudahan ini tetap perlu disiplin agar ekspresi di dalam template tidak berlebihan.
+
 ## Ringkasan
 
 - Template literal memudahkan interpolasi dan multi-line string.

@@ -83,6 +83,12 @@ Kamu mungkin bisa menulis bentuk singkat yang valid, tetapi jika ambigu untuk ma
 3. Kenapa semicolon eksplisit membantu mengurangi ambiguity?
 4. Apa beda "valid secara parser" dan "aman secara maintainability"?
 
+## Analogi
+
+- Intuisi Singkat: Lexical goals membantu parser memilih tokenisasi saat ada bentuk ambigu.
+- Analogi: Seperti petugas lalu lintas yang menentukan jalur berdasarkan konteks persimpangan.
+- Batas Analogi: Karakter sama (mis. `/`) bisa dibaca berbeda tergantung konteks parser saat itu.
+
 ## Ringkasan
 
 - Lexical goals adalah cara parser menentukan mode tokenisasi berdasarkan konteks grammar.

@@ -109,6 +109,12 @@ Tanpa `g`, hasil berisi info match pertama dan metadata.
 3. Kapan lebih tepat pakai regex literal dibanding `new RegExp()`?
 4. Apa risiko regex yang terlalu rumit di level pemula?
 
+## Analogi
+
+- Intuisi Singkat: Regex literal menuliskan pola pencarian langsung di kode.
+- Analogi: Seperti cetakan stensil untuk menyaring teks sesuai pola tertentu.
+- Batas Analogi: Karakter regex punya aturan escape sendiri yang berbeda dari string biasa.
+
 ## Ringkasan
 
 - Regex literal ditulis dengan bentuk `/pattern/flags`.

@@ -4,7 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.0`.
+Belum ada perubahan setelah rilis `v1.0.1`.
+
+## [v1.0.1] - 2026-03-11
+
+Kode versi: `JVS-R01-B01-v1.0.1`
+
+- Menambahkan section `Analogi` pada seluruh chapter `C01-C15` di folder `chapters/`.
+- Menstandarkan format analogi per chapter menjadi tiga poin: `Intuisi Singkat`, `Analogi`, dan `Batas Analogi`.
+- Menempatkan section `Analogi` tepat sebelum `Ringkasan` agar alur baca tetap konsisten.
 
 ## [v1.0.0] - 2026-03-10
 

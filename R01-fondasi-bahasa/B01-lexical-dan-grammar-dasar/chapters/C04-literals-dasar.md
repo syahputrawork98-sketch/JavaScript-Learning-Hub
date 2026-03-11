@@ -83,6 +83,12 @@ Untuk level fondasi, cukup pahami bahwa `null` sering dipakai sebagai nilai awal
 2. Kapan sebaiknya memakai backtick?
 3. Manakah boolean literal yang valid selain `true`/`false`?
 
+## Analogi
+
+- Intuisi Singkat: Literal adalah cara menuliskan nilai langsung di source code.
+- Analogi: Seperti menempel label nilai langsung di formulir tanpa hitung tambahan.
+- Batas Analogi: Bentuk literal berbeda-beda per tipe dan punya aturan sintaks ketat.
+
 ## Ringkasan
 
 - Literal adalah representasi langsung nilai di source code.

@@ -72,6 +72,12 @@ Jawab tanpa menjalankan kode:
 2. Pada `let age = 18;`, mana keyword, identifier, dan literal?
 3. Kenapa urutan kode memengaruhi hasil parsing?
 
+## Analogi
+
+- Intuisi Singkat: Lexical fundamentals menjelaskan cara mesin membaca kode menjadi token.
+- Analogi: Seperti petugas sortir surat yang memecah dokumen jadi unit kecil sebelum didistribusikan.
+- Batas Analogi: Mesin tidak menilai makna bisnis dulu; ia fokus validitas bentuk lexical dan grammar.
+
 ## Ringkasan
 
 - JavaScript membaca source code berdasarkan aturan lexical.
