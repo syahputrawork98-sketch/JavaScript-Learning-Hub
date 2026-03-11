@@ -10,11 +10,12 @@ Dokumen ini mengatur aturan khusus buku B02.
 
 ## Struktur Konten Buku
 
-- Folder materi utama: $(System.Collections.Hashtable.Main)/
-- Pola urutan bab: dari konsep dasar ke latihan/aplikasi.
-- Pola latihan: checkpoint singkat per bab.
-- Pola visual: secukupnya untuk memperjelas konsep.
+- Folder materi utama: `chapters/`
+- Folder contoh runnable: `examples/`
+- Pola urutan bab: dari fondasi nilai/tipe ke coercion dan debugging.
+- Pola latihan: checkpoint singkat per bab + contoh pembanding.
+- Pola visual: secukupnya untuk memperjelas relasi konsep.
 
 ## Catatan Operasional
 
-- Semua perubahan materi buku harus dicatat pada CHANGELOG.md.
+- Semua perubahan materi buku harus dicatat pada `CHANGELOG.md`.
