@@ -4,7 +4,7 @@ Contoh runnable untuk bab **C22 - if Statement**.
 
 ## Tujuan Example
 
-Folder ini menunjukkan percabangan dasar `if`, `else if`, `else`, dan guard clause style.
+Folder ini menunjukkan percabangan dasar `if`, `else if`, `else`, serta gaya guard clause untuk menyederhanakan alur fungsi.
 
 ## Daftar File
 
@@ -12,11 +12,55 @@ Folder ini menunjukkan percabangan dasar `if`, `else if`, `else`, dan guard clau
 - `example-02.js` menunjukkan if/else yang paling dasar.
 - `example-03.js` menunjukkan guard clause style dengan early return.
 
-## Poin Penting
+## Penjelasan Per File
 
-- `if` cocok untuk logika bercabang yang eksplisit.
-- `else if` menambah jalur keputusan bertahap.
-- Guard clause sering membuat fungsi lebih cepat dibaca saat ada kondisi penolakan awal.
+### `example.js`
+
+File utama ini memperlihatkan percabangan bertingkat:
+
+```js
+if (score >= 90) {
+  ...
+} else if (score >= 75) {
+  ...
+} else {
+  ...
+}
+```
+
+Contoh ini membantu pembaca melihat bagaimana `if` dipakai untuk memilih satu dari beberapa jalur yang saling eksklusif.
+
+### `example-02.js`
+
+Contoh ini lebih sederhana:
+
+```js
+if (age >= 18) {
+  console.log('adult');
+} else {
+  console.log('minor');
+}
+```
+
+Tujuannya untuk memperkuat pola dasar sebelum masuk ke percabangan yang lebih panjang.
+
+### `example-03.js`
+
+File ini memperkenalkan guard clause:
+
+```js
+if (!user) return 'no user';
+if (!user.active) return 'inactive';
+return 'ok';
+```
+
+Gaya ini sangat berguna agar function cepat keluar pada kondisi invalid tanpa menambah nesting yang tidak perlu.
+
+## Catatan Belajar
+
+- `if` adalah alat utama untuk control flow berbasis kondisi.
+- Semakin banyak nesting, semakin berat dibaca.
+- Guard clause sering membuat fungsi lebih lurus dan mudah dipindai.
 
 ## Jalankan
 

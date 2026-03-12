@@ -4,7 +4,15 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.3`.
+Belum ada perubahan setelah rilis `v1.0.4`.
+
+## [v1.0.4] - 2026-03-12
+
+Kode versi: `JVS-R01-B03-v1.0.4`
+
+- Merevisi ulang `README.md` pada seluruh folder `examples/C01-C32` agar kualitas penjelasannya kembali setara dengan standar examples `B01-B02`.
+- Menambahkan kembali section `Penjelasan Per File` pada seluruh examples B03, lengkap dengan konteks perilaku penting, potongan kode relevan, dan catatan belajar praktis.
+- Memperdalam README examples B03 agar tidak hanya merangkum topik, tetapi benar-benar membimbing pembaca memahami hasil dan pola runtime yang muncul pada setiap contoh.
 
 ## [v1.0.3] - 2026-03-12
 
