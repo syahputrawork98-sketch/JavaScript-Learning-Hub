@@ -2,11 +2,64 @@
 
 Contoh runnable untuk bab **C03 - Non-Primitive dan Reference Intro**.
 
+## Tujuan Example
+
+Folder ini membantu pembaca memahami bahwa object disimpan dan dibagikan lewat reference, sehingga perubahan lewat alias atau shallow copy bisa memengaruhi data asli.
+
 ## Daftar File
 
-- `example.js` (utama)
-- `example-02.js` (tambahan 1)
-- `example-03.js` (tambahan 2)
+- `example.js` menunjukkan alias reference, perbandingan identity, dan shallow copy yang masih berbagi nested object.
+- `example-02.js` fokus pada jebakan shallow copy.
+- `example-03.js` menunjukkan cara copy nested object yang lebih aman secara manual.
+
+## Penjelasan Per File
+
+### `example.js`
+
+Contoh ini memulai dengan:
+
+```js
+const original = { profile: { name: 'Arta' } };
+const alias = original;
+alias.profile.name = 'Syahputra';
+```
+
+Karena `alias` menunjuk object yang sama, perubahan lewat `alias` juga terlihat pada `original`.
+
+Bagian berikut membandingkan:
+
+- `x === y` bernilai `false` karena dua object berbeda walaupun isinya mirip
+- `x === z` bernilai `true` karena `z` menunjuk reference yang sama dengan `x`
+
+### `example-02.js`
+
+File ini memperjelas bahwa spread pada level atas belum tentu aman:
+
+```js
+const clone = { ...user };
+clone.settings.theme = 'dark';
+```
+
+Karena `settings` masih nested object yang sama, perubahan pada `clone.settings` ikut memengaruhi `user.settings`.
+
+### `example-03.js`
+
+Contoh ini menunjukkan satu langkah lebih aman:
+
+```js
+const deepCopy = {
+  ...source,
+  profile: { ...source.profile },
+};
+```
+
+Nested object `profile` ikut disalin, sehingga perubahan pada `deepCopy.profile` tidak lagi mengubah `source.profile`.
+
+## Catatan Belajar
+
+- Object dibandingkan berdasarkan reference, bukan isi.
+- Spread object hanya menyalin level atas.
+- Saat data bersarang, selalu curiga ada nested reference yang masih dibagi.
 
 ## Jalankan
 
@@ -19,12 +72,7 @@ Contoh runnable untuk bab **C03 - Non-Primitive dan Reference Intro**.
 Contoh pada folder ini terutama selaras dengan section ECMAScript berikut:
 
 - `6.1.7`
-- `7.1.18`
-- `7.2.2`
-- `7.2.3`
-- `7.2.4`
-- `7.2.5`
-- `7.2.6`
+- `7.2.14`
 
 Referensi chapter: `../../chapters/C03-non-primitive-dan-reference-intro.md`.
 Referensi mapping penuh: `../../docs/spec-mapping-56.md`.

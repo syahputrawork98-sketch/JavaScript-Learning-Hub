@@ -4,7 +4,16 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.1.2`.
+Belum ada perubahan setelah rilis `v1.1.3`.
+
+## [v1.1.3] - 2026-03-12
+
+Kode versi: `JVS-R01-B02-v1.1.3`
+
+- Merombak `README.md` pada seluruh folder `examples/C01-C12` agar tidak lagi berhenti pada daftar file, cara menjalankan, dan spec alignment saja.
+- Menambahkan penjelasan detail per example yang menjelaskan tujuan contoh, peran tiap file, perilaku output penting, dan catatan belajar praktis.
+- Mempertahankan section `Spec Alignment` sambil menyelaraskan examples B02 dengan karakter buku yang berfokus pada values, types, dan coercion yang sering memerlukan pembacaan output secara teliti.
+- Mengubah examples B02 menjadi panduan kasus konkret yang lebih mudah dipahami untuk topik coercion, equality, truthy/falsy, nullish behavior, dan debugging runtime.
 
 ## [v1.1.2] - 2026-03-11
 
