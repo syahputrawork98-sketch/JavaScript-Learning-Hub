@@ -4,7 +4,16 @@ Semua perubahan materi buku dicatat di file ini.
 
 ## [Unreleased]
 
-Belum ada perubahan setelah rilis `v1.0.1`.
+Belum ada perubahan setelah rilis `v1.0.2`.
+
+## [v1.0.2] - 2026-03-12
+
+Kode versi: `JVS-R01-B04-v1.0.2`
+
+- Merombak `README.md` pada seluruh folder `examples/C01-C20` agar tidak lagi hanya berisi daftar file, cara menjalankan, dan spec alignment singkat.
+- Menambahkan penjelasan ringkas per example yang menjelaskan tujuan folder, fungsi tiap file, serta poin perilaku penting terkait parameter list, function, method, generator, class, dan async function.
+- Mempertahankan section `Spec Alignment` sambil menyelaraskan examples B04 dengan karakter buku yang menekankan fondasi functions dan scope secara bertahap.
+- Mengubah examples B04 menjadi panduan kasus konkret yang lebih mudah dipakai pembaca untuk memahami perilaku runtime function family di JavaScript modern.
 
 ## [v1.0.1] - 2026-03-12
 

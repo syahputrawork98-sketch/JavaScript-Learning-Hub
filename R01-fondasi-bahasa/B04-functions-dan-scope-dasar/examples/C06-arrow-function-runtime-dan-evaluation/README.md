@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C06 - Arrow Function Runtime dan Evaluation**.
 
+## Tujuan Example
+
+Folder ini menunjukkan perilaku runtime arrow function, terutama lexical `this` dan lexical `arguments`.
+
 ## Daftar File
 
-- `example.js` (lexical `this`)
-- `example-02.js` (perbandingan this normal function vs arrow)
-- `example-03.js` (lexical `arguments`)
+- `example.js` menunjukkan lexical `this`.
+- `example-02.js` membandingkan `this` pada normal function dan arrow.
+- `example-03.js` menunjukkan lexical `arguments`.
+
+## Poin Penting
+
+- Arrow function tidak membuat `this` baru.
+- Nilai `this` diambil dari lingkungan lexical terdekat.
+- Arrow juga tidak punya `arguments` sendiri seperti fungsi biasa.
 
 ## Jalankan
 

@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C20 - Tail Position Calls Dasar Praktis**.
 
+## Tujuan Example
+
+Folder ini membantu pembaca mengenali call yang berada pada tail position dan membedakannya dari call yang bukan tail position.
+
 ## Daftar File
 
-- `example.js` (contoh call pada tail position)
-- `example-02.js` (contoh call yang bukan tail position)
-- `example-03.js` (bentuk rekursi tail-style sederhana)
+- `example.js` menunjukkan call pada tail position.
+- `example-02.js` menunjukkan call yang bukan tail position.
+- `example-03.js` menunjukkan bentuk rekursi tail-style sederhana.
+
+## Poin Penting
+
+- Tail position berarti hasil call langsung menjadi hasil return expression saat itu.
+- Jika masih ada operasi setelah call, maka ia bukan tail position.
+- Memahami pola ini membantu membaca optimisasi konseptual, walau implementasi engine bisa berbeda.
 
 ## Jalankan
 

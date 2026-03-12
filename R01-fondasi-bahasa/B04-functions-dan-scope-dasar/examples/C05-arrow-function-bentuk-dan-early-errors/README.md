@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C05 - Arrow Function Bentuk dan Early Errors**.
 
+## Tujuan Example
+
+Folder ini membantu pembaca melihat bentuk arrow function, perbedaan body-nya, dan beberapa batasan sintaksnya.
+
 ## Daftar File
 
-- `example.js` (concise body vs block body)
-- `example-02.js` (arrow bukan constructor)
-- `example-03.js` (simulasi syntax error dan bentuk valid)
+- `example.js` menunjukkan concise body vs block body.
+- `example-02.js` menunjukkan bahwa arrow function bukan constructor.
+- `example-03.js` mensimulasikan bentuk valid dan syntax error dasar.
+
+## Poin Penting
+
+- Arrow function cocok untuk expression ringkas.
+- Concise body mengembalikan nilai secara implisit.
+- Arrow function tidak punya `[[Construct]]`, jadi tidak dipakai dengan `new`.
 
 ## Jalankan
 

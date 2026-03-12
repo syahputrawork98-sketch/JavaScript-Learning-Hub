@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C19 - Async Arrow Function Definitions End to End**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan async arrow function dari bentuk expression body sampai block body dan keterkaitannya dengan lexical `this`.
+
 ## Daftar File
 
-- `example.js` (expression body pada async arrow)
-- `example-02.js` (lexical `this` pada async arrow)
-- `example-03.js` (block body untuk langkah async bertahap)
+- `example.js` menunjukkan expression body pada async arrow.
+- `example-02.js` menunjukkan lexical `this` pada async arrow.
+- `example-03.js` menunjukkan block body untuk langkah async bertahap.
+
+## Poin Penting
+
+- Async arrow tetap menghasilkan Promise.
+- Ia tetap mewarisi karakter lexical arrow biasa, termasuk `this`.
+- Block body lebih cocok saat langkah async mulai bertambah.
 
 ## Jalankan
 

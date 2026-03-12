@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C15 - Class Definitions Static Runtime Bridge**.
 
+## Tujuan Example
+
+Folder ini menunjukkan jembatan antara bentuk class secara statis dan evaluasi runtime-nya, seperti computed name, static field initializer, dan `extends`.
+
 ## Daftar File
 
-- `example.js` (computed method name dan static field initializer)
-- `example-02.js` (nama internal pada class expression)
-- `example-03.js` (evaluasi ekspresi `extends`)
+- `example.js` menunjukkan computed method name dan static field initializer.
+- `example-02.js` menunjukkan nama internal class expression.
+- `example-03.js` menunjukkan evaluasi ekspresi `extends`.
+
+## Poin Penting
+
+- Beberapa bagian class dievaluasi saat class dibentuk, bukan saat instance dibuat.
+- Computed name dan field initializer bisa punya efek runtime.
+- `extends` juga merupakan expression yang dievaluasi.
 
 ## Jalankan
 

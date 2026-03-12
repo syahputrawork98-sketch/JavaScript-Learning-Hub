@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C11 - Async Generator Functions Dasar**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan dasar async generator: `yield` bertahap dalam konteks async dan konsumsi dengan `for await...of`.
+
 ## Daftar File
 
-- `example.js` (async generator dasar dengan `for await...of`)
-- `example-02.js` (kombinasi `await` dan `yield`)
-- `example-03.js` (perbandingan async function vs async generator)
+- `example.js` menunjukkan async generator dasar dengan `for await...of`.
+- `example-02.js` menunjukkan kombinasi `await` dan `yield`.
+- `example-03.js` membandingkan async function dengan async generator.
+
+## Poin Penting
+
+- Async generator menggabungkan konsep generator dan async function.
+- Konsumsinya biasanya memakai `for await...of`.
+- Nilai dapat dihasilkan bertahap sambil tetap menunggu proses async.
 
 ## Jalankan
 

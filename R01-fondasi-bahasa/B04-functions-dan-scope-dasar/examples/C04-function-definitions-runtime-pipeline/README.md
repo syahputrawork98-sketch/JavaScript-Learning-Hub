@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C04 - Function Definitions Runtime Pipeline**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan bagaimana function definition terhubung ke hoisting, evaluation order, dan closure.
+
 ## Daftar File
 
-- `example.js` (hoisting function declaration)
-- `example-02.js` (evaluation order function expression)
-- `example-03.js` (closure saat function dibuat dan dipanggil)
+- `example.js` menunjukkan hoisting pada function declaration.
+- `example-02.js` menunjukkan evaluation order function expression.
+- `example-03.js` menunjukkan closure saat fungsi dibuat dan dipanggil.
+
+## Poin Penting
+
+- Function declaration bisa dipanggil sebelum definisi tekstualnya.
+- Function expression mengikuti urutan evaluasi runtime biasa.
+- Closure membuat fungsi tetap bisa mengakses lingkungan lexical yang relevan.
 
 ## Jalankan
 

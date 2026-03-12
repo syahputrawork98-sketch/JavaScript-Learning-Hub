@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C16 - Class Definitions Runtime Pipeline**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan timing evaluasi class declaration dan class expression, termasuk field initializer saat instance dibuat.
+
 ## Daftar File
 
-- `example.js` (akses class sebelum dan sesudah declaration)
-- `example-02.js` (timing evaluasi class expression)
-- `example-03.js` (instance field initializer saat membuat instance)
+- `example.js` menunjukkan akses class sebelum dan sesudah declaration.
+- `example-02.js` menunjukkan timing evaluasi class expression.
+- `example-03.js` menunjukkan instance field initializer saat membuat instance.
+
+## Poin Penting
+
+- Class declaration tidak bisa diakses sebelum selesai dievaluasi.
+- Class expression mengikuti alur evaluasi expression biasa.
+- Instance field initializer dijalankan saat instansiasi.
 
 ## Jalankan
 

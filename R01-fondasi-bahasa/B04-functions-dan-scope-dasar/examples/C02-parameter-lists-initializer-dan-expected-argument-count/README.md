@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C02 - Parameter Lists Initializer dan Expected Argument Count**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan kapan default initializer dipakai dan bagaimana `function.length` dihitung.
+
 ## Daftar File
 
-- `example.js` (kapan default initializer dipakai)
-- `example-02.js` (dampak urutan initializer antar-parameter)
-- `example-03.js` (aturan `function.length`)
+- `example.js` menunjukkan default parameter hanya aktif untuk `undefined`.
+- `example-02.js` memperlihatkan efek urutan initializer antar-parameter.
+- `example-03.js` menunjukkan aturan `function.length`.
+
+## Poin Penting
+
+- `null` tidak memicu default initializer.
+- Urutan parameter memengaruhi nilai default yang bisa dipakai.
+- `function.length` tidak selalu sama dengan jumlah parameter tekstual.
 
 ## Jalankan
 

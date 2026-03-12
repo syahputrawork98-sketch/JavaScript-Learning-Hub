@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C10 - Generator Functions Instantiation dan Evaluation**.
 
+## Tujuan Example
+
+Folder ini menunjukkan bagaimana nilai masuk dan keluar generator sepanjang proses evaluasi.
+
 ## Daftar File
 
-- `example.js` (alur `next(value)` antar-yield)
-- `example-02.js` (manual iteration dan cek `done`)
-- `example-03.js` (penghentian generator via `return()`)
+- `example.js` menunjukkan alur `next(value)` antar-yield.
+- `example-02.js` menunjukkan manual iteration dan pengecekan `done`.
+- `example-03.js` menunjukkan penghentian generator lewat `return()`.
+
+## Poin Penting
+
+- Nilai yang dikirim ke `next(value)` masuk ke titik `yield` sebelumnya.
+- Iterator generator selalu mengembalikan objek `{ value, done }`.
+- `return()` dapat menutup generator lebih awal.
 
 ## Jalankan
 

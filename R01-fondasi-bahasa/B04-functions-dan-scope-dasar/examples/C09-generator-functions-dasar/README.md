@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C09 - Generator Functions Dasar**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan dasar generator: `yield`, urutan `next()`, perbedaan `yield` dan `return`, serta konsumsi dengan `for...of`.
+
 ## Daftar File
 
-- `example.js` (generator dasar dan urutan `next()`)
-- `example-02.js` (perbedaan `yield` dan `return`)
-- `example-03.js` (konsumsi generator dengan `for...of`)
+- `example.js` menunjukkan generator dasar dan urutan `next()`.
+- `example-02.js` membandingkan `yield` dan `return`.
+- `example-03.js` menunjukkan konsumsi generator dengan `for...of`.
+
+## Poin Penting
+
+- Generator menghasilkan iterator yang bergerak bertahap.
+- `yield` menunda eksekusi dan mengembalikan value sementara.
+- `return` menutup generator dan menandai iterasi selesai.
 
 ## Jalankan
 

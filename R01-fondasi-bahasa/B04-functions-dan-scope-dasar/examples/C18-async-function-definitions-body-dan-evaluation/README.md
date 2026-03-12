@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C18 - Async Function Definitions Body dan Evaluation**.
 
+## Tujuan Example
+
+Folder ini menunjukkan alur eksekusi async function saat bertemu `await`, termasuk timing dan rejection.
+
 ## Daftar File
 
-- `example.js` (alur sebelum dan sesudah `await`)
-- `example-02.js` (timing async function expression)
-- `example-03.js` (`throw` menghasilkan Promise rejection)
+- `example.js` menunjukkan alur sebelum dan sesudah `await`.
+- `example-02.js` menunjukkan timing async function expression.
+- `example-03.js` menunjukkan bahwa `throw` menjadi Promise rejection.
+
+## Poin Penting
+
+- `await` menunda kelanjutan body async function.
+- Async function expression tetap mengikuti kontrak Promise yang sama.
+- Error yang dilempar di async function berubah menjadi rejection.
 
 ## Jalankan
 

@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C07 - Method Definitions Dasar dan Direct Super**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan method shorthand pada object dan pengantar `super` untuk delegasi ke prototype parent.
+
 ## Daftar File
 
-- `example.js` (method shorthand object literal)
-- `example-02.js` (delegasi `super` ke prototype parent)
-- `example-03.js` (simulasi valid/invalid usage `super`)
+- `example.js` menunjukkan method shorthand object literal.
+- `example-02.js` menunjukkan delegasi `super` ke parent prototype.
+- `example-03.js` menunjukkan bentuk valid dan tidak valid penggunaan `super`.
+
+## Poin Penting
+
+- Method shorthand berbeda dari function property biasa dalam beberapa detail semantic.
+- `super` berguna saat method ingin meneruskan perilaku parent.
+- `super` hanya valid di konteks method yang tepat.
 
 ## Jalankan
 

@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C14 - Class Definitions Static Semantics Bagian 2**.
 
+## Tujuan Example
+
+Folder ini memperlihatkan pemisahan elemen static dan instance, serta validasi private identifier dasar.
+
 ## Daftar File
 
-- `example.js` (elemen static vs instance)
-- `example-02.js` (validasi private identifier)
-- `example-03.js` (error saat static method dipanggil dari instance)
+- `example.js` menunjukkan elemen static vs instance.
+- `example-02.js` menunjukkan validasi private identifier.
+- `example-03.js` menunjukkan error saat static method dipanggil dari instance.
+
+## Poin Penting
+
+- Static field dan static method hidup pada class.
+- Instance field dan instance method hidup pada object hasil instansiasi.
+- Private identifier punya aturan akses yang ketat.
 
 ## Jalankan
 

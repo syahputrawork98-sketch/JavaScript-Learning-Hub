@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C01 - Parameter Lists Dasar dan Early Errors**.
 
+## Tujuan Example
+
+Folder ini menunjukkan bentuk parameter fungsi yang valid dan memberi gambaran awal tentang early error pada parameter list.
+
 ## Daftar File
 
-- `example.js` (dasar parameter valid: biasa, destructuring, rest)
-- `example-02.js` (simulasi early error via `Function(...)`)
-- `example-03.js` (urutan pengisian parameter saat pemanggilan)
+- `example.js` menunjukkan parameter biasa, destructuring, dan rest parameter.
+- `example-02.js` mensimulasikan early error lewat `Function(...)`.
+- `example-03.js` menunjukkan urutan pengisian parameter saat fungsi dipanggil.
+
+## Poin Penting
+
+- Parameter list dapat berbentuk sederhana maupun destructuring.
+- Rest parameter mengumpulkan sisa argumen ke array.
+- Tidak semua bentuk parameter valid; beberapa gagal sejak fase parse.
 
 ## Jalankan
 

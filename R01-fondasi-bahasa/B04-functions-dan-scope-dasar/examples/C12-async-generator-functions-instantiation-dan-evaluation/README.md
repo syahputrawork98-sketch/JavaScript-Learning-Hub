@@ -2,11 +2,21 @@
 
 Contoh runnable untuk bab **C12 - Async Generator Functions Instantiation dan Evaluation**.
 
+## Tujuan Example
+
+Folder ini menunjukkan bagaimana async generator diinstansiasi, bagaimana `next()` bekerja, dan bagaimana iterasi bisa dihentikan lebih awal.
+
 ## Daftar File
 
-- `example.js` (alur `next(value)` pada async generator)
-- `example-02.js` (manual iteration dengan `value` dan `done`)
-- `example-03.js` (penghentian awal via `return()`)
+- `example.js` menunjukkan alur `next(value)` pada async generator.
+- `example-02.js` menunjukkan manual iteration dengan `value` dan `done`.
+- `example-03.js` menunjukkan penghentian awal via `return()`.
+
+## Poin Penting
+
+- `next()` pada async generator mengembalikan Promise.
+- Hasil iterasi tetap berbentuk `{ value, done }`, tetapi dibungkus Promise.
+- `return()` bisa dipakai untuk menutup iterasi sebelum selesai alami.
 
 ## Jalankan
 
