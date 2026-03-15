@@ -5,6 +5,5 @@
 Fase ini membedah mekanisme eksekusi. Mempelajari *Execution Contexts*, *Environment Records*, *Lexical Environments*, dan sistem *Realms*. Ini adalah pondasi untuk memahami *Scope*, *Hoisting*, dan *Closure*.
 
 ## Buku
-- `01_environment_records/`
-- `02_execution_contexts_stack/`
-- `03_realm_and_jobs/`
+- **[01_execution_contexts](./01_execution_contexts/)**: Fondasi runtime, Call Stack, Hoisting, dan Closure.
+- **[02_ordinary_and_exotic_objects](../05_ordinary_and_exotic_objects/)**: (Dikelola di Rak terpisah sesuai Clause 10).
