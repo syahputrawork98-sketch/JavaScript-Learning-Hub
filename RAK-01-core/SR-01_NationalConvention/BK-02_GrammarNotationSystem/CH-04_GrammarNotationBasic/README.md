@@ -1,4 +1,4 @@
-# Chapter 02: Grammar Notation
+# Chapter 04: Grammar Notation Basic
 
 Bagaimana spesifikasi menuliskan aturan-aturan CFG tersebut? Mereka menggunakan sistem notasi produksi yang sangat spesifik.
 

@@ -6,12 +6,18 @@ Dalam spesifikasi ECMA-262, aturan pembentukan kode (apa yang valid secara sinta
 
 ## Daftar Chapter
 
-1. **[CH-01: Context-Free Grammars](./CH-01_ContextFreeGrammars/)** - Konsep dasar Terminal dan Non-terminal.
-2. **[CH-02: Grammar Notation](./CH-02_GrammarNotation/)** - Membedah simbol, parameter, dan produksi.
-3. **[CH-03: Lexical & RegExp Grammars](./CH-03_LexicalAndRegExpGrammars/)** - Unit terkecil dan Goal Symbols.
-4. **[CH-04: Numeric String & JSON Grammars](./CH-04_NumericAndJSONGrammars/)** - Notasi untuk parsing nilai numerik dan data.
-5. **[CH-05: Syntactic Grammar](./CH-05_SyntacticGrammar/)** - Aturan penyusunan struktur kode (Statements).
-6. **[CH-06: Static Semantics & Early Errors](./CH-06_StaticSemantics/)** - Validasi otomatis sebelum runtime.
+1. **[CH-01: Context-Free Grammars](./CH-01_ContextFreeGrammars/)** - Dasar Terminal dan Non-terminal.
+2. **[CH-02: Lexical Grammar Foundations](./CH-02_LexicalGrammarFoundations/)** - Goal symbols dan Input elements.
+3. **[CH-03: Syntactic Grammar Foundations](./CH-03_SyntacticGrammarFoundations/)** - Token hingga Script/Module.
+4. **[CH-04: Grammar Notation Basic](./CH-04_GrammarNotationBasic/)** - Terminal, Non-terminal, dan Layout.
+5. **[CH-05: Optional & Alternates](./CH-05_OptionalAndAlternates/)** - `opt`, `one of`, dan `[empty]`.
+6. **[CH-06: Grammatical Parameters](./CH-06_GrammaticalParameters/)** - Parameter kontekstual (misal: `[Yield]`).
+7. **[CH-07: Lookahead Restrictions](./CH-07_LookaheadRestrictions/)** - Logika lookahead negatif.
+8. **[CH-08: Line Terminator Restrictions](./CH-08_LineTerminatorRestrictions/)** - Batasan tata bahasa terkait ASI.
+9. **[CH-09: Exclusion & Descriptions](./CH-09_ExclusionAndDescriptions/)** - `but not` dan frase bantu spesifikasi.
+10. **[CH-10: Numeric String & JSON Grammars](./CH-10_NumericAndJSONGrammars/)** - Tata bahasa khusus angka dan data.
+11. **[CH-11: Static Semantic Rules](./CH-11_StaticSemantics/)** - Early Errors dan validasi scope.
+12. **[CH-12: Grammar Puzzles](./CH-12_GrammarPuzzles/)** - Studi kasus kompleksitas parsing (ASI, dll).
 
 ## Prasyarat Pembaca
 - Telah membaca [BK-01: Spec Algorithm Conventions](../BK-01_SpecAlgorithmConventions/).

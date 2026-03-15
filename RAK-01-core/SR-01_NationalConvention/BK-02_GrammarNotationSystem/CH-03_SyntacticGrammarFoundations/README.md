@@ -1,4 +1,4 @@
-# Chapter 05: Syntactic Grammar
+# Chapter 03: Syntactic Grammar Foundations
 
 Setelah karakter diubah menjadi token oleh *Lexical Grammar*, kini giliran *Syntactic Grammar* untuk menyusun token-token tersebut menjadi struktur yang lebih besar.
 

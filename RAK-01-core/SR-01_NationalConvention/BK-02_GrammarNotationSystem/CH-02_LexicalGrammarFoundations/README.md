@@ -1,4 +1,4 @@
-# Chapter 03: Lexical & RegExp Grammars
+# Chapter 02: Lexical Grammar Foundations
 
 Di tingkat terendah, spesifikasi mendefinisikan bagaimana karakter mentah diubah menjadi token melalui *Lexical Grammar*.
 

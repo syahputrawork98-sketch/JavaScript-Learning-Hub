@@ -1,4 +1,4 @@
-# Chapter 04: Numeric String & JSON Grammars
+# Chapter 10: Numeric String & JSON Grammars
 
 Selain tata bahasa utama untuk kode JavaScript, spesifikasi juga mendefinisikan tata bahasa untuk data yang diterima dari luar, seperti string angka dan format JSON.
 

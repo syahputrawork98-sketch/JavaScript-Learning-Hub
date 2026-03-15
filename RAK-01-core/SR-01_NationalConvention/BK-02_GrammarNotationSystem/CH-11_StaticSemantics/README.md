@@ -1,4 +1,4 @@
-# Chapter 02: Static Semantic Rules
+# Chapter 11: Static Semantic Rules
 
 Tidak semua kesalahan di JavaScript terjadi saat kode dijalankan (*Runtime*). Ada aturan yang diperiksa sesaat setelah kode dipetakan ke tata bahasanya, namun sebelum langkah pertama eksekusi dimulai. Inilah yang disebut **Static Semantics**.
 
