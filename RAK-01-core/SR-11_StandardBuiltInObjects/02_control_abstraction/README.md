@@ -11,4 +11,4 @@ JavaScript modern sangat bergantung pada asinkronitas. Memahami `Promise` di tin
 2. **[Bab 02: Proxy & Reflect (Pintu Penjaga)](./02_proxy_and_reflect/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 09_functions_and_classes / Buku 01: Function Mechanics](../../09_functions_and_classes/01_function_mechanics/)**: Memahami fungsi dan callback sangat krusial sebelum membedah Promise.
+- **[RAK-01-core / SR-09_FunctionsAndClasses / Buku 01: Function Mechanics](../../SR-09_FunctionsAndClasses/01_function_mechanics/)**: Memahami fungsi dan callback sangat krusial sebelum membedah Promise.

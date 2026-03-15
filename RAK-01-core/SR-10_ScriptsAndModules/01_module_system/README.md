@@ -12,5 +12,5 @@ Di era aplikasi web besar, kita tidak bisa lagi menulis semua kode di satu file.
 3. **[Bab 03: Dynamic Imports (Kurir Instan)](./03_dynamic_imports/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 04_executable_code_and_contexts / Buku 01: Execution Contexts](../../04_executable_code_and_contexts/01_execution_contexts/)**: Memahami bagaimana konteks eksekusi global berbeda antara Script dan Module.
-- **[RAK-01-core / 08_statements_and_declarations / Bab 01: Block & Variable Statements](../../08_statements_and_declarations/01_control_flow/01_block_and_variable_statements/)**: Memahami scope variabel.
+- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/01_execution_contexts/)**: Memahami bagaimana konteks eksekusi global berbeda antara Script dan Module.
+- **[RAK-01-core / SR-08_StatementsAndDeclarations / Bab 01: Block & Variable Statements](../../SR-08_StatementsAndDeclarations/01_control_flow/01_block_and_variable_statements/)**: Memahami scope variabel.

@@ -13,4 +13,4 @@ Lexical Grammar adalah gerbang pertama. Memahami bagaimana JavaScript membaca te
 4. **[Bab 04: Lexical Ambiguity (Dua Makna)](./04_lexical_ambiguity/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 02_data_types_and_values / Bab 01: String Internals](../../02_data_types_and_values/01_primitive_types/01_string_internals/)**: Memahami dasar representasi UTF-16 yang juga digunakan dalam Source Text.
+- **[RAK-01-core / SR-02_DataTypesAndValues / Bab 01: String Internals](../../SR-02_DataTypesAndValues/01_primitive_types/01_string_internals/)**: Memahami dasar representasi UTF-16 yang juga digunakan dalam Source Text.

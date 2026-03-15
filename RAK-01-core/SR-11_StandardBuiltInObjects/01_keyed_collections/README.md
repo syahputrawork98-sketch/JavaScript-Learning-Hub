@@ -11,4 +11,4 @@ Seorang Senior Architect tahu bahwa Objek literal bukanlah alat yang tepat untuk
 2. **[Bab 02: Weak Collections & GC (Loker Berhantu)](./02_weak_collections_and_gc/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 05_ordinary_and_exotic_objects / Buku 01: Object Internal Mechanics](../../05_ordinary_and_exotic_objects/01_object_internal_mechanics/)**: Memahami bagaimana properti objek bekerja membantu Anda mengerti kenapa `Map` berbeda.
+- **[RAK-01-core / SR-05_OrdinaryAndExoticObjects / Buku 01: Object Internal Mechanics](../../SR-05_OrdinaryAndExoticObjects/01_object_internal_mechanics/)**: Memahami bagaimana properti objek bekerja membantu Anda mengerti kenapa `Map` berbeda.

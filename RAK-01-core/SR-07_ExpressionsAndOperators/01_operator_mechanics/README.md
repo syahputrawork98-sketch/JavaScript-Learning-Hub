@@ -12,4 +12,4 @@ Menulis kode tanpa memahami prioritas operator seperti mengemudi tanpa memahami 
 3. **[Bab 03: Comma & Void Operators (Niche Operators)](./03_comma_and_void_operators/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 03_abstract_operations / Buku 01: Type Conversion](../../03_abstract_operations/01_type_conversion/)**: Sangat penting! Banyak operator memicu Coercion sebelum perhitungan dimulai.
+- **[RAK-01-core / SR-03_AbstractOperations / Buku 01: Type Conversion](../../SR-03_AbstractOperations/01_type_conversion/)**: Sangat penting! Banyak operator memicu Coercion sebelum perhitungan dimulai.

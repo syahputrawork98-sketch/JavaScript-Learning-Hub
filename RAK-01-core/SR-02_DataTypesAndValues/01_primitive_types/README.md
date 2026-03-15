@@ -10,4 +10,4 @@ Buku ini membedah tipe data primitif yang didefinisikan dalam spesifikasi ECMASc
 4. `04_symbol_and_internal_slots/` - Uniknya Symbol sebagai kunci internal.
 
 ## Prasyarat
-- Memahami [Notational Conventions](../../01_notational_conventions/README.md).
+- Memahami [National Convention](../../SR-01_NationalConvention/README.md).

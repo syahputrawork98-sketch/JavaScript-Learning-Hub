@@ -12,4 +12,4 @@ Program tanpa kontrol alur hanyalah daftar instruksi linear yang kaku. Dengan me
 3. **[Bab 03: Exception Handling (Jaring Keselamatan)](./03_exception_handling/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 04_executable_code_and_contexts / Buku 01: Execution Contexts](../../04_executable_code_and_contexts/01_execution_contexts/)**: Memahami bagaimana *Environment Records* menyimpan variabel sangat penting sebelum membedah `let` vs `var`.
+- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/01_execution_contexts/)**: Memahami bagaimana *Environment Records* menyimpan variabel sangat penting sebelum membedah `let` vs `var`.

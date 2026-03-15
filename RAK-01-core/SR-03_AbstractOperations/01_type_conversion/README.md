@@ -17,4 +17,4 @@ Sepanjang buku ini, kita akan membedah operasi konversi utama:
 
 ## Prasyarat Pembaca
 Sebelum menyelami buku ini, pastikan Anda telah menyelesaikan:
-- **[RAK-01-core / 02_data_types / Buku 01: Primitive Types](../../02_data_types_and_values/01_primitive_types/)**: Memahami representasi memori dari *String*, *Number*, dll.
+- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/01_primitive_types/)**: Memahami representasi memori dari *String*, *Number*, dll.

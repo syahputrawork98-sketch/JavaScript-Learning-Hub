@@ -11,4 +11,4 @@ Seorang Senior Architect harus memahami bahwa memori bukanlah sumber daya tak te
 2. **[Bab 02: Finalization & Cleanup (Tukang Bersih-bersih)](./02_finalization_and_cleanup/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 11_standard_built_in_objects / Buku 01: Keyed Collections](../../11_standard_built_in_objects/01_keyed_collections/)**: Memahami `WeakMap` membantu Anda mengerti perbedaan mendasar antara koleksi lemah dan referensi lemah individual.
+- **[RAK-01-core / SR-11_StandardBuiltInObjects / Buku 01: Keyed Collections](../../SR-11_StandardBuiltInObjects/01_keyed_collections/)**: Memahami `WeakMap` membantu Anda mengerti perbedaan mendasar antara koleksi lemah dan referensi lemah individual.

@@ -13,5 +13,5 @@ Fungsi adalah warga kelas satu (*First-class Citizen*) di JavaScript. Memahami b
 4. **[Bab 04: Class Syntax Sugar (Casing Modern Mesin Klasik)](./04_class_syntax_sugar/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 04_executable_code_and_contexts / Buku 01: Execution Contexts](../../04_executable_code_and_contexts/01_execution_contexts/)**: Kamu harus paham bagaimana konteks eksekusi dibuat saat fungsi dipanggil.
-- **[RAK-01-core / 08_statements_and_declarations / Bab 01: Block & Variable Statements](../../08_statements_and_declarations/01_control_flow/01_block_and_variable_statements/)**: Memahami scope dasar.
+- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/01_execution_contexts/)**: Kamu harus paham bagaimana konteks eksekusi dibuat saat fungsi dipanggil.
+- **[RAK-01-core / SR-08_StatementsAndDeclarations / Bab 01: Block & Variable Statements](../../SR-08_StatementsAndDeclarations/01_control_flow/01_block_and_variable_statements/)**: Memahami scope dasar.
