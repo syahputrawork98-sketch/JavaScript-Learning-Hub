@@ -1,17 +1,32 @@
 # Chapter 01: Context-Free Grammars
 
-Sebelum memahami aturan khusus JavaScript, kita harus paham bagaimana sebuah bahasa didefinisikan secara teoretis melalui *Context-Free Grammars* (CFG).
+Dalam spesifikasi ECMA-262, aturan pembentukan kode didefinisikan melalui sistem *Context-Free Grammar* (CFG). Ini adalah fondasi yang menentukan apakah deretan karakter yang Anda tulis bisa disebut "JavaScript" atau hanya "teks acak".
 
-## 1. Hierarki Bahasa
+*Mental Model: "Batu Bata dan Blueprint"*
 
-Sebuah bahasa pemrograman bukanlah kumpulan karakter acak. Ia adalah struktur pohon.
+## 1. Terminal dan Non-terminal
 
-### Analogi Singkat: "Pohon Lego"
-Sandaran Lego (Terminal) adalah bagian terkecil yang tidak bisa dipecah lagi. Susunan Lego (Non-terminal) adalah hasil gabungan sandaran tersebut menjadi bentuk tertentu (seperti Mobil atau Rumah). Aturan CFG menentukan apakah kotak Lego Anda valid untuk membentuk sebuah mobil.
+Konsep paling dasar dalam tata bahasa adalah membedakan antara "Benda Nyata" dan "Kategori".
 
-## 2. Terminal vs Non-terminal
+- **Terminal (Batu Bata)**: Simbol yang muncul secara fisik dalam kode Anda. Contoh: huruf `a`, angka `5`, tanda kurung `{`, atau kata kunci `if`. Terminal tidak bisa dipecah lagi.
+- **Non-terminal (Blueprint)**: Nama kategori yang didefinisikan oleh aturan tata bahasa. Contoh: `Statement`, `Expression`, atau `PrimaryExpression`. Satu Non-terminal bisa terdiri dari banyak Terminal atau Non-terminal lainnya.
 
-1. **Terminal**: Simbol nyata yang muncul di kode (seperti `(`, `}`, `function`, atau angka `10`).
-2. **Non-terminal**: Nama untuk grup aturan (seperti *Statement*, *Expression*, atau *Identifier*).
+## 2. Production Rules (Aturan Produksi)
 
-Arsitek harus paham bahwa kesalahan sintaks sebenarnya adalah ketidakmampuan *Parser* untuk memetakan "Pasir" (Karakter) Anda ke dalam "Pohon" (Non-terminal) yang valid.
+Spesifikasi menggunakan aturan produksi untuk menjelaskan bagaimana satu Non-terminal dibentuk.
+
+**Notasi: `NonTerminal : expansion`**
+
+Contoh sederhana:
+```
+BooleanLiteral :
+  true
+  false
+```
+Artinya: Non-terminal `BooleanLiteral` bisa digantikan oleh terminal `true` ATAU terminal `false`.
+
+## 3. Hierarki Bahasa
+
+Sebuah bahasa pemrograman bukanlah kumpulan karakter acak. Ia adalah struktur pohon (*Abstract Syntax Tree*). Arsitek harus paham bahwa kesalahan sintaks sebenarnya adalah ketidakmampuan *Parser* untuk memetakan "Pasir" (Karakter) Anda ke dalam "Pohon" (Non-terminal) yang valid.
+
+Jika satu langkah terlewati, struktur bangunan (logika kode) tidak akan terbentuk.

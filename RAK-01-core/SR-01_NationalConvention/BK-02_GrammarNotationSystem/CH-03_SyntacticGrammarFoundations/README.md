@@ -1,22 +1,27 @@
 # Chapter 03: Syntactic Grammar Foundations
 
-Setelah karakter diubah menjadi token oleh *Lexical Grammar*, kini giliran *Syntactic Grammar* untuk menyusun token-token tersebut menjadi struktur yang lebih besar.
+Setelah *Lexical Grammar* (CH-02) menghasilkan Token, **Syntactic Grammar** mengambil alih untuk menyusun Token tersebut menjadi struktur yang lebih besar: *Statements* dan *Expressions*.
 
-## 1. Menyusun Kalimat
+*Mental Model: "Arsitek Struktur Bangunan"*
 
-Tata bahasa sintaksis mendefinisikan bagaimana *Statement*, *Declaration*, dan *Expression* dibentuk.
+## 1. Goal Symbols di Tingkat Sintaksis
 
-### Analogi Singkat: "Arsitektur Bangunan"
-Jika leksikal adalah tentang kualitas batu bata (Tokens), maka sintaksis adalah tentang cetak biru (Blueprint) bangunan. Anda tidak bisa meletakkan jendela (Statement) di atas lantai tanpa fondasi yang benar. Cetak biru menentukan urutan peletakan yang valid agar bangunan tidak roboh secara logis.
+Berbeda dengan level leksikal, di level sintaksis, Goal Symbol menentukan "Jenis File" apa yang sedang dibaca engine:
 
-## 2. Context-Dependent Syntax
+- **Script**: Konteks tradisional (global scope).
+- **Module**: Konteks modern (ES Modules, strict by default).
 
-Banyak aturan sintaksis di JS yang berubah berdasarkan konteks (seperti mode `Strict` atau di dalam `Module`). Spesifikasi menggunakan parameter tata bahasa (seperti `[In]`, `[Return]`, `[Await]`) untuk menangani hal ini secara formal.
+Aturan tata bahasa bisa berubah drastis! Misalnya, kata kunci `await` hanya valid di tingkat atas (top-level) jika Goal Symbol-nya adalah `Module`.
 
-## 3. Script vs Module
+## 2. Chain of Production (Rantai Produksi)
 
-Spek memiliki dua titik masuk sintaksis utama:
-- **Script**: Konteks tradisional (global scope, `this` menunjuk ke window).
-- **Module**: Konteks modern (strict by default, scope terisolasi).
+Sintaksis bekerja seperti pohon keputusan.
+`Script` -> `ScriptBody` -> `StatementList` -> `Statement` -> `VariableStatement` ... dan seterusnya hingga mencapai Terminal (Token).
 
-Pemahaman tentang struktur sintaksis ini adalah gerbang menuju pemahaman mendalam tentang **SR-08_StatementsAndDeclarations**.
+Jika Anda menulis `let x = ;`, engine akan berhenti di `VariableDeclaration` karena ia mengharapkan `AssignmentExpression` setelah tanda `=`, tapi malah menemukan terminal `;`.
+
+## 3. Context-Dependent Syntax
+
+Banyak aturan sintaksis di JS yang berubah berdasarkan konteks (seperti mode `Strict`). Spesifikasi menggunakan parameter tata bahasa (seperti `[In]`, `[Return]`, `[Await]`) untuk menangani hal ini secara formal.
+
+Paham perbedaan antara "Script" dan "Module" adalah kunci untuk mengerti perilaku fundamental scope di JS.

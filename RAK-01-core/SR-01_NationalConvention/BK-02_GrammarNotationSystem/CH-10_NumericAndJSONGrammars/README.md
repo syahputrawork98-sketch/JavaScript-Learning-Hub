@@ -1,20 +1,27 @@
-# Chapter 10: Numeric String & JSON Grammars
+# Chapter 10: Numeric & JSON Grammars
 
-Selain tata bahasa utama untuk kode JavaScript, spesifikasi juga mendefinisikan tata bahasa untuk data yang diterima dari luar, seperti string angka dan format JSON.
+JavaScript memiliki beberapa tata bahasa khusus yang berdiri sendiri untuk menangani data spesifik. Ini seperti memiliki blueprint terpisah untuk sistem kelistrikan dan sistem perairan dalam satu gedung.
 
-## 1. Numeric String Grammar
+*Mental Model: "Blueprint Sistem Khusus"*
 
-Saat Anda memanggil fungsi seperti `Number("123")`, engine menggunakan tata bahasa khusus untuk memastikan string tersebut valid sebagai angka. Tata bahasa ini lebih ketat daripada yang digunakan untuk menulis angka langsung di kode (Numeric Literals).
+## 1. Numeric String Grammar (`:::`)
 
-### Analogi Singkat: "Pintu Masuk Barang"
-Literasi angka di kode seperti barang produksi internal pabrik. *Numeric String Grammar* adalah pintu masuk untuk barang dari pemasok luar. Keduanya memiliki standar kualitas yang mirip, tapi pintu masuk luar memiliki pemeriksaan lebih ketat untuk menghindari data sampah.
+Pernahkah Anda menggunakan fungsi `Number("123")`? Saat itulah engine menggunakan **Numeric String Grammar**.
+
+- **Notasi**: Ditandai dengan tiga titik dua (`:::`).
+- **Tujuan**: Mengatur bagaimana sebuah string teks diubah menjadi nilai angka teoretis. Aturan di sini jauh lebih sederhana dibandingkan tata bahasa leksikal penuh, karena ia tidak perlu menangani komentar atau kata kunci.
 
 ## 2. JSON Grammar
 
-Meskipun JSON sangat mirip dengan objek JS, spesifikasi mendefinisikan tata bahasa JSON secara terpisah (Clause 25). Ini memastikan interoperabilitas data antar bahasa pemrograman tetap terjaga.
+Saat Anda melakukan `JSON.parse()`, engine tidak menggunakan seluruh aturan JavaScript. Ia menggunakan sub-set yang disebut **JSON Grammar**.
 
-Poin penting bagi arsitek:
-- JSON tidak mengizinkan trailing commas.
-- JSON hanya menggunakan double quotes untuk key dan string.
+- **Batasan**: Dalam JSON Grammar, Anda tidak boleh menggunakan `undefined`, fungsi, atau koma terakhir (*trailing comma*).
+- **Keamanan**: Dengan menggunakan blueprint yang lebih terbatas, engine bisa melakukan parsing jauh lebih cepat dan aman daripada menggunakan `eval()`.
 
-Memahami batasan tata bahasa ini membantu kita mendesain sistem pertukaran data yang lebih tangguh.
+## 3. String Numeric vs Numeric Literal
+
+Penting bagi arsitek untuk membedakan antara:
+- **Numeric Literal**: Angka yang tertulis langsung di kode (diatur oleh Lexical Grammar `::`).
+- **String Numeric**: Teks yang dikonversi jadi angka (diatur oleh Numeric String Grammar `:::`).
+
+Aturan pembulatan dan presisi di kedua blueprint ini harus sinkron agar hasil program konsisten.
