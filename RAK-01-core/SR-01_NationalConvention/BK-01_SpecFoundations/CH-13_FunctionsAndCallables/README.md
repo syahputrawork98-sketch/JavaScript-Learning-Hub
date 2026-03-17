@@ -1,16 +1,49 @@
 # CH-13: Functions & Callables
 
-Ingat, di JavaScript, fungsi bukanlah makhluk gaib. Mereka adalah objek dengan kemampuan khusus. Mari kita lihat definisi formalnya di Clause 4.4.34 - 4.4.36.
+*Pemetaan ECMA-262: Clause 6.1.7.2 (Object Internal Methods) & Clause 10.2 (ECMAScript Function Objects)*
 
-## 1. Function (4.4.34)
-Sebuah *function* adalah anggota dari tipe **Object** yang merupakan instansiasi dari built-in constructor `Function`. Bedanya dengan objek biasa? Ia memiliki method internal `[[Call]]` yang memungkinkannya "dijalankan".
+Di JavaScript, fungsi bukanlah "makhluk gaib" yang berbeda dari objek. Mereka adalah objek dengan **Kemampuan Khusus** untuk dieksekusi. (Clause 4.4.35 - 4.4.37).
 
-## 2. Built-in Function (4.4.35)
-Ini adalah fungsi yang sudah disediakan oleh lingkungan ECMAScript sejak awal (seperti `parseInt` atau `Math.sin`). Mereka tidak diciptakan oleh program Anda, tapi oleh mesin itu sendiri.
-
-## 3. Built-in Constructor (4.4.36)
-Sebuah built-in function yang juga memiliki kemampuan sebagai **Constructor** (memiliki method internal `[[Construct]]`). Contoh: `Array`, `Object`, `Date`.
+## Mental Model: "Objek yang Bisa Diklik"
+Bayangkan sebuah objek biasa `{}` sebagai sebuah kotak statis. Sebuah **Function** adalah kotak yang sama, tapi memiliki sebuah **Tombol (internal method [[Call]])**. Begitu tombol tersebut ditekan, ia akan menjalankan serangkaian instruksi di dalamnya.
 
 ---
-> [!TIP]
-> **Architect Mindset:** Jika Anda ingin tahu apakah suatu objek adalah fungsi, spesifikasi menyarankan untuk memeriksa keberadaan internal slot `[[Call]]`, bukan sekadar melihat keyword `function`.
+
+## 1. Function Object (Clause 4.4.35)
+Sebuah **Function** adalah anggota dari tipe *Object* yang memiliki metode internal `[[Call]]`.
+- **Callable**: Sebutan untuk objek yang memiliki `[[Call]]`. Seluruh fungsi di JS adalah *callable*.
+
+## 2. Constructor Object (Clause 4.4.37)
+Sebuah **Constructor** adalah fungsi yang memiliki metode internal tambahan yaitu `[[Construct]]`.
+- Metode ini memungkinkan fungsi dipanggil menggunakan keyword `new` untuk menciptakan instance objek baru.
+- **Catatan**: Tidak semua fungsi adalah constructor (misal: Arrow Functions tidak punya `[[Construct]]`).
+
+```mermaid
+graph TD
+    A["Object Type"] --> B["Non-Callable Objects"]
+    A --> C["Callable Objects (Functions)"]
+    
+    C --> C1["Function with [[Call]] only (Non-Constructor)"]
+    C --> C2["Function with [[Call]] & [[Construct]] (Constructor)"]
+    
+    C1 --> C1a["Arrow Functions"]
+    C2 --> C2a["Regular Functions, Classes"]
+```
+
+## 3. Built-in Function (Clause 4.4.36)
+Fungsi yang sudah disediakan oleh implementasi ECMAScript sejak awal (seperti `eval` atau `parseInt`). Mereka mungkin diimplementasikan menggunakan kode internal engine (seperti C++), bukan kode JavaScript biasa.
+
+---
+
+## Arsitek Mindset: Understanding Execution Slots
+Memahami fungsi sebagai objek membantu Anda menyadari bahwa fungsi bisa memiliki properti dan method sendiri (seperti `.name`, `.length`, atau properti kustom Anda). Sebagai arsitek, gunakan *Arrow Functions* saat Anda ingin fungsi murni yang ringan tanpa overhead constructor.
+
+---
+
+## Referensi Terkait
+- [ECMA-262 Clause 10.2 - ECMAScript Function Objects](https://tc39.es/ecma262/#sec-ecmascript-function-objects)
+- [CH-14: Properties & Methods](./CH-14_PropertiesAndMethods/README.md)
+
+---
+> [!NOTE]  
+> Demonstrasi perbedaan Callable vs Constructor dapat dilihat di [examples/](./examples/).

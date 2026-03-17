@@ -1,5 +1,6 @@
 # BK-01: Spec Foundations (Terminology)
-
+---
+*Buku Status: [docs/status.md](./docs/status.md)*  
 Buku ini adalah "Kamus Besar" dan fondasi konseptual sebelum Anda menyelami algoritma yang lebih kompleks. Seluruh konten di sini diambil langsung dari **ECMA-262 Clause 4.4**.
 
 ## Daftar Isi: Kamus Arsitek

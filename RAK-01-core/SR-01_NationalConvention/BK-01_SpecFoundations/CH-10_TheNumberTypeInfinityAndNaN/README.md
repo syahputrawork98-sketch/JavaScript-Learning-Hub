@@ -1,20 +1,3 @@
 # CH-10: The Number Type, Infinity & NaN
 
-Angka di JavaScript mengikuti standar internasional IEEE 754. Mari kita lihat definisinya di Clause 4.4.23 - 4.4.27.
-
-## 1. Number Value & Type (4.4.23 - 4.4.24)
-Himpunan nilai yang merepresentasikan angka floating-point 64-bit. Tipe ini mencakup semua angka real, plus tiga nilai spesial:
-- **Infinity** (Positif tak terhingga)
-- **-Infinity** (Negatif tak terhingga)
-- **NaN** (Not-a-Number)
-
-## 2. Special Values (4.4.26 - 4.4.27)
-- **Infinity (4.4.26):** Nilai yang dihasilkan saat angka positif dibagi nol.
-- **NaN (4.4.27):** Nilai unik yang merepresentasikan hasil operasi matematika yang tidak terdefinisi (seperti `0 / 0`). Ciri khas NaN adalah ia tidak sama dengan dirinya sendiri (`NaN === NaN` adalah `false`).
-
-## 3. Number Object (4.4.25)
-Ini adalah pembungkus objek untuk nilai angka primitif.
-
----
-> [!TIP]
 > **Architect Wisdom:** Hati-hati dengan akurasi floating-point. Angka seperti `0.1 + 0.2` tidak menghasilkan `0.3` tepat secara biner. Jika Anda butuh akurasi tinggi untuk mata uang, pertimbangkan menggunakan **BigInt** atau simpan nilai dalam satuan terkecil (sen).

@@ -6,7 +6,7 @@
 | BK-01 | Spec Foundations | 100% | [x] Completed |
 | BK-02 | Grammar Notation System | 100% | [x] Completed |
 | BK-03 | Spec Algorithm Conventions | 100% | [x] Completed |
-| BK-04 | Static Semantic Rules | 6/16 Chapters | [ ] In Progress |
+| BK-04 | Static Semantic Rules | 37% | [/] In Progress |
 
 ---
 *Detail Buku Teraktif: [BK-04/docs/status.md](../BK-04_StaticSemanticRules/docs/status.md)*
