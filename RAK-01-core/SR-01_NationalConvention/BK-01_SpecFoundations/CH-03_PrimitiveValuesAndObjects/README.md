@@ -28,6 +28,8 @@ Nilai primitif adalah data yang direpresentasikan langsung pada level terendah d
 ## 2. Object Type (Clause 6.1.7)
 Objek adalah koleksi dari **Properties**. Setiap properti memiliki kunci (String atau Symbol) dan nilai (bisa Primitive atau Object).
 
+![Mental Model: Primitive vs Object](./assets/primitive_vs_object.svg)
+
 ```mermaid
 graph LR
     A["Object"] --> B["Properties (Key-Value)"]

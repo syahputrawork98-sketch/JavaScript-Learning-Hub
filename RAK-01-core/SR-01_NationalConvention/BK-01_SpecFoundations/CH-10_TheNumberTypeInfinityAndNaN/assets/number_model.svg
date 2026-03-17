@@ -1,0 +1,26 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bit-box { fill: #f9fafb; stroke: #374151; stroke-width: 2; }
+    .text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #1f2937; }
+    .header { font-weight: bold; font-size: 18px; }
+  </style>
+
+  <text x="300" y="40" text-anchor="middle" class="text header">Number: IEEE 754 64-bit Floating-Point 📏</text>
+
+  <!-- Sign -->
+  <rect x="50" y="80" width="40" height="100" rx="4" class="bit-box" style="fill: #fee2e2; stroke: #dc2626;"/>
+  <text x="70" y="210" text-anchor="middle" class="text" style="font-weight: bold;">🔢 Sign</text>
+  <text x="70" y="135" text-anchor="middle" class="text">(1)</text>
+
+  <!-- Exponent -->
+  <rect x="100" y="80" width="150" height="100" rx="4" class="bit-box" style="fill: #e0f2fe; stroke: #0ea5e9;"/>
+  <text x="175" y="210" text-anchor="middle" class="text" style="font-weight: bold;">⚡ Exponent</text>
+  <text x="175" y="135" text-anchor="middle" class="text">(11)</text>
+
+  <!-- Mantissa -->
+  <rect x="260" y="80" width="290" height="100" rx="4" class="bit-box" style="fill: #f0fdf4; stroke: #16a34a;"/>
+  <text x="405" y="210" text-anchor="middle" class="text" style="font-weight: bold;">🧩 Fraction / Mantissa</text>
+  <text x="405" y="135" text-anchor="middle" class="text">(52)</text>
+
+  <text x="300" y="270" text-anchor="middle" class="text" style="font-style: italic; font-size: 12px;">CH-10: Binary Representation of JavaScript Numbers</text>
+</svg>

@@ -1,5 +1,5 @@
 # Rak: Core
-*Rak Status: [docs/status.md](./docs/status.md)*
+*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 2%)*
  (The Brain Pillars)
 
 *Level: Practitioner/Architect*

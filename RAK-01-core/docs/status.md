@@ -3,7 +3,7 @@
 
 | Sub-Rak | Judul | Progress | Status |
 | :--- | :--- | :--- | :--- |
-| SR-01 | National Convention | 25% | [/] In Progress |
+| SR-01 | National Convention | 84% | [/] In Progress |
 | SR-02 | DataTypes and Values | 0% | [ ] Planned |
 | SR-03 | Abstract Operations | 0% | [ ] Planned |
 | SR-04 | Executable Code and Contexts | 0% | [ ] Planned |

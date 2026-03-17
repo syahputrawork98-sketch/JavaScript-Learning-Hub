@@ -1,8 +1,8 @@
 # CH-15: Property Attributes
 
-*Pemetaan ECMA-262: Clause 6.1.7.1 (Property Attributes)*
+*Pemetaan ECMA-262: Clause 6.1.7.1 & 4.4.40*
 
-Jika properti adalah "Pintu", maka **Attributes** adalah "Gembok", "Alarm", dan "Engsel"-nya. Spesifikasi menggunakan atribut untuk mendefinisikan karakteristik perilaku dari sebuah properti. (Clause 4.4.40).
+Jika properti adalah "Pintu", maka **Attributes** adalah "Gembok", "Alarm", dan "Engsel"-nya. Spesifikasi menggunakan atribut untuk mendefinisikan karakteristik perilaku dari sebuah properti. (Clause 4.4.39).
 
 ## Mental Model: "Sertifikat Kepemilikan"
 Bayangkan setiap properti objek memiliki sebuah **Sertifikat** (Property Descriptor). Di dalam sertifikat tersebut tertulis aturan mainnya:
@@ -10,9 +10,11 @@ Bayangkan setiap properti objek memiliki sebuah **Sertifikat** (Property Descrip
 - Apakah namanya boleh muncul di daftar publik? (**Enumerable**)
 - Apakah sertifikatnya boleh dibakar atau diubah isinya? (**Configurable**)
 
+![Mental Model: Property Attributes](./assets/property_attributes.svg)
+
 ---
 
-## 1. Property Attributes (Clause 4.4.40)
+## 1. Property Attributes (Clause 4.4.39)
 **Attribute** adalah nilai internal yang mendefinisikan karakteristik sebuah properti. Ada dua jenis utama properti di JavaScript, masing-masing memiliki set atribut yang berbeda:
 
 ### A. Data Properties

@@ -35,23 +35,59 @@ Setiap `status.md` (Level Buku) wajib menggunakan kolom berikut:
 
 Dan dilengkapi dengan:
 1.  **Spec-Sync**: Mencantumkan versi spesifikasi standar (misal: `ES2024`, `ES2025`) yang digunakan sebagai acuan terakhir.
-2.  **Labeling**: Gunakan kolom `Spec-Sync` di file `status.md` untuk menandai versi spesifikasi terakhir yang telah diverifikasi (Contoh: `ES2024` atau `ES2025`).
-3.  **Penyebutan Clause**: Setiap bab wajib menyebutkan nomor Clause spesifik di awal `README.md` untuk memudahkan audit ulang jika nomor klausul di spek resmi berubah.
-
-## 5. Kriteria "100% Complete" (Gold Standard)
-
-Sebuah unit (Bab/Buku) baru dianggap **100% (Completed)** jika memenuhi 4 pilar:
-1.  **Narasi Teruji**: README mengikuti standar PPM V4 dan menggunakan terminologi spek yang tepat.
-2.  **Koleksi Contoh**: Folder `examples/` berisi pembuktian kode yang mencakup seluruh poin teknis narasi.
-3.  **Visualisasi**: Memiliki diagram atau SVG yang menjelaskan mental model di folder `assets/`.
-4.  **Spec-Sync**: Terverifikasi sesuai dengan edisi ECMAScript terbaru yang ditargetkan di kolom `Spec-Sync`.
+2.  **Penyebutan Clause**: Setiap bab wajib menyebutkan nomor Clause spesifik di awal `README.md` untuk memudahkan audit ulang jika nomor klausul di spek resmi berubah.
 
 ---
 
-## Alur Agregasi Status (Bubbling Up)
+## Sistem Status Berjenjang (Bubbling Up)
 
-Status kemajuan dihitung dari bawah ke atas untuk memberikan gambaran akurat bagi Arsitek:
-1.  **Level Bab**: Dasar perhitungan (Detail metrik Ex/SVG/Sync).
-2.  **Level Buku**: Rata-rata kemajuan seluruh Bab.
-3.  **Level Sub-Rak**: Jumlah Buku yang tuntas / Total Buku.
-4.  **Level Rak**: Persentase Sub-Rak yang sudah "Completed".
+Kemajuan proyek tidak diukur secara manual di tingkat atas, melainkan "menguap" (*bubbling up*) dari unit terkecil (Bab) hingga ke tingkat Perpustakaan (Root). Ini menjamin akurasi data yang mencerminkan realitas di lapangan.
+
+```mermaid
+graph BT
+    subgraph L5 ["Level 5: Bab (Chapter)"]
+        CH["Detail Metrik: Ex, SVG, Spec-Sync"]
+    end
+    
+    subgraph L4 ["Level 4: Buku (Book)"]
+        BK["% Rata-rata Progress Bab"]
+    end
+    
+    subgraph L3 ["Level 3: Sub-Rak"]
+        SR["% Rata-rata Progress Buku"]
+    end
+    
+    subgraph L2 ["Level 2: Rak"]
+        RK["% Rata-rata Progress Sub-Rak"]
+    end
+    
+    CH --> BK
+    BK --> SR
+    SR --> RK
+    RK --> ROOT["Level 1: Perpustakaan (Global)"]
+```
+
+### Rumus Agregasi:
+1.  **Level Bab**: Status kualitatif (`Sync`, `Partial`, `Draft`) dan kuantitatif (Jumlah Contoh & SVG).
+2.  **Level Buku**: `(Σ % Progress Bab) / (Total Bab)`. Ditulis dalam format persentase di `docs/status.md` Buku.
+3.  **Level Sub-Rak**: `(Σ % Progress Buku) / (Total Buku)`. Diperbarui di `docs/status.md` Sub-Rak.
+4.  **Level Rak**: `(Σ % Progress Sub-Rak) / (Total Sub-Rak)`. Diperbarui di `docs/status.md` Rak.
+
+---
+
+## Kriteria "Gold Standard" (100% Complete)
+
+Sebuah unit baru dianggap **Completed** jika dan hanya jika memenuhi 4 pilar kualitas:
+
+> [!IMPORTANT]
+> **Pilar 1: Spec-Sync Accurate**  
+> Konten telah diverifikasi terhadap Clause spesifik di ECMA-262 (Versi Target di kolom Spec-Sync).
+>
+> **Pilar 2: Functional Examples**  
+> Minimal terdapat 1 contoh kode (`.js`) di folder `examples/` yang membuktikan konsep tersebut bekerja di runtime.
+>
+> **Pilar 3: Mental Model Visual**  
+> Terdapat minimal 1 diagram (Mermaid/SVG) di folder `assets/` yang menjelaskan alur logika secara visual.
+>
+> **Pilar 4: Narrative Excellence**  
+> Penjelasan menggunakan standar PPM V4: Bahasanya manusiawi, ada analogi, dan menyertakan "Architect Mindset".

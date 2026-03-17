@@ -5,6 +5,9 @@
 Boolean adalah tipe data paling sederhana namun paling fundamental dalam pengambilan keputusan. Spesifikasi mendefinisikannya sebagai himpunan dengan dua anggota saja. (Clause 4.4.17 - 4.4.19).
 
 ## Mental Model: "Saklar Lampu"
+
+![Mental Model: Boolean Saklar](./assets/boolean_model.svg)
+
 Tipe Boolean ibarat sebuah saklar lampu yang hanya memiliki dua status: **Nyala (true)** atau **Mati (false)**. Tidak ada status di antaranya (sepeti "remang-remang") di level tipe data murni.
 
 ---

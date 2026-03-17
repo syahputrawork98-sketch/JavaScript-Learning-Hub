@@ -5,6 +5,9 @@
 Di dunia spesifikasi, tidak semua objek diciptakan setara. Ada objek yang "Patuh Aturan" dan ada objek yang "Punya Keistimewaan". (Clause 4.4.9 - 4.4.10).
 
 ## Mental Model: "Warga Sipil vs Diplomat"
+
+![Mental Model: Ordinary vs Exotic](./assets/ordinary_vs_exotic.svg)
+
 - **Ordinary Object**: Ibarat warga sipil biasa. Mereka mengikuti aturan hukum standar (Essential Internal Methods) tanpa pengecualian.
 - **Exotic Object**: Ibarat diplomat. Mereka mungkin punya kekebalan hukum atau cara kerja khusus untuk tugas tertentu (seperti Array yang panjangnya otomatis berubah).
 

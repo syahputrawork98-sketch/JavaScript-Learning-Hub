@@ -1,0 +1,23 @@
+<svg width="600" height="250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .node { fill: #f9fafb; stroke: #374151; stroke-width: 2; }
+    .text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #1f2937; }
+    .header { font-weight: bold; font-size: 18px; }
+  </style>
+
+  <text x="300" y="40" text-anchor="middle" class="text header">Symbol: Unique & Anonymous Identity 🔑</text>
+
+  <!-- Symbols as Atoms -->
+  <circle cx="150" cy="120" r="40" style="fill: #fff7ed; stroke: #ea580c;"/>
+  <text x="150" y="125" text-anchor="middle" class="text" style="font-weight: bold;">S1</text>
+
+  <circle cx="300" cy="120" r="40" style="fill: #f0fdf4; stroke: #16a34a;"/>
+  <text x="300" y="125" text-anchor="middle" class="text" style="font-weight: bold;">S2</text>
+
+  <circle cx="450" cy="120" r="40" style="fill: #eff6ff; stroke: #2563eb;"/>
+  <text x="450" y="125" text-anchor="middle" class="text" style="font-weight: bold;">S3</text>
+
+  <text x="300" y="200" text-anchor="middle" class="text">S1 !== S2 !== S3 (Guaranteed Uniqueness)</text>
+
+  <text x="300" y="235" text-anchor="middle" class="text" style="font-style: italic; font-size: 12px;">CH-12: Symbol - The Atom of Identity</text>
+</svg>

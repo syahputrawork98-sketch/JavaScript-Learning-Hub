@@ -1,0 +1,31 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .node { fill: #f9fafb; stroke: #374151; stroke-width: 2; }
+    .text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #1f2937; }
+    .header { font-weight: bold; font-size: 18px; }
+    .arrow { stroke: #4b5563; stroke-width: 2; fill: none; }
+  </style>
+
+  <text x="300" y="40" text-anchor="middle" class="text header">Internal Methods: Spec Instincts 🧬</text>
+
+  <!-- User Operation -->
+  <rect x="50" y="80" width="180" height="60" rx="8" class="node" style="fill: #ecfdf5; stroke: #059669;"/>
+  <text x="140" y="115" text-anchor="middle" class="text">obj.prop 🖱️</text>
+  <text x="140" y="160" text-anchor="middle" class="text" style="font-size: 12px;">(User Operation)</text>
+
+  <path d="M230 110 L320 110" class="arrow" marker-end="url(#arrowhead)"/>
+
+  <!-- Spec Instinct -->
+  <rect x="330" y="80" width="220" height="120" rx="8" class="node" style="fill: #1e293b; stroke: #065f46;"/>
+  <text x="440" y="115" text-anchor="middle" class="text" style="fill: #ffffff; font-weight: bold;">[[Get]] Instinct ⚡</text>
+  <text x="440" y="145" text-anchor="middle" class="text" style="fill: #6EE7B7; font-size: 12px;">Algorithms in ECMA-262</text>
+  <text x="440" y="170" text-anchor="middle" class="text" style="fill: #6EE7B7; font-size: 12px;">(Instinctive Reaction)</text>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4b5563"/>
+    </marker>
+  </defs>
+
+  <text x="300" y="270" text-anchor="middle" class="text" style="font-style: italic; font-size: 12px;">CH-18: Internal Methods - How the Spec Reacts to You</text>
+</svg>

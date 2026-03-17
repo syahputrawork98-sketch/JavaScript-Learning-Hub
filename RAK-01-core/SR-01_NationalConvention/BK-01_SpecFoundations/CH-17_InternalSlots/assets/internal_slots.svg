@@ -1,0 +1,31 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .obj-body { fill: #f3f4f6; stroke: #1f2937; stroke-width: 3; }
+    .slot-safe { fill: #1e293b; stroke: #fbbf24; stroke-width: 2; }
+    .text { font-family: 'Inter', sans-serif; font-size: 14px; fill: #1f2937; }
+    .text-white { fill: #ffffff; }
+    .header { font-weight: bold; font-size: 16px; }
+  </style>
+
+  <!-- Object Shape -->
+  <rect x="50" y="50" width="500" height="200" rx="15" class="obj-body"/>
+  <text x="75" y="85" class="text header">Object Structure</text>
+
+  <!-- Visible Properties -->
+  <rect x="80" y="110" width="200" height="100" rx="8" style="fill: #ffffff; stroke: #3b82f6;"/>
+  <text x="180" y="130" text-anchor="middle" class="text" style="font-weight: bold;">Public Properties</text>
+  <text x="100" y="160" class="text">"name": "Arsitek"</text>
+  <text x="100" y="185" class="text">"rank": 99</text>
+
+  <!-- Hidden Slots -->
+  <rect x="320" y="110" width="200" height="100" rx="8" class="slot-safe"/>
+  <text x="420" y="130" text-anchor="middle" class="text text-white" style="font-weight: bold;">[Internal Slots]</text>
+  <text x="340" y="160" class="text text-white" style="font-family: monospace;">[[Prototype]]</text>
+  <text x="340" y="185" class="text text-white" style="font-family: monospace;">[[PrivateState]]</text>
+
+  <!-- Lock Icon -->
+  <circle cx="500" cy="130" r="10" style="fill: #fbbf24;"/>
+  <rect x="495" y="130" width="10" height="8" style="fill: #fbbf24;"/>
+
+  <text x="300" y="280" text-anchor="middle" class="text" style="font-style: italic; font-size: 12px;">CH-17: Internal Slots - The "Hidden Safe" Analogy</text>
+</svg>

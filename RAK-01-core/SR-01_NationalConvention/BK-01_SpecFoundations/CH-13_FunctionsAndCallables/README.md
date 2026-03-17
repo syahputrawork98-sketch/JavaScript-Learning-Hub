@@ -1,19 +1,21 @@
 # CH-13: Functions & Callables
 
-*Pemetaan ECMA-262: Clause 6.1.7.2 (Object Internal Methods) & Clause 10.2 (ECMAScript Function Objects)*
+*Pemetaan ECMA-262: Clause 6.1.7.2 & 4.4.31 - 4.4.34*
 
-Di JavaScript, fungsi bukanlah "makhluk gaib" yang berbeda dari objek. Mereka adalah objek dengan **Kemampuan Khusus** untuk dieksekusi. (Clause 4.4.35 - 4.4.37).
+Di JavaScript, fungsi bukanlah "makhluk gaib" yang berbeda dari objek. Mereka adalah objek dengan **Kemampuan Khusus** untuk dieksekusi. (Clause 4.4.34 - 4.4.35).
 
 ## Mental Model: "Objek yang Bisa Diklik"
 Bayangkan sebuah objek biasa `{}` sebagai sebuah kotak statis. Sebuah **Function** adalah kotak yang sama, tapi memiliki sebuah **Tombol (internal method [[Call]])**. Begitu tombol tersebut ditekan, ia akan menjalankan serangkaian instruksi di dalamnya.
 
+![Mental Model: Function Object](./assets/function_model.svg)
+
 ---
 
-## 1. Function Object (Clause 4.4.35)
+## 1. Function Object (Clause 4.4.34)
 Sebuah **Function** adalah anggota dari tipe *Object* yang memiliki metode internal `[[Call]]`.
 - **Callable**: Sebutan untuk objek yang memiliki `[[Call]]`. Seluruh fungsi di JS adalah *callable*.
 
-## 2. Constructor Object (Clause 4.4.37)
+## 2. Constructor Object (Clause 4.4.7)
 Sebuah **Constructor** adalah fungsi yang memiliki metode internal tambahan yaitu `[[Construct]]`.
 - Metode ini memungkinkan fungsi dipanggil menggunakan keyword `new` untuk menciptakan instance objek baru.
 - **Catatan**: Tidak semua fungsi adalah constructor (misal: Arrow Functions tidak punya `[[Construct]]`).
@@ -30,7 +32,7 @@ graph TD
     C2 --> C2a["Regular Functions, Classes"]
 ```
 
-## 3. Built-in Function (Clause 4.4.36)
+## 3. Built-in Function (Clause 4.4.35)
 Fungsi yang sudah disediakan oleh implementasi ECMAScript sejak awal (seperti `eval` atau `parseInt`). Mereka mungkin diimplementasikan menggunakan kode internal engine (seperti C++), bukan kode JavaScript biasa.
 
 ---

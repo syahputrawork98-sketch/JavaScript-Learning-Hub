@@ -11,6 +11,8 @@ Bayangkan sebuah String ibarat sebuah **Rangkaian Manik-manik**. Setiap manik-ma
 
 ## 1. String Type & Value (Clause 4.4.20 - 4.4.21)
 **String Value** adalah urutan terhingga (finite) dari nol atau lebih unsigned integer 16-bit.
+
+![Mental Model: String Sequence](./assets/string_model.svg)
 - Setiap elemen dalam urutan tersebut mewakili satu unit kode UTF-16.
 - **Identitas**: Panjang string didefinisikan oleh jumlah elemen 16-bit di dalamnya.
 

@@ -13,14 +13,16 @@ Buku ini adalah "Kamus Besar" dan fondasi konseptual sebelum Anda menyelami algo
 - [CH-07: The Undefined & Null Types](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-07_TheUndefinedAndNullTypes/README.md) (4.4.13 - 4.4.16)
 - [CH-08: The Boolean Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-08_TheBooleanTypeAndObjects/README.md) (4.4.17 - 4.4.19)
 - [CH-09: The String Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-09_TheStringTypeAndObjects/README.md) (4.4.20 - 4.4.22)
-- [CH-10: The Number Type, Infinity & NaN](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-10_TheNumberTypeInfinityAndNaN/README.md) (4.4.23 - 4.4.27)
-- [CH-11: The BigInt Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-11_TheBigIntTypeAndObjects/README.md) (4.4.28 - 4.4.30)
-- [CH-12: The Symbol Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-12_TheSymbolTypeAndObjects/README.md) (4.4.31 - 4.4.33)
-- [CH-13: Functions & Callables](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-13_FunctionsAndCallables/README.md) (4.4.34 - 4.4.36)
-- [CH-14: Properties & Methods](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-14_PropertiesAndMethods/README.md) (4.4.37 - 4.4.39)
+- [CH-10: The Number Type, Infinity & NaN](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-10_TheNumberTypeInfinityAndNaN/README.md) (4.4.23 - 4.4.26)
+- [CH-11: The BigInt Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-11_TheBigIntTypeAndObjects/README.md) (4.4.27 - 4.4.28)
+- [CH-12: The Symbol Type & Objects](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-12_TheSymbolTypeAndObjects/README.md) (4.4.29 - 4.4.30)
+- [CH-13: Functions & Callables](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-13_FunctionsAndCallables/README.md) (4.4.31 - 4.4.34)
+- [CH-14: Properties & Methods](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-14_PropertiesAndMethods/README.md) (4.4.39)
 - [CH-15: Property Attributes](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-15_PropertyAttributes/README.md) (4.4.40)
 - [CH-16: Own vs Inherited Properties](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-16_OwnVsInheritedProperties/README.md) (4.4.41 - 4.4.42)
+- [CH-17: Internal Slots](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-17_InternalSlots/README.md) (4.4.43 & 6.1.7.2)
+- [CH-18: Internal Methods](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/CH-18_InternalMethods/README.md) (4.4.44 & 6.1.7.2)
 
 ---
 > [!NOTE]
-> Buku ini telah diekspansi menjadi 16 Bab untuk menjamin granulasi 1:1 dengan ECMA-262 Clause 4.4.
+> Buku ini telah diekspansi menjadi 18 Bab untuk menjamin granulasi 1:1 dengan ECMA-262 Clause 4.4 (Standard Terminology).

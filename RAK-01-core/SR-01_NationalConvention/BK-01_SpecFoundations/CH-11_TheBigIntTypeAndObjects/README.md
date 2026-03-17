@@ -1,11 +1,13 @@
 # CH-11: The BigInt Type & Objects
 
-*Pemetaan ECMA-262: Clause 6.1.6.2 (The BigInt Type)*
+*Pemetaan ECMA-262: Clause 6.1.6.2 & 4.4.27 - 4.4.28*
 
 Saat `Number` mulai kehilangan presisinya di angka raksasa, `BigInt` hadir sebagai penyelamat untuk integritas data integer. (Clause 4.4.29 - 4.4.31).
 
 ## Mental Model: "Kertas Tak Terhingga"
 Jika `Number` ibarat timbangan digital yang punya batas maksimal (64-bit), maka **BigInt** ibarat sebuah **Kertas Tak Terhingga**. Anda bisa menulis angka sepanjang apapun di atasnya, selama memori komputer Anda masih cukup untuk menampungnya.
+
+![Mental Model: BigInt](./assets/bigint_model.svg)
 
 ---
 

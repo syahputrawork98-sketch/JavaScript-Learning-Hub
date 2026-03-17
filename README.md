@@ -46,7 +46,7 @@ graph TD
 
 | Rak | Deskripsi | Status |
 | :--- | :--- | :--- |
-| `RAK-01-core/` | 12 Alur Inti (Notasi s.d Memori) | *In Progress (Structuring)* |
+| `RAK-01-core/` | 12 Alur Inti (Notasi s.d Memori) | 2% | [/] In Progress |
 | `RAK-02-spec/` | Pemetaan Formal ECMA-262 | *Planned* |
 | `RAK-03-engines/` | Bedah V8 & Internals | *Planned* |
 

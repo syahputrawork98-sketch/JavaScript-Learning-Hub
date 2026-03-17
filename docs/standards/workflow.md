@@ -21,6 +21,7 @@ Setiap pengerjaan Bab wajib mengikuti urutan berikut:
 ### 3. Tahap 3: Visualisasi (`assets/`)
 - Diagram (Mermaid/SVG) yang menjelaskan alur logika atau mental model.
 - Visualisasi harus membantu pembaca memahami "kenapa", bukan hanya "bagaimana".
+- **Pengayaan Visual (Emoji)**: Sangat disarankan menyisipkan emoji pada diagram atau model visual jika dirasa perlu agar pembaca (Abah) dapat menangkap konsep secara lebih intuitif dan menyenangkan.
 
 ---
 
