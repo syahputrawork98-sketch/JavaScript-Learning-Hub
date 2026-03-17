@@ -1,0 +1,54 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .frame { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .zone-code { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2; }
+    .zone-exec { fill: #f0fdf4; stroke: #86efac; stroke-width: 2; }
+    .scanner { fill: #fef3c7; stroke: #fbbf24; stroke-width: 2; }
+    .error-badge { fill: #fee2e2; stroke: #f87171; stroke-width: 2; }
+    .text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #1e293b; }
+    .title { font-weight: bold; font-size: 18px; fill: #0f172a; }
+    .label { font-weight: bold; font-size: 11px; }
+  </style>
+
+  <rect width="600" height="400" class="frame" rx="16"/>
+  <text x="300" y="36" text-anchor="middle" class="title">🛡️ Early Error Rules: Saringan Keamanan Bandara</text>
+
+  <!-- Zone: Code (Pre-Execution) -->
+  <rect x="30" y="60" width="200" height="280" class="zone-code" rx="10"/>
+  <text x="130" y="85" text-anchor="middle" class="text label" style="fill: #3b82f6;">ZONA: KODE (Pra-Eksekusi)</text>
+  <text x="50" y="115" class="text" style="font-size: 11px;">const x = 10;</text>
+  <text x="50" y="135" class="text" style="font-size: 11px;">let x = 20; ← ⚠️</text>
+  <text x="50" y="155" class="text" style="font-size: 11px; fill: #6b7280;">(Duplikat Binding)</text>
+
+  <!-- Scanner Gate -->
+  <rect x="255" y="140" width="90" height="160" class="scanner" rx="8"/>
+  <text x="300" y="170" text-anchor="middle" class="text label" style="fill: #b45309;">SARINGAN</text>
+  <text x="300" y="190" text-anchor="middle" class="text label" style="fill: #b45309;">KEAMANAN</text>
+  <!-- Beams -->
+  <line x1="265" y1="220" x2="335" y2="220" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="265" y1="240" x2="335" y2="240" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4"/>
+  <line x1="265" y1="260" x2="335" y2="260" stroke="#ef4444" stroke-width="2"/>
+  <text x="300" y="285" text-anchor="middle" class="text" style="fill: #ef4444; font-size: 10px;">🚨 ALARM!</text>
+
+  <!-- Arrow of Code entering scanner -->
+  <path d="M 235 220 L 253 220" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Zone: Execution (Blocked) -->
+  <rect x="370" y="60" width="200" height="280" fill="#f9fafb" stroke="#d1d5db" stroke-width="2" rx="10" stroke-dasharray="6"/>
+  <text x="470" y="85" text-anchor="middle" class="text label" style="fill: #9ca3af;">ZONA: RUNTIME (Diblokir)</text>
+  
+  <!-- Error Badge -->
+  <rect x="395" y="150" width="150" height="70" class="error-badge" rx="8"/>
+  <text x="470" y="182" text-anchor="middle" class="text" style="fill: #dc2626; font-weight: bold; font-size: 14px;">DITOLAK</text>
+  <text x="470" y="205" text-anchor="middle" class="text" style="fill: #dc2626; font-size: 11px;">SyntaxError</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <text x="300" y="378" text-anchor="middle" class="text" style="font-style: italic; fill: #64748b; font-size: 11px;">
+    "Kode harus melewati Saringan sebelum masuk ke Runtime. Satu Early Error = Seluruh program ditolak."
+  </text>
+</svg>

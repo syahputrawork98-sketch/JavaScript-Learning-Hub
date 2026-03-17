@@ -1,67 +1,67 @@
-# CH-12: Advanced Semantic Puzzles
+# CH-16: Advanced Semantic Puzzles
 
-Selamat! Anda telah sampai di bab terakhir. Untuk menguji apakah Anda sudah benar-benar menjadi seorang **Spec-Literate Architect**, mari kita hadapi beberapa teka-teki logika yang didasarkan pada aturan statis ECMA-262 yang paling membingungkan.
+*Pemetaan ECMA-262: Sintesis dari Clause 5, 11, 14, 15, dan 16*
+
+Setelah mempelajari 15 bab tentang Static Semantic Rules, saatnya menghadapi **tantangan sintesis**: skenario kode yang membutuhkan pemahaman mendalam tentang interaksi antara beberapa aturan statis secara bersamaan.
+
+## Mental Model: "Labirin Multi-Tingkat"
+Setiap teka-teki di bab ini adalah sebuah labirin multi-tingkat. Setiap dinding labirin adalah aturan statis yang telah kita pelajari. Untuk menemukan jalan keluar (memahami error atau perilaku), Anda harus menelusuri setiap lapisan aturan: Scope → Early Error → Binding → Mode → Context.
+
+Seorang arsitek yang baik tidak hanya hafal setiap per aturan, tetapi tahu **cara aturan-aturan itu berinteraksi satu sama lain**.
+
+![Mental Model: Multi-Level Labyrinth](./assets/semantic_labyrinth.svg)
 
 ---
 
-## Puzzle 1: The Identical Twins
-Perhatikan kode berikut:
+## Teka-Teki 1: TDZ vs Hoisting Bertabrakan
 ```javascript
-function demo() {
-  var x = 1;
+let x = 1;
+function test() {
+  console.log(x); // ← Apa yang terjadi? ReferenceError atau 1?
   let x = 2;
 }
+test();
 ```
-**Pertanyaan:** Apakah kode ini melempar error saat dijalankan, atau saat diparse? Mengapa?
-**Jawaban:** Error saat **Diparse (Early Error)**. Algoritma `TopLevelLexicallyDeclaredNames` akan mendeteksi `x` dari `let` dan membandingkannya dengan `TopLevelVarDeclaredNames`. Karena mereka bentrok, `SyntaxError` muncul seketika.
+**Jawaban**: **ReferenceError (TDZ)**. `let x` di dalam fungsi membuat binding baru di scope fungsi. Binding ini ada (BoundNames scan menemukan `x`), tapi belum diinisialisasi saat `console.log` dieksekusi. `x` dari scope luar tidak bisa diakses karena scope dalam "menutupinya" dengan TDZ.
 
 ---
 
-## Puzzle 2: The Forbidden Function
+## Teka-Teki 2: Strict Mode yang Mengubah Rules
 ```javascript
-"use strict";
-if (true) {
-  function foo() {}
+(function() {
+  "use strict";
+  var a = 1;
+  let a = 2; // ← Early Error atau Runtime Error?
+})();
+```
+**Jawaban**: **Early Error (SyntaxError)** di fase parsing. `var a` dan `let a` di dalam scope fungsi yang sama adalah konflik yang terdeteksi secara statis oleh `LexicallyDeclaredNames` check — jauh sebelum eksekusi.
+
+---
+
+## Teka-Teki 3: Class Private yang Rumit
+```javascript
+class A {
+  #x = 1;
+  getX() { return this.#x; }
+}
+class B extends A {
+  #x = 2; // ← Boleh atau tidak?
+  getOwnX() { return this.#x; }
 }
 ```
-**Pertanyaan:** Apakah ini valid di Strict Mode?
-**Jawaban:** **Tergantung Versi Spec**. Dahulu (ES5), deklarasi fungsi di dalam blok dilarang dalam strict mode. Namun, di ES6+, ini diperbolehkan dan memiliki *Block Scope*. Ini adalah contoh bagaimana **Static Semantics** berevolusi untuk melegalkan pola yang dulu dianggap berbahaya.
+**Jawaban**: **Boleh (Valid)**. `#x` di kelas `A` dan `#x` di kelas `B` adalah **Private Names yang berbeda**. Mereka tidak pernah bertabrakan karena scope-nya adalah kelas masing-masing. Hanya duplikasi di dalam kelas yang sama yang menyebabkan Early Error.
 
 ---
 
-## Puzzle 3: The Async Ghost
-```javascript
-const obj = {
-  get data() { return 1; },
-  async set data(v) { }
-};
-```
-**Pertanyaan:** Di mana letak kesalahannya?
-**Jawaban:** **Early Error pada Setter**. Spesifikasi melarang *Accessor* (Getter/Setter) menjadi asinkron. Mesin JS akan menolak objek ini bahkan sebelum baris pertama dieksekusi.
+## Arsitek Mindset: Sistem Aturan, Bukan Hanya Aturan
+Tantangan-tantangan ini mengajarkan bahwa memahami JavaScript di level spec sama artinya dengan memahami sebuah **sistem aturan yang saling berinteraksi**, bukan sekadar memorisasi aturan-aturan individual.
 
 ---
 
-## Puzzle 4: The Label Trap
-```javascript
-L: for (let i of [1]) {
-  function inner() {
-    break L;
-  }
-}
-```
-**Pertanyaan:** Mengapa kode ini melempar error *"Illegal break statement"*?
-**Jawaban:** Karena label `L` berada di scope luar fungsi `inner`. Aturan **Static Semantics: ContainsUndefinedBreakTarget** memeriksa apakah target label berada di dalam unit fungsi yang sama. Anda tidak bisa `break` menembus batas fungsi secara statis.
+## Referensi Terkait
+- [ECMA-262 Clause 5.2 - Algorithm Conventions](https://tc39.es/ecma262/#sec-algorithm-conventions)
+- [MindMap: BK-04 Static Semantic Rules](../docs/contents.md)
 
 ---
-
-## Penutup Sub-Rak SR-01
-Dengan menyelesaikan **BK-04**, Anda kini telah menguasai seluruh pilar **National Convention**:
-1. **Fondasi:** Istilah dasar (BK-01).
-2. **Notasi:** Blueprint bahasa (BK-02).
-3. **Mekanisme:** Alur algoritma (BK-03).
-4. **Aturan:** Validasi statis (BK-04).
-
-Anda sekarang siap untuk melangkah ke **SR-02: Data Types and Values** untuk membedah bagaimana memori JavaScript benar-benar dikelola oleh spesifikasi.
-
----
-*Status: Completed (Versi v3.01.01.12)*
+> [!TIP]  
+> Uji pemahaman Anda dan lihat penjelasan algoritmik dari ketiga teka-teki di atas dalam simulasi di [examples/semantic_puzzles.js](./examples/semantic_puzzles.js).

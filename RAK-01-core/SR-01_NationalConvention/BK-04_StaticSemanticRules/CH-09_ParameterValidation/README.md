@@ -1,45 +1,49 @@
 # CH-09: Parameter Validation
 
-Fungsi adalah unit terkecil dari logika. Untuk memastikan fungsi tersebut "Sehat", spesifikasi memiliki serangkaian aturan statis untuk memvalidasi parameternya bahkan sebelum fungsi tersebut dipanggil.
+*Pemetaan ECMA-262: Clause 15.1 (Function Definitions) — Static Semantics*
 
-## Mental Model: "Pemeriksaan Slot Input"
-Bayangkan sebuah mesin produksi. Sebelum mesin dijalankan, operator (Static Semantics) memeriksa slot inputnya.
-- Apakah ada dua slot dengan label yang sama? (**Duplicate Parameters**)
-- Apakah ada slot yang menuntut input khusus yang dilarang? (**Restricted Bindings**)
-- Apakah pengaturan slotnya aman untuk mode kecepatan tinggi? (**Strict Mode vs Simple Parameters**)
+Kapan JavaScript menolak parameter yang tidak valid? Bukan saat fungsi dipanggil—melainkan saat kode dibaca! Itulah kekuatan **Static Semantics** dalam validasi parameter.
+
+## Mental Model: "Pemeriksaan Tiket Penumpang"
+Bayangkan Anda ingin naik pesawat. Petugas memverifikasi tiket Anda *sebelum* Anda masuk ke gerbang (bukan di tengah penerbangan):
+- Tidak boleh ada penumpang dengan **kursi duplikat** pada penerbangan yang sama.
+- Di penerbangan "bisnis" tertentu (Strict Mode / Generator / Async), tiket standar (`arguments`, parameter non-unik) tidak diperbolehkan.
+
+Pengecekan ini dilakukan oleh spec sejak fase parsing, bukan runtime.
+
+![Mental Model: Ticket Validation Gate](./assets/ticket_validation.svg)
 
 ---
 
-## 1. Aturan Duplikasi Parameter
-Spesifikasi memiliki algoritma **IsSimpleParameterList**. 
-- Pada fungsi standar (Non-strict), duplikasi parameter seperti `function(a, a) {}` diperbolehkan (kecuali pada arrow function atau method).
-- Namun, begitu Anda menggunakan **'use strict'**, algoritma **Static Semantics: Early Errors** akan segera memicu `SyntaxError` jika ada nama parameter yang sama.
-
-## 2. Parameter vs "use strict"
-Inilah fakta teknis yang sering mengejutkan:
-> Jika Anda menggunakan *Default Parameter*, *Rest Parameter*, atau *Destructuring* (Non-simple parameters), Anda dilarang menulis `'use strict'` di dalam body fungsi tersebut.
+## 1. Aturan Parameter Duplikat
+Secara default (tidak strict), fungsi biasa mengizinkan parameter dengan nama yang sama:
 ```javascript
-function sum(a = 1, b = 2) {
-  "use strict"; // EARLY ERROR: SyntaxError
-  return a + b;
-}
+// Non-strict: DIIZINKAN (tapi berbahaya)
+function test(a, a) { return a; }
 ```
-**Mengapa?** Karena spesifikasi harus mengetahui apakah sebuah fungsi itu "Strict" **sebelum** ia memproses parameter-parameternya. Jika 'use strict' ada di dalam, terjadi dilema "Ayam atau Telur".
+Namun di **Strict Mode**, fungsi dengan parameter duplikat akan memicu **Early Error** langsung:
+```javascript
+"use strict";
+function test(a, a) { } // SyntaxError!
+```
+Hal ini juga berlaku pada **Arrow Functions** dan **Destructuring Parameters** — keduanya selalu berperilaku seperti strict mode.
 
-## 3. Restricted Identifiers
-Anda dilarang menggunakan `eval` atau `arguments` sebagai nama parameter dalam *Strict Mode*. Keduanya adalah "Kata Terlarang" yang dilindungi oleh aturan semantik statis untuk menjaga integritas scope.
+## 2. `arguments` dan Generator/Async
+Di dalam **Generator Function** atau **Async Function**, menggunakan `arguments` sebagai **nama parameter** adalah Early Error. Kata ini dilindungi dalam konteks tersebut karena memiliki makna semantik yang berbeda.
+
+## 3. Destructured Parameter vs Simple
+Spesifikasi membedakan antara **Simple Parameter List** (misal: `(a, b)`) dan **Complex Parameter List** (misal: `([a, b]) atau ({x})`) karena keduanya memiliki aturan semantik statis yang berbeda. Fungsi dengan parameter kompleks tidak boleh menggunakan `"use strict"` di body-nya!
+
+---
+
+## Arsitek Mindset: Fail Fast, Fail Safely
+Validasi parameter adalah contoh ideal dari prinsip *Fail Fast*. Mesin menolak konfigurasi parameter ilegal sejak dini, memastikan tidak ada state yang terkontaminasi sebelum fungsi bahkan sempat dipanggil.
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami aturan parameter membantu Anda mendesain API yang bersih. Anda akan tahu mengapa fitur-fitur modern (seperti destructuring) membawa "kedisiplinan" otomatis yang mencegah error-error konyol yang dulu sering terjadi di JavaScript lama.
+## Referensi Terkait
+- [ECMA-262 Clause 15.1 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
 
 ---
-
-## Tantangan Kecil
-Apa yang terjadi jika Anda menulis `(a, b, ...a) => {}`?
-(Jawabannya: **Early Error**. Arrow functions selalu dilarang memiliki parameter duplikat, terlepas dari apakah mereka di strict mode atau tidak).
-
----
-> [!IMPORTANT]
-> **Key Takeaway:** Parameter bukan sekadar variabel, tapi pintu masuk logika yang validitasnya dijaga ketat oleh bahasa.
+> [!TIP]  
+> Uji berbagai skenario validasi parameter — dari duplikat hingga strict mode — dalam simulasi di [examples/param_validation_sim.js](./examples/param_validation_sim.js).

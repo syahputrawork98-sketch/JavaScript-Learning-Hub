@@ -1,41 +1,48 @@
-# CH-10: Strict Mode Semantic
+# CH-10: Strict Mode Semantics
 
-Sejak ES5, JavaScript memperkenalkan "Mode Disiplin" yang disebut **Strict Mode**. Di balik layar, mode ini bukan sekadar mengubah pesan error, tapi mengubah seluruh **Peta Semantik Statis** dari kode Anda.
+*Pemetaan ECMA-262: Clause 11.2 (Strict Mode Code)*
 
-## Mental Model: "Kacamata Infra Merah Inspektur"
-Saat `'use strict'` diaktifkan, inspektur (Static Semantics) memakai kacamata infra merah. 
-- Hal-hal yang sebelumnya "Terlihat Oke" atau "Dibiarkan saja" (Silent fail) sekarang terlihat sebagai pelanggaran serius.
-- Banyak aturan yang tadinya hanya diperiksa saat jalan (*Runtime*), kini ditarik ke depan untuk diperiksa saat parse (*Static*).
+**Strict Mode** bukan sekadar "flag keamanan". Dari sudut pandang spesifikasi, mengaktifkan Strict Mode mengubah aturan semantik statis yang berlaku pada kode tersebut secara fundamental. Mesin membaca "kawasan strict" dengan buku peraturan yang berbeda.
 
----
+## Mental Model: "Zona Keamanan Ketat"
+Bayangkan sebuah gedung perkantoran. Di lantai biasa, karyawan bisa masuk melalui pintu mana saja, duduk di kursi mana saja, dan membuat sedikit keributan. Namun, ada **Zona Aman** (Strict Mode) di lantai tertentu yang mengharuskan:
+- Setiap orang menunjukkan identitas (tidak ada variabel tanpa deklarasi).
+- Tidak ada tamu yang masuk melalui pintu rahasia (`with` statemen dilarang).
+- Setiap barang harus punya label (`delete` pada variabel dilarang).
 
-## 1. Bagaimana Strict Mode Terpicu?
-Spesifikasi menentukan status "Strict" melalui:
-- Instruksi `"use strict";` di awal script atau fungsi.
-- Berada di dalam **Class Body** (Selalu strict).
-- Berada di dalam **Module** (Selalu strict).
+Aturan zona ketat ini sudah dipasang di papan pintu — bukan setelah seseorang masuk.
 
-## 2. Perubahan Aturan Statis Utama
-Dalam mode strict, beberapa hal berikut menjadi **Early Error (SyntaxError)**:
-1. **Duplicate Property Names:** Menulis `{ a: 1, a: 2 }` (Dahulu error, sekarang sudah dilunakkan di ES6+, namun tetap menjadi catatan sejarah penting).
-2. **Octal Literals:** Menulis angka dengan prefix `0` (seperti `010`) dilarang. Gunakan `0o10`.
-3. **Delete on Variables:** Mencoba `delete x;` pada variabel yang ada.
-4. **Reserved Words as Binding:** Menggunakan keyword seperti `implements`, `interface`, `package`, `private`, `protected`, `public`, `static`, atau `yield` sebagai nama variabel.
-
-## 3. Restricted Scoping
-Strict mode melarang penggunaan `with`. Mengapa? Karena `with` merusak **Static Scoping**. Tanpa `with`, mesin JS bisa memetakan setiap variabel secara statis 100%. Dengan `with`, mesin tidak tahu sebuah variabel merujuk ke objek mana sampai kode benar-benar jalan.
+![Mental Model: Strict Mode Zone](./assets/strict_zone.svg)
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Modern JavaScript (Class & Module) **selalu strict**. Dengan memahami semantik statis di mode strict, Anda sedang mempelajari cara kerja JavaScript masa depan. Anda akan terbiasa menulis kode yang "Terpeta dengan Jelas" (Statically Analyzable), yang sangat disukai oleh mesin untuk optimasi performa.
+## 1. Cara Mengaktifkan Strict Mode
+Strict Mode diaktifkan oleh direktif `"use strict"` atau secara otomatis dalam:
+- **Modul ES** (seluruh kode modul adalah strict).
+- **Class bodies** (seluruh isi class adalah strict).
+
+## 2. Perubahan Semantik Statis yang Ter-trigger
+Beberapa hal yang berubah secara **statis** (Early Error baru):
+- Nama parameter duplikat → **SyntaxError**.
+- Penggunaan `with` statement → **SyntaxError**.
+- `delete` pada identifier yang tidak deletable → **SyntaxError**.
+- Nama tertentu (`implements`, `interface`, `let`, `package`, `private`, `protected`, `public`, `static`, `yield`) menjadi reserved words.
+
+## 3. Perubahan Semantik Runtime
+Strict Mode juga mengubah beberapa perilaku runtime (namun itu di luar scope bab ini):
+- `this` di fungsi biasa menjadi `undefined` (bukan global object).
+- `arguments` tidak lagi sinkron dengan parameter.
 
 ---
 
-## Tantangan Kecil
-Jika saya menulis `"use strict";` di tengah-tengah fungsi (setiap baris ke-10), apakah dia akan bekerja?
-(Jawabannya: **Tidak**. Spesifikasi mewajibkan *Directive Prologue* (seperti use strict) berada di puncak scope. Jika ada statement lain sebelumnya, dia hanya dianggap sebagai string biasa yang tidak berguna).
+## Arsitek Mindset: Opt-in to Discipline
+Strict Mode adalah cara JavaScript mengizinkan developer "upgrade" ke set aturan yang lebih aman dan dapat diprediksi. Memahami perbedaan statis vs runtime dari strict mode membantu Anda mengaudit kode warisan (*legacy code*) secara lebih akurat.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Strict Mode adalah cara kita memberi tahu mesin: "Tolong periksa kode saya lebih ketat agar tidak ada kejutan di kemudian hari".
+
+## Referensi Terkait
+- [ECMA-262 Clause 11.2 - Strict Mode Code](https://tc39.es/ecma262/#sec-strict-mode-code)
+
+---
+> [!TIP]  
+> Lihat perbedaan aturan yang aktif antara strict dan non-strict mode dalam simulasi di [examples/strict_mode_sim.js](./examples/strict_mode_sim.js).

@@ -5,8 +5,8 @@
 | :--- | :--- | :--- | :--- |
 | BK-01 | Spec Foundations | 100% | [x] Gold Standard |
 | BK-02 | Grammar Notation System | 100% | [x] Gold Standard |
-| BK-03 | Spec Algorithm Conventions | 14% | [/] Narrative Draft |
-| BK-04 | Static Semantic Rules | 37% | [/] In Progress |
+| BK-03 | Spec Algorithm Conventions | 100% | [x] Gold Standard |
+| BK-04 | Static Semantic Rules | 100% | [x] Gold Standard |
 
 ---
 *Detail Buku Teraktif: [BK-04/docs/status.md](../BK-04_StaticSemanticRules/docs/status.md)*

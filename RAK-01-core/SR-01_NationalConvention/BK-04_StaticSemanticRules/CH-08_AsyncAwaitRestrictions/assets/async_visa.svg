@@ -1,0 +1,52 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .frame   { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .zone-no { fill: #fef2f2; stroke: #f87171; stroke-width: 2; }
+    .zone-ok { fill: #f0fdf4; stroke: #4ade80; stroke-width: 2; }
+    .zone-mod{ fill: #eff6ff; stroke: #93c5fd; stroke-width: 2; }
+    .visa    { fill: #fef3c7; stroke: #fbbf24; stroke-width: 2; rx: 6; }
+    .text    { font-family: 'Inter', sans-serif; font-size: 13px; fill: #1e293b; }
+    .title   { font-weight: bold; font-size: 18px; fill: #0f172a; }
+    .badge   { font-weight: bold; font-size: 11px; }
+  </style>
+
+  <rect width="600" height="400" class="frame" rx="16"/>
+  <text x="300" y="36" text-anchor="middle" class="title">🛂 Async/Await: Visa Asinkronus</text>
+
+  <!-- Zone: Regular Function (No Visa) -->
+  <rect x="30" y="60" width="160" height="250" class="zone-no" rx="10"/>
+  <text x="110" y="82" text-anchor="middle" class="text badge" style="fill: #dc2626;">Regular Fn</text>
+  <text x="110" y="102" text-anchor="middle" class="text" style="font-size: 10px;">[Await] = false</text>
+  <text x="50" y="140" class="text" style="font-size: 11px;">function foo() {</text>
+  <text x="60" y="165" class="text" style="font-size: 11px; fill: #dc2626;">  await x; ⛔</text>
+  <text x="50" y="190" class="text" style="font-size: 11px;">}</text>
+  <text x="110" y="260" text-anchor="middle" class="text" style="font-size: 10px; fill: #dc2626;">Visa Ditolak!</text>
+
+  <!-- Zone: Async Function (Has Visa) -->
+  <rect x="215" y="60" width="160" height="250" class="zone-ok" rx="10"/>
+  <text x="295" y="82" text-anchor="middle" class="text badge" style="fill: #16a34a;">async Fn</text>
+  <text x="295" y="102" text-anchor="middle" class="text" style="font-size: 10px;">[Await] = true</text>
+  <text x="225" y="140" class="text" style="font-size: 11px;">async function bar() {</text>
+  <text x="235" y="165" class="text" style="font-size: 11px; fill: #16a34a;">  await x; ✅</text>
+  <text x="225" y="190" class="text" style="font-size: 11px;">}</text>
+  <rect x="240" y="240" width="110" height="30" class="visa" rx="6"/>
+  <text x="295" y="260" text-anchor="middle" class="text badge" style="fill: #b45309; font-size: 10px;">🪪 VISA AKTIF</text>
+
+  <!-- Zone: ESM Top-Level (Has Visa) -->
+  <rect x="400" y="60" width="165" height="250" class="zone-mod" rx="10"/>
+  <text x="482" y="82" text-anchor="middle" class="text badge" style="fill: #1d4ed8;">Module TL</text>
+  <text x="482" y="102" text-anchor="middle" class="text" style="font-size: 10px;">[Await] = true</text>
+  <text x="415" y="140" class="text" style="font-size: 11px;">// top of .mjs</text>
+  <text x="415" y="165" class="text" style="font-size: 11px; fill: #1d4ed8;">await fetch(); ✅</text>
+  <rect x="428" y="240" width="110" height="30" class="visa" rx="6"/>
+  <text x="483" y="260" text-anchor="middle" class="text badge" style="fill: #b45309; font-size: 10px;">🪪 VISA AKTIF</text>
+
+  <!-- Footer restriction -->
+  <rect x="30" y="330" width="540" height="38" fill="#fef2f2" stroke="#f87171" stroke-width="1" rx="6"/>
+  <text x="300" y="345" text-anchor="middle" class="text" style="font-size: 11px; fill: #dc2626;">⛔ Tidak boleh: async get / async set / async constructor</text>
+  <text x="300" y="360" text-anchor="middle" class="text" style="font-size: 10px; fill: #dc2626;">Early Error: SyntaxError sebelum Runtime</text>
+
+  <text x="300" y="395" text-anchor="middle" class="text" style="font-style: italic; fill: #64748b; font-size: 11px;">
+    "'await' butuh visa [Await] dari induk async-nya."
+  </text>
+</svg>

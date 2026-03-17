@@ -1,44 +1,42 @@
 # CH-11: Binding Initialization
 
-Bagaimana JavaScript memastikan bahwa variabel yang dideklarasikan lewat *Destructuring* benar-benar valid? Mari kita bedah aturan **Static Binding** yang menjaga proses inisialisasi ini.
+*Pemetaan ECMA-262: Clause 8.6 (Runtime Semantics: BindingInitialization) & Static Semantics*
 
-## Mental Model: "Kontrak Penyerahan Kunci"
-Bayangkan Anda sedang menyewa apartemen (Scope).
-- **Binding:** Adalah proses pendaftaran nama Anda di resepsionis (Environment Record).
-- **Initialization:** Adalah proses penyerahan kunci fisik kepada Anda.
-**Static Binding Rules** memastikan bahwa kontrak pendaftaran Anda sudah benar secara hukum (seperti tidak ada nama duplikat) sebelum kunci diserahkan.
+Sebelum program berjalan, setiap deklarasi variabel melalui dua tahap yang terpisah: **Binding** (registrasi nama) dan **Initialization** (pemberian nilai awal). Memahami perbedaan ini adalah kunci untuk memahami "Temporal Dead Zone" (TDZ).
 
----
+## Mental Model: "Meja Kosong Menunggu Pendeklarasian"
+Saat mesin membaca blok kode, ia pertama-tama menyiapkan **meja-meja kosong** (Bindings) untuk semua variabel yang terdeteksi secara statis. Meja-meja ini sudah ada namanya, tapi **kosong** dan **terkunci** sebelum kode di barisnya mencapai.
 
-## 1. Lexical vs Var Binding
-Spesifikasi memiliki dua cara utama dalam mendaftarkan nama:
-- **Var-style Binding:** Bersifat fleksibel, bisa didaftarkan ulang (Redeclared) dalam scope yang sama.
-- **Lexical-style Binding (`let`, `const`):** Sangat ketat. Aturan statis melarang adanya pendaftaran ulang nama yang sama di scope yang sama.
+- `var`: Mejanya disetting dan langsung diberi nilai `undefined` (tidak terkunci).
+- `let` / `const`: Mejanya disetting tapi **terkunci** sampai baris deklarasinya dieksekusi. Area antara binding dan initialization inilah yang disebut **TDZ (Temporal Dead Zone)**.
 
-## 2. Destructuring Validation
-Saat Anda menulis `const { a, b: { c } } = data;`, spesifikasi menjalankan rentetan algoritma statis:
-1. **BindingPattern: BoundNames:** Algoritma ini menarik semua nama (`a`, `c`) yang akan didaftarkan.
-2. **Early Error Check:** Jika ada nama yang sama (misal: `const {a, a} = obj`), mesin akan memicu `SyntaxError`.
-3. **IsDestructuring:** Memastikan pola destructuring-nya valid secara tata bahasa.
-
-## 3. The TDZ (Temporal Dead Zone) Link
-Meskipun TDZ adalah fenomena runtime, keberadaannya dimungkinkan karena **analisis statis**. Mesin JS sudah tahu di mana letak deklarasi `let/const` Anda, sehingga ia bisa memasang "Jebakan" (Trap) di area sebelum deklarasi tersebut.
+![Mental Model: Locked Desk](./assets/locked_desk.svg)
 
 ---
 
-## Mengapa Arsitek Harus Tahu Ini?
-Memahami mekanisme binding membantu Anda mengerti mengapa pola-pola seperti *Hoisting* bekerja berbeda antara `var` dan `let`. Arsitek yang baik tahu kapan sebuah nama variabel mulai "Hidup" di memori dan kapan dia siap untuk "Digunakan".
+## 1. Static Semantics: BoundNames
+Tahap pertama (fase statis) mengumpulkan semua **BoundNames** dalam scope. Ini dilakukan sebelum eksekusi dimulai. Semua nama `let`, `const`, dan `var` dikumpulkan dalam daftar yang digunakan untuk menyiapkan Environment Record.
+
+## 2. Phase Binding vs Initialization
+| Fase | `var` | `let` / `const` |
+|------|-------|-----------------|
+| Binding (Statis) | Didaftarkan + `undefined` | Didaftarkan + **LOCKED** |
+| Initialization (Runtime) | Otomatis saat binding | Saat baris deklarasi tercapai |
+| TDZ | Tidak ada | Ada |
+
+## 3. Destructuring & Complex Patterns
+Destructuring declaration (`const { x, y } = obj`) memiliki proses binding initialization yang lebih kompleks karena setiap property harus di-match dan di-bind secara terpisah. Ini menggunakan `BindingInitialization` algorithm rekursif dari spec.
 
 ---
 
-## Tantangan Kecil
-Perhatikan kode ini:
-```javascript
-let { a: x, b: x } = { a: 1, b: 2 };
-```
-Apakah ini valid?
-(Jawabannya: **Tidak**. Meskipun propertinya berbeda (`a` dan `b`), keduanya menargetkan **BindingName** yang sama yaitu `x`. Aturan statis **BoundNames** akan mendeteksi duplikasi `x` dan melempar `SyntaxError`).
+## Arsitek Mindset: The Two-Phase Mental Model
+Memahami pemisahan binding dan initialization membantu Anda menjelaskan perilaku hoisting (`var` vs `let/const`), mengaudit bug TDZ, dan menulis kode yang lebih prediktif. Ini adalah salah satu konsep paling fundamental dalam JavaScript.
 
 ---
-> [!IMPORTANT]
-> **Key Takeaway:** Binding adalah proses hukum (Pendaftaran nama), sedangkan Initialization adalah proses fisik (Pengisian nilai). Keduanya dipantau ketat oleh semantik statis.
+
+## Referensi Terkait
+- [ECMA-262 Clause 8.6 - Runtime Semantics: BindingInitialization](https://tc39.es/ecma262/#sec-runtime-semantics-bindinginitialiation)
+
+---
+> [!TIP]  
+> Amati perbedaan antara `var` hoisting dan TDZ untuk `let/const` dalam simulasi di [examples/binding_init_sim.js](./examples/binding_init_sim.js).

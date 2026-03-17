@@ -1,0 +1,63 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .frame  { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .var-d  { fill: #f0fdf4; stroke: #4ade80; stroke-width: 2; }
+    .let-d  { fill: #fef2f2; stroke: #f87171; stroke-width: 2; stroke-dasharray: 5; }
+    .init   { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; }
+    .tdz    { fill: #fef3c7; stroke: #fbbf24; stroke-width: 2; }
+    .text   { font-family: 'Inter', sans-serif; font-size: 12px; fill: #1e293b; }
+    .title  { font-weight: bold; font-size: 18px; fill: #0f172a; }
+    .badge  { font-weight: bold; font-size: 11px; }
+    .lock   { font-size: 20px; }
+  </style>
+
+  <rect width="600" height="400" class="frame" rx="16"/>
+  <text x="300" y="36" text-anchor="middle" class="title">🗃️ Binding Initialization: Meja &amp; TDZ</text>
+
+  <!-- var desk (immediately available) -->
+  <g transform="translate(40, 70)">
+    <rect width="240" height="130" class="var-d" rx="10"/>
+    <text x="120" y="28" text-anchor="middle" class="text badge" style="fill: #16a34a;">var x (Meja Terbuka)</text>
+    <text x="120" y="55" text-anchor="middle" class="text" style="font-size: 11px;">Binding: ✅  Init: undefined</text>
+    <text x="120" y="80" text-anchor="middle" class="text" style="font-size: 11px;">Bisa dibaca sebelum assignment!</text>
+    <text x="120" y="100" text-anchor="middle" class="text" style="font-size: 11px; fill: #16a34a;">→ Hoisting: YES</text>
+  </g>
+
+  <!-- let desk (TDZ locked) -->
+  <g transform="translate(320, 70)">
+    <rect width="240" height="130" class="let-d" rx="10"/>
+    <text x="120" y="28" text-anchor="middle" class="text badge" style="fill: #dc2626;">let y (Meja Terkunci)</text>
+    <text x="120" y="55" text-anchor="middle" class="text" style="font-size: 11px;">Binding: ✅  Init: 🔒 TDZ</text>
+    <text x="72" y="80" class="lock">🔒</text>
+    <text x="120" y="100" text-anchor="middle" class="text" style="font-size: 11px; fill: #dc2626;">ReferenceError jika dibaca!</text>
+  </g>
+
+  <!-- TDZ Zone -->
+  <g transform="translate(40, 230)">
+    <rect width="240" height="80" class="tdz" rx="8"/>
+    <text x="120" y="28" text-anchor="middle" class="text badge" style="fill: #b45309;">⏳ TDZ (Temporal Dead Zone)</text>
+    <text x="120" y="50" text-anchor="middle" class="text" style="font-size: 11px;">Binding ada, tapi belum diinit</text>
+    <text x="120" y="70" text-anchor="middle" class="text" style="font-size: 11px;">Mulai dari baris pertama scope</text>
+  </g>
+
+  <!-- Init zone -->
+  <g transform="translate(320, 230)">
+    <rect width="240" height="80" class="init" rx="8"/>
+    <text x="120" y="28" text-anchor="middle" class="text badge" style="fill: #1d4ed8;">✅ Setelah let y = 42;</text>
+    <text x="120" y="50" text-anchor="middle" class="text" style="font-size: 11px;">TDZ terangkat, init = 42</text>
+    <text x="120" y="70" text-anchor="middle" class="text" style="font-size: 11px;">Bisa dibaca dengan normal</text>
+  </g>
+
+  <!-- Arrow: TDZ to Init -->
+  <path d="M 290 270 L 318 270" stroke="#fbbf24" stroke-width="2" marker-end="url(#aro)"/>
+
+  <defs>
+    <marker id="aro" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <text x="300" y="380" text-anchor="middle" class="text" style="font-style: italic; fill: #64748b; font-size: 11px;">
+    "Dua fase yang terpisah: Binding (statis) vs Initialization (runtime)."
+  </text>
+</svg>

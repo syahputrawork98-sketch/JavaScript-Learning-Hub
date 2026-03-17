@@ -1,0 +1,57 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .frame  { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .mod    { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+    .ok     { fill: #f0fdf4; stroke: #4ade80; stroke-width: 1.5; }
+    .bad    { fill: #fef2f2; stroke: #f87171; stroke-width: 1.5; }
+    .entry  { fill: #f5f3ff; stroke: #7c3aed; stroke-width: 2; }
+    .text   { font-family: 'Inter', sans-serif; font-size: 12px; fill: #1e293b; }
+    .title  { font-weight: bold; font-size: 18px; fill: #0f172a; }
+    .badge  { font-weight: bold; font-size: 11px; }
+  </style>
+
+  <rect width="600" height="400" class="frame" rx="16"/>
+  <text x="300" y="36" text-anchor="middle" class="title">📦 Module Static Analysis: Supply Chain</text>
+
+  <!-- app.js (entry) -->
+  <rect x="220" y="55" width="160" height="55" class="entry" rx="8"/>
+  <text x="300" y="78" text-anchor="middle" class="text badge" style="fill: #7c3aed;">app.js (Entry Point)</text>
+  <text x="300" y="98" text-anchor="middle" class="text" style="font-size: 10px;">import { add, PI } from './math.js'</text>
+
+  <!-- math.js -->
+  <rect x="40" y="180" width="160" height="80" class="ok" rx="8"/>
+  <text x="120" y="205" text-anchor="middle" class="text badge" style="fill: #16a34a;">math.js</text>
+  <text x="120" y="225" text-anchor="middle" class="text" style="font-size: 10px;">exports: add ✅</text>
+  <text x="120" y="244" text-anchor="middle" class="text" style="font-size: 10px;">exports: PI ✅</text>
+
+  <!-- utils.js (partial bad) -->
+  <rect x="220" y="180" width="160" height="80" class="bad" rx="8"/>
+  <text x="300" y="205" text-anchor="middle" class="text badge" style="fill: #dc2626;">utils.js</text>
+  <text x="300" y="225" text-anchor="middle" class="text" style="font-size: 10px;">exports: formatDate ✅</text>
+  <text x="300" y="244" text-anchor="middle" class="text" style="font-size: 10px; fill: #dc2626;">'encrypt': NOT FOUND ⛔</text>
+
+  <!-- ghost.js (missing) -->
+  <rect x="400" y="180" width="160" height="80" fill="#f9fafb" stroke="#d1d5db" stroke-width="2" rx="8" stroke-dasharray="6"/>
+  <text x="480" y="205" text-anchor="middle" class="text badge" style="fill: #9ca3af;">ghost.js (Missing)</text>
+  <text x="480" y="230" text-anchor="middle" class="text" style="font-size: 10px; fill: #dc2626;">Cannot find module ⛔</text>
+
+  <!-- Arrows app -> modules -->
+  <path d="M 250 112 L 120 178" stroke="#3b82f6" stroke-width="1.5" fill="none" marker-end="url(#ab)"/>
+  <path d="M 300 112 L 300 178" stroke="#f87171" stroke-width="1.5" fill="none" stroke-dasharray="4" marker-end="url(#abad)"/>
+  <path d="M 350 112 L 480 178" stroke="#9ca3af" stroke-width="1.5" fill="none" stroke-dasharray="4" marker-end="url(#amis)"/>
+
+  <!-- Error banner -->
+  <rect x="40" y="300" width="520" height="50" fill="#fef2f2" stroke="#f87171" stroke-width="1" rx="8"/>
+  <text x="300" y="323" text-anchor="middle" class="text badge" style="fill: #dc2626;">❌ Error Statis Terdeteksi SEBELUM Eksekusi</text>
+  <text x="300" y="343" text-anchor="middle" class="text" style="font-size: 11px; fill: #dc2626;">2 dari 3 import links gagal diverifikasi → Program ditolak</text>
+
+  <defs>
+    <marker id="ab"   markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker>
+    <marker id="abad" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f87171"/></marker>
+    <marker id="amis" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#9ca3af"/></marker>
+  </defs>
+
+  <text x="300" y="394" text-anchor="middle" class="text" style="font-style: italic; fill: #64748b; font-size: 11px;">
+    "Jaringan dependensi diverifikasi sebelum satu modul pun aktif."
+  </text>
+</svg>
