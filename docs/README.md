@@ -5,10 +5,12 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 ## Daftar Dokumen Utama
 
 ### 1. Standar & Protokol
-- **[Architecture Standards](./standards/architecture.md)**: Analogi "Perpustakaan Dunia Maya" dan kriteria Gold Standard.
+- **[Architecture Standards](./standards/architecture.md)**: Analogi "Pusat Energi Web" dan kriteria Gold Standard.
 - **[Naming Conventions](./standards/conventions.md)**: Aturan penamaan RAK, SR, BK, hingga Level Bab.
 - **[PPM Workflow](./standards/workflow.md)**: 4 Tahapan Penulisan Materi (PPM) V4.
 - **[Status Protocol](./standards/status-protocol.md)**: Cara melaporkan dan menghitung progress pengerjaan.
+- **[Contribution Guide](./standards/contribution.md)**: Panduan kontribusi dan aturan PR.
+- **[Core Contribution](./standards/core-contribution.md)**: Standar teknis kontribusi materi inti.
 
 ### 2. Cetak Biru (Blueprints)
 - **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari MDN JavaScript ke dalam struktur 11-Rack.

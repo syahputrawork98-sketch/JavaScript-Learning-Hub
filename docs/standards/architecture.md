@@ -16,6 +16,17 @@ Berikut adalah pemetaannya ke dalam direktori bertingkat:
 
 ---
 
+## Karakteristik & Autentisitas (Branding)
+
+Untuk menjaga "nyawa" dan keunikan bahasa JavaScript, setiap konten wajib mengikuti pedoman berikut:
+
+- **Analogi Utama**: **Pusat Energi Web (The Web's Kinetic Hub)**.
+- **Tone Suara**: **Dinamis, Fleksibel, dan Enerjik**. JS adalah detak jantung web; gunakan narasi yang mencerminkan sifatnya yang asinkron dan selalu bergerak.
+- **Filosofi Penulisan**: Fokus pada *Versatility* dan *Event-Driven nature*. Jelaskan bagaimana JS menjadi "lem" yang menyatukan seluruh teknologi web modern.
+- **Visual**: Gunakan estetika yang vibran dan diagram yang menunjukkan aliran *Event Loop* dan interaktivitas.
+
+---
+
 ## Aturan Pewajiban `README.md`
 
 Guna memudahkan navigasi, setiap tingkatan direktori **WAJIB** memiliki file `README.md`:
