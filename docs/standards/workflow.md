@@ -1,45 +1,28 @@
-# Alur Kerja & Prosedur Penulisan (PPM)
+# Alur Kerja Penulisan (PPM) V4 - JS Edition
 
-Prosedur Penulisan Materi (PPM) dirancang untuk memastikan kualitas materi tetap tinggi dan standar di seluruh buku.
+Prosedur Penulisan Materi (PPM) memastikan setiap Bab di JavaScript Knowledge Base memiliki kualitas yang setara dengan repositori "Gold Standard" lainnya.
 
-## Tahapan PPM (Prosedur Penulisan Materi)
+## Tahapan PPM (Prosedur Penulisan Materi) V4
 
-Setiap pengerjaan Bab wajib mengikuti urutan berikut:
+Setiap pengerjaan Bab wajib mengikuti 4 Tahapan berikut secara disiplin:
 
-### 1. Tahap 1: Penulisan Narasi (`README.md`)
-- **Materi Inti**: Bedah spesifikasi (ECMA-262) secara naratif.
-- **Terminologi Standar**: Wajib menggunakan istilah teknis asli (e.g., *Internal Slots*) agar tetap profesional.
-- **Mental Model (Analogi)**:
-    - **Analogi Panjang**: Skenario mendalam untuk membongkar mekanisme.
-    - **Analogi Singkat**: Perumpamaan ringkas untuk pengingat cepat.
+### 1. Tahap 1: Definisi & Konsep ("Apa itu?")
+- **Deskripsi**: Menjelaskan definisi materi atau fitur yang dibahas secara gamblang.
+- **Landasan**: Memberikan pemahaman awal yang kuat sebelum masuk ke detail teknis.
+- **Terminologi Teknis**: Mencantumkan dan menjelaskan istilah-istilah kunci (Senior Terms).
 
-### 2. Tahap 2: Pembuatan Contoh Kode (`examples/`)
-- **Tanpa Batasan**: Jumlah skrip `.js` tidak dibatasi. Sangat disarankan untuk membuat lebih dari satu contoh jika materi memiliki banyak poin krusial.
-- **Cakupan Penuh**: Setiap aspek teknis yang dibahas di narasi harus tercermin dalam pembuktian kode.
-- **Validitas**: Pastikan kode bisa dijalankan dan memverifikasi perilaku spesifikasi secara akurat.
+### 2. Tahap 2: Rasionalitas ("Why & How?")
+- **Kenapa**: Menjelaskan alasan fitur tersebut diciptakan dan masalah apa yang ia selesaikan.
+- **Bagaimana**: Menjelaskan mekanisme kerja fitur tersebut (under the hood).
+- **Analogi**: Gunakan analogi yang relevan dengan dunia web/browser.
 
-### 3. Tahap 3: Visualisasi (`assets/`)
-- Diagram (Mermaid/SVG) yang menjelaskan alur logika atau mental model.
-- Visualisasi harus membantu pembaca memahami "kenapa", bukan hanya "bagaimana".
-- **Pengayaan Visual (Emoji)**: Sangat disarankan menyisipkan emoji pada diagram atau model visual jika dirasa perlu agar pembaca (Abah) dapat menangkap konsep secara lebih intuitif dan menyenangkan.
+### 3. Tahap 3: Implementasi (Examples)
+- **Komprehensif**: Kode di folder `examples/` harus bersifat **lengkap** dan mampu menggambarkan seluruh materi.
+- **Validasi**: Pastikan skrip `.js` valid dan dapat dijalankan di browser console atau Node.js.
 
----
-
-## Penggunaan Section (Level 6)
-
-Gunakan folder `SEC-XX_` di dalam Bab jika:
-1. **Kompleksitas Tinggi**: Satu bab membahas terlalu banyak operasi (misal: *Binary Operators* yang memiliki puluhan operator).
-2. **Keterbacaan**: `README.md` di level Bab sudah terlalu panjang (> 1000 baris).
-3. **Pemisahan Contoh**: Contoh kode antar sub-topik di dalam bab tersebut sangat berbeda dan butuh isolasi.
-
-*Jika bab bersifat ringkas, tidak perlu menggunakan folder Section.*
+### 4. Tahap 4: Visualisasi (Assets)
+- **Sequence**: Diagram (Mermaid/SVG) dibuat **setelah** seluruh narasi (Tahap 1 & 2) selesai.
+- **Proses**: Visualisasikan alur eksekusi (seperti Call Stack & Task Queue) ke dalam folder `assets/`.
 
 ---
-
-## Templat folder Buku baru:
-```text
-BK-<urutan>_<NamaBuku>/
-|-- README.md        <- Pengantar & Daftar Isi.
-|-- CHANGELOG.md     <- Log pengerjaan.
-`-- CH-01_<NamaBab>/ <- Folder Bab.
-```
+*Target Akhir: Mencapai [Gold Standard](./architecture.md#kriteria-gold-standard-100-complete).*

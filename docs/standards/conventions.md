@@ -1,37 +1,30 @@
-# Konvensi Penamaan & Struktur Folder
+# Konvensi Penamaan & Struktur Folder (JS Edition)
 
-Standar penamaan sangat penting untuk menjaga konsistensi di seluruh repositori dan memudahkan otomasi/pencarian.
+Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder harus mengikuti konvensi berikut.
 
-## 1. Sistem Prefix Folder
+## 1. Penamaan Direktori
 
-Semua folder utama harus menggunakan prefix urutan dan nama dalam **PascalCase**:
+| Level | Prefix | Format | Contoh |
+| :--- | :--- | :--- | :--- |
+| Rak | `RAK-` | `RAK-<00>-<slug>` | `RAK-01-get-started` |
+| Sub-Rak | `SR-` | `SR-<00>_<Slug>` | `SR-01_General` |
+| Buku | `BK-` | `BK-<00>_<Slug>` | `BK-01_Basics` |
+| Bab | `CH-` | `CH-<00>_<Slug>` | `CH-01_Overview` |
 
-- **Rak (Shelf)**: `RAK-XX-nama` (e.g., `RAK-01-core`).
-- **Sub-Rak (Sub-shelf)**: `SR-XX_PascalCase` (e.g., `SR-02_DataTypesAndValues`).
-- **Buku (Book)**: `BK-XX_PascalCase` (e.g., `BK-01_PrimitiveTypes`).
-- **Bab (Chapter)**: `CH-XX_PascalCase` (e.g., `CH-01_StringInternals`).
-- **Section (Sub-bab)**: `SEC-XX_PascalCase` (e.g., `SEC-01_UnaryOperators`).
+## 2. Struktur Internal Bab (Level 5)
 
-## 2. Struktur Internal Bab (Chapter)
-
-Seluruh Bab adalah **sebuah folder**, bukan file Markdown tunggal. Struktur wajib di dalam folder Bab:
-
+Setiap folder Bab wajib memiliki struktur:
 ```text
-CH-XX_NamaBab/
-|-- README.md    <- Narasi materi utama.
-|-- assets/      <- Gambar/Diagram penjelasan.
-|-- examples/    <- Koleksi skrip JavaScript (.js).
-`-- SEC-01_SubBab/ <- Opsional (Jika materi sangat banyak).
-    |-- README.md
-    |-- assets/
-    `-- examples/
+CH-<urutan>_<NamaBab>/
+|-- README.md        <- Materi teks inti (PPM Stage 1).
+|-- assets/          <- Tempat menyimpan SVG/Mermaid (PPM Stage 3).
+`-- examples/        <- Tempat skrip .js (PPM Stage 2).
 ```
 
-## 3. Struktur Internal Buku (Book)
+## 3. Standar Bahasa
 
-Setiap folder Buku harus memiliki:
+- **Narasi Utama**: Menggunakan **Bahasa Indonesia** yang semi-formal dan komunikatif.
+- **Terminologi Teknis**: Tetap gunakan istilah asli (e.g., *Closures*, *Promises*, *Event Loop*, *Prototypal Inheritance*) untuk menjaga presisi teknis.
 
-- `README.md`: Sinopsis dan orientasi filosofis.
-- `docs/contents.md`: Daftar Isi (TOC) mendetail.
-- `CHANGELOG.md`: Log perubahan dan versioning draf.
-- Folder-folder `CH-XX` di dalamnya.
+---
+*Referensi: [PPM Workflow](./workflow.md)*
