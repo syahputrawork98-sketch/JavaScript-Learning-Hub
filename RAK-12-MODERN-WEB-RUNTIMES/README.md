@@ -13,4 +13,11 @@ JS bukan lagi bahasa "animasi tombol", tapi pusat transmisi web:
 3. **Ubiquity**: Satu bahasa untuk Frontend, Backend, dan Mobile.
 
 ---
+
+## 🌐 Architectural Nexus (Jembatan Master Plan)
+Materi di Rak ini terhubung langsung dengan komponen lain dalam ekosistem [Master Plan Senior](../../catatan/Master-Plan-Senior.md):
+- **Server Side**: Hubungan Event Loop dengan [Server-Runtime-Knowledge-Base](../../catatan/02-Execution-Hubs/Server-Runtime-Knowledge-Base.md).
+- **Backend UI**: Integrasi dengan framework di [JS-TS Frontend Hub](../../catatan/03-Digital-UI-Hubs/JavaScript-TS-Frontend-Hub.md).
+
+---
 *Kembali ke [Documentation Hub](../docs/README.md)*
