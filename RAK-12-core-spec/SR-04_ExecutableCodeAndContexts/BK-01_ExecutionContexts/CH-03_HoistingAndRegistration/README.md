@@ -1,41 +1,45 @@
-# Bab 03: Hoisting dan Registration (Environment Records)
+# CH-03: Pre-Activation Scan (Hoisting)
 
-Banyak pengembang bingung mengapa mereka bisa memanggil fungsi sebelum fungsi itu ditulis, atau mengapa `var` memberikan `undefined` sedangkan `let` memberikan error. Rahasianya terletak pada **Environment Records** (Clause 9.1 pada ECMA-262) dan proses eksekusi dua fase.
+> **"Sebelum sebuah terminal benar-benar dijalankan, Hub melakukan 'Pemindaian Awal' (Pre-Activation Scan). Ini adalah proses mendata semua peralatan (variabel & fungsi) yang tersedia di ruangan sebelum arus listrik dinyalakan."**
 
-## Sistem Analogi (Mental Model)
+*Pemetaan ECMA-262: Clause 8.1.1 (Environment Records & Hoisting)*
 
-> **Analogi Singkat:**  
-> **Environment Record** adalah **Buku Induk Penduduk**. Sebelum sebuah kota (Program) beroperasi, asisten walikota berkeliling mencatat siapa saja yang akan tinggal di sana. Saat kota mulai beroperasi, asisten sudah tahu semua nama penduduknya, meskipun orangnya belum keluar rumah.
+## 1. Mental Model: "The Pre-Activation Scan"
 
-> **Analogi Panjang (Skenario Panggung Teater):**  
-> Bayangkan sebuah pertunjukan teater.
-> - **Fase 1: Gladi Resik (Creation Phase):** Sutradara (Engine) melirik naskah dari atas ke bawah. Dia belum menyuruh aktor berakting. Dia hanya mencatat: "Oh, ada aktor bernama Budi (Fungsi), ada pemeran pengganti bernama Iwan (var), dan ada aktor tamu bernama Susi (let)".
-> - **Hoisting:** Sutradara menaruh Budi (Fungsi) langsung di atas panggung karena dia sudah siap. Tapi Iwan (var) hanya dicatat namanya saja (diberi status **undefined**). Sedangkan Susi (let) dilarang masuk panggung sampai gilirannya tiba (**Temporal Dead Zone**).
-> - **Fase 2: Pertunjukan (Execution Phase):** Tirai dibuka. Baris demi baris perintah dijalankan. Sekarang Budi mulai bicara, Iwan mulai berganti pakaian (assignment), dan Susi baru diperbolehkan masuk panggung.
+Bayangkan seorang teknisi masuk ke ruangan Hub yang gelap dengan senter. Sebelum menyalakan lampu utama, dia menyenter ke seluruh sudut untuk mencatat:
+- *"Oh, ada generator di sana (Function Declaration)."* -> Langsung dipasang dan bisa dipakai.
+- *"Ada kotak kabel (var) di sini."* -> Diberi label tapi belum ada isinya (`undefined`).
+- *"Ada baterai modern (let/const) di sana."* -> Diberi tanda bahaya (**Temporal Dead Zone**); teknisi tahu itu ada, tapi dilarang menyentuhnya sampai lampu utama menyala.
 
 ---
 
-## Dua Fase Eksekusi
+## 2. Hierarki Pemindaian
 
-### 1. Creation Phase (Fase Pendaftaran)
-Sesaat setelah *Execution Context* dibuat, *Engine* melakukan pemindaian kode:
-- Menciptakan **Environment Record**.
-- Mendaftarkan fungsi (Function Declaration) dan menyimpannya secara utuh (Inilah mengapa fungsi bisa dipanggil di mana saja).
-- Mendaftarkan variabel `var` dan menginisialisasi nilainya dengan `undefined`.
-- Mendaftarkan `let` dan `const` tapi **TIDAK** menginisialisasi nilainya. Mereka berada di zona "terlarang" (TDZ).
+| Elemen | Status Saat Scan | Efek di Grid |
+| :--- | :--- | :--- |
+| **Function Declaration** | Inisialisasi Penuh | Bisa dipanggil sebelum baris definisinya. |
+| **`var` Variable** | Inisialisasi `undefined` | Bisa diakses tapi isinya kosong (undefined). |
+| **`let` / `const`** | Uninitialized | Memicu `ReferenceError` jika diakses sebelum deklarasi (TDZ). |
 
-### 2. Execution Phase (Fase Eksekusi)
-*Engine* menjalankan kode baris demi baris:
-- Melakukan *assignment* nilai ke variabel.
-- Menjalankan logika fungsi.
+---
 
-## Apa itu Hoisting?
+## 3. Praktik Lapangan (Lab)
 
-**Hoisting** bukanlah memindahkan kode ke atas secara fisik. Hoisting adalah **efek samping** dari fase pendaftaran. Karena fungsi dan variabel sudah terdaftar di *Environment Record* sebelum eksekusi dimulai, mereka seolah-olah "terangkat" ke atas.
+```javascript
+console.log(techName); // undefined (Hoisted)
+var techName = "ALICE";
 
-## Temporal Dead Zone (TDZ)
+// console.log(tool); // ReferenceError (TDZ Protection!)
+let tool = "WRENCH";
+```
 
-Ini adalah masa sejak variabel `let/const` didaftarkan hingga variabel tersebut diberikan nilai secara eksplisit di kode. Jika kamu mencoba mengaksesnya di masa ini, JavaScript akan melempar `ReferenceError`. Ini adalah fitur keselamatan untuk mencegah kamu menggunakan variabel yang belum siap.
+---
 
-## Contoh Eksekusi
-Lihat pembuktian fase pendaftaran dan jebakan TDZ pada folder [examples/](./examples/).
+## Arsitek Mindset: Keamanan Deklarasi
+
+Sebagai arsitek Hub:
+- Selalu gunakan `let` dan `const` untuk menghindari kebingungan akibat inisialisasi `undefined` dari `var`.
+- Posisikan deklarasi fungsi dan variabel di bagian atas blok kode (Manual Hoisting) agar teknisi lain yang membaca kode Anda tidak perlu menebak-nebak apa yang tersedia di "Terminal" tersebut.
+
+---
+*Status: [status.md](../../../docs/status.md)*

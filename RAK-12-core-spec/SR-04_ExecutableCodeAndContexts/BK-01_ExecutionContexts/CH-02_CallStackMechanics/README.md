@@ -1,36 +1,51 @@
-# Bab 02: Mekanika Call Stack (Execution Context Stack)
+# CH-02: Call Stack Mechanics (The Terminal Stack)
 
-JavaScript adalah bahasa yang *Single-Threaded*, artinya ia hanya bisa melakukan satu hal dalam satu waktu. Untuk melacak di mana ia berada saat ini dalam sebuah program yang kompleks, *Engine* menggunakan sebuah struktur data bernama **Execution Context Stack** ( Clause 9.4 pada ECMA-262), atau yang lebih dikenal sebagai **Call Stack**.
+> **"Hub tidak menjalankan semua perintah sekaligus. Ia menggunakan 'Tumpukan Terminal' (The Terminal Stack) — sebuah mekanisme LIFO (Last-In, First-Out) yang memastikan hanya satu terminal yang aktif memproses data pada satu waktu."**
 
-## Sistem Analogi (Mental Model)
+*Pemetaan ECMA-262: Clause 8.3 (Execution Contexts)*
 
-> **Analogi Singkat:**  
-> **Call Stack** adalah **Tumpukan Piring**. Kamu hanya bisa mencuci piring yang paling atas. Jika kamu selesai mencuci piring itu (fungsi selesai), piring tersebut diangkat, dan kamu bisa melihat piring di bawahnya.
+## 1. Mental Model: "The Terminal Stack"
 
-> **Analogi Panjang (Manajemen Tugas Koki):**  
-> Bayangkan seorang Koki Tunggal di sebuah dapur mewah.
-> - Awalnya, koki sedang mengerjakan tugas utama: **Menyiapkan Dapur** (*Global Execution Context*).
-> - Tiba-tiba ada pesanan masuk: **Masak Steak** (*Function Execution Context*). Koki berhenti menyiapkan dapur, menaruh catatan "Masak Steak" di atas meja kerjanya.
-> - Saat sedang masak steak, asisten berteriak: **Cek Suhu Oven** (*Nested Function*). Koki berhenti mengurusi steak, menaruh catatan "Cek Suhu" di atas catatan "Masak Steak".
-> - Begitu suhu oven dicek, catatan "Cek Suhu" dibuang. Koki kembali melihat catatan di bawahnya: "Masak Steak".
-> - Begitu steak matang, catatan itu dibuang, dan koki kembali melakukan tugas "Menyiapkan Dapur".
-> - Tumpukan catatan di meja koki itulah **Call Stack**.
+Bayangkan sebuah tumpukan baki di kafetaria Hub.
+- Saat Anda memanggil fungsi, Hub menaruh baki baru (Execution Context) di atas tumpukan.
+- Hub hanya fokus mengerjakan apa yang ada di **baki paling atas**.
+- Setelah selesai, baki paling atas dibuang (Pop), dan Hub kembali mengerjakan baki di bawahnya.
 
 ---
 
-## Bagaimana Stack Bekerja? (LIFO)
+## 2. Alur Kerja Stack
 
-Struktur data ini mengikuti prinsip **LIFO** (*Last In, First Out*).
-1. **Push**: Setiap kali sebuah fungsi dipanggil (dievaluasi), sebuah *Execution Context* baru dibuat dan **didorong** ke puncak Stack. 
-2. **Pop**: Segera setelah fungsi tersebut selesai dieksekusi (mereturn nilai), konteksnya **dikeluarkan** dari Stack, dan kontrol kembali ke konteks di bawahnya.
+1.  **Global Context**: Baki pertama yang selalu ada di dasar tumpukan.
+2.  **Function Call**: Menumpuk baki baru setiap kali fungsi dipanggil.
+3.  **Stack Overflow**: Terjadi jika baki ditumpuk terus-menerus (misal: rekursi tanpa henti) hingga melampaui batas fisik rak Hub.
 
-## Penjaga Keamanan: Stack Overflow
+![The Context Stack](./assets/execution_context_stack.svg)
 
-Call Stack memiliki batas kapasitas. Jika kamu memanggil fungsi secara terus-menerus tanpa pernah menyelesaikannya (misalnya rekursi tanpa henti), tumpukan catatan di meja koki akan menjadi terlalu tinggi dan roboh. Inilah yang menyebabkan error terkenal: **RangeError: Maximum call stack size exceeded**.
+---
 
-## Mengapa Arsitek Harus Peduli?
+## 3. Praktik Lapangan (Lab)
 
-Call Stack adalah alat debugging paling kuat. Saat terjadi *Error*, JavaScript akan memberikan **Stack Trace**. Membaca Stack Trace berarti kamu sedang membaca sejarah perjalanan *Engine* dari Global Context hingga titik terjadinya kegagalan.
+```javascript
+function sectorA() {
+    console.log("Di dalam Sektor A");
+    sectorB(); // Menumpuk baki B di atas A
+    console.log("Kembali ke Sektor A");
+}
 
-## Contoh Eksekusi
-Lihat visualisasi tumpukan piring dan simulasi *Stack Overflow* pada folder [examples/](./examples/).
+function sectorB() {
+    console.log("Di dalam Sektor B");
+}
+
+sectorA(); // Eksekusi dimulai
+```
+
+---
+
+## Arsitek Mindset: Manajemen Aliran
+
+Sebagai arsitek Hub:
+- Gunakan Stack Trace (Error stack) untuk melacak urutan baki saat terjadi kegagalan di Grid.
+- Hindari fungsi yang terlalu dalam (Deep Nesting) agar Stack tetap ringan dan cepat diproses oleh Engine Hub.
+
+---
+*Status: [status.md](../../../docs/status.md)*

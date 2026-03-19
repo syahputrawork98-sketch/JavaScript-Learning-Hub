@@ -1,38 +1,48 @@
-# Bab 04: Closure Persistence (Lexical Environments)
+# CH-04: Context Components (The Internal Wiring)
 
-Closure sering dianggap sebagai "sihir" di JavaScript. Padahal, closure adalah konsekuensi logis dari bagaimana *Engine* mengelola ingatan melalui **Lexical Environments** (Clause 9.1 pada ECMA-262). Closure memungkinkan sebuah fungsi tetap "hidup" bersama datanya meskipun fungsi induknya sudah selesai dieksekusi.
+> **"Setiap terminal aktif (Execution Context) memiliki 'Kabel Internal' (Internal Wiring) yang menghubungkannya ke gudang data. Memahami perbedaan antara Lexical dan Variable Environment adalah kunci untuk memahami transisi teknis dari `var` ke era modern `let/const`."**
 
-## Sistem Analogi (Mental Model)
+*Pemetaan ECMA-262: Clause 8.3 & 9.1*
 
-> **Analogi Singkat:**  
-> **Closure** adalah **Ransel (Backpack)**. Saat sebuah fungsi lahir dari fungsi lain, ia diberikan ransel ajaib yang berisi semua barang (variabel) yang ada di sekitarnya saat itu. Kemanapun fungsi itu pergi, ia selalu membawa ransel tersebut.
+## 1. Mental Model: "The Internal Wiring"
 
-> **Analogi Panjang (Kamera Keamanan dengan Rekaman Lokal):**  
-> Bayangkan kamu memasang sebuah Kamera (Fungsi) di sebuah Kamar (Parent Function).
-> - Di dalam kamar tersebut ada sebuah Lampu (Variabel). 
-> - Kamu mengatur kamera tersebut agar memiliki tombol: "Ambil Gambar". 
-> - Sekarang, kamu mengambil kamera tersebut dan membawanya ke luar rumah, bahkan kamu menghancurkan kamarnya.
-> - Saat kamu menekan tombol "Ambil Gambar" di luar rumah, kamera tersebut tetap "ingat" status lampu di kamar tadi karena ia membawa **rekaman data** dari lingkungan asalnya. Inilah **Closure**.
+Bayangkan sebuah baki (Context) yang memiliki dua kompartemen penyimpanan:
+- **LexicalEnvironment (Ruang Modern ⚡)**: Menyimpan variabel `let`, `const`, dan fungsi. Ruang ini sangat dinamis dan mematuhi aturan Block Scope.
+- **VariableEnvironment (Ruang Klasik 🕯️)**: Khusus untuk variabel `var`. Ruang ini lebih kaku dan hanya peduli pada Function Scope.
 
 ---
 
-## Bagaimana Closure Tercipta?
+## 2. Struktur Komponen Context
 
-Di balik layar, setiap fungsi membawa referensi ke **Lexical Environment** di mana ia diciptakan.
-1. Saat sebuah fungsi didefinisikan di dalam fungsi lain, ia "menangkap" (*capturing*) lingkungan sekitarnya.
-2. Lingkungan ini tidak akan dihapus oleh *Garbage Collector* selama masih ada fungsi yang merujuk padanya.
-3. Inilah yang membuat data tetap persis (bertahan hidup/ *persistence*) meskipun konteks eksekusi induknya sudah keluar dari *Call Stack*.
+Di level spesifikasi, sebuah *Execution Context* berisi:
+1.  **LexicalEnvironment**: Pointer ke Environment Record aktif saat ini (bisa berubah saat masuk ke blok `{}`).
+2.  **VariableEnvironment**: Pointer ke Environment Record tempat `var` dilabuhkan (tetap merujuk ke fungsi terluar).
+3.  **PrivateEnvironment**: (Terbaru!) Untuk menyimpan private fields `#` pada class.
 
-## Mengapa Arsitek Harus Peduli?
+---
 
-Closure adalah jantung dari banyak pola desain tingkat lanjut:
-- **Data Privacy**: Membuat variabel "Private" yang tidak bisa diakses dari luar tapi bisa dimanipulasi melalui fungsi tertentu.
-- **Factory Functions**: Membuat fungsi-fungsi spesifik dengan konfigurasi yang tetap.
-- **State Management**: Menyimpan status internal tanpa mengotori *Global Scope*.
+## 3. Praktik Lapangan (Lab)
 
-## Bahaya Terselubung: Memory Leaks
+```javascript
+function techLog() {
+    var v1 = "KABEL_LAMA"; // Disimpan di VariableEnvironment
+    let l1 = "KABEL_BARU"; // Disimpan di LexicalEnvironment
+    
+    if (true) {
+        let l1 = "KABEL_INTERNAL"; // Menciptakan LexicalEnvironment baru hanya untuk blok ini!
+        console.log(l1); // "KABEL_INTERNAL"
+    }
+    console.log(l1); // "KABEL_BARU" (Kembali ke LexicalEnvironment fungsi)
+}
+```
 
-Karena closure menahan ingatan seumur hidup fungsi tersebut, penggunaan closure yang sembarangan (misalnya menyimpan data besar di dalam closure yang tidak pernah dipakai lagi) dapat menyebabkan konsumsi memori yang membengkak.
+---
 
-## Contoh Eksekusi
-Lihat pembuktian "Ransel Ajaib" dan penerapan data privat pada folder [examples/](./examples/).
+## Arsitek Mindset: Dinamika Ruang Lingkup
+
+Sebagai arsitek Hub:
+- Sadarilah bahwa setiap kali Anda membuat blok `{ ... }` dengan `let/const`, Hub secara efisien menukar "Kabel internal" (LexicalEnvironment) dengan yang baru tanpa harus membuat "Baki" (Context) baru.
+- Pengetahuan ini membantu Anda menghindari bug "Variable Shadowing" di mana dua kabel memiliki nama yang sama di kompartemen yang berbeda.
+
+---
+*Status: [status.md](../../../docs/status.md)*

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">INTERNAL SLOT SCHEMATIC (HIDDEN CIRCUITS)</text>
+
+  <!-- Object Unit Casing -->
+  <rect x="200" y="100" width="400" height="350" fill="#1e293b" stroke="#64748b" stroke-width="4" rx="10"/>
+  <text x="400" y="130" fill="#ffffff" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">ORDINARY OBJECT UNIT</text>
+
+  <!-- Public Interface (Properties) -->
+  <g transform="translate(220, 160)">
+    <rect width="160" height="40" fill="#334155" stroke="#34d399" rx="5"/>
+    <text x="80" y="25" fill="#34d399" font-family="Courier New" font-size="12" text-anchor="middle">.sector = "A"</text>
+    <text x="170" y="25" fill="#94a3b8" font-family="Arial" font-size="10">Public Access</text>
+  </g>
+
+  <!-- The Internal Wall -->
+  <line x1="210" y1="220" x2="590" y2="220" stroke="#475569" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="240" fill="#475569" font-family="Arial" font-size="12" text-anchor="middle">INTERNAL PROTECTION WALL</text>
+
+  <!-- Internal Slots (Private) -->
+  <g transform="translate(220, 270)">
+    <!-- [[Prototype]] -->
+    <rect width="360" height="40" fill="#0f172a" stroke="#38bdf8" rx="5"/>
+    <text x="180" y="25" fill="#38bdf8" font-family="Courier New" font-size="12" text-anchor="middle">[[Prototype]] -> Ref:Object.prototype</text>
+    
+    <!-- [[Extensible]] -->
+    <rect y="60" width="360" height="40" fill="#0f172a" stroke="#fbbf24" rx="5"/>
+    <text x="180" y="85" fill="#fbbf24" font-family="Courier New" font-size="12" text-anchor="middle">[[Extensible]] -> true</text>
+    
+    <!-- [[PrivateElements]] -->
+    <rect y="120" width="360" height="40" fill="#0f172a" stroke="#f43f5e" rx="5"/>
+    <text x="180" y="145" fill="#f43f5e" font-family="Courier New" font-size="12" text-anchor="middle">[[PrivateElements]] -> [Vault]</text>
+  </g>
+
+  <text x="400" y="480" fill="#64748b" font-family="Arial" font-size="14" text-anchor="middle">"External code cannot touch Internal Slots directly (Encapsulation)"</text>
+</svg>

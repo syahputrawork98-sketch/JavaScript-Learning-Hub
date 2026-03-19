@@ -1,9 +1,22 @@
-# Sub-Rak: 04 Executable Code and Contexts
+# SR-04: Executable Code and Contexts (The Hub OS)
 
-*Pemetaan ECMA-262: Clause 9*
+> **"Di balik setiap baris kode, ada Operating System yang mengatur segalanya. SR-04 membedah otak dari Web Energy Hub—bagaimana tumpukan terminal (Contexts) dikelola, jaringan kabel scope disambungkan, hingga bagaimana setiap zona daya (Realms) diisolasi."**
 
-Fase ini membedah mekanisme eksekusi. Mempelajari *Execution Contexts*, *Environment Records*, *Lexical Environments*, dan sistem *Realms*. Ini adalah pondasi untuk memahami *Scope*, *Hoisting*, dan *Closure*.
+## 📚 Daftar Buku
 
-## Buku
-- **[BK-01_ExecutionContexts](./BK-01_ExecutionContexts/)**: Membedah Global Stage, Call Stack, Hoisting, dan Closure.
-- **[02_ordinary_and_exotic_objects](../05_ordinary_and_exotic_objects/)**: (Dikelola di Rak terpisah sesuai Clause 10).
+1.  **[BK-01_ExecutionContexts](./BK-01_ExecutionContexts/)**: Mekanisme terminal aktif dan Call Stack.
+2.  **[BK-02_EnvironmentRecords](./BK-02_EnvironmentRecords/)**: Detail teknis penyimpanan variabel dan Scope Chain.
+3.  **[BK-03_RealmsAndAgents](./BK-03_RealmsAndAgents/)**: Isolasi lingkungan eksekusi dan penjadwalan Microtasks.
+
+## 🧪 Laboratorium Operasional
+- [Hub OS Stack & Hoisting](./examples/hub_os_stack_lab.js)
+- [Scope Chains & Shadowing](./examples/scope_chain_lab.js)
+- [Micro-Scheduler & Realms](./examples/realms_jobs_lab.js)
+
+## 📊 Visualisasi Arsitektur
+- [Execution Context Stack](./BK-01_ExecutionContexts/assets/execution_context_stack.svg)
+- [Lexical Scope Chain](./BK-02_EnvironmentRecords/assets/lexical_environment_chain.svg)
+- [Realm Infrastructure](./BK-03_RealmsAndAgents/CH-01_GlobalRealms/assets/realm_infrastructure.svg)
+
+---
+*Status: Gold Standard 💎*
