@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PULSE DELEGATION (YIELD*)</text>
+
+  <!-- Main Generator -->
+  <g transform="translate(50, 100)">
+    <rect width="250" height="200" fill="#1e293b" stroke="#a78bfa" stroke-width="4" rx="20"/>
+    <text x="125" y="30" fill="#a78bfa" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">MAIN MODULE</text>
+    <path d="M 230 150 L 450 150" stroke="#fbbf24" stroke-width="6" stroke-dasharray="8,4" marker-end="url(#arrow-deleg)"/>
+    <text x="325" y="140" fill="#fbbf24" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">yield*</text>
+  </g>
+
+  <!-- Sub Generator -->
+  <g transform="translate(450, 150)">
+    <rect width="250" height="150" fill="#1e293b" stroke="#fbbf24" stroke-width="4" rx="20"/>
+    <text x="125" y="30" fill="#fbbf24" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">SUB MODULE</text>
+    <circle cx="50" cy="80" r="10" fill="#fbbf24"/>
+    <circle cx="90" cy="80" r="10" fill="#fbbf24"/>
+    <circle cx="130" cy="80" r="10" fill="#fbbf24"/>
+    <path d="M 250 100 L 320 100" stroke="#fbbf24" stroke-width="6" marker-end="url(#arrow-pulse)"/>
+  </g>
+
+  <defs>
+    <marker id="arrow-deleg" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+    </marker>
+    <marker id="arrow-pulse" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+    </marker>
+  </defs>
+</svg>

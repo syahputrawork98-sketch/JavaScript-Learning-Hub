@@ -16,7 +16,7 @@
 | RAK-05 | Statements & Declarations | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-06 | Functions | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-07 | Classes | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-08 | Iterators & Generators | 0% | 0/100 | ⚪ Planned |
+| RAK-08 | Iterators & Generators | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-09 | Regular Expressions | 0% | 0/100 | ⚪ Planned |
 | RAK-10 | Advanced Features | 0% | 0/100 | ⚪ Planned |
 | RAK-11 | What's New & Evolution | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,7 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: RAK-08: Iterators & Generators Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-07: Classes Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
 - **2026-03-19**: RAK-06: Functions Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
 - **2026-03-19**: RAK-05: Statements & Declarations Mencapai Gold Standard (5 SVGs + 8 Lab Examples).

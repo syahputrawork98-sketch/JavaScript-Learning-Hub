@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">GENERATOR PULSE UNIT (PAUSE &amp; RESUME)</text>
+
+  <!-- The Machine -->
+  <rect x="250" y="100" width="300" height="200" fill="#1e293b" stroke="#a78bfa" stroke-width="4" rx="20"/>
+  <text x="400" y="140" fill="#a78bfa" font-family="Arial" font-size="18" text-anchor="middle" font-weight="bold">function* Engine</text>
+
+  <!-- Control Lights -->
+  <circle cx="300" cy="180" r="10" fill="#ef4444"/> <!-- Stop/Pause -->
+  <circle cx="330" cy="180" r="10" fill="#34d399"/> <!-- Run -->
+  <text x="350" y="185" fill="#94a3b8" font-family="Arial" font-size="10">State: SUSPENDED</text>
+
+  <!-- The Pulse -->
+  <path d="M 550 200 L 700 200" stroke="#a78bfa" stroke-width="6" stroke-dasharray="10,10" marker-end="url(#arrow-pulse)"/>
+  <text x="625" y="180" fill="#a78bfa" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">yield pulse</text>
+
+  <!-- Trigger -->
+  <path d="M 100 200 L 250 200" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrow-trigger)"/>
+  <text x="175" y="180" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">next()</text>
+
+  <defs>
+    <marker id="arrow-pulse" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a78bfa" />
+    </marker>
+    <marker id="arrow-trigger" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38bdf8" />
+    </marker>
+  </defs>
+</svg>
