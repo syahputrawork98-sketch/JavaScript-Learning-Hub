@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Sensor Array Monitoring</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: #00ff00; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .sensor-card { border: 1px solid #1f1f1f; padding: 20px; background: #1a1a1a; border-radius: 10px; }
+        .log { height: 100px; overflow-y: auto; background: black; padding: 10px; font-family: monospace; font-size: 0.8rem; color: #00ff00; border: 1px solid #333; }
+        input { padding: 8px; background: #222; border: 1px solid #444; color: white; width: 80%; }
+        button { padding: 8px 16px; background: #00ff00; color: black; border: none; font-weight: bold; cursor: pointer; }
+        #track-area { height: 150px; border: 2px dashed #333; display: flex; align-items: center; justify-content: center; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Sensor Array Dashboard</h1>
+    <div class="grid">
+        <!-- Sensor Keyboard -->
+        <div class="sensor-card">
+            <h3>1. Keyboard Sensor (Command Input)</h3>
+            <p>Ketik apa saja untuk melihat log sinyal:</p>
+            <input type="text" id="keyboard-input" placeholder="Masukkan perintah...">
+            <div id="key-log" class="log"></div>
+        </div>
+
+        <!-- Sensor Mouse -->
+        <div class="sensor-card">
+            <h3>2. Motion Sensor (Tracking Area)</h3>
+            <div id="track-area">Gerakkan Mouse di Sini</div>
+            <p id="pos-display">Koordinat: X: 0, Y: 0</p>
+        </div>
+
+        <!-- Sensor Form -->
+        <div class="sensor-card">
+            <h3>3. Batch Data Sensor (Submit)</h3>
+            <form id="power-form">
+                <input type="number" id="load-val" placeholder="Beban Daya (kW)" required>
+                <button type="submit">KIRIM SINYAL</button>
+            </form>
+            <div id="form-log" class="log"></div>
+        </div>
+    </div>
+
+    <script src="sensors.js"></script>
+</body>
+</html>
