@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">STORAGE ZONES (SCOPING)</text>
+
+  <!-- Global / Var Zone -->
+  <rect x="50" y="100" width="700" height="250" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="10" opacity="0.3"/>
+  <text x="65" y="125" fill="#64748b" font-family="Arial" font-size="14" font-weight="bold">FUNCTION / GLOBAL (var)</text>
+
+  <!-- Block Zone (Let/Const) -->
+  <g transform="translate(200, 150)">
+    <rect width="400" height="150" fill="#0f172a" stroke="#34d399" stroke-width="3" rx="10"/>
+    <text x="200" y="30" fill="#34d399" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">BLOCK SCOPE {} (let, const)</text>
+    
+    <circle cx="100" cy="100" r="20" fill="#34d399"/>
+    <text x="100" y="105" fill="white" font-family="Arial" font-size="12" text-anchor="middle">V1</text>
+    
+    <circle cx="300" cy="100" r="20" fill="#34d399"/>
+    <text x="300" y="105" fill="white" font-family="Arial" font-size="12" text-anchor="middle">V2</text>
+  </g>
+
+  <!-- Outside access attempt -->
+  <path d="M 650 200 L 550 200" stroke="#ef4444" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow-red)"/>
+  <text x="700" y="205" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">DENIED</text>
+
+  <defs>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+  </defs>
+</svg>

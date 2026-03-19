@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">LOOP GENERATOR (ENERGY CYCLE)</text>
+
+  <!-- Central Hub -->
+  <circle cx="400" cy="220" r="50" fill="#1e293b" stroke="#38bdf8" stroke-width="4"/>
+  <text x="400" y="225" fill="#38bdf8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">ITERATION</text>
+
+  <!-- Loop Path -->
+  <path d="M 400 120 A 100 100 0 1 1 399.9 120" fill="none" stroke="#fbbf24" stroke-width="8" stroke-dasharray="20,10" marker-end="url(#arrow-loop)"/>
+  
+  <!-- Condition Check -->
+  <g transform="translate(400, 120)">
+    <rect x="-60" y="-30" width="120" height="40" fill="#0f172a" stroke="#22c55e" stroke-width="2" rx="5"/>
+    <text x="0" y="-5" fill="#22c55e" font-family="Arial" font-size="12" text-anchor="middle">Is Condition Met?</text>
+  </g>
+
+  <!-- Exit Path -->
+  <path d="M 500 220 L 700 220" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-exit)"/>
+  <text x="600" y="210" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">EXIT</text>
+
+  <defs>
+    <marker id="arrow-loop" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fbbf24" />
+    </marker>
+    <marker id="arrow-exit" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+  </defs>
+</svg>

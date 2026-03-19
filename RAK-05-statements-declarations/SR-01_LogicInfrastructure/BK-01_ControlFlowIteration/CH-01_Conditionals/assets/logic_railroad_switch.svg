@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">LOGIC RAILROAD SWITCH (CONDITIONALS)</text>
+
+  <!-- Main Track -->
+  <path d="M 50 200 L 250 200" stroke="#94a3b8" stroke-width="4" stroke-dasharray="10,5"/>
+  
+  <!-- The Switch Node -->
+  <circle cx="280" cy="200" r="10" fill="#fbbf24"/>
+  <text x="280" y="180" fill="#fbbf24" font-family="Arial" font-size="14" text-anchor="middle">SENSOR</text>
+
+  <!-- Branch 1 (IF) -->
+  <path d="M 280 200 Q 350 100 700 100" fill="none" stroke="#34d399" stroke-width="6" marker-end="url(#arrow-if)"/>
+  <text x="450" y="90" fill="#34d399" font-family="Arial" font-size="16" font-weight="bold">[IF] Pathway A</text>
+
+  <!-- Branch 2 (ELSE) -->
+  <path d="M 280 200 Q 350 300 700 300" fill="none" stroke="#ef4444" stroke-width="6" marker-end="url(#arrow-else)"/>
+  <text x="450" y="320" fill="#ef4444" font-family="Arial" font-size="16" font-weight="bold">[ELSE] Pathway B</text>
+
+  <defs>
+    <marker id="arrow-if" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+    <marker id="arrow-else" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+  </defs>
+</svg>

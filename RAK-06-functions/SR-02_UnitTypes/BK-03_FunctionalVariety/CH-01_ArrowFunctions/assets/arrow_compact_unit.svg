@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">ARROW COMPACT UNIT</text>
+
+  <!-- Traditional Unit -->
+  <g transform="translate(100, 100)">
+    <rect width="250" height="200" fill="#1e293b" stroke="#94a3b8" stroke-width="2" rx="10"/>
+    <text x="125" y="30" fill="#94a3b8" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">TRADITIONAL STATION</text>
+    <rect x="50" y="80" width="150" height="80" fill="#0f172a" stroke="#64748b" rx="5"/>
+    <text x="125" y="110" fill="#64748b" font-family="Arial" font-size="10" text-anchor="middle">Heavy "this" Context</text>
+    <text x="125" y="130" fill="#64748b" font-family="Arial" font-size="10" text-anchor="middle">Arguments Log</text>
+  </g>
+
+  <!-- Arrow Unit -->
+  <g transform="translate(450, 130)">
+    <rect width="250" height="140" fill="#0f172a" stroke="#34d399" stroke-width="4" rx="30"/>
+    <text x="125" y="30" fill="#34d399" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">ARROW COMPACT =></text>
+    <path d="M 50 70 L 200 70" stroke="#34d399" stroke-width="8" marker-end="url(#arrow-ptr)"/>
+    <text x="125" y="100" fill="#94a3b8" font-family="Arial" font-size="12" text-anchor="middle">No own "this"</text>
+    <text x="125" y="120" fill="#94a3b8" font-family="Arial" font-size="12" text-anchor="middle">Lightweight</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-ptr" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+  </defs>
+</svg>

@@ -13,8 +13,8 @@
 | RAK-02 | JS Guide | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-03 | Standard Built-in Objects | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-04 | Expressions & Operators | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-05 | Statements & Declarations | 0% | 0/100 | ⚪ Planned |
-| RAK-06 | Functions | 0% | 0/100 | ⚪ Planned |
+| RAK-05 | Statements & Declarations | 100% | 100/100 | 🟢 Complete (Gold Standard) |
+| RAK-06 | Functions | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-07 | Classes | 0% | 0/100 | ⚪ Planned |
 | RAK-08 | Iterators & Generators | 0% | 0/100 | ⚪ Planned |
 | RAK-09 | Regular Expressions | 0% | 0/100 | ⚪ Planned |
@@ -25,6 +25,8 @@
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 
 ## Log Perubahan (Changelog)
+- **2026-03-19**: RAK-06: Functions Mencapai Gold Standard (5 SVGs + 9 Lab Examples).
+- **2026-03-19**: RAK-05: Statements & Declarations Mencapai Gold Standard (5 SVGs + 8 Lab Examples).
 - **2026-03-19**: RAK-02: JS Guide Mencapai Gold Standard (6 SVGs + 10 Lab Examples Terintegrasi).
 - **2026-03-19**: Pengerjaan RAK-04: Expressions & Operators Mencapai Gold Standard.
 - **2026-03-19**: Penyelesaian SR-03: System Meta (Unary & Relational).

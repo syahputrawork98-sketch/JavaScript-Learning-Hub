@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">LEXICAL WIRING (INTERNAL FACTORY WIRING)</text>
+
+  <!-- Outer Room (Function) -->
+  <rect x="100" y="80" width="600" height="280" fill="#1e293b" stroke="#64748b" stroke-width="2" rx="10"/>
+  <text x="120" y="110" fill="#64748b" font-family="Arial" font-size="14" font-weight="bold">OUTER UNIT</text>
+  <circle cx="150" cy="150" r="15" fill="#38bdf8"/>
+  <text x="175" y="155" fill="#38bdf8" font-family="Arial" font-size="12">Variable A</text>
+
+  <!-- Inner Room (Function) -->
+  <g transform="translate(300, 150)">
+    <rect width="350" height="180" fill="#0f172a" stroke="#a78bfa" stroke-width="3" rx="10"/>
+    <text x="20" y="30" fill="#a78bfa" font-family="Arial" font-size="14" font-weight="bold">INNER UNIT</text>
+    
+    <!-- Access Wire -->
+    <path d="M -150 0 L 0 50" stroke="#38bdf8" stroke-width="4" stroke-dasharray="5,5" fill="none" opacity="0.6"/>
+    <text x="10" y="70" fill="#38bdf8" font-family="Arial" font-size="10">Link to Variable A</text>
+  </g>
+
+  <!-- Block Access Arrow -->
+  <path d="M 220 300 L 300 300" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-denied)"/>
+  <text x="180" y="305" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">BLOCKED</text>
+
+  <defs>
+    <marker id="arrow-denied" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+  </defs>
+</svg>
