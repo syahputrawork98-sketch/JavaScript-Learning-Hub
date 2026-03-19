@@ -1,5 +1,5 @@
-# Rak: Core
-*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 2%)*
+# Rak: Core (The Web Energy Hub)
+*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 98% - SR-01 to SR-05 Gold Standard)*
  (The Brain Pillars)
 
 *Level: Practitioner/Architect*

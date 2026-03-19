@@ -10,11 +10,13 @@
 
 ## 🧪 Laboratorium Operasional
 - [Internal Mechanics & Extensibility](./examples/internal_mechanics_lab.js)
-- [Exotic Array & Length Piston (Coming Soon)](#)
-- [Proxy Interceptor Shield (Coming Soon)](#)
+- [Exotic Array & Proxy Scrutiny](./examples/exotic_machinery_lab.js)
+- [Function Engines (Async/Generator)](./examples/function_engines_lab.js)
 
 ## 📊 Visualisasi Arsitektur
 - [Internal Slot Schematic](./BK-01_ObjectInternalMechanics/CH-01_InternalMethods/assets/internal_slot_schematic.svg)
+- [Array Length Piston](./BK-02_ExoticObjects/CH-01_ArrayExotics/assets/array_exotic_piston.svg)
+- [Proxy Interceptor Shield](./BK-02_ExoticObjects/CH-04_ProxyExotics/assets/proxy_interceptor_shield.svg)
 
 ---
-*Status: In-Progress 🔵*
+*Status: Gold Standard 💎*

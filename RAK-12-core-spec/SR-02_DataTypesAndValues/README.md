@@ -1,4 +1,4 @@
-# Sub-Rak: 02 Data Types and Values
+# SR-02: Data Types and Values (The Energy Units)
 
 *Pemetaan ECMA-262: Clause 6*
 
@@ -10,4 +10,4 @@ Fase ini membedah representasi data di JavaScript. Mempelajari tipe data *Langua
 3. **[BK-03_SpecificationDataTypes](./BK-03_SpecificationDataTypes/)**: Memahami meta-values internal (Records, Lists, Completion Record).
 
 ---
-*Status: In-Progress (Restructured)*
+*Status: Gold Standard 💎*

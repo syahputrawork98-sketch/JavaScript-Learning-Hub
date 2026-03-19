@@ -1,4 +1,4 @@
-# SR-01: National Convention (ECMA-262 Basis)
+# SR-01: National Convention (The Spec Basis)
 *Sub-Rak Status: [docs/status.md](./docs/status.md)*
 
 Sub-rak ini adalah pilar pertama dari sistem dokumentasi kita. Di sini, kita tidak hanya belajar JavaScript, tapi kita belajar "Bahasa" yang digunakan oleh para pencipta bahasa JavaScript (TC39) untuk menjelaskan aturan mainnya.
@@ -17,10 +17,10 @@ Tujuan utama sub-rak ini adalah membekali Anda dengan kemampuan membaca dokument
 ## Koleksi Buku:
 | Kode | Judul Buku | Sumber Spec | Kapasitas |
 | :--- | :--- | :--- | :--- |
-| **BK-01** | [Spec Foundations](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-01_SpecFoundations/README.md) | Clause 4.4 | 16 Bab |
-| **BK-02** | [Grammar Notation System](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-02_GrammarNotationSystem/README.md) | Clause 5.1 | 15 Bab |
-| **BK-03** | [Spec Algorithm Conventions](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-03_SpecAlgorithmConventions/README.md) | Clause 5.2 | 14 Bab |
-| **BK-04** | [Static Semantic Rules](file:///i:/Workspace/Workspace-Syahputrawork/Language-Hubs-Workspace/JavaScript-Knowledge-Base/RAK-01-core/SR-01_NationalConvention/BK-04_StaticSemanticRules/README.md) | Global ES | 12 Bab |
+| **BK-01** | [Spec Foundations](./BK-01_SpecAlgorithmConventions/README.md) | Clause 4.4 | 16 Bab |
+| **BK-02** | [Grammar Notation System](./BK-02_GrammarNotationSystem/README.md) | Clause 5.1 | 15 Bab |
+| **BK-03** | [Spec Algorithm Conventions](./BK-01_SpecAlgorithmConventions/README.md) | Clause 5.2 | 14 Bab |
+| **BK-04** | [Static Semantic Rules](./BK-01_StaticSemanticRules/README.md) | Global ES | 12 Bab |
 
 ---
 > [!IMPORTANT]
