@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">PRIVATE CIRCUITRY (# FIELDS)</text>
+
+  <!-- The Unit Case -->
+  <rect x="150" y="100" width="500" height="250" fill="#1e293b" stroke="#64748b" stroke-width="4" rx="20"/>
+  
+  <!-- Internal Circuits (Private) -->
+  <g transform="translate(350, 180)">
+    <rect x="-80" y="-50" width="160" height="100" fill="#0f172a" stroke="#ef4444" stroke-width="2" rx="10"/>
+    <text x="0" y="-60" fill="#ef4444" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">PRIVATE SECTOR (#)</text>
+    <path d="M -40 -20 L 40 20 M -40 20 L 40 -20" stroke="#ef4444" stroke-width="2"/>
+  </g>
+
+  <!-- Public Access attempt -->
+  <g transform="translate(50, 200)">
+    <path d="M 0 0 L 90 0" stroke="#ef4444" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow-blocked)"/>
+    <text x="0" y="30" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">EXT. ACCESS</text>
+  </g>
+
+  <!-- Internal Access (Safe) -->
+  <g transform="translate(300, 320)">
+    <path d="M 50 0 L 50 -40" stroke="#34d399" stroke-width="4" marker-end="url(#arrow-safe)"/>
+    <text x="50" y="20" fill="#34d399" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">INT. METHOD ACCESS</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-blocked" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444" />
+    </marker>
+    <marker id="arrow-safe" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34d399" />
+    </marker>
+  </defs>
+</svg>
