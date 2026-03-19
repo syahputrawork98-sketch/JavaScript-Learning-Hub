@@ -20,7 +20,7 @@
 | RAK-09 | Regular Expressions | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-10 | Advanced Features | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-11 | What's New & Evolution | 100% | 100/100 | 🟢 Complete (Gold Standard) |
-| RAK-12 | Core Specification | 100% | 100/100 | 🟢 Complete (Gold Standard) |
+| RAK-12 | Core Specification (ECMA-262) | 100% | 100/100 | 🟢 Complete (Gold Standard) |
 | RAK-13 | Modern Web Runtimes | 20% | 20/100 | 🔵 In Progress |
 | RAK-14 | JS Engines | 0% | 0/100 | ⚪ Planned |
 

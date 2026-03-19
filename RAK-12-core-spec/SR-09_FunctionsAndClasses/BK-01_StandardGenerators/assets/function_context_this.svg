@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0f172a" rx="10"/>
+  
+  <text x="400" y="40" fill="#94a3b8" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">FUNCTION CONTEXT BINDING (THE THIS POINTER)</text>
+
+  <!-- Execution Site Center -->
+  <circle cx="400" cy="250" r="80" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+  <text x="400" y="245" fill="#38bdf8" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">FUNCTION</text>
+  <text x="400" y="265" fill="#ffffff" font-family="Courier New" font-size="18" text-anchor="middle">this</text>
+
+  <!-- Binding Scenarios -->
+  
+  <!-- 1. Global (Weak Link) -->
+  <g transform="translate(100, 100)">
+    <rect width="180" height="80" fill="#334155" rx="5" opacity="0.6"/>
+    <text x="90" y="30" fill="#94a3b8" font-family="Arial" font-size="12" text-anchor="middle">GLOBAL / UNDEFINED</text>
+    <path d="M 180 40 L 320 180" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow-this)"/>
+    <text x="250" y="100" fill="#64748b" font-family="Arial" font-size="10" transform="rotate(30, 250, 100)">Default Binding</text>
+  </g>
+
+  <!-- 2. Implicit (Method) -->
+  <g transform="translate(520, 100)">
+    <rect width="180" height="80" fill="#1e3a8a" stroke="#60a5fa" rx="5"/>
+    <text x="90" y="30" fill="#60a5fa" font-family="Arial" font-size="12" text-anchor="middle">OWNER OBJECT</text>
+    <path d="M 0 40 L -120 180" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrow-this)"/>
+    <text x="-60" y="100" fill="#60a5fa" font-family="Arial" font-size="10" transform="rotate(-30, -60, 100)">Implicit Binding</text>
+  </g>
+
+  <!-- 3. Explicit (Call/Bind) -->
+  <g transform="translate(100, 350)">
+    <rect width="180" height="80" fill="#3730a3" stroke="#818cf8" rx="5"/>
+    <text x="90" y="30" fill="#818cf8" font-family="Arial" font-size="12" text-anchor="middle">FORCED TARGET</text>
+    <path d="M 180 40 L 320 -100" stroke="#818cf8" stroke-width="3" marker-end="url(#arrow-this)"/>
+    <text x="250" y="-30" fill="#818cf8" font-family="Arial" font-size="10" transform="rotate(-30, 250, -30)">Explicit (call/bind)</text>
+  </g>
+
+  <!-- 4. New (Constructor) -->
+  <g transform="translate(520, 350)">
+    <rect width="180" height="80" fill="#064e3b" stroke="#34d399" rx="5"/>
+    <text x="90" y="30" fill="#34d399" font-family="Arial" font-size="12" text-anchor="middle">NEW INSTANCE</text>
+    <path d="M 0 40 L -120 -100" stroke="#34d399" stroke-width="3" marker-end="url(#arrow-this)"/>
+    <text x="-60" y="-30" fill="#34d399" font-family="Arial" font-size="10" transform="rotate(30, -60, -30)">New Binding</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-this" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <text x="400" y="470" fill="#64748b" font-family="Arial" font-size="14" text-anchor="middle">"The identity of 'this' is determined at the moment of energy discharge (Call Site)"</text>
+</svg>
