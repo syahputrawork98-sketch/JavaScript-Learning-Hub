@@ -4,10 +4,14 @@
 
 Symbol adalah identitas unik yang tidak bisa dipalsukan. Ia lahir untuk memecahkan masalah bentrokan nama properti dalam arsitektur aplikasi skala besar. (Clause 4.4.32 - 4.4.34).
 
-## Mental Model: "Sidik Jari Digital"
-Bayangkan sebuah **Sidik Jari**. Meskipun dua orang punya nama yang sama (misal: "Budi"), sidik jari mereka dijamin berbeda. **Symbol** adalah sidik jari bagi kunci properti objek di JavaScript.
+## 🏗️ Symbol Identity Model
 
-![Mental Model: Symbol Identity](./assets/symbol_model.svg)
+```mermaid
+graph TD
+    S1[Symbol()] --> ID1[Unique Registry ID 1]
+    S2[Symbol()] --> ID2[Unique Registry ID 2]
+    S1 === S2 --> False[false]
+```
 
 ---
 

@@ -2,10 +2,13 @@
 
 Mewakili ketiadaan simbol secara eksplisit. (Clause 5.1.5.6).
 
-## Dasar Pemikiran: "Kekosongan yang Sah" 🕳️
-Dalam tata bahasa, terkadang "tidak ada apa-apa" adalah jawaban yang benar. Bayangkan sebuah kotak surat; bisa berisi surat, atau bisa juga **kosong**. Keduanya adalah status kotak surat yang valid. Spesifikasi ECMAScript menggunakan notasi **`[empty]`** untuk menyatakan bahwa ketiadaan token di titik tersebut adalah hasil yang sah.
+## 🏗️ The Empty Match Model
 
-![Mental Model: [empty] Concept](./assets/empty_concept.svg)
+```mermaid
+graph LR
+    P["Production"] --> E["[empty]"]
+    E --> V["Valid (No Token Required)"]
+```
 
 ---
 

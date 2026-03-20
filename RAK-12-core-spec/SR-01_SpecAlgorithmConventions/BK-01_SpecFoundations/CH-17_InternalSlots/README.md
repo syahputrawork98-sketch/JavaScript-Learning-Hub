@@ -4,10 +4,16 @@
 
 Pernahkah Anda bertanya-tanya di mana JavaScript menyimpan data "rahasia" seperti target dari sebuah `Proxy` atau state dari sebuah `Promise`? Jawabannya adalah **Internal Slots**. (Clause 4.4.43).
 
-## Mental Model: "Brankas Tersembunyi"
-Bayangkan sebuah objek adalah sebuah ruangan. Properti biasa adalah perabotan yang bisa dilihat dan dipindahkan oleh tamu (Programmer). **Internal Slots** adalah brankas tersembunyi di balik lukisan. 
+## 🏗️ Internal Slot Vault
 
-![Mental Model: Internal Slots](./assets/internal_slots.svg)
+```mermaid
+graph LR
+    O["Object Room"] --> P["Visible Props (Furniture)"]
+    O --> S1["[[Slot 1]] (Hidden Vault)"]
+    O --> S2["[[Slot 2]] (Hidden Vault)"]
+```
+
+---
 
 - Tamu tidak bisa melihat brankas itu (`[[Slot]]`).
 - Hanya pengelola gedung (Mesin JS) yang bisa membukanya untuk menyimpan data krusial yang menjamin keamanan sistem.

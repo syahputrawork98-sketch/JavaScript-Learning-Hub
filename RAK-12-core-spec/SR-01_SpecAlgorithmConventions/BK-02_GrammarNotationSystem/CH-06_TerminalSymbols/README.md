@@ -2,10 +2,15 @@
 
 Batu bata terkecil dari bahasa JavaScript. (Clause 5.1.5.1).
 
-## Dasar Pemikiran: "Hukum Fisika Kode" 💎
-Dalam dunia konstruksi, Anda punya blueprint (Spesifikasi) dan material bangunan. **Terminal Symbols** adalah material bangunan yang sudah jadi—seperti bata, paku, atau keraamik—yang tidak bisa Anda belah lagi. Mereka muncul tepat apa adanya di dalam kode sumber Anda.
+## 🏗️ Terminal Symbol Anatomy
 
-![Mental Model: Terminal anatomy](./assets/terminal_anatomy.svg)
+```mermaid
+graph LR
+    T["Terminal Symbol"] --> L["Literal Content"]
+    T --> U["Unicode Code Points"]
+    
+    L -- "if" --> U1["<0066, 0069>"]
+```
 
 ---
 

@@ -12,12 +12,7 @@ Bayangkan sebuah koleksi perangko (Values). "Type" adalah kriteria yang menentuk
 
 ---
 
-## 1. Definisi Formal (Clause 4.4.4)
-Dalam ECMAScript, sebuah **Type** adalah **"A set of data values"**. Semua nilai data yang didefinisikan dalam Clause 6 dikategorikan ke dalam tipe-tipe tertentu.
-
-![Member Model: Type Hierarchy](./assets/type_hierarchy.svg)
-
-## 2. Struktur Tipe di JavaScript
+## 🏗️ Member Model: Type Hierarchy
 Spesifikasi membagi dunia data menjadi dua kategori besar utama:
 
 ```mermaid

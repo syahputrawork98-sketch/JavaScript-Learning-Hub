@@ -4,11 +4,13 @@
 
 Boolean adalah tipe data paling sederhana namun paling fundamental dalam pengambilan keputusan. Spesifikasi mendefinisikannya sebagai himpunan dengan dua anggota saja. (Clause 4.4.17 - 4.4.19).
 
-## Mental Model: "Saklar Lampu"
+## 🏗️ The Logic Switch
 
-![Mental Model: Boolean Saklar](./assets/boolean_model.svg)
-
-Tipe Boolean ibarat sebuah saklar lampu yang hanya memiliki dua status: **Nyala (true)** atau **Mati (false)**. Tidak ada status di antaranya (sepeti "remang-remang") di level tipe data murni.
+```mermaid
+graph LR
+    S[Switch] --> T[true: Power ON]
+    S --> F[false: Power OFF]
+```
 
 ---
 
@@ -54,9 +56,3 @@ Gunakan nilai boolean primitif secara eksplisit. Hindari penggunaan Boolean Obje
 ---
 > [!NOTE]  
 > Eksperimen mengenai evaluasi Truthy/Falsy dan bahaya Boolean Object dapat dilihat di [examples/](./examples/).
- 
-> ```javascript
-> let x = new Boolean(false);
-> if (x) { /* Kode ini akan dieksekusi! */ }
-> [!TIP]
-> **Best Practice:** Gunakan selalu nilai primitif `true`/`false`. Objek boolean hanya ada untuk keperluan internal spesifikasi saat melakukan pembungkusan (*Autoboxing*).

@@ -13,7 +13,17 @@ Seringkali kita bingung membedakan antara "Belum ada" dan "Sengaja ditiadakan". 
 ## 1. Undefined Type (Clause 4.4.13 - 4.4.14)
 **Undefined** adalah tipe yang hanya memiliki satu anggota nilai: `undefined`.
 
-![Mental Model: Undefined vs Null](./assets/undefined_vs_null.svg)
+## 🏗️ Void Concepts Matrix
+
+```mermaid
+graph TD
+    Void["Absence of Value"] --> U["Undefined (Implicit)"]
+    Void --> N["Null (Explicit)"]
+    
+    U --> U1["Unitialized state"]
+    N --> N1["Intentional empty state"]
+```
+
 - **Kegunaan**: Digunakan secara otomatis oleh engine saat sebuah variabel dideklarasikan tapi belum diberi nilai, atau saat sebuah fungsi tidak mengembalikan nilai apapun.
 
 ## 2. Null Type (Clause 4.4.15 - 4.4.16)

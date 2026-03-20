@@ -2,10 +2,13 @@
 
 Jembatan antara bahasa formal dan realitas Unicode. (Clause 5.1.5.10).
 
-## Dasar Pemikiran: "Catatan di Pinggir Halaman" 📝
-Terkadang, mendefinisikan sebuah aturan hanya dengan simbol matematika atau grammar akan menjadi sangat rumit dan tidak praktis. Bayangkan jika spesifikasi harus mendaftarkan jutaan karakter Unicode satu per satu. Untuk menjaga agar tetap ringkas namun presisi, spesifikasi menggunakan **Descriptive Phrases**—sebuah kalimat deskriptif yang menggantikan simbol formal.
+## 🏗️ Hybrid Specification Model
 
-![Mental Model: Prose vs Formal](./assets/prose_vs_formal.svg)
+```mermaid
+graph LR
+    S["Source Character"] --> P["Descriptive Phrase"]
+    P -- "maps to" --> U["Any Unicode code point"]
+```
 
 ---
 

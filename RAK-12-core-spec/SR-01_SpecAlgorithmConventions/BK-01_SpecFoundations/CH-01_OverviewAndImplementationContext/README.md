@@ -4,12 +4,16 @@
 
 Selamat datang di jantung spesifikasi. Sebelum kita membedah objek dan variabel, kita harus paham bagaimana spesifikasi "berbicara" dengan dunia luar. ECMAScript tidak berdiri sendiri; ia butuh wadah untuk dijalankan.
 
-## Mental Model: "Aturan FIFA di Lapangan Lokal"
-- **ECMAScript Spec**: Ibarat buku aturan FIFA yang bersifat universal.
-- **Implementation (Engines)**: Ibarat wasit atau penyelenggara liga di lapangan. Mereka mengikuti aturan FIFA, tapi punya sedikit kebebasan dalam hal teknis tertentu (misal: jenis rumput).
-- **Host (Environment)**: Ibarat stadion tempat pertandingan digelar. Ada stadion yang punya ruang ganti mewah (Node.js/File System) dan ada yang punya tribun penonton luas (Browser/DOM).
+## 🏗️ Runtime Context Topology
 
-![Mental Model: Runtime Context](./assets/runtime_context.svg)
+```mermaid
+graph TD
+    Spec["ECMA-262 Spec (Rules)"] --> Engine["JS Engine (V8/JSC)"]
+    Spec --> Host["Host Environment (Browser/Node)"]
+    
+    Engine -- "Implementation-defined" --> Opt["Optimizations"]
+    Host -- "Host-defined" --> APIs["Web APIs / Node APIs"]
+```
 
 ---
 

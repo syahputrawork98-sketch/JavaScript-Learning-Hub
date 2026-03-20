@@ -4,12 +4,16 @@
 
 Seringkali kita mencampuradukkan istilah "Standard" dan "Built-in". Di level arsitek spesifikasi, keduanya memiliki batas yang berbeda namun saling bersinggungan.
 
-## Mental Model: "Menu Restoran vs Sajian di Meja"
+## 🏗️ Object Classification
 
-![Mental Model: Standard vs Built-in](./assets/standard_vs_builtin.svg)
-
-- **Standard Object**: Ibarat menu resmi di buku menu restoran (Spec). Semua koki harus tahu cara membuatnya sesuai resep standar.
-- **Built-in Object**: Ibarat makanan yang sudah tersaji di meja saat Anda duduk (Runtime). Ia sudah ada di sana bahkan sebelum Anda memesan apapun.
+```mermaid
+graph TD
+    A["Built-in Objects"] --> B["Standard (Defined by ECMA-262)"]
+    A --> C["Host (Defined by Browser/Node)"]
+    
+    B --> B1["Object, Array, Function..."]
+    C --> C1["window, document, fs..."]
+```
 
 ---
 

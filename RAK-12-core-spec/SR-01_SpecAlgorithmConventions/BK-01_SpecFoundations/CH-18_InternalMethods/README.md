@@ -4,10 +4,17 @@
 
 Jika Slot adalah "Data Rahasia", maka **Internal Methods** adalah "Insting Dasar". Setiap objek di JavaScript tahu cara melakukan hal-hal dasar (seperti mengambil properti) karena metode ini. (Clause 4.4.44).
 
-## Mental Model: "Insting Bertahan Hidup"
-Bayangkan setiap objek adalah makhluk hidup.
+## 🏗️ Internal Method Instincts
 
-![Mental Model: Internal Methods](./assets/internal_methods.svg)
+```mermaid
+graph TD
+    O["Object Entity"] --> P["Pakaian (Properties)"]
+    O --> I["DNA (Internal Methods)"]
+    I --> G["[[Get]]: Bernapas"]
+    I --> S["[[Set]]: Makan"]
+```
+
+---
 
 - **Property**: Adalah pakaian yang dipakai (Bisa diganti).
 - **Internal Method**: Adalah insting seperti "Bernapas" atau "Makan". 

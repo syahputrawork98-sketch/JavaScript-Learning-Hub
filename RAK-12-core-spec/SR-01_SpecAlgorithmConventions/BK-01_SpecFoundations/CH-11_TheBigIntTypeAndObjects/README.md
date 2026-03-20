@@ -4,10 +4,14 @@
 
 Saat `Number` mulai kehilangan presisinya di angka raksasa, `BigInt` hadir sebagai penyelamat untuk integritas data integer. (Clause 4.4.29 - 4.4.31).
 
-## Mental Model: "Kertas Tak Terhingga"
-Jika `Number` ibarat timbangan digital yang punya batas maksimal (64-bit), maka **BigInt** ibarat sebuah **Kertas Tak Terhingga**. Anda bisa menulis angka sepanjang apapun di atasnya, selama memori komputer Anda masih cukup untuk menampungnya.
+## 🏗️ BigInt vs Number Precision Gap
 
-![Mental Model: BigInt](./assets/bigint_model.svg)
+```mermaid
+graph LR
+    A["Number (IEEE 754)"] --> B["Safe: 2^53 - 1"]
+    A --> C["Unsafe: Loss of precision"]
+    D["BigInt (Arbitrary)"] --> E["Limit: Physical Memory"]
+```
 
 ---
 

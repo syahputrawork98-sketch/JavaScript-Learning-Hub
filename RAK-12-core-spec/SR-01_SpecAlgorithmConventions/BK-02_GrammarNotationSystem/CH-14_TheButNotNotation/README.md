@@ -2,10 +2,14 @@
 
 Filter keamanan untuk kategori yang terlalu luas. (Clause 5.1.5.9).
 
-## Dasar Pemikiran: "Zona Pengecualian" 🖐️
-Bayangkan Anda sedang mendata nama-nama penduduk di sebuah desa. Anda ingin memberikan aturan: "Siapa pun boleh masuk, **kecuali** orang yang masuk dalam daftar hitam". Spesifikasi ECMAScript menggunakan notasi **`but not`** untuk mendefinisikan aturan umum lalu secara presisi mengeluarkan (exclude) hal-hal yang tidak diinginkan dari aturan tersebut.
+## 🏗️ Set Exclusion Logic
 
-![Mental Model: but not logic](./assets/but_not_logic.svg)
+```mermaid
+graph TD
+    A["Set A (Allowed Names)"] --> F["Filter: but not"]
+    B["Set B (Reserved)"] --> F
+    F --> R["Valid Identifier"]
+```
 
 ---
 

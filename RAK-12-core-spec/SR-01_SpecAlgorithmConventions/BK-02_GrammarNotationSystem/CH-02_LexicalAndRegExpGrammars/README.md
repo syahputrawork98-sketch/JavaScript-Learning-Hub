@@ -2,10 +2,14 @@
 
 Bagaimana mesin membedakan antara "Teks Biasa" dan "Perintah"? (Clause 5.1.2).
 
-## Dasar Pemikiran: "Mikroskop Kode" 🔍
-Sebelum mesin memahami apa itu *loop* atau *function*, ia harus melihat kode sebagai deretan karakter atomik. **Lexical Grammar** adalah aturan yang menetapkan pola karakter tersebut untuk digabungkan menjadi sebuah **Token**.
+## 🏗️ Lexical Scanning Flow
 
-![Mental Model: Lexical Flow](./assets/lexical_flow.svg)
+```mermaid
+graph LR
+    Chars["Source Characters"] --> Lexer["Lexical Scanner"]
+    Lexer --> Tokens["Stream of Tokens"]
+    Lexer -.-> Comments["Filtered (Comments/Spaces)"]
+```
 
 ---
 

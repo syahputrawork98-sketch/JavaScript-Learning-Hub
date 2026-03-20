@@ -2,10 +2,15 @@
 
 Bagaimana kumpulan kata kunci berubah menjadi struktur logika yang utuh? (Clause 5.1.4).
 
-## Dasar Pemikiran: "Rangka Bangunan" 🏗️
-Jika Lexical Grammar memberikan Anda bata dan semen (Tokens), maka **Syntactic Grammar** adalah cetak biru yang menentukan di mana bata tersebut harus diletakkan agar menjadi sebuah dinding atau pilar. Ia mendefinisikan bagaimana *tokens* dikombinasikan untuk membentuk struktur program ECMAScript.
+## 🏗️ Structural Blueprint (AST)
 
-![Mental Model: Syntax Tree Concept](./assets/syntax_tree_concept.svg)
+```mermaid
+graph TD
+    Root["Program"] --> S1["Statement 1"]
+    Root --> S2["Statement 2"]
+    S1 --> E1["Expression"]
+    S2 --> E2["Expression"]
+```
 
 ---
 

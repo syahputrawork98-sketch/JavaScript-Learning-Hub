@@ -4,10 +4,17 @@
 
 Di JavaScript, fungsi bukanlah "makhluk gaib" yang berbeda dari objek. Mereka adalah objek dengan **Kemampuan Khusus** untuk dieksekusi. (Clause 4.4.34 - 4.4.35).
 
-## Mental Model: "Objek yang Bisa Diklik"
-Bayangkan sebuah objek biasa `{}` sebagai sebuah kotak statis. Sebuah **Function** adalah kotak yang sama, tapi memiliki sebuah **Tombol (internal method [[Call]])**. Begitu tombol tersebut ditekan, ia akan menjalankan serangkaian instruksi di dalamnya.
+## 🏗️ Function Object Topology
 
-![Mental Model: Function Object](./assets/function_model.svg)
+```mermaid
+graph TD
+    A["Function Object"] --> B["Standard Object Slots"]
+    A --> C["[[Call]] (Essential)"]
+    A --> D["[[Construct]] (Optional)"]
+    
+    C -- "Pressed" --> E["Execute Steps"]
+    D -- "Pressed" --> F["Create & Init"]
+```
 
 ---
 

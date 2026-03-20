@@ -2,10 +2,14 @@
 
 Bagaimana mesin JavaScript "mengintip" masa depan? (Clause 5.1.5.7).
 
-## Dasar Pemikiran: "Radar Pendeteksi" 🛡️
-Bayangkan Anda sedang mengemudi dan melihat persimpangan. Sebelum berbelok, Anda melihat lampu lalu lintas. Anda tidak "memakan" lampu tersebut, Anda hanya melihatnya untuk memutuskan tindakan selanjutnya. Spesifikasi ECMAScript menggunakan **Lookahead Restrictions** sebagai radar untuk memeriksa token berikutnya tanpa memakannya (*without consuming it*).
+## 🏗️ Lookahead Guard Radar
 
-![Mental Model: Lookahead Guard](./assets/lookahead_guard.svg)
+```mermaid
+graph LR
+    P["Parser"] -- "Peek" --> T["Next Token"]
+    T -- "Match ∉ {Set}" --> A["Proceed"]
+    T -- "Match ∈ {Set}" --> R["Reject Production"]
+```
 
 ---
 

@@ -4,11 +4,14 @@
 
 Silsilah keluarga properti berakhir di sini. Bagaimana mesin membedakan antara harta milik sendiri dan harta warisan dari leluhur? (Clause 4.4.40 - 4.4.41).
 
-## Mental Model: "Barang di Kantong vs Barang di Rumah"
-- **Own Property**: Ibarat barang yang ada di **Kantong Baju Anda** (Object). Anda bisa langsung mengambilnya tanpa bertanya pada siapa pun.
-- **Inherited Property**: Ibarat barang yang ada di **Rumah Orang Tua Anda** (Prototype). Jika di kantong Anda tidak ada, Anda akan pergi ke rumah orang tua untuk mencarinya.
+## 🏗️ Property Inheritance Model
 
-![Visual Model: Own vs Inherited](./assets/own_vs_inherited.svg)
+```mermaid
+graph LR
+    A["Object (Own)"] --> P["Pocket Contents"]
+    A -- "Not found?" --> B["Prototype (Inherited)"]
+    B --> H["House Contents"]
+```
 
 ---
 

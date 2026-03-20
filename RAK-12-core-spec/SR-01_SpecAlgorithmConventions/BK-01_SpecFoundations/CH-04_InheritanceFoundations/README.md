@@ -9,8 +9,6 @@ Bayangkan Anda adalah seorang koki (Object). Anda punya pisau pribadi di tangan 
 
 Jika di dapur tidak ada, dapur tersebut akan mencari di gudang pusat (Prototype dari Prototype). Proses mencari ke atas ini sampai ke "akar" disebut **Prototype Chain**.
 
-![Visual Model: Prototype Chain](./assets/prototype_chain.svg)
-
 ---
 
 ## 1. Constructor (Clause 4.4.7)

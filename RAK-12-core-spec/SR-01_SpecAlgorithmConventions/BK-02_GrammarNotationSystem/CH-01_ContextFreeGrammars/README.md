@@ -2,16 +2,18 @@
 
 Bagaimana aturan main diatur agar sebuah bahasa bisa dipahami oleh mesin? (Clause 5.1.1).
 
-## Dasar Pemikiran: "Pohon Bahasa" 🌳
-Bayangkan Anda sedang membangun sebuah kalimat. Anda punya aturan:
-`Kalimat` -> `Subjek` + `Predikat` + `Objek`.
-- `Subjek` bisa diganti menjadi "Budi".
-- `Predikat` bisa diganti menjadi "Makan".
-- `Objek` bisa diganti menjadi "Nasi".
+## 🏗️ CFG Branching Model
 
-Inilah inti dari **Context-Free Grammar (CFG)**. JavaScript menggunakan pola yang sama untuk memastikan kode Anda valid sebelum dijalankan.
-
-![Mental Model: CFG Structure](./assets/cfg_structure.svg)
+```mermaid
+graph TD
+    K["Kalimat"] --> S["Subjek"]
+    K --> P["Predikat"]
+    K --> O["Objek"]
+    
+    S --> B["Budi"]
+    P --> M["Makan"]
+    O --> N["Nasi"]
+```
 
 ---
 

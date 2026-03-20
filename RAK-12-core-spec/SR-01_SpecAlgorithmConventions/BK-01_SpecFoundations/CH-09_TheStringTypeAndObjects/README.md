@@ -9,10 +9,16 @@ Bayangkan sebuah String ibarat sebuah **Rangkaian Manik-manik**. Setiap manik-ma
 
 ---
 
-## 1. String Type & Value (Clause 4.4.20 - 4.4.21)
-**String Value** adalah urutan terhingga (finite) dari nol atau lebih unsigned integer 16-bit.
+## 🏗️ String Sequence Model
 
-![Mental Model: String Sequence](./assets/string_model.svg)
+```mermaid
+graph LR
+    S["String Value"] --> C1["16-bit Code Unit"]
+    S --> C2["16-bit Code Unit"]
+    S --> C3["..."]
+```
+
+---
 - Setiap elemen dalam urutan tersebut mewakili satu unit kode UTF-16.
 - **Identitas**: Panjang string didefinisikan oleh jumlah elemen 16-bit di dalamnya.
 
@@ -51,8 +57,3 @@ Sebagai arsitek, waspadalah bahwa satu "Karakter" visual bisa terdiri dari dua m
 ---
 > [!NOTE]  
 > Demonstrasi manipulasi string dan pengecekan immutability dapat dilihat di [examples/](./examples/).
-constructor `String`. Selain bisa menyimpan nilai string, ia juga memiliki properti `length` yang menunjukkan jumlah *code unit* di dalamnya.
-
----
-> [!IMPORTANT]
-> **Architect Insight:** Karena String di JS berbasis integer 16-bit, beberapa karakter Unicode yang "gemuk" (seperti emoji 🔥) mungkin dihitung sebagai 2 unit (`length: 2`). Selalu gunakan metode berbasis *Iterator* atau *Code Point* jika Anda bekerja dengan teks internasional/emoji.

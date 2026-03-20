@@ -2,10 +2,16 @@
 
 Bagaimana sebuah deretan teks bisa berubah menjadi angka yang bisa dihitung? (Clause 5.1.3).
 
-## Dasar Pemikiran: "Penerjemah Angka" 🔢
-Berbeda dengan Lexical Grammar yang mencari angka di dalam barisan kode, **Numeric String Grammar** digunakan khusus untuk menerjemahkan string menjadi nilai numerik (misalnya saat menggunakan fungsi `Number()` atau Constructor `BigInt`).
+## 🏗️ Numeric Conversion Logic
 
-![Mental Model: Numeric Grammar Map](./assets/numeric_grammar_map.svg)
+```mermaid
+graph TD
+    Input["String Input"] --> P["Numeric String Parser"]
+    P --> Dec["Decimal Path"]
+    P --> Hex["Hex Path"]
+    P --> Bin["Binary/Octal Path"]
+    P -- "Invalid" --> NaN["Output: NaN"]
+```
 
 ---
 

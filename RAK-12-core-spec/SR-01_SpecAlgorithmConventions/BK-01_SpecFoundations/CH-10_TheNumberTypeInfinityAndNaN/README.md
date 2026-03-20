@@ -4,11 +4,14 @@
 
 JavaScript hanya memiliki satu tipe data untuk semua jenis angka: **Double-Precision 64-bit Binary Format (IEEE 754)**. Memahami bagaimana angka disimpan dalam bit adalah kunci untuk menghindari bug presisi yang mematikan. (Clause 4.4.23 - 4.4.28).
 
-## Mental Model: "Garis Bilangan yang Presisi tapi Terbatas"
+## 🏗️ Number Precision Model (IEEE 754)
 
-![Mental Model: Number IEEE 754](./assets/number_model.svg)
-
-Bayangkan angka di JavaScript sebagai penggaris yang sangat panjang, namun garis-garis kecilnya hanya bisa sedetail 52-bit (mantissa). Jika Anda mencoba mengukur sesuatu yang lebih kecil dari itu, penggarisnya akan melakukan "pembulatan" ke garis terdekat. Itulah sebabnya `0.1 + 0.2` tidak tepat `0.3`.
+```mermaid
+graph LR
+    N["Number Byte (64-bit)"] --> S["Sign (1 bit)"]
+    N --> E["Exponent (11 bits)"]
+    N --> M["Fraction/Mantissa (52 bits)"]
+```
 
 ---
 

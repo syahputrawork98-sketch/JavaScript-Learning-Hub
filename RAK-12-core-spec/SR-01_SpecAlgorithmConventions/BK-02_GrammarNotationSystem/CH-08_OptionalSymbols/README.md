@@ -2,12 +2,17 @@
 
 Sesuatu yang boleh ada, tapi tidak wajib. (Clause 5.1.5.3).
 
-## Dasar Pemikiran: "Pilihan yang Fleksibel" ❓
-Bayangkan Anda sedang memesan kopi. Anda punya aturan:
-`Pesanan` -> `Kopi` + `Gula` (opsional) + `Susu` (opsional).
-Meskipun tanpa gula atau susu, pesanan Anda tetap merupakan "Pesanan Kopi" yang valid. Dalam spesifikasi, fleksibilitas ini ditandai dengan notasi **`opt`**.
+## 🏗️ Optionality Logic Flow
 
-![Mental Model: Optional Notations](./assets/optional_notations.svg)
+```mermaid
+graph LR
+    P["Production"] --> S["Required Symbol"]
+    P --> O["Optional Symbol (opt)"]
+    
+    S --> Valid["Always Valid"]
+    O -- "Present" --> Valid
+    O -- "Absent" --> Valid
+```
 
 ---
 

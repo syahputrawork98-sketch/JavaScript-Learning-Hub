@@ -2,10 +2,13 @@
 
 Rahasia di balik Automatic Semicolon Insertion (ASI). (Clause 5.1.5.8).
 
-## Dasar Pemikiran: "Larangan Berjarak" 🚫
-Pernahkah Anda menulis `return` lalu menaruh nilainya di baris baru, dan tiba-tiba hasilnya `undefined`? Itu bukan sihir, itu adalah hukum **Line Terminator Restrictions**. Spesifikasi ECMAScript menggunakan notasi ini untuk memastikan bahwa elemen-elemen tertentu tetap "berdekatan" dan tidak dipisahkan oleh baris baru (Enter).
+## 🏗️ ASI Barrier Model
 
-![Mental Model: No Line Terminator](./assets/no_line_terminator.svg)
+```mermaid
+graph LR
+    T1["Token A"] -- "[no LineTerminator here]" --> T2["Token B"]
+    T1 -- "Enter/NewLine" --> ASI["Insert ; (ASI)"]
+```
 
 ---
 

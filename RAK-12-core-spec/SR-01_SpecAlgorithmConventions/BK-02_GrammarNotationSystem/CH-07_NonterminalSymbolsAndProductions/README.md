@@ -2,10 +2,13 @@
 
 Bagaimana konsep besar (seperti "Statement") dibangun? (Clause 5.1.5.2).
 
-## Dasar Pemikiran: "Rantai Komando" 🖇️
-Jika Terminal adalah "prajurit" di lapangan (kode riil), maka **Nonterminal Symbols** adalah "komandan" yang memberikan instruksi strategis. Sebuah **Production** adalah aturan yang menjelaskan bagaimana seorang komandan (Nonterminal) bisa mendelegasikan tugasnya kepada komandan lain atau langsung ke prajurit (Terminal).
+## 🏗️ Production Delegation Model
 
-![Mental Model: Production Rules](./assets/production_rules.svg)
+```mermaid
+graph TD
+    NT["Nonterminal (Commander)"] -- ":" --> Alt1["Alternative 1 (Terminal)"]
+    NT -- ":" --> Alt2["Alternative 2 (Nonterminal)"]
+```
 
 ---
 

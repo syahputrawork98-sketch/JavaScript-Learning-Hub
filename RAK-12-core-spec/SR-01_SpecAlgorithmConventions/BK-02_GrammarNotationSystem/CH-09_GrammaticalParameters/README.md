@@ -2,10 +2,15 @@
 
 Notasi paling canggih untuk mengontrol variasi aturan. (Clause 5.1.5.4).
 
-## Dasar Pemikiran: "Tombol Konteks" 🎛️
-Pernahkah Anda bertanya-tanya bagaimana JavaScript tahu bahwa keyword `yield` dilarang digunakan sebagai nama variabel di dalam generator, tetapi diperbolehkan di luar generator? Spesifikasi mengaturnya menggunakan **Grammatical Parameters**. Anggap ini sebagai saklar (switch) yang menyalakan atau mematikan aturan tertentu berdasarkan di mana kita berada.
+## 🏗️ Context-Aware Parameter Flow
 
-![Mental Model: Parameter Flow](./assets/param_flow.svg)
+```mermaid
+graph TD
+    Parent["Parent [Await]"] --> Child1["Child (Inherits [Await])"]
+    Parent --> Child2["Child (Inherits [Await])"]
+    
+    Child1 -- "Rules applied" --> A["Await allowed"]
+```
 
 ---
 

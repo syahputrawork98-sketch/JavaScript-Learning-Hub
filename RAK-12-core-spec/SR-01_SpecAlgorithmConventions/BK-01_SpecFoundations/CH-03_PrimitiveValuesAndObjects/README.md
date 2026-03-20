@@ -25,12 +25,21 @@ Nilai primitif adalah data yang direpresentasikan langsung pada level terendah d
 | **BigInt** | Himpunan nilai integer dengan presisi arbitrer. |
 | **Symbol** | Nilai unik dan non-string yang bisa digunakan sebagai kunci properti. |
 
-## 2. Object Type (Clause 6.1.7)
-Objek adalah koleksi dari **Properties**. Setiap properti memiliki kunci (String atau Symbol) dan nilai (bisa Primitive atau Object).
-
-![Mental Model: Primitive vs Object](./assets/primitive_vs_object.svg)
+## 🏗️ Primitive vs Object Topology
 
 ```mermaid
+graph TD
+    Val["Values"] --> P["Primitives (Value-centric)"]
+    Val["Values"] --> O["Objects (Property-centric)"]
+    
+    P --> P1["Immutable"]
+    P --> P2["Unique Identity (Symbols)"]
+    
+    O --> O1["Mutable (Slots/Props)"]
+    O --> O2["Shared Identity (Reference)"]
+```
+
+---
 graph LR
     A["Object"] --> B["Properties (Key-Value)"]
     A --> C["Prototype (Reference)"]

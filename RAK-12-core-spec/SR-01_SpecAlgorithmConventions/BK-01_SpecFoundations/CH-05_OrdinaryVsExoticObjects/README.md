@@ -4,12 +4,18 @@
 
 Di dunia spesifikasi, tidak semua objek diciptakan setara. Ada objek yang "Patuh Aturan" dan ada objek yang "Punya Keistimewaan". (Clause 4.4.9 - 4.4.10).
 
-## Mental Model: "Warga Sipil vs Diplomat"
+## 🏗️ The Object Taxonomy
 
-![Mental Model: Ordinary vs Exotic](./assets/ordinary_vs_exotic.svg)
-
-- **Ordinary Object**: Ibarat warga sipil biasa. Mereka mengikuti aturan hukum standar (Essential Internal Methods) tanpa pengecualian.
-- **Exotic Object**: Ibarat diplomat. Mereka mungkin punya kekebalan hukum atau cara kerja khusus untuk tugas tertentu (seperti Array yang panjangnya otomatis berubah).
+```mermaid
+graph TD
+    A["Object Type"] --> B["Ordinary Object (Default Rules)"]
+    A --> C["Exotic Object (Custom Rules)"]
+    
+    B --> B1["Standard [[Get]], [[Set]], etc."]
+    C --> C1["Array: length magic"]
+    C --> C2["Proxy: interceptor magic"]
+    C --> C3["Functions: call magic"]
+```
 
 ---
 
@@ -49,4 +55,3 @@ Sebagai arsitek, memahami perbedaan ini membantu Anda membedakan mana perilaku o
 ---
 > [!NOTE]  
 > Eksperimen mengenai perilaku unik Exotic Objects dapat dilihat di [examples/](./examples/).
-Tapi saat Anda menggunakan Proxy, Anda sedang bermain di wilayah *Exotic Object* karena Proxy bisa mengubah cara objek merespons operasi dasar.

@@ -4,12 +4,14 @@
 
 Bagaimana objek menyimpan data dan perilaku? Rahasianya terletak pada struktur **Property**. Di level spesifikasi, tidak ada perbedaan kasta antara data dan fungsi di dalam objek. (Clause 4.4.36 - 4.4.38).
 
-## Mental Model: "Laci Label"
-Bayangkan sebuah objek sebagai lemari laci. Setiap laci memiliki **Label (Key)**.
-- Jika isi lacinya adalah selembar kertas bertuliskan angka (Data), kita menyebutnya **Property**.
-- Jika isi lacinya adalah sebuah remote kontrol (Function) yang bisa ditekan untuk menjalankan aksi, kita menyebutnya **Method**.
+## 🏗️ Property Storage Model
 
-![Mental Model: Property Types](./assets/property_types.svg)
+```mermaid
+graph LR
+    O["Object"] --> P["Property Laci"]
+    P --> K["Key (String/Symbol)"]
+    P --> V["Value Content"]
+```
 
 ---
 

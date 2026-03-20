@@ -2,10 +2,13 @@
 
 Daftar pilihan ringkas untuk token tunggal. (Clause 5.1.5.5).
 
-## Dasar Pemikiran: "Menu Seleksi Cepat" 🎯
-Dalam spesifikasi, seringkali sebuah simbol didefinisikan sebagai salah satu dari sekian banyak pilihan (misalnya daftar operator atau keyword). Alih-alih menulis ratusan baris aturan, spesifikasi menggunakan notasi **`one of`** untuk menyajikan pilihan tersebut dalam format tabel atau daftar yang padat.
+## 🏗️ One-Of Selection Matrix
 
-![Mental Model: one of selector](./assets/one_of_selector.svg)
+```mermaid
+grid-layout
+    A["="] B["+="] C["-="]
+    D["*="] E["/="] F["%="]
+```
 
 ---
 

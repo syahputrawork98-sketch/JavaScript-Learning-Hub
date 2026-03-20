@@ -4,13 +4,15 @@
 
 Jika properti adalah "Pintu", maka **Attributes** adalah "Gembok", "Alarm", dan "Engsel"-nya. Spesifikasi menggunakan atribut untuk mendefinisikan karakteristik perilaku dari sebuah properti. (Clause 4.4.39).
 
-## Mental Model: "Sertifikat Kepemilikan"
-Bayangkan setiap properti objek memiliki sebuah **Sertifikat** (Property Descriptor). Di dalam sertifikat tersebut tertulis aturan mainnya:
-- Apakah isinya boleh diganti? (**Writable**)
-- Apakah namanya boleh muncul di daftar publik? (**Enumerable**)
-- Apakah sertifikatnya boleh dibakar atau diubah isinya? (**Configurable**)
+## 🏗️ Property Descriptor Certificate
 
-![Mental Model: Property Attributes](./assets/property_attributes.svg)
+```mermaid
+graph TD
+    P["Property"] --> D["Descriptor"]
+    D --> W["[[Writable]]: Can change?"]
+    D --> E["[[Enumerable]]: Can list?"]
+    D --> C["[[Configurable]]: Can delete/remap?"]
+```
 
 ---
 
