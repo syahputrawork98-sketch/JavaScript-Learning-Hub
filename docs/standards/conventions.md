@@ -6,25 +6,28 @@ Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder haru
 
 | Level | Prefix | Format | Contoh |
 | :--- | :--- | :--- | :--- |
-| Rak | `RAK-` | `RAK-<00>-<slug>` | `RAK-01-javascript` |
-| Sub-Rak | `SR-` | `SR-<00>-<slug>` | `SR-01-get-started` |
-| Buku | `BK-` | `BK-<00>_<Slug>` | `BK-01_Basics` |
-| Bab | `CH-` | `CH-<00>_<Slug>` | `CH-01_Overview` |
+| **Rak** | `RAK-` | `RAK-<00>-<slug>` | `RAK-01-foundation` |
+| **Sub-Rak** | `SR-` | `SR-<00>-<slug>` | `SR-01-get-started` |
+| **Buku** | `BK-` | `BK-<00>_<Slug>` | `BK-01_Basics` |
+| **Bab** | `CH-` | `CH-<00>_<Slug>` | `CH-01_Overview` |
+| **Section** | `SEC-` | `SEC-<00>_<Slug>` | `SEC-01_ThisKeyword` |
 
-## 2. Struktur Internal Bab (Level 5)
+> [!IMPORTANT]
+> **Sub-Rak** menggunakan tanda hubung (`-`) untuk slug, sedangkan **Buku, Bab, dan Section** menggunakan garis bawah (`_`) untuk memisahkan urutan dengan nama slug.
 
-Setiap folder Bab wajib memiliki struktur:
+## 2. Struktur Internal Unit (Level 5 & 6)
+
+Setiap folder Bab atau Section wajib memiliki struktur:
 ```text
-CH-<urutan>_<NamaBab>/
-|-- README.md        <- Materi teks inti (PPM Stage 1).
-|-- assets/          <- Tempat menyimpan SVG/Mermaid (PPM Stage 3).
-`-- examples/        <- Tempat skrip .js (PPM Stage 2).
+CH- atau SEC-/
+|-- README.md        <- Materi teks inti (PPM Stage 1-2).
+|-- assets/          <- Visualisasi (PPM Stage 4).
+`-- examples/        <- Kode fungsional (PPM Stage 3).
 ```
 
 ## 3. Standar Bahasa
-
-- **Narasi Utama**: Menggunakan **Bahasa Indonesia** yang semi-formal dan komunikatif.
-- **Terminologi Teknis**: Tetap gunakan istilah asli (e.g., *Closures*, *Promises*, *Event Loop*, *Prototypal Inheritance*) untuk menjaga presisi teknis.
+- **Narasi Utama**: Bahasa Indonesia (Semi-formal & Komunikatif).
+- **Terminologi Teknis**: Gunakan istilah asli (e.g., *Closures*, *Event Loop*, *Non-blocking*).
 
 ---
-*Referensi: [PPM Workflow](./workflow.md)*
+*Referensi: [PPM Workflow](./workflow.md) | [Architecture](./architecture.md)*

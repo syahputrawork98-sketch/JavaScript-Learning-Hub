@@ -1,10 +1,10 @@
 # Alur Kerja Penulisan (PPM) V4 - JS Edition
 
-Prosedur Penulisan Materi (PPM) memastikan setiap Bab di JavaScript Knowledge Base memiliki kualitas yang setara dengan repositori "Gold Standard" lainnya.
+Prosedur Penulisan Materi (PPM) memastikan setiap Bab (**CH**) atau Section (**SEC**) di JavaScript Knowledge Base memiliki kualitas yang setara dengan repositori "Gold Standard" lainnya.
 
 ## Tahapan PPM (Prosedur Penulisan Materi) V4
 
-Setiap pengerjaan Bab wajib mengikuti 4 Tahapan berikut secara disiplin:
+Setiap pengerjaan unit materi (CH/SEC) wajib mengikuti 4 Tahapan berikut secara disiplin:
 
 ### 1. Tahap 1: Definisi & Konsep ("Apa itu?")
 - **Deskripsi**: Menjelaskan definisi materi atau fitur yang dibahas secara gamblang.

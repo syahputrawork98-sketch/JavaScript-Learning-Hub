@@ -22,7 +22,8 @@ Menangkap dinamisme dan fleksibilitas web melalui bahasa yang tepat.
 | **RAK (Rack)** | Domain | Pengelompokan besar area ilmu (e.g., Core Spec, Engines). |
 | **SR (Sub-Rack)** | Track | Jalur spesifik di dalam domain (e.g., Functions, V8 Architecture). |
 | **BK (Book)** | Koleksi | Kumpulan bab yang membentuk satu modul pengetahuan utuh. |
-| **CH (Chapter)** | Materi | Unit terkecil dokumentasi yang berisi teori, visual, dan lab. |
+| **CH (Chapter)** | Materi | Unit dokumentasi yang berisi teori, visual, dan lab. |
+| **SEC (Section)** | Halaman | Granulitas terdalam untuk dekonstruksi materi kompleks. |
 
 ## 4. Metode Analogi
 - **Event Loop as a Restaurant**: Pesanan (Task) masuk ke dapur, pelayan (Main Thread) tetap melayani pelanggan lain sambil menunggu masakan matang.
