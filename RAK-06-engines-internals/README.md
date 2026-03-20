@@ -1,4 +1,4 @@
-# Rak: Engines (Internal Mechanics)
+# Rak 06: Engines & Internals
 
 *Level: Scientist/Internalist*
 

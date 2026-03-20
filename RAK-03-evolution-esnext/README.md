@@ -1,20 +1,18 @@
-# Rak 02: Evolution & TC39
+# Rak 03: Evolution & ESNext
 
-**"The Heartbeat of JavaScript: From Legacy to ESNext"**
+**"The Future of JavaScript: TC39 & Beyond"**
 
-Rak ini mendokumentasikan perjalanan evolusi JavaScript, filosofi yang mendasarinya, serta fitur-fitur modern yang terus memperluas batas kemampuannya.
+Rak ini mendokumentasikan evolusi berkelanjutan JavaScript melalui proses TC39 dan fitur-fitur masa depan (ESNext).
 
 ## 🏗️ Struktur Sub-Rak & Buku
 
-- **[SR-01-history-origins](./SR-01-history-origins/)**
-    - [BK-01_TheTenDayLegend](./SR-01-history-origins/BK-01_TheTenDayLegend/)
-    - [BK-02_EvolutionaryTimeline](./SR-01-history-origins/BK-02_EvolutionaryTimeline/)
-- **[SR-02-philosophy-essence](./SR-02-philosophy-essence/)**
-    - [BK-01_TheCoreMindset](./SR-02-philosophy-essence/BK-01_TheCoreMindset/)
 - **[SR-03-language-features](./SR-03-language-features/)**
     - [BK-01_ReliabilityPatches](./SR-03-language-features/BK-01_ReliabilityPatches/)
     - [BK-02_StructuralReinforcement](./SR-03-language-features/BK-02_StructuralReinforcement/)
     - [BK-03_ModernSifters](./SR-03-language-features/BK-03_ModernSifters/)
+
+> [!NOTE]
+> Materi Sejarah dan Filosofi telah dipindahkan ke [RAK-01-introduction-essence](../RAK-01-introduction-essence/).
 
 ## 🎯 Key Goals
 - Menelusuri sejarah dari prototipe 10 hari hingga engine V8.

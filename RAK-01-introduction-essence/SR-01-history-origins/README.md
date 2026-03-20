@@ -17,4 +17,4 @@ Sub-Rak ini mendokumentasikan kelahiran JavaScript, mitos 10 hari yang legendari
 - Menghargai fleksibilitas arsitektur yang lahir dari tekanan waktu.
 
 ---
-*Back to [RAK-02-evolution](../README.md)*
+*Back to [RAK-01-introduction-essence](../README.md)*

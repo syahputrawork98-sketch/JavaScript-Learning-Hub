@@ -10,40 +10,44 @@ Repositori ini menggunakan **5-Rack Universal Architecture** dengan prinsip **Di
 graph TD
     Root["JavaScript Knowledge Base"]
     
-    RAK01["RAK-01-javascript<br/>(The Entry Point)"]
-    RAK02["RAK-02-evolution<br/>(The History & Future)"]
-    RAK03["RAK-03-core-spec<br/>(The Internal Logic)"]
-    RAK04["RAK-04-runtimes<br/>(The Environments)"]
-    RAK05["RAK-05-engines<br/>(The Machine Room)"]
+    RAK01["RAK-01-introduction-essence<br/>(The Why & What)"]
+    RAK02["RAK-02-javascript-foundation<br/>(The Entry Point)"]
+    RAK03["RAK-03-evolution-esnext<br/>(The History & Future)"]
+    RAK04["RAK-04-core-specification<br/>(The Internal Logic)"]
+    RAK05["RAK-05-runtime-apis<br/>(The Environments)"]
+    RAK06["RAK-06-engines-internals<br/>(The Machine Room)"]
     
-    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05
+    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06
     
     style Root fill:#f7df1e,stroke:#333,stroke-width:4px,color:#000
     style RAK01 fill:#fff,stroke:#333
     style RAK02 fill:#fff,stroke:#333
-    style RAK03 fill:#f96,stroke:#333
-    style RAK04 fill:#fff,stroke:#333
-    style RAK05 fill:#f96,stroke:#333
+    style RAK03 fill:#fff,stroke:#333
+    style RAK04 fill:#f96,stroke:#333
+    style RAK05 fill:#fff,stroke:#333
+    style RAK06 fill:#f96,stroke:#333
 ```
 
 ---
 
 ## 🗄️ Struktur Perpustakaan
 
-### 1. [RAK-01-javascript](./RAK-01-javascript/)
-Seluruh sintaks dan fitur standar JavaScript (MDN-Mirror).
-- **SR-01 s/d SR-10**: Kedalaman materi dari pemula hingga fitur lanjut.
+### 1. [RAK-01-introduction-essence](./RAK-01-introduction-essence/)
+Memahami filosofi, sejarah, dan esensi JavaScript sebagai bahasa web.
 
-### 2. [RAK-02-evolution](./RAK-02-evolution/)
+### 2. [RAK-02-javascript-foundation](./RAK-02-javascript-foundation/)
+Seluruh sintaks dan fitur standar JavaScript (MDN-Mirror).
+
+### 3. [RAK-03-evolution-esnext](./RAK-03-evolution-esnext/)
 Evolusi bahasa, proses TC39, dan fitur-fitur masa depan (ESNext).
 
-### 3. [RAK-03-core-spec](./RAK-03-core-spec/)
-Dekonstruksi teknis **ECMA-262**. Membedah algoritma, memori, dan internal spesifikasi secara presisi.
+### 4. [RAK-04-core-specification](./RAK-04-core-specification/)
+Dekonstruksi teknis **ECMA-262**. Membedah algoritma, memori, dan internal spesifikasi.
 
-### 4. [RAK-04-runtimes](./RAK-04-runtimes/)
+### 5. [RAK-05-runtime-apis](./RAK-05-runtime-apis/)
 Eksplorasi lingkungan eksekusi: Node.js, Bun, Deno, dan Web Platform APIs.
 
-### 5. [RAK-05-engines](./RAK-05-engines/)
+### 6. [RAK-06-engines-internals](./RAK-06-engines-internals/)
 Deep dive ke dalam mesin JavaScript (**V8 Engine**, JIT, Garbage Collection).
 
 ---

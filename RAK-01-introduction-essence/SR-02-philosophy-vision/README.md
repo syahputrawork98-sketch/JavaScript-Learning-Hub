@@ -15,4 +15,4 @@ Sub-Rak ini mengupas filosofi utama di balik desain JavaScript, mulai dari Hukum
 - Menghargai visi universalitas "Anything that can be written in JS...".
 
 ---
-*Back to [RAK-02-evolution](../README.md)*
+*Back to [RAK-01-introduction-essence](../README.md)*
