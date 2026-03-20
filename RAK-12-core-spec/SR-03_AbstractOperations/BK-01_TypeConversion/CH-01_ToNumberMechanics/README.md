@@ -1,5 +1,22 @@
 # CH-01: ToNumber (The Metric Conversion)
 
+## 🏗️ The ToNumber Chamber
+
+```mermaid
+graph TD
+    Input[Input Value] --> Type{Type Check}
+    Type -->|Undefined| NaN[NaN]
+    Type -->|Null| Zero[+0]
+    Type -->|Boolean| Bool[true: 1 | false: 0]
+    Type -->|Number| Same[Return Input]
+    Type -->|String| Parse[String Parsing Algorithm]
+    Type -->|Symbol| Error[TypeError]
+    Type -->|Object| ToPrim[ToPrimitive hint: number]
+    ToPrim --> Type
+```
+
+## 🔍 Mekanisme Konversi
+
 > **"Sebelum energi bisa dihitung, ia harus dikonversi ke format standar. `ToNumber` adalah 'Konversi Metrik' (The Metric Conversion) — algoritma kaku yang memaksa nilai apapun masuk ke dalam tabung ukur 64-bit IEEE 754."**
 
 *Pemetaan ECMA-262: Clause 7.1.3 (ToNumber)*

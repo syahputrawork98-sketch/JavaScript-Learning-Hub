@@ -4,6 +4,23 @@
 
 *Pemetaan ECMA-262: Clause 7.1.12 (ToString)*
 
+## 🏗️ The ToString Chamber
+
+```mermaid
+graph TD
+    Input[Input Value] --> Type{Type Check}
+    Type -->|Undefined| U["'undefined'"]
+    Type -->|Null| N["'null'"]
+    Type -->|Boolean| B["'true' | 'false'"]
+    Type -->|Number| Conv[NumberToString Algorithm]
+    Type -->|String| S[Return Input]
+    Type -->|Symbol| E[TypeError]
+    Type -->|Object| P[ToPrimitive hint: string]
+    P --> Type
+```
+
+## 🔍 Mekanisme Konversi
+
 ## 1. Mental Model: "The Label Conversion"
 
 Bayangkan sebuah printer label otomatis yang ditempelkan pada setiap unit energi.

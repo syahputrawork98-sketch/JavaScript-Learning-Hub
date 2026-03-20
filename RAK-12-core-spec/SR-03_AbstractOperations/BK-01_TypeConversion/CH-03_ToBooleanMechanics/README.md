@@ -47,6 +47,24 @@ console.log(safeStatus); // 0 (Hanya fallback jika Nullish)
 
 ---
 
+## 🏗️ The Boolean Gate
+
+```mermaid
+graph LR
+    Input[Value] --> Check{Is Falsy?}
+    Check -->|No| True[true]
+    Check -->|Yes| False[false]
+    
+    subgraph "Falsy Set (Clause 7.1.2)"
+        F1[undefined]
+        F2[null]
+        F3[+0 / -0 / NaN]
+        F4["'' (Empty String)"]
+        F5[false]
+    end
+```
+
+## 🔍 Mekanisme Konversi
 ## Arsitek Mindset: Keamanan Logika
 
 Sebagai arsitek Hub:
