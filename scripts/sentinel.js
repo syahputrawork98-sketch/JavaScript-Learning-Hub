@@ -53,11 +53,14 @@ function auditStructure(basePath) {
                     if (!fs.existsSync(readmePath)) {
                         errors.push(`Missing README.md in ${fullPath}`);
                     } else {
-                        // Advanced Rack Audit (RAK 11-14)
+                        /**
+                         * Advanced Rack Audit (RAK-02 to RAK-05)
+                         * RAK-01 is Foundation (MDN-style), RAK-02+ are Spec/Architect style.
+                         */
                         const rakMatch = fullPath.match(/RAK-(\d+)/);
                         if (rakMatch) {
                             const rakNum = parseInt(rakMatch[1]);
-                            if (rakNum >= 11 && rakNum <= 14 && file.startsWith('CH-')) {
+                            if (rakNum >= 2 && rakNum <= 5 && file.startsWith('CH-')) {
                                 auditAdvancedREADME(readmePath, errors);
                             }
                         }
@@ -88,13 +91,13 @@ function auditStructure(basePath) {
 
 function main() {
     const basePath = path.dirname(__dirname);
-    console.log(`--- Sentinel Audit (JS Advanced Edition) ---`);
+    console.log(`--- Sentinel Audit (5-Rack Universe Edition) ---`);
     console.log(`Auditing: ${basePath}\n`);
     
     const errors = [...checkStandards(basePath), ...auditStructure(basePath)];
     
     if (errors.length === 0) {
-        console.log("[PASS] Everything is perfectly standardized to Advanced Gold Standard! 🏆");
+        console.log("[PASS] Everything is perfectly standardized to 5-Rack Gold Standard! 🏆");
     } else {
         console.log(`[FAIL] Found ${errors.length} inconsistencies:`);
         errors.forEach(err => console.log(` - ${err}`));

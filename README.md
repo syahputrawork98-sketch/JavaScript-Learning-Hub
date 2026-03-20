@@ -2,55 +2,58 @@
 
 > **"Mastering the Web's Language: From Syntax to Metaprogramming."**
 
-## Latar Belakang & Visi
-JavaScript adalah fondasi dari web modern. Repositori ini bertujuan untuk membedah kompleksitas JavaScript (ESM, Closures, Prototypes, Meta-programming) menggunakan standar **MDN Web Docs** sebagai sumber kebenaran tunggal.
-
-## Struktur Perpustakaan (14-Rack Architecture: 11 Core + 3 Spec)
+## 🏛️ Arsitektur 5-Rack (The Universe Standard)
+Repositori ini menggunakan struktur **5-Rack Architecture** yang terstandarisasi untuk memisahkan antara fondasi penggunaan (Application Layer) dengan dekonstruksi arsitektur (Architectural Layer).
 
 ```mermaid
 graph TD
     Root["JavaScript Knowledge Base"]
     
-    RAK01["RAK-01-get-started<br/>(The Entry)"]
-    RAK02["RAK-02-js-guide<br/>(The Handbook)"]
-    RAK03["RAK-03-built-ins<br/>(The Library)"]
-    RAK04["RAK-04-expressions<br/>(The Logic)"]
-    RAK05["RAK-05-statements<br/>(The Flow)"]
-    RAK06["RAK-06-functions<br/>(The Engine)"]
-    RAK07["RAK-07-classes<br/>(The Blueprint)"]
-    RAK08["RAK-08-iterations<br/>(The Cycle)"]
-    RAK09["RAK-09-regex<br/>(The Pattern)"]
-    RAK10["RAK-10-advanced<br/>(The Meta)"]
-    RAK12["RAK-12-core-spec<br/>(The Internal)"]
-    RAK13["RAK-13-runtimes<br/>(The Runtime)"]
-    RAK14["RAK-14-engines<br/>(The Mechanic)"]
+    RAK01["RAK-01-javascript<br/>(The Foundation)"]
+    RAK02["RAK-02-evolution<br/>(The History & Future)"]
+    RAK03["RAK-03-core-spec<br/>(The Internal Logic)"]
+    RAK04["RAK-04-runtimes<br/>(The Environments)"]
+    RAK05["RAK-05-engines<br/>(The Machine Room)"]
     
-    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06 & RAK07 & RAK08 & RAK09 & RAK10 & RAK11 & RAK12 & RAK13 & RAK14
+    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05
     
     style Root fill:#f7df1e,stroke:#333,stroke-width:4px,color:#000
     style RAK01 fill:#fff,stroke:#333
     style RAK02 fill:#fff,stroke:#333
-    style RAK03 fill:#fff,stroke:#333
+    style RAK03 fill:#f96,stroke:#333
+    style RAK04 fill:#fff,stroke:#333
+    style RAK05 fill:#f96,stroke:#333
 ```
 
-## Roadmap & Status Pengembangan
+---
 
-| Rak | Deskripsi | Status |
-| :--- | :--- | :--- |
-| `RAK-01-get-started/` | JS First Steps & Basics | *Planned* |
-| `RAK-02-js-guide/` | Functional & Modular Guides | *Planned* |
-| `RAK-03-built-ins/` | Global Objects Reference | *Planned* |
-| `RAK-04-expressions/` | Operators & Evaluation | *Planned* |
-| `RAK-05-statements/` | Control Flow & Declarations | *Planned* |
-| `RAK-06-functions/` | Scopes, Closures, & Arrows | *Planned* |
-| `RAK-07-classes/` | Prototypes & OOP | *Planned* |
-| `RAK-08-iterations/` | Iterators & Generators | *Planned* |
-| `RAK-09-regex/` | Regular Expression Patterns | *Planned* |
-| `RAK-10-advanced/` | Meta-programming & Memory | *Planned* |
-| `RAK-11-evolution/` | ES6 to ESNext & TC39 | *Planned* |
-| `RAK-12-core-spec/` | ECMA-262 Deep Internals | *In Progress* |
-| `RAK-13-runtimes/` | Node.js, Bun, & Deno | *In Progress* |
-| `RAK-14-engines/` | V8, JIT, & Memory | *Planned* |
+## 🗄️ Struktur Perpustakaan
+
+### 1. [RAK-01-javascript](./RAK-01-javascript/)
+Wadah utama untuk seluruh sintaks dan fitur standar JavaScript (MDN-Mirror).
+- **SR-01 s/d SR-10**: Kedalaman materi dari pemula hingga Advanced Features (Metaprogramming).
+
+### 2. [RAK-02-evolution](./RAK-02-evolution/)
+Membahas sejarah ECMAScript, proses TC39, dan fitur-fitur masa depan (ESNext).
+
+### 3. [RAK-03-core-spec](./RAK-03-core-spec/)
+Dekonstruksi teknis **ECMA-262**. Membedah algoritma, memori, dan internal spesifikasi secara presisi.
+
+### 4. [RAK-04-runtimes](./RAK-04-runtimes/)
+Eksplorasi lingkungan eksekusi modern: Node.js, Bun, dan Deno.
+
+### 5. [RAK-05-engines](./RAK-05-engines/)
+Deep dive ke dalam mesin JavaScript (V8, JIT Compilation, Garbage Collection).
 
 ---
-*Dokumentasi Lengkap: [docs/README.md](./docs/README.md)*
+
+## 📏 Standar Kualitas (Gold Standard)
+Setiap materi di RAK 02-05 mengikuti **Advanced-Rack Standard** yang mewajibkan adanya:
+1. **Dual Definition**: Logika Murni + Analogi Dunia Nyata.
+2. **Internal Mechanics**: Algoritma langkah-demi-langkah.
+3. **Experimental Lab**: Kode bukti di dalam folder `examples/`.
+
+*Dokumentasi Lengkap Standar: [docs/standards/advanced-rack-standard.md](./docs/standards/advanced-rack-standard.md)*
+
+---
+*Status Pengembangan: [status.md](./status.md)*
