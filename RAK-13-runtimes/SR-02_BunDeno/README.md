@@ -1,16 +1,17 @@
-# SR-02: Bun & Deno - The Modern Contenders
+# SR-02: Bun & Deno (Modern Successors)
 
-Sub-Rak ini mengeksplorasi runtime JavaScript generasi baru yang dirancang untuk mengatasi kekurangan Node.js dan memanfaatkan teknologi modern seperti Zig dan Rust.
+Sub-rak ini mengeksplorasi alternatif modern untuk Node.js yang menawarkan solusi untuk masalah keamanan dan performa masa lalu.
 
-## Daftar Buku (Books)
+## 🚀 The Nex-Gen Runtimes
+- **Deno**: Keamanan sandbox yang ketat dan dukungan TypeScript native.
+- **Bun**: Kecepatan murni berbasis Zig dan ekosistem tool all-in-one.
+- **Tooling Ecosystem**: Bundler, Test Runner, dan Dependency Management modern.
 
-- **[BK-01: Deno Fundamentals](./BK-01_DenoFundamentals/README.md)**: Keamanan sejak awal dan standar web.
-- **[BK-02: Bun Fundamentals](./BK-02_BunFundamentals/README.md)**: Kecepatan ekstrem dan all-in-one toolset.
-- **[BK-03: Runtimes Showdown](./BK-03_RuntimesShowdown/README.md)**: Perbandingan performa dan skenario penggunaan.
-
-## Mengapa Mereka Muncul?
-
-Dibuat oleh Ryan Dahl (pencipta Node.js), Deno bermaksud untuk memperbaiki "kesalahan desain" di Node.js. Sementara itu, Bun muncul dengan fokus pada performa gila-gilaan menggunakan engine JavaScript Core (Safari) dan bahasa Zig.
+## 📖 Buku
+- **[BK-01: Deno Fundamentals](./BK-01_DenoFundamentals/README.md)**: Dasar arsitektur Deno.
+- **[BK-02: Bun Fundamentals](./BK-02_BunFundamentals/README.md)**: Keunggulan performa Bun.
+- **[BK-03: Runtimes Showdown](./BK-03_RuntimesShowdown/README.md)**: Perbandingan komprehensif.
+- **[BK-04: Tooling Ecosystem](./BK-04_ToolingEcosystem/README.md)**: Ekosistem alat modern.
 
 ---
-*Kembali ke [Rak 13](../README.md)*
+*Status: 🟢 **Gold Standard***

@@ -1,22 +1,35 @@
-# CH-01: CommonJS (require & exports)
+# CH-01: CommonJS (Node.js Legacy)
 
-CommonJS (CJS) adalah sistem modul default di Node.js selama bertahun-tahun.
+CommonJS (CJS) adalah sistem modul standar yang lahir bersama Node.js untuk menangani dependensi di sisi server sebelum ECMAScript Modules (ESM) ada.
 
-## 📦 Karakteristik CJS
-1. **Synchronous**: Modul dimuat secara berurutan.
-2. **Runtime Loading**: Keputusan pemuatan dilakukan saat aplikasi berjalan.
-3. **Caching**: Modul yang sudah dimuat akan disimpan dalam memori (`require.cache`).
+## 🏗️ Mekanisme Require
+CJS bekerja secara **sinkronus**. Ketika Anda memanggil `require()`, eksekusi kode akan berhenti sampai modul selesai dimuat.
 
-## 🛠️ Contoh Penggunaan
-
-```javascript
-// math.js
-exports.add = (a, b) => a + b;
-
-// main.js
-const math = require('./math');
-console.log(math.add(2, 3));
+```mermaid
+graph TD
+    REQ[require './lib'] --> RES[Resolving: Find Path]
+    RES --> LOD[Loading: Read File]
+    LOD --> WRP[Wrapping: Function Wrapper]
+    WRP --> EVAL[Evaluating: Run Code]
+    EVAL --> CACH[Caching: Store Exports]
+    CACH --> RET[Return module.exports]
+    
+    style WRP fill:#f1c40f,stroke:#333
+    style CACH fill:#2ecc71,stroke:#333
 ```
 
+## 📦 The Module Wrapper
+Diam-diam, Node.js membungkus kode Anda dalam fungsi berikut:
+```javascript
+(function(exports, require, module, __filename, __dirname) {
+    // KODE ANDA DI SINI
+});
+```
+Inilah mengapa variabel seperti `__dirname` tersedia meskipun Anda tidak mendefinisikannya.
+
+> [!IMPORTANT]
+> **Single Instance**: Karena adanya sistem **Caching**, memanggil `require()` berkali-kali untuk file yang sama tidak akan menjalankan ulang kodenya. Node.js hanya akan mengembalikan referensi ke objek yang sama.
+
 ---
+*Lihat Lab: [Demo CJS](./examples/cjs_demo.js)*  
 *Kembali ke [BK-02](../README.md)*

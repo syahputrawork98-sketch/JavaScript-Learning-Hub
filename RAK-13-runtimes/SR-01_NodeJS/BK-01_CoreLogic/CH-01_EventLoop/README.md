@@ -1,31 +1,44 @@
 # CH-01: Event Loop (Phases & Timers)
 
-Event Loop adalah mekanisme yang memungkinkan Node.js melakukan operasi I/O non-blocking—meskipun JavaScript bersifat single-threaded—dengan mendelegasikan operasi tersebut ke kernel sistem atau ke thread pool (Libuv).
+Event Loop adalah jantung dari Node.js yang memungkinkan eksekusi asinkronus non-blocking meskipun berada di lingkungan single-threaded JavaScript.
 
-## 🧩 Mental Model: The Rotating Ferris Wheel
+## 🎡 The Ferris Wheel Architecture
+Event Loop bekerja dalam siklus yang terdiri dari beberapa fase. Antara setiap fase, Node.js akan mengecek dan mengosongkan antrean microTask.
 
-Bayangkan Event Loop sebagai sebuah kincir ria (ferris wheel) yang terus berputar. Setiap kursi di kincir tersebut adalah fase tertentu yang menangani jenis callback tertentu.
+```mermaid
+graph TD
+    Start((START)) --> Timers[1. Timers: setTimeout/Interval]
+    Timers --> NT1{nextTick & Promises}
+    NT1 --> Pending[2. Pending Callbacks: OS Errors]
+    Pending --> NT2{nextTick & Promises}
+    NT2 --> Idle[3. Idle / Prepare: Internal]
+    Idle --> NT3{nextTick & Promises}
+    NT3 --> Poll[4. Poll: I/O Callbacks]
+    Poll --> NT4{nextTick & Promises}
+    NT4 --> Check[5. Check: setImmediate]
+    Check --> NT5{nextTick & Promises}
+    NT5 --> Close[6. Close Callbacks: socket.onClose]
+    Close --> NT6{nextTick & Promises}
+    NT6 -->|Repeat| Timers
+    
+    style NT1 fill:#f1c40f,stroke:#333
+    style NT4 fill:#f1c40f,stroke:#333
+```
 
-## 🔄 Fase Event Loop
-
-Node.js memiliki 6 fase utama dalam Event Loop:
-
-1. **Timers**: Mengeksekusi callback dari `setTimeout()` dan `setInterval()`.
-2. **Pending Callbacks**: Menangani callback I/O yang ditunda (misal: error sistem seperti TCP ECONNREFUSED).
-3. **Idle, Prepare**: Digunakan secara internal oleh Node.js.
-4. **Poll**: Mengambil event I/O baru (file read, network connections) dan mengeksekusi callbacknya.
-5. **Check**: Mengeksekusi callback dari `setImmediate()`.
-6. **Close Callbacks**: Menangani callback penutupan (misal: `socket.on('close', ...)`).
+## 🔄 Fase Detail
+1. **Timers**: Mengeksekusi callback yang telah melewati ambang batas waktu.
+2. **Pending Callbacks**: Menangani kegagalan sistem operasional (seperti TCP error).
+3. **Poll**: Fase krusial tempat Node.js mengambil event I/O baru dan memblokir sementara jika tidak ada kerjaan lain.
+4. **Check**: Dirancang khusus untuk mengeksekusi callback `setImmediate()` segera setelah fase Poll selesai.
 
 ## ⚡ microTask Queue (The Special Pass)
+Berbeda dengan fase di atas, antrean ini dieksekusi **sesegera mungkin** setelah operasi saat ini selesai, tanpa menunggu fase berikutnya.
+- **Priority 1**: `process.nextTick()` (Bukan bagian dari Event Loop, tapi dieksekusi sebelum transisi fase).
+- **Priority 2**: `Promise.then()` (Microtask queue standar).
 
-Ada dua queue khusus yang dieksekusi **di antara setiap fase**:
-- `process.nextTick()` (Prioritas Tertinggi)
-- `Promise` callbacks (Microtasks)
-
-## 🛠️ Lab: Event Loop Ordering
-
-Lihat contoh praktis di [examples/01-event-loop/order.js](../../../examples/01-event-loop/order.js) untuk melihat urutan eksekusi secara langsung.
+> [!IMPORTANT]
+> **Internalist Insight**: Jika Anda terus-menerus memanggil `process.nextTick()` secara rekursif, Event Loop akan "kelaparan" (starve) karena ia tidak akan pernah bisa melanjutkan ke fase Timers atau Poll.
 
 ---
+*Lihat Lab: [Urutan Eksekusi](./examples/event_loop_order.js)*  
 *Kembali ke [BK-01](../README.md)*

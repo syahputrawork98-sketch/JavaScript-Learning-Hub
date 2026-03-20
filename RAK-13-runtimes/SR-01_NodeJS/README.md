@@ -1,19 +1,17 @@
-# SR-01: Node.js - The Server-Side Powerhouse
+# SR-01: Node.js (The Foundation)
 
-Selamat datang di Sub-Rak Node.js. Di sini kita akan membedah bagaimana Node.js bekerja di bawah tenda, dari Event Loop hingga manajemen I/O yang efisien.
+Sub-rak ini membedah mekanisme internal Node.js yang memungkinkannya menangani ribuan koneksi konkuren dengan efisien.
 
-## Daftar Buku (Books)
+## 🏗️ Core Pillars
+- **Event Loop & Libuv**: Jantung asinkronus dan manajemen thread pool.
+- **Module Synergy**: Evolusi dari CommonJS ke ECMAScript Modules.
+- **Fast Track APIs**: Penanganan efisien untuk File System, Buffers, dan Streams.
 
-- **[BK-01: The Core Logic](./BK-01_CoreLogic/README.md)**: Memahami jantung dari Node.js (Event Loop, Libuv).
-- **[BK-02: Module Synergy](./BK-02_ModuleSynergy/README.md)**: Eksplorasi CommonJS dan ESM.
-- **[BK-03: Fast-Track APIs](./BK-03_FastTrackAPIs/README.md)**: Menguasai API esensial (FS, Streams, Events).
-
-## Mengapa Node.js?
-
-Node.js bukan sekadar "JavaScript di server". Ia adalah kombinasi dari:
-1. **V8 Engine**: Eksekusi JS super cepat.
-2. **Libuv**: Manajemen asynchronous I/O lintas platform.
-3. **Core Modules**: Abstraksi tingkat rendah untuk networking, filesystem, dll.
+## 📖 Buku
+- **[BK-01: Core Logic](./BK-01_CoreLogic/README.md)**: Arsitektur inti.
+- **[BK-02: Module Synergy](./BK-02_ModuleSynergy/README.md)**: Sistem modul.
+- **[BK-03: Fast Track APIs](./BK-03_FastTrackAPIs/README.md)**: API performa tinggi.
+- **[BK-04: Network Architecture](./BK-04_NetworkArchitecture/README.md)**: Komunikasi jaringan.
 
 ---
-*Kembali ke [Rak 13](../README.md)*
+*Status: 🟢 **Gold Standard***

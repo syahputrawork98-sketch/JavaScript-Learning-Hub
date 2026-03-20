@@ -1,20 +1,31 @@
-# CH-01: File System (fs & path)
+# CH-01: File System (The I/O Engine)
 
-Node.js menyediakan modul `fs` untuk berinteraksi dengan sistem file dan modul `path` untuk menangani path file secara lintas platform.
+Hampir setiap aplikasi Node.js berinteraksi dengan sistem file. Modul `fs` menyediakan API untuk ini dalam dua varian: Sync dan Async.
 
-## 📂 Manajemen File
-Node.js menyediakan tiga cara untuk menggunakan `fs`:
-1. **Synchronous**: Blokir eksekusi hingga operasi selesai (`fs.readFileSync`).
-2. **Callback-based**: Non-blocking menggunakan callback (`fs.readFile`).
-3. **Promise-based**: Modern dan bersih (`fs.promises.readFile`).
+## 🧱 Blocking vs Non-Blocking
+Node.js menggunakan Libuv Thread Pool untuk melakukan operasi file secara asinkron agar tidak menghentikan arus utama program.
 
-## 🗺️ Modul Path
-Gunakan `path.join()` untuk menggabungkan path agar kompatibel dengan Windows (`\`) dan POSIX (`/`).
-
-```javascript
-const path = require('path');
-const fullPath = path.join(__dirname, 'data', 'config.json');
+```mermaid
+sequenceDiagram
+    participant JS as Event Loop
+    participant Libuv as Libuv Thread Pool
+    participant OS as File System
+    
+    JS->>Libuv: fs.readFile(path, callback)
+    Note over JS: CPU Free for other tasks
+    Libuv->>OS: Read Data
+    OS-->>Libuv: Return Data
+    Libuv-->>JS: Event Emitted (Callback Execution)
 ```
 
+## 📂 API Varian
+1. **Callback API**: Tradisional, menggunakan `(err, data) => {}`.
+2. **Synchronous API**: Memblokir eksekusi. Hindari di server production!
+3. **Promises API**: Modern, dapat digunakan dengan `async/await`.
+
+> [!TIP]
+> **Performance**: Untuk file yang sangat besar, jangan gunakan `readFile` (yang memuat semuanya ke RAM). Gunakan `fs.createReadStream` untuk memproses data secara bertahap.
+
 ---
+*Lihat Lab: [Demo FS Ops](./examples/fs_ops.js)*  
 *Kembali ke [BK-03](../README.md)*

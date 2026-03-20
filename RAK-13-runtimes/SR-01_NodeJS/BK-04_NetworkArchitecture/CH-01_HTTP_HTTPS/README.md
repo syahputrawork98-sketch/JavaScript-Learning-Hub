@@ -1,38 +1,33 @@
-# CH-01: HTTP & HTTPS (Web Servers)
+# CH-01: HTTP/HTTPS (Web Servers)
 
-Node.js memiliki modul `http` dan `https` yang sangat powerful untuk membuat server tanpa perlu library pihak ketiga seperti Express (meskipun Express tetap populer).
+Node.js terkenal karena kemudahannya dalam membuat web server berperforma tinggi berkat modul bawaan `http` dan `https`.
 
-## 🌐 Dasar HTTP Server
+## 🔄 Request-Response Lifecycle
+Setiap koneksi HTTP di Node.js adalah event baru yang diproses oleh Event Loop.
 
-```javascript
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello from Vanilla Node.js HTTP Server!');
-});
-
-server.listen(3000, () => {
-  console.log('Server berjalan di port 3000');
-});
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server as Node.js HTTP Server
+    
+    Client->>Server: HTTP Request (Headers + Body)
+    Note over Server: req (Readable Stream)
+    Server-->>Server: Process Business Logic
+    Note over Server: res (Writable Stream)
+    Server->>Client: HTTP Response (Status + Headers + Body)
 ```
 
-## 🔒 HTTPS (Keamanan)
-Modul `https` memerlukan sertifikat SSL/TLS.
+## 🛠️ State of the Art: Beyond sync
+Modul HTTP di Node.js bersifat **Streaming**. Artinya, Anda bisa mulai mengirimkan data ke klien bahkan sebelum file tersebut selesai dibaca sepenuhnya dari disk.
 
-```javascript
-const https = require('https');
-const fs = require('fs');
+### Konsep Utama:
+- **Keep-Alive**: Menjaga koneksi TCP tetap terbuka untuk beberapa request sekaligus.
+- **TLS/SSL**: Modul `https` menggunakan modul `tls` di balik layar untuk enkripsi end-to-end.
+- **Agents**: Digunakan untuk mengelola pool koneksi saat Node.js bertindak sebagai klien (misal: memanggil API eksternal).
 
-const options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
-
-https.createServer(options, (req, res) => {
-  res.end('Koneksi Aman!');
-}).listen(443);
-```
+> [!CAUTION]
+> **Header Injection**: Selalu sanitasi data yang masuk ke header response untuk mencegah serangan keamanan (security vulnerabilities).
 
 ---
+*Lihat Lab: [Demo HTTP Server](./examples/http_server.js)*  
 *Kembali ke [BK-04](../README.md)*

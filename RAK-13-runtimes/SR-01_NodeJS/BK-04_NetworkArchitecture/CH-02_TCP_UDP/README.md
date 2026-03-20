@@ -1,36 +1,35 @@
-# CH-02: TCP & UDP (Net & Dgram)
+# CH-02: TCP/UDP (Lower Layer Networking)
 
-Untuk aplikasi yang membutuhkan latensi rendah atau kontrol protokol sendiri, Node.js menyediakan modul `net` (TCP) dan `dgram` (UDP).
+Di bawah protokol HTTP, terdapat lapisan transport yang dikelola oleh modul `net` (untuk TCP) dan `dgram` (untuk UDP).
 
-## 🕸️ TCP (Stream-based)
-Digunakan untuk komunikasi yang andal (reliabel), menjamin data sampai secara berurutan.
+## 🚀 TCP vs 🕊️ UDP
+- **TCP (Transmission Control Protocol)**: Berorientasi koneksi, menjamin data sampai dengan urutan yang benar (Reliable). Digunakan oleh HTTP, SSH, FTP.
+- **UDP (User Datagram Protocol)**: Tanpa koneksi, lebih cepat tapi tidak menjamin data sampai (Fire and Forget). Digunakan oleh Video Streaming, Gaming, DNS.
 
-```javascript
-const net = require('net');
-
-const server = net.createServer((socket) => {
-  socket.write('Halo dari TCP Server\n');
-  socket.on('data', (data) => {
-    console.log('Diterima:', data.toString());
-  });
-});
-
-server.listen(8080);
+```mermaid
+graph LR
+    subgraph "TCP (Handshake)"
+        C[Client] -->|SYN| S[Server]
+        S -->|SYN-ACK| C
+        C -->|ACK| S
+    end
+    subgraph "UDP (Blast)"
+        C2[Client] -->|Data| S2[Server]
+        C2 -->|Data| S2
+    end
+    
+    style S fill:#3498db,stroke:#333
+    style S2 fill:#e67e22,stroke:#333
 ```
 
-## ⚡ UDP (Datagrams)
-Digunakan untuk kecepatan maksimal tanpa jaminan pengiriman (misal: Video Streaming, Gaming).
+## 🛠️ Use Cases di Node.js
+1. **Custom Protocols**: Membuat database driver atau protokol komunikasi privat.
+2. **Proxies**: Membangun Load Balancer tingkat rendah.
+3. **IoT**: Berkomunikasi dengan perangkat keras yang hanya mendukung UDP sederhana.
 
-```javascript
-const dgram = require('dgram');
-const server = dgram.createSocket('udp4');
-
-server.on('message', (msg, rinfo) => {
-  console.log(`Pesan dari ${rinfo.address}:${rinfo.port}: ${msg}`);
-});
-
-server.bind(41234);
-```
+> [!IMPORTANT]
+> **Stream-based**: Node.js menangani socket TCP sebagai **Duplex Stream**. Anda bisa menggunakan `.pipe()` untuk menghubungkan socket langsung ke file atau socket lainnya.
 
 ---
+*Lihat Lab: [TCP Echo Server](./examples/tcp_echo.js)*  
 *Kembali ke [BK-04](../README.md)*
