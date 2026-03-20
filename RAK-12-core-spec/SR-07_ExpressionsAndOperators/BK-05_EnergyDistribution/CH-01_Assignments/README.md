@@ -11,6 +11,16 @@ Bayangkan aliran energi yang akhirnya masuk ke dalam tangki penyimpanan:
 - **Compound Assignment (`+=`, `*=`, dll)**: Menggabungkan daya yang ada di tangki dengan daya baru dalam satu langkah instan.
 - **Logical Assignment (`||=`, `??=`)**: Penyimpanan cerdas yang hanya terjadi jika kondisi tertentu pada tangki terpenuhi (misal: tangki sedang kosong).
 
+## 🏗️ The Assignment Chain
+
+```mermaid
+graph RL
+    RHS[Right Hand Side: Result] --> Op{Operator}
+    Op -->|Simple =| LHS[Left Hand Side: Memory Slot]
+    Op -->|Compound +=| Calc[Load LHS + Add RHS]
+    Calc --> LHS
+```
+
 ---
 
 ## 2. Destructuring Assignment

@@ -10,6 +10,19 @@
 - **Logical OR (`||`)**: Bertindak sebagai **Bypass Switch**. Jika sinyal pertama *True (Berhasil)*, aliran langsung diteruskan. Sinyal kedua diabaikan.
 - **Nullish Coalescing (`??`)**: Bertindak sebagai **Default Switch**. Ia hanya akan beralih ke jalur cadangan jika jalur utama benar-benar mati (`null` atau `undefined`).
 
+## 🏗️ Short-Circuit Logic Guard
+
+```mermaid
+graph LR
+    A[Signal A] --> OP{&& or ||}
+    OP -->|&&: A is Falsy| End[Terminasi: Return A]
+    OP -->|&&: A is Truthy| B[Evaluate Signal B]
+    OP -->|||: A is Truthy| End[Terminasi: Return A]
+    OP -->|||: A is Falsy| B[Evaluate Signal B]
+    
+    B --> Result[Return Result B]
+```
+
 ---
 
 ## 2. Urutan Prioritas Logika

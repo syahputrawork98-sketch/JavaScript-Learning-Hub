@@ -16,9 +16,19 @@
 5.  **[BK-05_EnergyDistribution](./BK-05_EnergyDistribution/)**: Penyebaran dan penyimpanan energi terakhir (Assignments).
 
 ## 📊 Visualisasi Arsitektur
-- [Expression Precedence Stack](./assets/expression_precedence_stack.svg) - Hirarki prioritas mesin.
-- [Object Initializer Circuit](./BK-01_PrimaryUnits/assets/object_initializer_circuit.svg) - Sirkuit perakitan struktur.
-- [Short-Circuit Flow Logic](./BK-04_LogicFlow/assets/short_circuit_flow_logic.svg) - Aliran terminasi cerdas.
+## 🏗️ Expression Precedence Stack
+
+```mermaid
+stack
+    ["Groupings: ( ) - Priority 1"]
+    ["Member Access: . [ ] - Priority 2"]
+    ["Execution: call(), new - Priority 3"]
+    ["Unary: ++, --, typeof - Priority 4"]
+    ["Arithmetic: *, /, +, - - Priority 5"]
+    ["Relational: <, >, === - Priority 6"]
+    ["Logic: &&, ||, ?? - Priority 7"]
+    ["Assignment: =, += - Priority 8 (Bottom)"]
+```
 
 ## 🧪 Laboratorium
 - [Engine Room Lab](./examples/engine_room_lab.js) - Eksperimen evaluasi ekspresi.

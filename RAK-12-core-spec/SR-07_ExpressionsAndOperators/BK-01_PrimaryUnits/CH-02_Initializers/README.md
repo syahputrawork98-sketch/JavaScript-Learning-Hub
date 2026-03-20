@@ -11,11 +11,17 @@
 
 ---
 
-## 2. Fitur Canggih: Spread & Computed Properties
+## 🏗️ Structural Assembly Flow
 
-Hub modern memiliki robot perakit yang sangat cepat:
-1.  **Spread Operator `...`**: Menyalin seluruh isi dari satu baki ke baki baru (seperti kloning energi).
-2.  **Computed Property Names `[expression]`**: Menentukan nama kunci secara dinamis saat proses perakitan sedang berjalan.
+```mermaid
+graph TD
+    Source["Data Source (Array/Object)"] --> Dest{Destructuring?}
+    Dest -->|Yes| Map[Map Internal Slots to New Identifiers]
+    Dest -->|No| Store[Store Direct Reference]
+    
+    Map --> Success[Variables Populated]
+    Store --> Success
+```
 
 ---
 
