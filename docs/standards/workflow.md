@@ -30,10 +30,10 @@ Setiap pengerjaan unit materi (CH/SEC) wajib mengikuti 4 Tahapan berikut secara 
 - **Estetika**: Fokus pada kebersihan visual dan gunakan emoji yang tepat untuk estetika dan intuisi.
 
 ### 5. Fleksibilitas "Nil Content" (Narrative Exception)
-Untuk unit yang bersifat naratif murni (seperti di **RAK-02 Evolution/History**), folder `examples/` atau `assets/` mungkin tidak diperlukan.
-- **Aturan**: Jika kontributor memutuskan tidak ada kode/visual, maka di dalam `README.md` bagian terkait harus ditulis eksplisit: 
+Pengecualian ini berlaku terutama untuk unit yang bersifat naratif murni seperti di **RAK-01 Introduction & Essence**:
+- **Aturan**: Jika kontributor memutuskan tidak ada kode/visual karena sifatnya sejarah/filosofi, maka di dalam `README.md` bagian terkait harus ditulis eksplisit: 
     - *"Unit ini tidak membutuhkan Lab Praktis/Visualisasi karena bersifat penjelasan sejarah/konsep naratif."*
-- **Tujuan**: Agar pembaca (dan sistem audit) tahu bahwa ketiadaan folder tersebut adalah disengaja, bukan karena materi belum lengkap.
+- **Tujuan**: Memisahkan antara materi naratif yang "Lengkap" dengan materi teknis yang belum selesai.
 
 ---
 *Target Akhir: Mencapai [Gold Standard](./architecture.md#kriteria-gold-standard-100-complete).*

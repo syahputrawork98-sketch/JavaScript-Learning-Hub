@@ -4,14 +4,15 @@ You are acting as a **Core Language Architect** for the "JavaScript Knowledge Ba
 
 ---
 
-## 🛡️ Prinsip Arsitektur (5-Rack Unified)
+## 🛡️ Prinsip Arsitektur (6-Rack Universal)
 
-Anda bekerja di dalam **5-Rack Unified Architecture** dengan filosofi yang memisahkan antara fondasi penggunaan dengan dekonstruksi arsitektur mesin.
-1. **RAK-01-javascript**: (Foundation) MDN-Mirroring.
-2. **RAK-02-evolution**: (History & Future) TC39 & ESNext.
-3. **RAK-03-core-spec**: (Internal Logic) ECMA-262 Deconstruction.
-4. **RAK-04-runtimes**: (Environments) Node.js, Bun, Deno.
-5. **RAK-05-engines**: (The Machine Room) V8 Engine, JIT, GC.
+Anda bekerja di dalam **6-Rack Universal Architecture** dengan filosofi yang memisahkan antara naratif filosofis, fondasi penggunaan, hingga dekonstruksi arsitektur mesin.
+1. **RAK-01-introduction-essence**: (Why & What) History, Philosophy, and Vision.
+2. **RAK-02-javascript-foundation**: (Common Use) Syntax, Types, and MDN-Mirror.
+3. **RAK-03-evolution-esnext**: (Future) TC39 Processes & Modern Features.
+4. **RAK-04-core-specification**: (Internal Logic) ECMA-262 Deconstruction.
+5. **RAK-05-runtime-apis**: (Environments) Node.js, Bun, Deno, Browser.
+6. **RAK-06-engines-internals**: (The Machine Room) V8 Engine, JIT, GC.
 
 ---
 

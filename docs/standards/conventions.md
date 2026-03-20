@@ -6,7 +6,7 @@ Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder waji
 
 | Level | Prefix | Format | Contoh |
 | :--- | :--- | :--- | :--- |
-| Rak | `RAK-` | `RAK-XX-slug` | `RAK-01-javascript` |
+| Rak | `RAK-` | `RAK-XX-slug` | `RAK-01-introduction-essence` |
 | Sub-Rak | `SR-` | `SR-XX-slug` | `SR-01-get-started` |
 | Buku | `BK-` | `BK-XX_Slug` | `BK-01_Basics` |
 | Bab | `CH-` | `CH-XX_Slug` | `CH-01_JSFirstSteps` |

@@ -9,11 +9,11 @@ Sistem ini mengikuti hirarki kedalaman yang konsisten untuk seluruh repositori:
 | Tingkatan | Nama | Analogi | Prefix | Contoh Direktori |
 | :--- | :--- | :--- | :--- | :--- |
 | **Level 1** | **Root** | Library Hub | `/` | `/` |
-| **Level 2** | **Rak** | Domain | `RAK-` | `RAK-01-javascript/` |
-| **Level 3** | **Sub-Rak** | Track | `SR-` | `SR-01-get-started/` |
-| **Level 4** | **Buku** | Koleksi | `BK-` | `BK-01_Basics/` |
+| **Level 2** | **Rak** | Domain Utama | `RAK-` | `RAK-01-introduction-essence/` |
+| **Level 3** | **Sub-Rak** | Track Spesifik | `SR-` | `SR-01-history-origins/` |
+| **Level 4** | **Buku** | Koleksi Terpadu | `BK-` | `BK-01_Basics/` |
 | **Level 5** | **Bab** | Materi Inti | `CH-` | `CH-01_JSFirstSteps/` |
-| **Level 6** | **Section** | Halaman | `SEC-` | `SEC-01_Introduction/` |
+| **Level 6** | **Section** | Detail Halaman | `SEC-` | `SEC-01_Introduction/` |
 
 ---
 
