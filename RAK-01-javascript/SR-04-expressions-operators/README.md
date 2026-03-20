@@ -1,8 +1,8 @@
-# RAK-04: Expressions & Operators (Energy Manipulation)
+# SR-04-javascript/CH-04-expressions-operators: Expressions & Operators (Energy Manipulation)
 
 > **"Jika Objek adalah mesin dan Data adalah energinya, maka `Operator` adalah katup, penyambung, dan pengolah yang menentukan bagaimana energi tersebut mengalir dan bertransformasi di dalam Hub."**
 
-RAK-04 membedah seluruh mekanisme manipulasi data di JavaScript, mulai dari perhitungan matematika dasar hingga operasi bit-level yang super cepat.
+SR-01-get-started-javascript/CH-04-expressions-operators membedah seluruh mekanisme manipulasi data di JavaScript, mulai dari perhitungan matematika dasar hingga operasi bit-level yang super cepat.
 
 ## 1. Mental Model: "Energy Manipulation"
 
@@ -30,4 +30,4 @@ Setiap sub-rak dan buku di RAK ini dilengkapi dengan:
 3.  **Lab Praktis (`examples/`)**: Kode yang dapat dijalankan untuk menguji teori.
 
 ---
-*Status: [status.md](../status.md)*
+*Status: [status.md](../../status.md)*

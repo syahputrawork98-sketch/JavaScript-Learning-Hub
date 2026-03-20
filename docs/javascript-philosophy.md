@@ -24,4 +24,4 @@ JavaScript memiliki ekosistem terbesar di dunia (npm). Filosofinya adalah memban
 Misi dari perpustakaan ini adalah membawa Anda melampaui sekadar "pengguna framework" menjadi seorang **JavaScript Engineer** yang memahami cara kerja engine di balik layar dan mampu membangun aplikasi skala besar yang elegan dan performan.
 
 ---
-*Langkah selanjutnya: [RAK-01-get-started](../README.md#rak-01-get-started-the-entry)*
+*Langkah selanjutnya: [SR-01-get-started](../README.md#rak-01-get-started-the-entry)*

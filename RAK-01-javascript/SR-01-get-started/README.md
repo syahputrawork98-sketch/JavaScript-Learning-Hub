@@ -1,4 +1,4 @@
-# RAK-01: Get Started
+# SR-01: Get Started
 
 > **"Pintu Masuk ke Dunia Energi Web."**
 
@@ -6,7 +6,7 @@ Selamat datang di Rak pertama JavaScript Knowledge Base. Di sini, kita akan memu
 
 ## Daftar Sub-Rak (Tracks)
 
-1. **[SR-01_Basics](./SR-01_Basics/)**: Dasar-dasar absolut dan pengenalan sintaks.
+1. **[SR-01_Basics](./BK-01_Basics/)**: Dasar-dasar absolut dan pengenalan sintaks.
 
 ---
-*Status: [status.md](../status.md)*
+*Status: [status.md](../../status.md)*

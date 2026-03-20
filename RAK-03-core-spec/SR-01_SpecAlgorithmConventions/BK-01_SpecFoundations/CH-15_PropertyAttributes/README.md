@@ -52,7 +52,7 @@ Sebagai arsitek, pemahaman atribut sangat penting untuk menciptakan objek yang a
 
 ## Referensi Terkait
 - [ECMA-262 Clause 6.1.7.1 - Property Attributes](https://tc39.es/ecma262/#sec-property-attributes)
-- [RAK-01-core/SR-03_InternalSlots](../../../README.md)
+- [RAK-01-javascript/SR-01-javascript/SR-01-get-started-core/SR-03_InternalSlots](../../../README.md)
 
 ---
 > [!IMPORTANT]  

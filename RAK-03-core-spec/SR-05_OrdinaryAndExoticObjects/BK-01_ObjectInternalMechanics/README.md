@@ -12,5 +12,5 @@ Objek adalah blok pembangun utama JavaScript. Tanpa memahami mekanika internalny
 3. **[Bab 03: Array Exotic Behavior (Sihir Properti Length)](./CH-03_ArrayExoticBehavior/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami perbedaan objek dengan tipe primitif.
-- **[RAK-01-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/BK-01_ExecutionContexts/)**: Memahami bagaimana objek disimpan di dalam *Environment Records*.
+- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami perbedaan objek dengan tipe primitif.
+- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/BK-01_ExecutionContexts/)**: Memahami bagaimana objek disimpan di dalam *Environment Records*.

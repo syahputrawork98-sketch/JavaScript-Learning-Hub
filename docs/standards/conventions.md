@@ -6,8 +6,8 @@ Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder haru
 
 | Level | Prefix | Format | Contoh |
 | :--- | :--- | :--- | :--- |
-| Rak | `RAK-` | `RAK-<00>-<slug>` | `RAK-01-get-started` |
-| Sub-Rak | `SR-` | `SR-<00>_<Slug>` | `SR-01_General` |
+| Rak | `RAK-` | `RAK-<00>-<slug>` | `RAK-01-javascript` |
+| Sub-Rak | `SR-` | `SR-<00>-<slug>` | `SR-01-get-started` |
 | Buku | `BK-` | `BK-<00>_<Slug>` | `BK-01_Basics` |
 | Bab | `CH-` | `CH-<00>_<Slug>` | `CH-01_Overview` |
 

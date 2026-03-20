@@ -13,4 +13,4 @@ Memahami *Execution Context* adalah pembeda antara pengembang yang menebak-nebak
 4. **[Bab 04: Closure Persistence (Lexical Environments)](./CH-04_ClosurePersistence/)**
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami warga dasar yang akan diolah di dalam konteks eksekusi.
+- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami warga dasar yang akan diolah di dalam konteks eksekusi.

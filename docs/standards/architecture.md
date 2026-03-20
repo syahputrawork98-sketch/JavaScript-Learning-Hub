@@ -8,11 +8,10 @@ Berikut adalah pemetaannya ke dalam direktori bertingkat:
 
 | Tingkatan | Analogi | Contoh Direktori | Keterangan |
 | :--- | :--- | :--- | :--- |
-| **Level 1** | **Perpustakaan** | `/` (root) | Seluruh sistem proyek (JS Engine). |
-| **Level 2** | **Rak (Shelf)** | `RAK-01-get-started/` | Pengelompokan besar domain ilmu (11 RAK). |
-| **Level 3** | **Sub-Rak (Sub-shelf)** | `SR-01_General/` | Grup materi berbasis area spesifik. |
-| **Level 4** | **Buku (Book)** | `BK-01_Basics/` | Koleksi bab yang membentuk satu topik besar. |
-| **Level 5** | **Bab (Chapter)** | `CH-01_Overview/` | Unit terkecil wajib (Folder Bab). |
+| **Level 1** | **Rak (Shelf)** | `RAK-01-javascript/` | Domain Utama (5 RAK). |
+| **Level 2** | **Sub-Rak (Sub-shelf)** | `SR-01-get-started/` | Track spesifik di dalam Rak. |
+| **Level 3** | **Buku (Book)** | `BK-01_Basics/` | Koleksi bab terpadu. |
+| **Level 4** | **Bab (Chapter)** | `CH-01_Overview/` | Unit materi inti (Folder Bab). |
 
 ---
 

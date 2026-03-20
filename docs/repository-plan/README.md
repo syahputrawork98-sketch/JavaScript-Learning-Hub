@@ -1,77 +1,55 @@
-# JavaScript Knowledge Base: Total Deconstruction Plan
+# JavaScript Knowledge Base: 5-Rack Deconstruction Plan
 
-> **Status Spec-Sync**: MDN Web Docs (Full Alignment)
-> **Last Updated**: 2026-03-19
+> **Status**: Universal Standard (5-Rack Architecture)
+> **Last Updated**: 2026-03-20
+> **Blueprint Mirror**: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) & [ECMA-262](https://tc39.es/ecma262/)
 
-Arsitektur **Source-Driven 11-Rack** ini mencerminkan taksonomi asli [developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-
----
-
-## 🏗 Justifikasi Teknis (The Mirroring Principle)
-
-Setiap Rak dipetakan langsung ke kategori navigasi utama di MDN JavaScript Reference & Guide.
-
-### 1. RAK-01: Get Started
-Quickstart untuk pemula total (JS First Steps).
-
-### 2. RAK-02: JavaScript Guide
-Navigasi naratif (Handbook) dari pemula hingga advanced.
-
-### 3. RAK-03: Standard Built-in Objects
-Referensi lengkap Top-level objects (Array, Object, Map, Set).
-
-### 4. RAK-04: Expressions & Operators
-Aturan evaluasi, operator aritmatika, logika, dan comparison.
-
-### 5. RAK-05: Statements & Declarations
-Control flow (if-else, switch) dan deklarasi variabel (var, let, const).
-
-### 6. RAK-06: Functions
-Function declaration, expressions, arrow functions, dan scope.
-
-### 7. RAK-07: Classes
-Paradigma OOP, inheritance, static members, dan private fields.
-
-### 8. RAK-08: Iterators & Generators
-Protokol iterasi dan pembuatan generator asinkron.
-
-### 9. RAK-09: Regular Expressions
-Pola pencarian string dan parsing teks (Regex).
-
-### 10. RAK-10: Advanced Features
-Metaprogramming (Proxy, Reflect) dan Memory Management.
-
-### 11. RAK-11: What's New & Standards
-Evolusi ECMAScript (ES6+), TC39, dan fitur eksperimental.
+Rencana ini mendokumentasikan bagaimana **Knowledge Universe** didekonstruksi ke dalam 5 unit besar yang memisahkan antara penggunaan aplikasi (Application) dengan pemahaman internal (Architectural).
 
 ---
 
-## 🗄 Peta Arsitektur Detail
+## 🏗 Prinsip Mirroring & Spesialisasi
 
-| Rak | Sub-Rak (SR) | Buku (BK) | Deskripsi BK |
-| :--- | :--- | :--- | :--- |
-| **RAK-01** | SR-01: Basics | BK-01: JS First Steps | Intro & Dasar Sintaks. |
-| **RAK-02** | SR-01: Guide | BK-01: Control Flow | Naratif alur logika. |
-| | | BK-02: Key Features | Closures, Modules logic. |
-| **RAK-03** | SR-01: Objects | BK-01: Global Objects | Array, Object, Function, Error. |
-| | | BK-02: Numbers & Dates | Math & Date API. |
-| | | BK-03: Collections | Map, Set, WeakMap. |
-| **RAK-04** | SR-01: Evaluations | BK-01: Operators Ref | Unary, Binary, Ternary. |
-| **RAK-05** | SR-01: Syntax | BK-01: Statements | loops, exception handling. |
-| | | BK-02: Declarations | Scoping rules (block vs function). |
-| **RAK-06** | SR-01: Mechanics | BK-01: Arguments | Destructuring & Rest/Spread. |
-| | | BK-02: Closures | Lexical scoping logic. |
-| **RAK-07** | SR-01: OOP | BK-01: Prototypes | The prototype chain. |
-| | | BK-02: Class Syntax | Encapsulation & Polymorphism. |
-| **RAK-08** | SR-01: Iteration | BK-01: Protocol Ref | Symbol.iterator logic. |
-| **RAK-09** | SR-01: Parsing | BK-01: RegExp API | Patterns & Flagging. |
-| **RAK-10** | SR-01: Meta | BK-01: Proxies | Traps & Interceptions. |
-| **RAK-11** | SR-01: Evolution | BK-01: ES Versions | Changelog from ES5 to ESNext. |
+### 1. RAK-01-javascript (The Foundation / MDN Mirror)
+Seluruh taksonomi MDN dikonsolidasikan ke dalam satu Rak utama sebagai titik masuk (Entry Point) bagi praktisi.
+
+| Sub-Rak (SR) | Sumber MDN (Mirror) | Deskripsi |
+| :--- | :--- | :--- |
+| **SR-01-get-started** | JS First Steps / Basics | Pengenalan dan instalasi. |
+| **SR-02-js-guide** | JavaScript Guide | Panduan naratif dari Pemula ke Mahir. |
+| **SR-03-built-ins** | Standard Built-in Objects | Referensi lengkap API (Array, Object, dll). |
+| **SR-04-expressions-operators** | Expressions & Operators | Logika evaluasi dan operator. |
+| **SR-05-statements-declarations** | Statements & Declarations | Control flow dan deklarasi variabel. |
+| **SR-06-functions** | Functions | Mekanika fungsi dan scope. |
+| **SR-07-classes** | Classes | Paradigma OOP dan Inheritance. |
+| **SR-08-iterators-generators** | Iterators & Generators | Protokol iterasi asinkron. |
+| **SR-09-regular-expressions** | Regular Expressions | Parsing teks dan pencarian pola. |
+| **SR-10-advanced** | Advanced Features | Metaprogramming (Proxy, Reflect). |
 
 ---
 
-## 📜 Log Sinkronisasi (Spec-Log)
+### 2. RAK-02-evolution (The History & Future)
+Mendokumentasikan evolusi bahasa, proposal TC39, dan fitur ESNext yang akan datang.
 
-| Sumber | Tanggal Audit | Perubahan Arsitektur | Status |
-| :--- | :--- | :--- | :--- |
-| **MDN v2025** | 2026-03-19 | Inisialisasi 11-Rack (Source-Identic). | ✅ Synced |
+### 3. RAK-03-core-spec (The Internal Logic / Spec-Rigor)
+Dekonstruksi total terhadap **ECMA-262**. Fokus pada algoritma Abstract Operations dan Internal Slots.
+- **Standards**: Wajib mengikuti 7-Point Advanced-Rack Standard.
+
+### 4. RAK-04-runtimes (The Environments)
+Eksplorasi lingkungan eksekusi: **Node.js**, **Bun**, dan **Deno**. Fokus pada Web APIs dan Event Loop spesifik runtime.
+
+### 5. RAK-05-engines (The Machine Room)
+Deep dive ke dalam **V8 Engine** dan mesin JS lainnya. Fokus pada JIT Compilation, Memory Management, dan Optimization.
+
+---
+
+## 📜 Hierarki Kedalaman (The 4-Level Depth)
+
+Untuk memastikan konsistensi di 5 bahasa (JS, TS, PY, RU, GO), setiap Rak mengikuti hierarki:
+1. **RAK** (Domain)
+2. **SR** (Track)
+3. **BK** (Book)
+4. **CH** (Chapter)
+
+---
+*Log Perubahan: Seluruh 14-Rak (lama) telah dikonsolidasikan ke dalam struktur ini pada 2026-03-20.*

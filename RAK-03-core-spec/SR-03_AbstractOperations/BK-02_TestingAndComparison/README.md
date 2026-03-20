@@ -13,4 +13,4 @@ Kebingungan antara `==` (Loose Equality) dan `===` (Strict Equality) adalah "tra
  (Planned)
 
 ## Prasyarat Pembaca
-- **[RAK-01-core / 03_abstract_operations / Buku 01: Type Conversion](../01_type_conversion/)**: Memahami bagaimana tipe data berubah secara otomatis sebelum dibandingkan.
+- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / 03_abstract_operations / Buku 01: Type Conversion](../01_type_conversion/)**: Memahami bagaimana tipe data berubah secara otomatis sebelum dibandingkan.
