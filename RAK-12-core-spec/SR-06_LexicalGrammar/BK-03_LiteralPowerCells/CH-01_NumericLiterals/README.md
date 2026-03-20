@@ -14,12 +14,24 @@ JavaScript memungkinkan kita memuat energi dalam berbagai format basis:
 
 ---
 
-## 2. Fitur Keamanan: Numeric Separators
+## 🏗️ Numeric Literal Synthesis
 
-Untuk mencegah kesalahan pembacaan pada tangki beban besar, Hub mendukung tanda pemisah visual (`_`).
-`const load = 1_000_000n;` -> Mempermudah teknisi membaca bahwa ini adalah satu juta unit energi. Hub secara otomatis membuang tanda `_` saat proses ekstraksi sinyal.
-
-![Numeric Literal Schematic](./assets/numeric_literal_schematic.svg)
+```mermaid
+graph TD
+    Raw["Raw Digits (0-9, a-f, etc)"] --> Prefix{Prefix?}
+    Prefix -->|0x| Hex[Hexadecimal]
+    Prefix -->|0b| Bin[Binary]
+    Prefix -->|0o| Oct[Octal]
+    Prefix -->|None| Dec[Decimal]
+    
+    Hex --> Big{Suffix 'n'?}
+    Bin --> Big
+    Oct --> Big
+    Dec --> Big
+    
+    Big -->|Yes| BI[BigInt Memory]
+    Big -->|No| Num[Number Memory (IEEE 754)]
+```
 
 ---
 

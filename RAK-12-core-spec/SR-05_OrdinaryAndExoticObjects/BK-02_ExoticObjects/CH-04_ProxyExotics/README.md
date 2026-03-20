@@ -10,9 +10,19 @@ Bayangkan Anda ingin menyentuh tombol di Mesin A. Namun, Mesin A dibungkus oleh 
 - Saat tangan Anda mendekat (misal: memanggil `[[Get]]`), kaca tersebut mendeteksi gerakan Anda.
 - Kaca tersebut memiliki **Traps** (Jebakan). Jika jebakan `get` aktif, kaca akan menjalankan logikanya sendiri sebelum (atau alih-alih) membiarkan Anda menyentuh mesin asli.
 
----
+## 🏗️ The Interceptor Shield
 
-## 2. Mekanisme Pencegatan
+```mermaid
+graph LR
+    User[JS Access] --> Proxy[Proxy Object]
+    Proxy --> Trap{Trap Defined?}
+    Trap -->|Yes| Logic[Execute Handler Trap]
+    Trap -->|No| Forward[Forward to Target]
+    Logic --> Result[Return Result]
+    Forward --> Result
+```
+
+## 🔍 Mekanisme Pencegatan
 
 Proxy adalah objek paling eksotis karena ia **mendefinisikan ulang seluruh 13 Metode Internal**.
 - Jika Anda mendefinisikan `handler.get`, maka `[[Get]]` pada Proxy tersebut tidak lagi melakukan pencarian standar, melainkan memanggil fungsi `handler.get` Anda.

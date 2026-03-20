@@ -11,9 +11,17 @@ Fungsi biasa adalah unit mesin paling serbaguna di Hub.
 - **`[[Construct]]`**: Menggunakan mesin sebagai cetakan (Template) untuk membangun unit mesin baru (`new`).
 - **`[[Environment]]`**: Kabel yang menghubungkan mesin ke gudang data tempat ia dilahirkan (Closure).
 
----
+## 🏗️ Function Engine Internals
 
-## 2. Aturan Pembanginan (Construction)
+```mermaid
+graph TD
+    Func[Function Object] --> Call["[[Call]] - Execute Body"]
+    Func --> Const["[[Construct]] - Create New Instance"]
+    Func --> Env["[[Environment]] - Closure Link"]
+    Func --> Proto["'prototype' - Blueprint Map"]
+```
+
+## 🔍 Mekanisme Operasional
 
 Sebuah mesin standar secara otomatis memiliki properti `.prototype`.
 Saat Anda memicu `new MyFunc()`:

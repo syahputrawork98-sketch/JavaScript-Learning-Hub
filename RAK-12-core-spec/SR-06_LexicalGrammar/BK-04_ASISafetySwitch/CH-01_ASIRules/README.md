@@ -10,9 +10,21 @@ Bayangkan kabel energi yang mengalir dari atas ke bawah. Tanpa sakelar (`;`), du
 - ASI adalah robot kecil yang berpatroli saat Parsing.
 - Jika robot melihat dua sinyal yang tidak mungkin disambungkan secara logika, dia akan langsung memasang sakelar `;` di sela-selanya.
 
----
+## 🏗️ The ASI Robot Logic
 
-## 2. Tiga Aturan Emas ASI
+```mermaid
+graph TD
+    S[Sinyal Baru] --> Parser{Legal Syntax?}
+    Parser -->|No| ASI{ASI Rules Apply?}
+    Parser -->|Yes| Next[Continue Parsing]
+    
+    ASI -->|Yes: LineTerminator/}/End| Insert[Insert ; and Retry]
+    ASI -->|No| Error[Throw SyntaxError]
+    
+    Insert --> Next
+```
+
+## 🔍 Prosedur Teknis
 
 1.  **Tabrakan Sinyal (The Offending Token)**: Jika token berikutnya menyebabkan kesalahan tata bahasa, Hub memasang `;`.
 2.  **Akhir Aliran (End of Stream)**: Jika sinyal habis, Hub otomatis menutupnya dengan `;`.

@@ -12,15 +12,21 @@ Bayangkan setiap kotak penyimpanan di Hub memiliki lubang di bagian bawah yang t
 
 ---
 
-## 2. Struktur Rantai (Scope Chain)
+## 🏗️ The Outer Link (Scope Chain)
 
-Di level spesifikasi, proses pencarian variabel (`ResolveBinding`) bekerja seperti ini:
-1.  Cek Environment Record saat ini.
-2.  Jika tidak ditemukan, pindah ke `envRec.[[OuterEnv]]`.
-3.  Ulangi sampai ditemukan atau `OuterEnv` bernilai `null`.
-4.  Jika `null`, Hub akan mengirim sinyal `ReferenceError`.
-
-![The Lexical Scope Chain](./assets/lexical_environment_chain.svg)
+```mermaid
+graph TD
+    Global[Global Env Record]
+    Outer[Outer Scope Record]
+    Local[Local Scope Record]
+    
+    Local -->|"[[OuterEnv]]"| Outer
+    Outer -->|"[[OuterEnv]]"| Global
+    
+    style Local fill:#2ecc71,color:#fff
+    style Outer fill:#f1c40f
+    style Global fill:#e74c3c,color:#fff
+```
 
 ---
 

@@ -17,7 +17,23 @@ Spesifikasi membagi gudang penyimpanan menjadi dua jenis utama:
 - **Declarative** adalah tempat rahasia yang tidak bisa disentuh langsung oleh kode Anda (kecuali melalui nama variabelnya).
 - **Object** bersifat transparan. Jika Anda membuat variabel `var` di global, Anda bisa melihatnya di `window.myVar`.
 
----
+## 🏗️ Record Comparison
+
+```mermaid
+graph LR
+    ER[Environment Record] --> DR[Declarative Record]
+    ER --> OR[Object Record]
+    
+    subgraph "Declarative (Modern)"
+        DR --> D1[let/const/class]
+        DR --> D2[Very Fast Performance]
+    end
+    
+    subgraph "Object (Legacy/Global)"
+        OR --> O1["Linked to window/global"]
+        OR --> O2[Dynamic/Slower]
+    end
+```
 
 ## 3. Praktik Lapangan (Lab)
 

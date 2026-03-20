@@ -10,6 +10,18 @@ Bayangkan sebuah detektor logam portabel di Hub.
 - **Pattern**: Bentuk logam yang Anda cari (misal: "angka").
 - **Flags**: Pengaturan detektor (misal: `g` untuk cari di seluruh area, `i` untuk tidak peduli ukuran besar/kecil).
 
+## 🏗️ The Regex Scanner Ambiguity
+
+```mermaid
+graph TD
+    Slash["Karakter '/' Terdeteksi"] --> Context{Parser Context}
+    Context -->|After Number/ID| Div[Division Punctuator]
+    Context -->|After =/return/yield| Reg[Regex Literal Start]
+    
+    Reg --> Scan[Scan until closing '/']
+    Scan --> Flags[Scan optional i, g, m flags]
+```
+
 ## 2. Kenapa Ini 'Eksotis' di Level Lexical?
 
 Regex literals unik karena penyaring Hub (Scanner) harus berhati-hati:

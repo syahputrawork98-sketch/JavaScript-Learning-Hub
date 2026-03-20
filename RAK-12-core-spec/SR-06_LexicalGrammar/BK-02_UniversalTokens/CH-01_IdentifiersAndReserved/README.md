@@ -9,7 +9,18 @@
 - **Identifiers**: Nama yang Anda buat sendiri. Harus dimulai dengan huruf, `$`, atau `_`. Unicode diizinkan (seperti `\u{...}`).
 - **Reserved Words**: Nama yang sudah "dipesan" oleh Hub untuk fungsi sistem internal (seperti `if`, `while`, `class`). Anda tidak boleh menggunakan nama ini untuk unit kustom Anda.
 
----
+## 🏗️ Token Classification
+
+```mermaid
+graph LR
+    Token[Word Token] --> Type{Reserved?}
+    Type -->|Yes| KW[Keyword: if, while, etc]
+    Type -->|No| ID[Identifier: User Variables]
+    
+    ID --> Valid{Valid Start?}
+    Valid -->|Letter/$/_| Success[Store in Env Record]
+    Valid -->|Digit| Fail[SyntaxError]
+```
 
 ## 2. Aturan Penamaan (The Lexical Rules)
 

@@ -11,9 +11,18 @@ Fisika dasar di JavaScript mengatakan bahwa mengubah properti tidak boleh mempen
 - Jika Anda memasukkan data ke indeks `100`, piston `length` akan otomatis terdorong ke posisi `101`.
 - Jika Anda menarik piston `length` kembali ke posisi `5`, semua data di indeks `5` ke atas akan dibuang secara paksa dari pipa.
 
----
+## 🏗️ The Length Piston
 
-## 2. Kenapa Ini 'Eksotis'?
+```mermaid
+graph TD
+    Input[Set Index >= Length] --> Prop{Exotic [[DefineOwnProperty]]}
+    Prop -->|Yes| Update[Update length = Index + 1]
+    Prop -->|Set Length| Truncate[Delete indices >= NewLength]
+    Update --> Exec[Store Data]
+    Truncate --> Exec
+```
+
+## 🔍 Mengapa Ini 'Eksotis'?
 
 Array disebut eksotis karena ia memodifikasi metode internal **`[[DefineOwnProperty]]`**.
 Saat Anda menulis `arr[10] = "A"`, secara internal Hub menjalankan logika:

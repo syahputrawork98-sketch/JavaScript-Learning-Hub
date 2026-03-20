@@ -13,13 +13,15 @@ Bayangkan sebuah tumpukan baki di kafetaria Hub.
 
 ---
 
-## 2. Alur Kerja Stack
+## 🏗️ The Context Stack (Call Stack)
 
-1.  **Global Context**: Baki pertama yang selalu ada di dasar tumpukan.
-2.  **Function Call**: Menumpuk baki baru setiap kali fungsi dipanggil.
-3.  **Stack Overflow**: Terjadi jika baki ditumpuk terus-menerus (misal: rekursi tanpa henti) hingga melampaui batas fisik rak Hub.
-
-![The Context Stack](./assets/execution_context_stack.svg)
+```mermaid
+stack
+    ["Context: Function C (Active)"]
+    ["Context: Function B"]
+    ["Context: Function A"]
+    ["Global Context (Base)"]
+```
 
 ---
 

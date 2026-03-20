@@ -23,6 +23,20 @@ Bayangkan seorang teknisi masuk ke ruangan Hub yang gelap dengan senter. Sebelum
 
 ---
 
+## 🏗️ The Hoisting Lifecycle
+
+```mermaid
+graph TD
+    Static["Static Analysis (Creation Phase)"] --> Scan[Scan for var/function/let/const]
+    Scan --> Reg[Register in Environment Record]
+    Reg --> Init{Type Check}
+    Init -->|var| Undef[Initialize as undefined]
+    Init -->|function| Body[Initialize with Body]
+    Init -->|let/const| TDZ[Uninitialized - TDZ]
+    
+    Static --> Exec[Execution Phase]
+```
+
 ## 3. Praktik Lapangan (Lab)
 
 ```javascript

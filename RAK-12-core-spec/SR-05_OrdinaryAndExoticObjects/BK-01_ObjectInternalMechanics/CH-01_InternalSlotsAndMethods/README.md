@@ -1,40 +1,55 @@
-# Bab 01: Internal Slots & Methods (Operasi Rahasia)
+# CH-01: Essential Internal Methods (The Basic Operations)
 
-Setiap objek di JavaScript bukan sekadar "kantong data". Di balik layar, *Engine* memperlakukan objek sebagai entitas yang memiliki perilaku otomatis. Perilaku ini dijalankan melalui **Internal Methods** seperti `[[Get]]` dan `[[Put]]` (Clause 10.1 pada ECMA-262), yang biasanya tidak bisa kita akses langsung tapi bisa kita rasakan efeknya.
+> **"Setiap mesin di Hub, tidak peduli seberapa kompleksnya, harus mematuhi serangkaian instruksi dasar. `Essential Internal Methods` adalah 'Operasi Dasar' (The Basic Operations) — 13 algoritma fundamental yang mendefinisikan bagaimana sebuah objek berinteraksi dengan sirkuit Grid."**
 
-## Sistem Analogi (Mental Model)
+*Pemetaan ECMA-262: Clause 10.1 (Essential Internal Methods)*
 
-> **Analogi Singkat:**  
-> **Object** adalah **Mesin Penjual Otomatis (Vending Machine)**. Kamu tidak bisa melihat kabel atau motor di dalamnya. Kamu hanya menekan tombol (titik `.`). Di dalam mesin, sebuah robot kecil bernama **`[[Get]]`** akan bangun, mencari barang yang kamu minta, dan menyerahkannya padamu. Jika barangnya tidak ada, robot itu akan naik ke lantai atas (Prototype) untuk mencarinya lagi.
+## 🏗️ Internal Methods Bridge
 
-> **Analogi Panjang (Resepsionis Hotel):**  
-> Bayangkan kamu berinteraksi dengan sebuah Hotel (Object).
-> - **Internal Method `[[Get]]`**: Saat kamu bertanya "Di mana kunci kamar 302?", resepsionis menjalankan prosedur internal: Cek daftar tamu -> Jika ada, berikan kunci -> Jika tidak ada, cek apakah ada catatan khusus (Properti di prototype). Prosedur ini otomatis dan tersembunyi.
-> - **Internal Method `[[Put]]`**: Saat kamu menitipkan barang, resepsionis menjalankan prosedur: Cek apakah tempat penyimpanan tersedia -> Jika ya, simpan dan beri label -> Jika sudah ada barang yang sama, ganti dengan yang baru.
-> - **Internal Slots**: Seperti brankas rahasia di belakang meja resepsionis yang hanya bisa dibuka oleh staf hotel (Engine). Kamu tahu brankas itu ada (misal: slot `[[Prototype]]`), tapi kamu tidak punya kuncinya.
+```mermaid
+graph TD
+    JS["JS Syntax (obj.prop)"] --> Bridge{Engine Bridge}
+    Bridge -->|Ordinary| Standard["Standard Algorithms (Ordinary)"]
+    Bridge -->|Exotic| Custom["Overridden Algorithms (Array, Proxy, etc)"]
+    
+    subgraph "The 13 Standard Traps"
+        Standard --> G["[[Get]]"]
+        Standard --> S["[[Set]]"]
+        Standard --> H["[[HasProperty]]"]
+        Standard --> D["[[Delete]]"]
+        Standard --> DF["[[DefineOwnProperty]]"]
+        Standard --> etc[...]
+    end
+```
+
+## 1. Mental Model: "The Basic Operations"
+
+Bayangkan setiap objek adalah sebuah unit mesin yang memiliki panel kontrol tersembunyi dengan 13 tombol standar.
+- **`[[Get]]`**: Tombol untuk mengambil daya dari slot tertentu.
+- **`[[Set]]`**: Tombol untuk mengisi daya ke slot.
+- **`[[HasProperty]]`**: Sensor untuk mengecek apakah sebuah slot terpasang.
+- **`[[Delete]]`**: Alat untuk mencabut slot secara permanen.
+
+Mesin **Ordinary** menggunakan algoritma standar untuk 13 tombol ini. Mesin **Exotic** mungkin memodifikasi satu atau lebih tombol (misal: tombol `[[Set]]` pada Array juga akan menggerakkan piston `length`).
 
 ---
 
-## Apa itu Internal Methods?
+## 2. 13 Tombol Kendali (Penyederhanaan)
 
-Internal methods adalah "algoritma internal" yang dipanggil oleh *Engine* saat kamu melakukan operasi dasar pada objek. Beberapa yang paling penting adalah:
+1.  `[[GetPrototypeOf]]`: Siapa arsitek dasar mesin ini?
+2.  `[[SetPrototypeOf]]`: Ganti arsitek dasar.
+3.  `[[IsExtensible]]`: Apakah mesin ini boleh ditambah slot baru?
+4.  `[[PreventExtensions]]`: Kunci mesin agar tidak bisa ditambah slot lagi.
+5.  `[[GetOwnProperty]]`: Cek slot spesifik di permukaan mesin ini.
+6.  `[[DefineOwnProperty]]`: Pasang slot baru dengan aturan ketat.
+7.  `[[HasProperty]]`: Scanner keberadaan slot (termasuk dari arsitek).
+8.  `[[Get]]`: Ambil nilai dari slot.
+9.  `[[Set]]`: Masukkan nilai ke slot.
+10. `[[Delete]]`: Hapus slot.
+11. `[[OwnPropertyKeys]]`: Daftar semua nama slot yang terpasang.
+12. `[[Call]]`: Jalankan mesin (Hanya untuk unit Fungsi).
+13. `[[Construct]]`: Gunakan mesin sebagai cetakan untuk unit baru.
 
-| Method | Kapan Dipanggil? | Tugas Utama |
-| :--- | :--- | :--- |
-| **`[[Get]]`** | `obj.prop` atau `obj['prop']` | Mengambil nilai properti. Jika tidak ada, ia menelusuri rantai prototype. |
-| **`[[Put]]`** | `obj.prop = value` | Menyimpan atau mengubah nilai properti. |
-| **`[[HasProperty]]`** | `'prop' in obj` | Mengecek apakah objek (atau prototipenya) memiliki properti tersebut. |
-| **`[[Delete]]`** | `delete obj.prop` | Menghapus properti dari objek. |
-
-## Apa itu Internal Slots?
-
-**Internal Slots** (ditulis dengan kurung siku ganda, misal `[[Prototype]]`) adalah variabel internal yang menyimpan status objek. Mereka bukan properti biasa dan tidak bisa diakses via `for...in` atau `Object.keys()`.
-- Contoh: `[[Prototype]]` menyimpan referensi ke objek induk.
-- Contoh: `[[Extensible]]` menyimpan status apakah objek boleh ditambah properti baru atau tidak.
-
-## Mengapa Arsitek Harus Peduli?
-
-Memahami operasi rahasia ini adalah kunci untuk menguasai topik lanjutan seperti **Getters/Setters**, **Proxy**, dan **Object Inheritance**. Kamu tidak lagi melihat `obj.a` sebagai hal yang sederhana, melainkan sebagai sebuah pemanggilan fungsi internal engine yang kompleks.
-
-## Contoh Eksekusi
-Lihat bagaimana kita bisa "merasakan" kehadiran `[[Get]]` dan `[[Put]]` melalui *Accessors* pada folder [examples/](./examples/).
+---
+*Lihat Lab: [Eksperimen Mekanik Internal](./examples/)*  
+*Kembali ke [BK-01](../README.md)*

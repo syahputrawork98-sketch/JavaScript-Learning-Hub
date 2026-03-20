@@ -9,9 +9,18 @@
 - **Agent**: Seperti seorang teknisi tunggal yang bertugas menjalankan Call Stack. Satu teknisi hanya bisa mengerjakan satu baki dalam satu waktu.
 - **Job (Microtask)**: Seperti catatan kecil yang ditempelkan di pinggiran baki. Teknisi harus menyelesaikan semua catatan kecil ini SEBELUM dia boleh mengambil baki baru dari luar (Event Loop).
 
----
+## 🏗️ The Micro-Scheduler Flow
 
-## 2. Antrean Pekerjaan (Job Queue)
+```mermaid
+graph TD
+    Stack[Call Stack Empty?] -->|Yes| Jobs{Jobs in Queue?}
+    Jobs -->|Yes| Run[Execute All PromiseJobs]
+    Run --> Jobs
+    Jobs -->|No| Task[Wait for Event Loop Task]
+    Task --> Stack
+```
+
+## 🔍 Mekanisme Operasional
 
 Dalam spesifikasi, ada dua antrean utama:
 1.  **ScriptJobs**: Untuk menjalankan blok kode skrip baru.

@@ -10,9 +10,21 @@ Bayangkan Hub memiliki beberapa ruangan kedap suara.
 - **Setiap Realm memiliki**: Global Object-nya sendiri, satu set intrinsik (seperti `Array.prototype` asli), dan kode yang dieksekusi di dalamnya.
 - **Isolasi**: Array yang lahir di Ruangan A bukan merupakan `instanceof Array` di Ruangan B. Mereka menggunakan "cetakan" yang berbeda meskipun namanya sama.
 
----
+## 🏗️ Realm Components
 
-## 2. Komponen Realm
+```mermaid
+graph LR
+    Realm[Realm Object] --> Int["[[Intrinsics]]"]
+    Realm --> GO["[[GlobalObject]]"]
+    Realm --> GE["[[GlobalEnv]]"]
+    
+    subgraph "Isolasi"
+        Int --> ArrayP["Array.prototype"]
+        Int --> ObjectP["Object.prototype"]
+    end
+```
+
+## 🔍 Mekanisme Operasional
 
 Sebuah Realm di Hub terdiri dari:
 1.  **`[[Intrinsics]]`**: Semua objek bawaan standar yang sudah terpasang.
