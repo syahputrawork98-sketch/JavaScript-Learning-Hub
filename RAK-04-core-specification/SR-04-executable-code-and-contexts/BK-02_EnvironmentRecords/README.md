@@ -1,17 +1,22 @@
-# Buku 02: Environment Records (The Variable Ledger)
+# BK-02: Environment Records (Clause 9.1)
 
-Buku ini membedah mekanisme internal yang digunakan JavaScript untuk menyimpan variabel, fungsi, dan binding `this`. **Environment Record** adalah fondasi dari apa yang kita kenal sebagai "Scope".
+> **"Buku Alamat Internal Hub."**
 
-## 🏗️ Peta Jalan Scope
-
-Environment Record bukan sekadar objek JSON biasa; ini adalah abstraksi spesifikasi yang memiliki struktur hierarkis:
-
-1.  **[Bab 01: Declarative & Object Records](./CH-01_DeclarativeAndObjectRecords/)**: Perbedaan antara variabel modern (`let`/`const`) dan binding objek global.
-2.  **[Bab 02: Function Environments](./CH-02_FunctionEnvironments/)**: Bagaimana argumen dan `super` dikelola di dalam fungsi.
-3.  **[Bab 03: The Outer Link](./CH-03_TheOuterLink/)**: Mekanisme rantai scope (*Scope Chain*) yang menghubungkan satu lingkungan ke lingkungan luar.
-
-## 🔍 Mengapa Ini Penting?
-Memahami Environment Records memungkinkan kita memahami secara teknis mengapa variabel bisa diakses di satu tempat tapi tidak di tempat lain, serta bagaimana *closures* mempertahankan akses ke memori meskipun fungsi induknya sudah selesai dieksekusi.
+Buku ini membedah **Environment Records**, yaitu struktur data spesifikasi yang digunakan untuk mengelola pemetaan variabel dan fungsi di dalam lingkup (scope) kode JavaScript.
 
 ---
-*Status: Gold Standard Upgrade in Progress*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: The Environment Hierarchy](./CH-01_EnvironmentHierarchy/)**
+  - Declarative vs Object Records, Function environments, dan rantai Outer Link (Scope Chain).
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami perbedaan antara penyimpanan variabel `let/const` (Declarative) dan `var` (Object).
+2. Menguasai mekanisme pencarian variabel melalui `[[OuterEnv]]`.
+3. Mengenali peranan `Global Environment Record` sebagai akar dari seluruh sirkuit scope.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-04](../README.md)*

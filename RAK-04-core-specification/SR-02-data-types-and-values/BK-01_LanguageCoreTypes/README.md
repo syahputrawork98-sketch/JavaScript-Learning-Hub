@@ -1,24 +1,28 @@
-# Buku 01: Language Core Types
+# BK-01: Language Core Types (Clause 6.1)
 
-*Pemetaan ECMA-262: Clause 6.1 (Excluding Numeric Types)*
+> **"Bahan Dasar Pembentuk Energi di dalam Grid."**
 
-Buku ini membedah tipe data inti yang dapat dimanipulasi langsung oleh pengembang JavaScript, berdasarkan definisi formal di spesifikasi.
-
-## Daftar Isi Bab (Spec-Mapped)
-
-1.  **[CH-01_LanguageTypesOverview](./CH-01_LanguageTypesOverview/)**: Gambaran umum 8 tipe data bahasa.
-2.  **[CH-02_UndefinedType](./CH-02_UndefinedType/)**: Himpunan dengan satu nilai: `undefined`.
-3.  **[CH-03_NullType](./CH-03_NullType/)**: Himpunan dengan satu nilai: `null`.
-4.  **[CH-04_BooleanType](./CH-04_BooleanType/)**: Logika `true` dan `false`.
-5.  **[CH-05_StringType](./CH-05_StringType/)**: Urutan kode Unicode 16-bit.
-6.  **[CH-06_StringSearchOps](./CH-06_StringSearchOps/)**: Algoritma StringIndexOf dan StringLastIndexOf.
-7.  **[CH-07_SymbolType](./CH-07_SymbolType/)**: Nilai unik untuk properti objek.
-8.  **[CH-08_WellKnownSymbols](./CH-08_WellKnownSymbols/)**: Simbol spesial yang digunakan oleh internal spec.
-9.  **[CH-09_ObjectTypeOverview](./CH-09_ObjectTypeOverview/)**: Definisi dasar objek sebagai koleksi properti.
-10. **[CH-10_PropertyAttributes](./CH-10_PropertyAttributes/)**: State internal properti (Writable, Enumerable, Configurable).
-11. **[CH-11_InternalMethodsAndSlots](./CH-11_InternalMethodsAndSlots/)**: Rahasia `[[...]]` pada objek.
-12. **[CH-12_InternalMethodInvariants](./CH-12_InternalMethodInvariants/)**: Aturan yang tidak boleh dilanggar oleh internal method.
-13. **[CH-13_WellKnownIntrinsics](./CH-13_WellKnownIntrinsics/)**: Objek bawaan yang dikunci oleh spesifikasi.
+Buku ini membedah semua tipe data utama yang tersedia bagi pengembang JavaScript, mulai dari primitif sederhana hingga struktur objek yang kompleks dan metode internal yang mengaturnya.
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Primitive Types Basics](./CH-01_PrimitiveTypesBasics/)**
+  - Undefined, Null, dan Boolean: Fondasi logika Hub.
+- **[CH-02: String and Text Processing](./CH-02_StringAndTextProcessing/)**
+  - Manipulasi teks dan operasi pencarian internal.
+- **[CH-03: Symbols and Global Metadata](./CH-03_SymbolsAndGlobalMetadata/)**
+  - Penggunaan Symbol dan Well-Known Symbols untuk metadata sistem.
+- **[CH-04: Object Infrastructure](./CH-04_ObjectInfrastructure/)**
+  - Atribut properti, Internal Methods, dan Invarian objek.
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami perbedaan fundamental antara Tipe Primitif dan Objek.
+2. Menguasai mekanisme Internal Slots `[[...]]` yang menyimpan status objek.
+3. Mengenali perilaku sakral Internal Method Invariants yang menjamin integritas data.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*

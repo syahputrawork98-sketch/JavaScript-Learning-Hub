@@ -1,20 +1,24 @@
-# Buku 01: Type Conversion (Coercion)
+# BK-01: Type Conversion (Clause 7.1)
 
-Buku ini membahas secara mendalam tentang mekanisme **Type Conversion** (sering disebut *Coercion*) di JavaScript berdasarkan definisi *Abstract Operations* pada spesifikasi ECMA-262 (Clause 7). 
+> **"Transformasi Energi antar Sirkuit."**
 
-Berbeda dengan bahasa *strongly-typed* ortodoks yang menolak operasi antar tipe data yang berbeda, JavaScript dirancang dengan filosofi fleksibilitas tinggi. *Engine* JavaScript (seperti V8) akan berusaha sekuat tenaga mengonversi nilai (*Value*) menjadi tipe data yang dibutuhkan oleh operator sebelum menyerah dan melempar *Error*.
+Buku ini membedah sirkuit **Abstract Operations** yang bertanggung jawab untuk mengubah satu tipe data ke tipe lainnya secara otomatis (Implicit Coercion) atau manual di dalam Hub.
 
-## Mengapa Mempelajari Ini?
-Memahami operasi abstrak seperti `ToNumber`, `ToString`, dan `ToBoolean` adalah pembeda utama antara pembuat *bug* dan *Senior Architect*. Kesalahan dalam mengevaluasi konversi implisit (seperti `[] + {}` atau `0 == false`) sering menjadi sumber insiden fatal di tahap produksi.
+---
 
-## Daftar Bab (Penyusun Mental Model)
+## 🏗️ Struktur Bab (Gold Standard)
 
-Sepanjang buku ini, kita akan membedah operasi konversi utama:
+- **[CH-01: Primitive Conversions](./CH-01_PrimitiveConversions/)**
+  - Transformasi ke Number, String, dan Boolean.
+- **[CH-02: Complex Conversions](./CH-02_ComplexConversions/)**
+  - Mekanisme ToPrimitive dan ToObject untuk struktur data kompleks.
 
-1. **[Bab 01: Mekanika ToNumber (Konversi Numerik)](./CH-01_ToNumberMechanics/)**
-2. **[Bab 02: Mekanika ToString (Representasi Teks)](./CH-02_ToStringMechanics/)**
-3. **[Bab 03: Mekanika ToBoolean (Gerbang Logika)](./CH-03_ToBooleanMechanics/)**
+---
 
-## Prasyarat Pembaca
-Sebelum menyelami buku ini, pastikan Anda telah menyelesaikan:
-- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami representasi memori dari *String*, *Number*, dll.
+## 🎯 Fokus Pembelajaran
+1. Memahami algoritma `ToNumber` dan bagaimana ia menangani string/objek.
+2. Menguasai urutan "Hint" dalam operasi `ToPrimitive`.
+3. Mengenali perilaku Hub saat mencoba mengubah `null` atau `undefined` menjadi Objek.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-03](../README.md)*

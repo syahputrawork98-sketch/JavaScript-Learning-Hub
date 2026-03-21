@@ -1,14 +1,24 @@
-# Buku 03: Realms and Agents (The Grid Zones)
+# BK-03: Realms and Agents (Clause 9.5-9.9)
 
-Buku ini mengeksplorasi batas-batas terluar dari eksekusi kode. **Realms** dan **Agents** menentukan di mana kode hidup, bagaimana ia diisolasi dari kode lain, dan bagaimana ia dijadwalkan untuk berjalan.
+> **"Wilayah Kekuasaan dan Pekerja Hub."**
 
-## 🏗️ Struktur Infrastruktur
-
-1.  **[Bab 01: Global Realms](./CH-01_GlobalRealms/)**: Zona isolasi yang memiliki set objek intrinsik dan objek globalnya sendiri (misal: satu `iframe` adalah satu Realm).
-2.  **[Bab 02: Agents & Jobs](./CH-02_AgentsAndJobs/)**: Entitas yang memiliki thread eksekusi sendiri dan bagaimana *Job Queue* (Microtasks) dikelola.
-
-## 🔍 Arsitek Insight
-Bagi pengembang tingkat lanjut, memahami Realms sangat krusial saat bekerja dengan plugin, sandbox, atau komunikasi antar-frame. Sementara itu, pemahaman tentang Agents dan Jobs adalah kunci untuk menguasai asinkronitas dan performa concurrency di JavaScript.
+Buku ini membedah unit organisasi tingkat tertinggi di ECMAScript: **Realms** (wadah sumber daya) dan **Agents** (entitas yang mengeksekusi kode).
 
 ---
-*Status: Gold Standard Upgrade in Progress*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Execution Realms and Intrinsics](./CH-01_RealmsAndIntrinsics/)**
+  - Wilayah isolasi dan daftar objek bawaan (Intrinsics).
+- **[CH-02: Agents and Job Queues](./CH-02_AgentsAndJobs/)**
+  - Entitas eksekusi dan antrean tugas (Event Loop logic).
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami bagaimana `iframe` atau `worker` memiliki **Realm** yang berbeda.
+2. Mengenali **Intrinsics** sebagai "Perpustakaan Dasar" yang selalu tersedia di Hub.
+3. Menguasai alur **Job Queues** yang mengelola tugas mikro (Promise) dan makro.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-04](../README.md)*

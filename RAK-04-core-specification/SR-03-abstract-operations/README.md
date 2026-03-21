@@ -1,24 +1,27 @@
-# SR-03: Abstract Operations (The Base Machinery)
+# SR-03: Abstract Operations (The Engine Logic)
 
-> **"Di dalam Grid, terkadang energi harus berubah wujud agar bisa mengalir antar komponen. `Abstract Operations` adalah 'Mesin Dasar' (The Base Machinery) — algoritma internal yang mengatur konversi tipe dan pengujian kesetaraan di seluruh Hub."**
+> **"Logika internal yang menggerakkan seluruh sirkuit Hub. SR-03 membedah 'Operasi Abstrak' (The Engine Logic)—algoritma tingkat rendah yang melakukan konversi, perbandingan, dan manipulasi objek."**
 
-*Pemetaan ECMA-262: Clause 7 (Abstract Operations)*
-
-## 📚 Daftar Buku
-
-1.  **[BK-01_TypeConversion](./BK-01_TypeConversion/)**: Mekanisme koersi (ToNumber, ToString, ToBoolean).
-2.  **[BK-02_TestingAndComparison](./BK-02_TestingAndComparison/)**: Algoritma perbandingan (Strict vs Loose Equality).
-3.  **[BK-03_ObjectOperations](./BK-03_ObjectOperations/)**: Operasi tingkat tinggi pada unit objek (Get, Set, HasProperty).
-
-## 🧪 Laboratorium Operasional
-- [Type Conversion & Transmutation](./BK-01_TypeConversion/CH-04_ToPrimitive/examples/transmutation_lab.js)
-- [Equality Sensors (== vs ===)](./BK-02_TestingAndComparison/examples/equality_sensors_lab.js)
-- [Object Operations Lab](./BK-03_ObjectOperations/examples/object_ops_lab.js)
-
-## 📊 Visualisasi Arsitektur
-- [Type Conversion Chamber](./BK-01_TypeConversion/CH-04_ToPrimitive/assets/type_conversion_chamber.svg)
-- [Equality Decision Tree](./BK-02_TestingAndComparison/assets/equality_decision_tree.svg)
-- [Property Access Piston](./BK-03_ObjectOperations/CH-01_GetVAndGet/assets/property_access_piston.svg)
+**Source Hub**: 
+- [ECMA-262: Abstract Operations](https://tc39.es/ecma262/#sec-abstract-operations)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 3 Pillars of Engine Logic
+
+```mermaid
+graph TD
+    P1["BK-01: Transformation (Conversion)"] --> Core["Internal Logic"]
+    P2["BK-02: Verification (Testing)"] --> Core
+    P3["BK-03: Manipulation (Object Ops)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Type Conversion](./BK-01_TypeConversion/)**: Algoritma `ToNumber`, `ToString`, dan `ToPrimitive`.
+2.  **[BK-02: Testing and Comparison](./BK-02_TestingAndComparison/)**: Algoritma `SameValue` dan `Strict Equality`.
+3.  **[BK-03: Object Operations](./BK-03_ObjectOperations/)**: Operasi fundamental `Get`, `Set`, dan `HasProperty`.
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

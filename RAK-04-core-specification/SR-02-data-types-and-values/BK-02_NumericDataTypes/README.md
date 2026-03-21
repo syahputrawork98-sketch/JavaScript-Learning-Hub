@@ -1,25 +1,26 @@
-# Buku 02: Numeric Data Types
+# BK-02: Numeric Data Types (Clause 6.1.6)
 
-*Pemetaan ECMA-262: Clause 6.1.6 (Numeric Types)*
+> **"Aritmetika dan Presisi di dalam Grid."**
 
-Buku ini membedah dunia angka di JavaScript secara absolut, mulai dari presisi IEEE 754 hingga matematika arbitrer pada BigInt.
-
-## Daftar Isi Bab (Spec-Mapped)
-
-1.  **[CH-01_NumericTypesOverview](./CH-01_NumericTypesOverview/)**: Mengapa JS punya dua tipe numerik?
-2.  **[CH-02_NumberType](./CH-02_NumberType/)**: Format 64-bit binary floating point.
-3.  **[CH-03_NumberUnaryBitwiseOps](./CH-03_NumberUnaryBitwiseOps/)**: UnaryMinus dan bitwiseNOT.
-4.  **[CH-04_NumberExponentiateMultiply](./CH-04_NumberExponentiateMultiply/)**: Algoritma perkalian dan perpangkatan.
-5.  **[CH-05_NumberDivideRemainder](./CH-05_NumberDivideRemainder/)**: Sisa bagi dan pembagian spec.
-6.  **[CH-06_NumberAddSubtract](./CH-06_NumberAddSubtract/)**: Penjumlahan dan pengurangan numerik.
-7.  **[CH-07_NumberBitwiseShiftOps](./CH-07_NumberBitwiseShiftOps/)**: LeftShift, Signed, dan Unsigned Right Shift.
-8.  **[CH-08_NumberComparisonOps](./CH-08_NumberComparisonOps/)**: Bagaimana `lessThan` bekerja secara formal?
-9.  **[CH-09_NumberEqualityOps](./CH-09_NumberEqualityOps/)**: Perbedaan formal `equal`, `sameValue`, dan `sameValueZero`.
-10. **[CH-10_NumberBitwiseOp](./CH-10_NumberBitwiseOp/)**: Logika internal Bitwise AND, OR, XOR.
-11. **[CH-11_BigIntType](./CH-11_BigIntType/)**: Representasi angka bulat tanpa batas presisi.
-12. **[CH-12_BigIntUnaryBitwiseOps](./CH-12_BigIntUnaryBitwiseOps/)**: Operasi bitwise khusus BigInt.
-13. **[CH-13_BigIntArithmeticOps](./CH-13_BigIntArithmeticOps/)**: Perhitungan matematika pada BigInt.
-14. **[CH-14_MathematicalValues](./CH-14_MathematicalValues/)**: Perbedaan antara nilai komputer dan nilai matematika abstrak.
+Buku ini membedah dua tipe data numerik utama dalam JavaScript: **Number** (64-bit Floating Point) dan **BigInt** (Arbitrary Precision), serta bagaimana Hub mengelola operasi matematika pada keduanya.
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: The Number Type (IEEE 754)](./CH-01_TheNumberType/)**
+  - Pemahaman mendalam tentang desimal 64-bit, NaN, Infinity, dan presisi.
+- **[CH-02: The BigInt Type](./CH-02_TheBigIntType/)**
+  - Mengelola angka bulat besar tanpa batas presisi.
+- **[CH-03: Bitwise and Binary Operations](./CH-03_BitwiseAndBinaryOps/)**
+  - Manipulasi level rendah (AND, OR, XOR, Shifts) pada sistem angka Hub.
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami keterbatasan presisi IEEE 754 pada tipe `Number`.
+2. Mengetahui kapan harus menggunakan `BigInt` untuk perhitungan integer murni.
+3. Menguasai operasi Bitwise sebagai cara tercepat memanipulasi status sirkuit.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*

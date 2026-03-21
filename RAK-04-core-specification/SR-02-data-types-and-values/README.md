@@ -1,13 +1,28 @@
-# SR-02: Data Types and Values (The Energy Units)
+# SR-02: Data Types and Values (The Fuel)
 
-*Pemetaan ECMA-262: Clause 6*
+> **"Bahan bakar yang menggerakkan seluruh sirkuit Grid. SR-02 membedah 'Tipe Data dan Nilai' (The Fuel)—spesifikasi teknis dari setiap unit informasi yang diproses di dalam Hub."**
 
-Fase ini membedah representasi data di JavaScript. Mempelajari tipe data *Language* dan tipe data *Specification*, serta cara *Engine* mengelola nilai-nilai tersebut secara internal.
-
-## Buku Utama
-1. **[BK-01_LanguageCoreTypes](./BK-01_LanguageCoreTypes/)**: Membedah Undefined, Null, Boolean, String, Symbol, dan landasan Object.
-2. **[BK-02_NumericDataTypes](./BK-02_NumericDataTypes/)**: Fokus pada Number (IEEE 754), BigInt, dan Matematika Spesifikasi.
-3. **[BK-03_SpecificationDataTypes](./BK-03_SpecificationDataTypes/)**: Memahami meta-values internal (Records, Lists, Completion Record).
+**Source Hub**: 
+- [ECMA-262: Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
+- [MDN: JavaScript Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 3 Pillars of Data Architecture
+
+```mermaid
+graph TD
+    P1["BK-01: Language Types (Core)"] --> Core["Data Mastery"]
+    P2["BK-02: Numeric Types (Precision)"] --> Core
+    P3["BK-03: Spec Types (Meta)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Language Core Types](./BK-01_LanguageCoreTypes/)**: Primitif dasat (Undefined, Null, Boolean, String, Symbol) dan Objektor.
+2.  **[BK-02: Numeric Data Types](./BK-02_NumericDataTypes/)**: Detil teknis Number (IEEE 754) dan BigInt.
+3.  **[BK-03: Specification Data Types](./BK-03_SpecificationDataTypes/)**: Tipe meta internal spek (List, Record, Completion, Reference).
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

@@ -1,33 +1,28 @@
-# Buku 03: Specification Data Types
+# BK-03: Specification Data Types (Clause 6.2)
 
-*Pemetaan ECMA-262: Clause 6.2 (Specification Types)*
+> **"Alat Bantu Arsitek di balik Operasi Hub."**
 
-## Mental Model: "Indikator Internal Hub" (The Internal Gauges)
-Bayangkan Anda membuka panel kontrol rahasia di dalam Hub. Anda melihat berbagai indikator (Gauges), baki penyimpanan internal (Records), dan sensor status (Completion Records) yang tidak pernah dilihat oleh teknisi luar.
-- **Records**: Baki penyimpanan statis untuk mengelompokkan data internal.
-- **Lists**: Saluran aliran data yang berurutan.
-- **Completion Records**: Sensor yang memberitahu mesin apakah sebuah sirkuit baru saja selesai dijalankan, mengalami malfungsi (Throw), atau diputus sengaja (Return).
-Memahami unit-unit internal ini adalah syarat mutlak untuk membaca blueprint (Spesifikasi) resmi dari TC39.
-
-## Daftar Isi Bab (Spec-Mapped)
-
-1.  **[CH-01_SpecificationTypesOverview](./CH-01_SpecificationTypesOverview/)**: Apa itu Meta-values?
-2.  **[CH-02_EnumType](./CH-02_EnumType/)**: Himpunan nilai konstan dalam spec.
-3.  **[CH-03_ListAndRecord](./CH-03_ListAndRecord/)**: Struktur data fundamental spesifikasi.
-4.  **[CH-04_SetAndRelation](./CH-04_SetAndRelation/)**: Operasi himpunan pada spec.
-5.  **[CH-05_CompletionRecord](./CH-05_CompletionRecord/)**: Bagaimana spec menangani Return, Continue, Break, dan Error.
-6.  **[CH-06_CompletionOps](./CH-06_CompletionOps/)**: NormalCompletion, ThrowCompletion, dan UpdateEmpty.
-7.  **[CH-07_ReferenceRecord](./CH-07_ReferenceRecord/)**: Rahasia di balik variabel dan properti.
-8.  **[CH-08_ReferenceRecordOps](./CH-08_ReferenceRecordOps/)**: GetValue, PutValue, dan IsPrivateReference.
-9.  **[CH-09_PropertyDescriptor](./CH-09_PropertyDescriptor/)**: Struktur internal untuk atribut properti.
-10. **[CH-10_EnvironmentRecords](./CH-10_EnvironmentRecords/)**: Bagaimana scope disimpan secara internal.
-11. **[CH-11_AbstractClosures](./CH-11_AbstractClosures/)**: Definisi formal dari fungsi anonim internal.
-12. **[CH-12_DataBlocks](./CH-12_DataBlocks/)**: Array buffer tingkat rendah (Byte data).
-13. **[CH-13_DataBlockOps](./CH-13_DataBlockOps/)**: CreateByteDataBlock dan CopyDataBlockBytes.
-14. **[CH-14_PrivateElement](./CH-14_PrivateElement/)**: Komponen kelas private.
-15. **[CH-15_ClassFieldDefinition](./CH-15_ClassFieldDefinition/)**: Definisi field pada kelas.
-16. **[CH-16_PrivateNames](./CH-16_PrivateNames/)**: Mekanisme identitas nama private.
-17. **[CH-17_ClassStaticBlockDefinition](./CH-17_ClassStaticBlockDefinition/)**: Blok statis pada kelas.
+Buku ini membedah tipe data meta (**Specification Types**) yang digunakan oleh para engineer ECMA untuk mendefinisikan perilaku JavaScript. Tipe-tipe ini tidak pernah muncul di dalam kode JavaScript Anda, namun mereka adalah mesin yang menggerakkan segalanya.
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Spec Collections and Structs](./CH-01_SpecCollectionsAndStructs/)**
+  - List, Record, Enum, dan Set: Struktur data internal spesifikasi.
+- **[CH-02: Control Flow Records](./CH-02_ControlFlowRecords/)**
+  - Completion Record: Bagaimana Hub melaporkan sukses atau gagal.
+- **[CH-03: Reference and Property Specs](./CH-03_ReferenceAndPropertySpecs/)**
+  - Reference Record dan Property Descriptors: Dasar dari pencarian variabel dan akses properti.
+- **[CH-04: Advanced Spec Components](./CH-04_AdvancedSpecComponents/)**
+  - Data Blocks, Environment Records, dan Abstract Closures.
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami perbedaan antara Language Types (yang bisa Anda gunakan) dan Specification Types (internal).
+2. Menguasai konsep "Unwrapping" pada Completion Records dan Reference Records.
+3. Mengenali bagaimana "Data Blocks" mengelola memori biner mentah di balik sirkuit Hub.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*
