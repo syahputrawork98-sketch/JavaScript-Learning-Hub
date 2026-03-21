@@ -1,5 +1,5 @@
 # Rak 04: Core Specification
-*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 98% - SR-01 to SR-05 Gold Standard)*
+*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 100% - SR-01 to SR-12 Gold Standard)*
  (The Brain Pillars)
 
 *Level: Practitioner/Architect*
