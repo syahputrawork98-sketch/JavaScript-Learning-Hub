@@ -1,28 +1,28 @@
-# BK-03: Spec Algorithm Conventions (Clause 5.2)
+# BK-03: Spec Algorithm Conventions (Clause 5.2 - 6.2)
 
-> **"Membongkar Logika di balik Blueprint."**
+> **"Logika di Balik Blueprint Hub."**
 
-Setelah memahami notasi tata bahasa, Buku 03 akan membedah bagaimana algoritma dalam spesifikasi dieksekusi, bagaimana nilai dikembalikan, dan bagaimana matematika spesifikasi bekerja.
+Buku ini membedah bagaimana algoritma dalam spesifikasi dieksekusi, bagaimana Hub melacak status keberhasilan (Completion Records), dan sistem matematika internal yang menjamin presisi setiap sirkuit.
 
 ---
 
 ## 🏗️ Struktur Bab (Gold Standard)
 
-- **[CH-01: Evaluation and Runtime](./CH-01_EvaluationAndRuntime/)**
-  - Urutan evaluasi, Abstract Operations, dan Syntax-Directed Operations.
-- **[CH-02: Completion Records](./CH-02_CompletionRecords/)**
-  - Alur pengembalian nilai, pengecualian (Throw), dan Normal Completion.
-- **[CH-03: Static Semantics](./CH-03_StaticSemantics/)**
-  - Aturan deteksi kesalahan dini (Early Errors) sebelum eksekusi dimulai.
-- **[CH-04: Mathematical Operations](./CH-04_MathematicalOperations/)**
-  - Matematika spesifikasi, notasi nilai, dan konsep identitas.
+- **[CH-01: Abstract Operations and Evaluation](./CH-01_EvaluationLogic/)**
+  - Urutan evaluasi, operasi abstrak, dan navigasi langkah-demi-langkah.
+- **[CH-02: Completion Records and Errors](./CH-02_CompletionRecords/)**
+  - Alur pengembalian nilai, pengecualian (Throw), dan mekanisme `ReturnIfAbrupt`.
+- **[CH-03: Records, Lists, and Internal Data](./CH-03_InternalData/)**
+  - Struktur data internal spesifikasi yang tidak terlihat oleh teknisi bahasa.
+- **[CH-04: Spec Mathematics and Shorthands](./CH-04_SpecMath/)**
+  - Operasi matematika, presisi nilai, dan notasi singkat (Shorthand) spesifikasi.
 
 ---
 
 ## 🎯 Fokus Pembelajaran
-1. Memahami perbedaan antara Evaluasi Runtime dan Semantik Statis.
-2. Mampu menelusuri alur "Step-by-Step" dalam algoritma ECMA-262.
-3. Mengenali mekanisme internal *Shorthand* untuk pembukaan paket Record (Completion Records).
+1. Mampu membaca dan menelusuri algoritma ECMA-262 secara mandiri.
+2. Memahami bagaimana Hub menangani sirkuit yang terputus (Abrupt Completion) secara aman.
+3. Mengenali data internal (`Record` dan `List`) sebagai penyimpan status di balik layar.
 
 ---
 *Buku Status: [status.md](../../status.md) | Kembali ke [SR-01](../README.md)*

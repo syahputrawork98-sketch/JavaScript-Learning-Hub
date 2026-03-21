@@ -1,27 +1,28 @@
-# BK-01: Spec Foundations (Terminology)
+# BK-01: Spec Foundations and Terminology (Clause 4.4)
 
-> [!IMPORTANT]
-> **Sinopsis:** Menguasai "Alfabet" arsitektur JavaScript. Sebelum kita bisa membaca kode mesin yang rumit, kita harus mengerti dulu bahasa yang digunakan oleh para engineer di ECMA-262 untuk menjelaskan dunia tersebut.
+> **"Alfabet Arsitektur JavaScript."**
 
-## Mengapa Buku Ini Ada?
-Pernahkah Anda bertanya-tapa, apa bedanya *Ordinary Object* dengan *Exotic Object*? Atau kenapa `Symbol` disebut sebagai nilai primitif padahal ia memiliki sifat identitas yang unik? Buku ini adalah **Kamus Besar** dan fondasi konseptual utama. 
-
-Seluruh konten di sini diambil langsung dari **ECMA-262 Clause 4.4**. Kami merombak definisi formal yang kaku menjadi 18 unit pelajaran yang manusiawi, lengkap dengan analogi arsitektur dunia nyata.
+Buku ini membedah terminologi fundamental yang digunakan oleh ECMA-262 untuk mendefinisikan seluruh perilaku Hub. Tanpa memahami alfabet ini, spesifikasi akan tampak seperti bahasa asing yang tidak terbaca.
 
 ---
 
-## Intisari Materi:
-1.  **Fundamen Objek**: Dari pewarisan prototype hingga rahasia di balik slot internal `[[Prototype]]`.
-2.  **Taksonomi Tipe**: Membedah setiap tipe data (Boolean, String, Number, BigInt, Symbol) bukan dari sisi cara pakainya, tapi dari sisi bagaimana engine menyimpannya.
-3.  **Mekanisme Internal**: Membongkar "mesin" di bawah kap JavaScript, seperti atribut properti dan metode internal yang menentukan perilaku sebuah objek.
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Objects and Prototypal Ethics](./CH-01_ObjectEthics/)**
+  - Definisi Ordinary vs Exotic, Prototype, dan mekanisme pewarisan.
+- **[CH-02: Standard and Built-in Structures](./CH-02_BuiltInStructures/)**
+  - Perbedaan antara Standard, Built-in, dan pengaruh Host (Browser/Node).
+- **[CH-03: Data Type Taxonomies](./CH-03_TypeTaxonomy/)**
+  - Klasifikasi mendalam tipe Primitif vs tipe Objek di level spesifikasi.
+- **[CH-04: Properties and Internal Slots](./CH-04_InternalMechanics/)**
+  - Atribut properti dan slot internal (hidden slots) yang menggerakkan objek.
 
 ---
 
-## Orientasi Navigasi:
-Untuk menjaga fokus Anda pada narasi filosofis, daftar teknis seluruh bab telah dipindahkan ke halaman khusus panduan navigasi.
-
-### 🧭 [Buka Daftar Isi & Peta Bab (TOC)](./docs/contents.md)
-*Gunakan peta ini untuk melompat ke Clause spesifik yang ingin Anda pelajari.*
+## 🎯 Fokus Pembelajaran
+1. Mendalami 18 definisi fundamental dari Clause 4.4 secara terintegrasi.
+2. Memahami mengapa "Ordinary Object" adalah fondasi dari hampir semua unit di Hub.
+3. Mengenali slot internal `[[Prototype]]` sebagai jembatan aliran energi antar objek.
 
 ---
-*Buku Status: [docs/status.md](./docs/status.md)*  
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-01](../README.md)*

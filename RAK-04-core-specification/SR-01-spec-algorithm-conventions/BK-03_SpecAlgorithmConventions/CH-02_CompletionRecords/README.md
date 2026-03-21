@@ -1,52 +1,59 @@
-# CH-02: Completion Records
+# CH-02: Completion Records and Errors
 
-> **"Protokol laporan hasil setiap operasi. `Completion Records` adalah cara Hub membungkus keberhasilan, kegagalan, dan interupsi aliran."**
+> **"Protokol laporan status. `Completion Records and Errors` adalah cara Hub melaporkan apakah sebuah misi berhasil, gagal, atau melompat keluar dari jalur normal."**
 
 **Source Hub**: 
-- [ECMA-262: The Completion Record Specification Type](https://tc39.es/ecma262/#sec-completion-record-specification-type)
+- [ECMA-262: Completion Records](https://tc39.es/ecma262/#sec-completion-record-specification-type)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap langkah algoritma di JavaScript sebenarnya tidak mengembalikan nilai mentah, melainkan sebuah **Completion Record**. Record ini adalah "Paket Laporan" yang berisi: **[[Type]]** (normal, return, throw, break, continue), **[[Value]]** (hasilnya), dan **[[Target]]** (tujuan lompatan).
+Hampir setiap langkah di spesifikasi mengembalikan sebuah **Completion Record**. Ini adalah paket data yang berisi tiga informasi: **[[Type]]** (Normal, Break, Continue, Return, atau Throw), **[[Value]]** (hasilnya), dan **[[Target]]** (label tujuan). **Abrupt Completion** terjadi jika tipenya bukan "Normal".
 
 **Model Mental**:
-Bayangkan setiap sirkuit Hub mengirimkan kotak paket ke pusat kendali. Di luar kotak ada label: "SUKSES" (Normal), "ERROR" (Throw), atau "STOP" (Break). Pusat kendali akan membuka kotak hanya jika labelnya sesuai dengan yang diharapkan.
+Bayangkan utusan yang kembali membawa laporan:
+- **Normal**: "Ini barangnya, misi selesai."
+- **Throw**: "Gagal! Ada ledakan di sirkuit!" (Membawa error).
+- **Return**: "Ini barangnya, dan saya langsung pulang." (Keluar dari fungsi).
 
 ---
 
-## 2. Visualisasi Sistem: Record Unwrapping
+## 2. Visualisasi Sistem: Completion Dispatcher
 
 ```mermaid
-graph LR
-    Step[Run Algorithm Step] --> Record[Result: Completion Record]
-    Record --> Type{Check Type}
-    Type -->|Normal| Value[Extract [[Value]]]
-    Type -->|Throw| Err[Escalate to Catch/Abort]
-    Type -->|Return/Break| Jump[Jump to Target]
+graph TD
+    Op[Jalankan Operasi] --> Res{Tipe Hasil?}
+    Res -->|Normal| Cont[Langkah Selanjutnya]
+    Res -->|Throw/Return| Abr[Abrupt: Hentikan Langkah & Naikkan ke Atas]
     
-    style Record fill:#e1f5fe,stroke:#01579b
-    style Type fill:#f1c40f,stroke:#333
+    Abr --> Handler{Ada Penanganan Error?}
+    Handler -->|Yes: try-catch| Recovery[Pindah ke blok Catch]
+    Handler -->|No| Exit[Matikan Sirkuit Agent]
+    
+    style Res fill:#f1c40f,stroke:#333
+    style Abr fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Shorthand Penting di Spec
-1. **`?` (Abrupt Completion check)**: Shorthand yang berarti "Jika langkah ini mengembalikan error, kembalikan error tersebut sekarang juga (Bubbling up). Jika sukses, ambil nilainya."
-2. **`!` (Never-Abrupt check)**: Shorthand yang berarti "Kita yakin langkah ini tidak akan pernah error, langsung ambil nilainya."
-3. **Implicit Normal Completion**: Jika sebuah langkah tidak menyebutkan "Return", maka ia secara implisit dianggap mengembalikan `NormalCompletion(undefined)`.
+### Mekanisme Pengembalian (Clause 6.2.4)
+1. **Normal Completion**: Aliran data berlanjut ke langkah berikutnya tanpa interupsi.
+2. **Abrupt Completion**: Aliran data segera berhenti di titik tersebut dan "bergelembung" (bubbles up) ke konteks eksekusi di atasnya sampai ditemukan penangan (seperti `try-catch`).
+3. **The `?` and `!` Shorthand**: 
+   - `?` (ReturnIfAbrupt): Jika gagal, segera lempar ke atas. Jika sukses, ambil nilainya saja.
+   - `!` (No-Failure Guarantee): Hub menjamin langkah ini tidak akan pernah gagal (pasti Normal).
 
-### Arsitek Mindset: The "Try-Catch" Origin
-- Mekanisme `try...catch` di JavaScript sebenarnya hanyalah visualisasi dari pemeriksaan `[[Type]] == throw` pada Completion Record. Memahami hal ini membantu Anda mengerti alasan kenapa beberapa error tidak bisa "ditangkap" (seperti syntax error yang terjadi di fase statis).
+### Arsitek Mindset: Safe Propagation
+- Memahami Completion Records akan mengubah cara Anda menulis logika error. Jangan biarkan sirkuit Anda "mati" secara misterius; pastikan setiap alur asinkron atau logika berat memiliki jalur pengembalian status (Try-Catch) yang jelas untuk menangani *Abrupt Completion*.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/completion_record_sim.js` untuk melihat bagaimana sebuah fungsi internal mensimulasikan pembungkusan dan pembukaan paket Completion Record.
+Buka file `examples/completion_record_sim.js` untuk melihat simulasi bagaimana sebuah "Abrupt Return" menghentikan seluruh rantaian loop di dalam fungsi secara instan di level engine.
 
 ---
 *Status: [status.md](../../../../../status.md)*

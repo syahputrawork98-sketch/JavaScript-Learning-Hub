@@ -1,26 +1,28 @@
-# BK-02: Grammar Notation System (Clause 5.1)
+# BK-02: Grammar Notation System (Clause 5)
 
-> **"Membaca Blueprint Arsitektur JavaScript."**
+> **"Bahasa Visual Spesifikasi."**
 
-Spesifikasi ECMAScript menggunakan sistem notasi khusus (**Meta-language**) untuk mendefinisikan aturan mainnya sendiri. Buku ini adalah panduan navigasi untuk memahami simbol dan tata bahasa yang merancang JavaScript.
+Buku ini membedah sistem notasi yang digunakan untuk mendefinisikan tata bahasa JavaScript (Grammar). Kita akan belajar cara membaca aturan produksi, simbol terminal vs non-terminal, serta batasan-batasan sintaksis yang rumit.
 
 ---
 
 ## 🏗️ Struktur Bab (Gold Standard)
 
-- **[CH-01: Grammar Fundamentals](./CH-01_GrammarFundamentals/)**
-  - CFG, Lexical vs Syntactic Grammar, dan Numeric String Grammar.
-- **[CH-02: Production Notation](./CH-02_ProductionNotation/)**
-  - Membedah Terminal, Nonterminal, dan Produksi Dasar.
-- **[CH-03: Grammar Restrictions](./CH-03_GrammarRestrictions/)**
-  - Parameter kontekstual, Lookahead, dan batasan Line Terminator.
+- **[CH-01: CFG and Primary Notation](./CH-01_GrammarNotation/)**
+  - Context-Free Grammar, Terminal vs Non-terminal, dan rantaian produksi.
+- **[CH-02: Optionality and OneOf](./CH-02_GrammarShortcuts/)**
+  - Notasi `[opt]`, daftar pilihan `one of`, dan penyederhanaan deskripsi.
+- **[CH-03: Grammatical Parameters and Constraints](./CH-03_GrammarParams/)**
+  - Parameter `[In, Yield, Await]` dan batasan `lookahead`.
+- **[CH-04: Line Terminator and ASI Logic](./CH-04_LineRestrictions/)**
+  - Pembatasan pemisah baris dan rahasia Automatic Semicolon Insertion (ASI).
 
 ---
 
 ## 🎯 Fokus Pembelajaran
-1. Mampu membedakan antara Lexical Grammar (Tokenizer) dan Syntactic Grammar (AST).
-2. Memahami notasi rekursif dalam pendefinisian aturan bahasa.
-3. Mengenali parameter khusus seperti `[Yield]` dan `[Await]` dalam blueprint produksi.
+1. Menguasai cara membaca notasi BNF (Backus-Naur Form) versi ECMAScript.
+2. Memahami bagaimana Hub memvalidasi struktur kode sebelum dieksekusi.
+3. Mengenali notasi "but not" dan "lookahead" sebagai filter keamanan grammar.
 
 ---
 *Buku Status: [status.md](../../status.md) | Kembali ke [SR-01](../README.md)*
