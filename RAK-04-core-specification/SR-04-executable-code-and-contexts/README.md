@@ -1,22 +1,27 @@
-# SR-04: Executable Code and Contexts (The Hub OS)
+# SR-04: Executable Code and Contexts (The Runtime Infra)
 
-> **"Di balik setiap baris kode, ada Operating System yang mengatur segalanya. SR-04 membedah otak dari Web Energy Hub—bagaimana tumpukan terminal (Contexts) dikelola, jaringan kabel scope disambungkan, hingga bagaimana setiap zona daya (Realms) diisolasi."**
+> **"Infrastruktur tempat energi mengalir secara dinamis. SR-04 membedah 'Kode Eksekusi dan Konteks' (The Runtime Infra)—sistem pengelolaan stack, scope, dan isolasi realm."**
 
-## 📚 Daftar Buku
-
-1.  **[BK-01_ExecutionContexts](./BK-01_ExecutionContexts/)**: Mekanisme terminal aktif dan Call Stack.
-2.  **[BK-02_EnvironmentRecords](./BK-02_EnvironmentRecords/)**: Detail teknis penyimpanan variabel dan Scope Chain.
-3.  **[BK-03_RealmsAndAgents](./BK-03_RealmsAndAgents/)**: Isolasi lingkungan eksekusi dan penjadwalan Microtasks.
-
-## 🧪 Laboratorium Operasional
-- [Hub OS Stack & Hoisting](./examples/hub_os_stack_lab.js)
-- [Scope Chains & Shadowing](./examples/scope_chain_lab.js)
-- [Micro-Scheduler & Realms](./examples/realms_jobs_lab.js)
-
-## 📊 Visualisasi Arsitektur
-- [Execution Context Stack](./BK-01_ExecutionContexts/assets/execution_context_stack.svg)
-- [Lexical Scope Chain](./BK-02_EnvironmentRecords/assets/lexical_environment_chain.svg)
-- [Realm Infrastructure](./BK-03_RealmsAndAgents/CH-01_GlobalRealms/assets/realm_infrastructure.svg)
+**Source Hub**: 
+- [ECMA-262: Executable Code and Execution Contexts](https://tc39.es/ecma262/#sec-executable-code-and-execution-contexts)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 3 Pillars of Runtime Infrastructure
+
+```mermaid
+graph TD
+    P1["BK-01: Execution Contexts (Stack)"] --> Core["Infrastruktur"]
+    P2["BK-02: Environment Records (Scope)"] --> Core
+    P3["BK-03: Realms and Agents (Isolation)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Execution Contexts](./BK-01_ExecutionContexts/)**: Komponen Call Stack, Hoisting, dan siklus hidup konteks.
+2.  **[BK-02: Environment Records](./BK-02_EnvironmentRecords/)**: Struktur internal Scope, Declarative vs Object records.
+3.  **[BK-03: Realms and Agents](./BK-03_RealmsAndAgents/)**: Wilayah isolasi data (Realms) dan entitas eksekusi (Agents/Jobs).
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

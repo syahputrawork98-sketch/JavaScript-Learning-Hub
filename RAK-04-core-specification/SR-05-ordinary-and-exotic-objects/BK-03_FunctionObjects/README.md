@@ -1,14 +1,22 @@
-# Buku 03: Function Objects (The Engine Units)
+# BK-03: Function Objects (Clause 10.2)
 
-Buku ini membedah unit penggerak utama di dalam Hub: **Function Objects**. Objek ini eksotis karena mereka memiliki kemampuan untuk dipanggil (`[[Call]]`) dan digunakan sebagai cetakan konstruksi (`[[Construct]]`).
+> **"Entitas yang Dapat Dieksekusi."**
 
-## 🏗️ Infrastruktur Penggerak
-
-1.  **[Bab 01: Normal Functions](./CH-01_NormalFunctions/)**: Struktur internal fungsi biasa dan bagaimana `[[Environment]]` direkam.
-2.  **[Bab 02: Generator & Async Functions](./CH-02_GeneratorAsyncFunctions/)**: Sistem katup dan tunda eksekusi pada unit-unit asinkron.
-
-## 🔍 Arsitek Insight
-Setiap fungsi di JavaScript adalah objek, tetapi tidak setiap objek adalah fungsi. Memahami perbedaan Internal Slots antara fungsi biasa dan fungsi asinkron akan membantu Anda mengoptimalkan alur kerja energi di dalam Hub.
+Buku ini membedah objek fungsi, yang merupakan objek biasa dengan kemampuan tambahan untuk dipanggil (`[[Call]]`) dan digunakan sebagai konstruktor (`[[Construct]]`).
 
 ---
-*Status: Gold Standard Upgrade in Progress*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Ordinary and Specialized Functions](./CH-01_FunctionBehaviors/)**
+  - Mesin internal di balik fungsi normal, generator, dan fungsi asinkron.
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami perbedaan antara Internal Method `[[Call]]` dan `[[Construct]]`.
+2. Menguasai mekanisme pendaftaran parameter dan pembuatan Environment Record fungsi.
+3. Mengenali objek khusus pemegang status untuk Generator dan Async Functions.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-05](../README.md)*

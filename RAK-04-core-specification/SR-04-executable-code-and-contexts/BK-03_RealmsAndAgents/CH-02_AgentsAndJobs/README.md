@@ -1,55 +1,56 @@
-# CH-02: Agents & Jobs (The Micro-Scheduler)
+# CH-02: Agents and Job Queues
 
-> **"Di balik setiap eksekusi, ada pengawas yang tidak pernah tidur. `Agents` dan `Jobs` adalah 'Penjadwal Mikro' (The Micro-Scheduler) — sistem yang memastikan tugas-tugas kecil (Microtasks) disisipkan dengan tepat di antara siklus energi Hub."**
+> **"Pekerja dan Antrean Tugas. `Agents and Job Queues` adalah mekanisme Hub untuk mengatur siapa yang bekerja dan kapan mereka harus berhenti."**
 
-*Pemetaan ECMA-262: Clause 9.7 & 9.8 (Agents & Jobs)*
+**Source Hub**: 
+- [ECMA-262: Agents](https://tc39.es/ecma262/#sec-agents)
+- [ECMA-262: Jobs and Job Queues](https://tc39.es/ecma262/#sec-jobs-and-job-queues)
 
-## 1. Mental Model: "The Micro-Scheduler"
+---
 
-- **Agent**: Seperti seorang teknisi tunggal yang bertugas menjalankan Call Stack. Satu teknisi hanya bisa mengerjakan satu baki dalam satu waktu.
-- **Job (Microtask)**: Seperti catatan kecil yang ditempelkan di pinggiran baki. Teknisi harus menyelesaikan semua catatan kecil ini SEBELUM dia boleh mengambil baki baru dari luar (Event Loop).
+## 1. Konsep & Esensi
 
-## 🏗️ The Micro-Scheduler Flow
+**Definisi Arsitek**:
+Sebuah **Agent** adalah entitas yang memiliki Execution Context Stack sendiri dan setidaknya satu Realm. **Agent Cluster** adalah sekumpulan agent yang bisa saling berbagi memori. Agar eksekusi tetap tertib, Hub menggunakan **Job Queues** untuk mengantrekan tugas-tugas yang akan dijalankan oleh agent tersebut.
+
+**Model Mental**:
+- **Agent**: Seorang teknisi di Hub.
+- **Job Queue**: Daftar tugas (To-Do List) di meja teknisi. Teknisi hanya bisa mengerjakan satu hal dalam satu waktu, tapi dia punya asisten (Browser/Runtime) yang membantunya menaruh tugas baru di meja saat tugas lama selesai.
+
+---
+
+## 2. Visualisasi Sistem: The Agent Lifecycle
 
 ```mermaid
 graph TD
-    Stack[Call Stack Empty?] -->|Yes| Jobs{Jobs in Queue?}
-    Jobs -->|Yes| Run[Execute All PromiseJobs]
-    Run --> Jobs
-    Jobs -->|No| Task[Wait for Event Loop Task]
-    Task --> Stack
-```
-
-## 🔍 Mekanisme Operasional
-
-Dalam spesifikasi, ada dua antrean utama:
-1.  **ScriptJobs**: Untuk menjalankan blok kode skrip baru.
-2.  **PromiseJobs**: Untuk menjalankan penyelesaian `Promise` (`.then`, `await`). Ini yang kita kenal sebagai Microtasks.
-
-**Aturan Emas:** Sebuah baki Context tidak akan dianggap selesai sampai antrean `PromiseJobs` kosong.
-
----
-
-## 3. Praktik Lapangan (Lab)
-
-```javascript
-console.log("1. Aliran Utama");
-
-Promise.resolve().then(() => {
-    console.log("3. Job Selesai (Microtask)");
-});
-
-console.log("2. Aliran Utama Selesai");
-// Hasil: 1 -> 2 -> 3
+    Agent[Agent: Main Thread] --> Stack[Execution Context Stack]
+    Agent --> Queues[Job Queues]
+    Queues --> J1[Script Jobs]
+    Queues --> J2[Promise Jobs: Microtasks]
+    
+    Stack -- Empty --> NextJob[Fetch Next Job from Queue]
+    NextJob --> Stack
+    
+    style Agent fill:#a8e6cf,stroke:#333
+    style Queues fill:#fff9c4,stroke:#fbc02d
 ```
 
 ---
 
-## Arsitek Mindset: Kelaparan Event Loop
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Jangan memasukkan terlalu banyak `Jobs` (Microtasks) secara berulang-ulang dalam satu siklus. Jika antrean Microtask tidak pernah habis, teknisi Hub tidak akan pernah sempat menarik baki baru (seperti Input User atau Rendering UI), menyebabkan Hub terlihat "hang" atau membeku.
-- Pahami bahwa `Jobs` selalu memiliki prioritas lebih tinggi daripada `Tasks` (seperti `setTimeout`).
+### Job Queues (Clause 9.5)
+1. **Script Jobs**: Eksekusi awal dari sebuah file script atau module.
+2. **Promise Jobs**: Tugas mikro yang harus dijalankan SEGERA setelah tugas saat ini selesai, tapi sebelum tugas makro berikutnya (misal: `.then()` pada Promise).
+3. **Execution Order**: Agent akan mengosongkan antrean Promise Jobs sepenuhnya sebelum memproses input pengguna atau event berikutnya.
+
+### Arsitek Mindset: Concurrency and Threading
+- JavaScript secara teknis adalah single-threaded per-agent. Jika Anda ingin melakukan "Multi-threading", Anda harus membuat Agent baru (Web Workers). Mereka bisa berkomunikasi tapi tidak bisa berbagi stack eksekusi yang sama secara langsung.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+Buka file `examples/event_loop_race.js` untuk melihat simulasi urutan eksekusi antara kode sinkron, Mikro-tugas (Promise), dan Makro-tugas (setTimeout) di dalam Hub.
+
+---
+*Status: [status.md](../../../../../status.md)*

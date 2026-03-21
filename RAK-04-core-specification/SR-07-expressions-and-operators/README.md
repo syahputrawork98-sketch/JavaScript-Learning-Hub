@@ -1,37 +1,27 @@
-# SR-07: Expressions and Operators (The Engine Room)
+# SR-07: Expressions and Operators (The Flow Controls)
 
-> **"Di dalam Grid, data mentah tidak akan berguna tanpa pemrosesan. SR-07 membedah 'Ruang Mesin' (The Engine Room)—pusat di mana ekspresi dievaluasi, energi ditransmutasikan melalui operator, dan aliran logika diarahkan dengan presisi milidetik."**
+> **"Aliran pengolahan energi di dalam sirkuit. SR-07 membedah 'Ekspresi dan Operator' (The Flow Controls)—bagaimana Hub menghitung nilai dan mengubah status data."**
 
-*Pemetaan ECMA-262: Clause 13*
-
-## 💎 Status: Gold Standard
-> **Mencakup pemetaan lengkap Clause 13 dengan 5 Buku Strategis, 3 Visualisasi SVG, dan 1 Laboratorium Evaluasi.**
-
-## 📚 Daftar Buku
-
-1.  **[BK-01_PrimaryUnits](./BK-01_PrimaryUnits/)**: Bedah generator inti seperti `this`, Identifiers, dan mekanisme Initializer (Array/Object).
-2.  **[BK-02_CommandLinks](./BK-02_CommandLinks/)**: Sistem navigasi dan routing (Property Access, Call/New Expressions).
-3.  **[BK-03_EnergyTransmutation](./BK-03_EnergyTransmutation/)**: Pengubah wujud energi (Arithmetic, Unary, Bitwise Operators).
-4.  **[BK-04_LogicFlow](./BK-04_LogicFlow/)**: Pengatur aliran logika dan sensor perbandingan (Logic Gates).
-5.  **[BK-05_EnergyDistribution](./BK-05_EnergyDistribution/)**: Penyebaran dan penyimpanan energi terakhir (Assignments).
-
-## 📊 Visualisasi Arsitektur
-## 🏗️ Expression Precedence Stack
-
-```mermaid
-stack
-    ["Groupings: ( ) - Priority 1"]
-    ["Member Access: . [ ] - Priority 2"]
-    ["Execution: call(), new - Priority 3"]
-    ["Unary: ++, --, typeof - Priority 4"]
-    ["Arithmetic: *, /, +, - - Priority 5"]
-    ["Relational: <, >, === - Priority 6"]
-    ["Logic: &&, ||, ?? - Priority 7"]
-    ["Assignment: =, += - Priority 8 (Bottom)"]
-```
-
-## 🧪 Laboratorium
-- [Engine Room Lab](./examples/engine_room_lab.js) - Eksperimen evaluasi ekspresi.
+**Source Hub**: 
+- [ECMA-262: ECMAScript Language: Expressions](https://tc39.es/ecma262/#sec-ecmascript-language-expressions)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 3 Pillars of Expression Architecture
+
+```mermaid
+graph TD
+    P1["BK-01: Primary and Postfix"] --> Core["Computational Flow"]
+    P2["BK-02: Unary and Binary"] --> Core
+    P3["BK-03: Logic and Assignment"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Primary and Postfix Expressions](./BK-01_PrimaryAndPostfix/)**: Blok bangunan dasar, akses properti, dan operator update.
+2.  **[BK-02: Unary and Binary Operators](./BK-02_UnaryAndBinary/)**: Matematika spek, perbandingan, dan manipulasi bitwise.
+3.  **[BK-03: Logic and Assignment](./BK-03_LogicAndAssignment/)**: Aliran logika kondisional dan distribusi nilai ke variabel.
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

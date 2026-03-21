@@ -1,21 +1,25 @@
-# SR-10: Scripts and Modules (The Signal Distribution)
+# SR-10: Scripts and Modules (The Unit of Loading)
 
-> **"Sebuah Hub yang besar tidak bisa dikelola dengan satu kabel tunggal. SR-10 membedah 'Sistem Distribusi Sinyal' (The Signal Distribution)—jaringan transmisi yang mengatur pengemasan, pengiriman, dan pemuatan kode di seluruh infrastruktur Grid."**
+> **"Wadah Penampung Energi Massal. SR-10 membedah 'Skrip dan Modul' (The Unit of Loading)—bagaimana unit-unit kode dimuat, dihubungkan, dan dieksekusi."**
 
-*Pemetaan ECMA-262: Clause 16*
-
-## 📚 Daftar Buku
-
-1.  **[BK-01_ClassicalTransmission](./BK-01_ClassicalTransmission/)**: Membedah transmisi sirkuit terbuka (Scripts) dan risiko tabrakan sinyal global.
-2.  **[BK-02_ModularNetwork](./BK-02_ModularNetwork/)**: Jaringan modul modern (ESM) dengan isolasi ketat dan fitur canggih.
-3.  **[BK-03_SignalRouting](./BK-03_SignalRouting/)**: Mekanisme ekspor dan impor sinyal (Static & Dynamic Bindings).
-4.  **[BK-04_TransmissionProtocols](./BK-04_TransmissionProtocols/)**: Protokol bertahap proses pemuatan modul (Parse, Link, Evaluate).
-
-## 📊 Visualisasi Arsitektur
-- [Script vs Module Flow](./BK-01_ClassicalTransmission/assets/script_vs_module_flow.svg) - Perbandingan sirkuit terbuka vs jaringan terisolasi.
-- [Module Loading Phases](./assets/module_loading_phases.svg) - Siklus hidup persiapan dan eksekusi modul.
-- [Dynamic Import Socket](./assets/dynamic_import_socket.svg) - Pemuatan unit on-demand saat runtime.
-- [Cyclic Dependency Graph](./assets/cyclic_dependency_graph.svg) - Penanganan sinyal yang saling melingkar.
+**Source Hub**: 
+- [ECMA-262: Scripts and Modules](https://tc39.es/ecma262/#sec-ecmascript-language-scripts-and-modules)
 
 ---
-*Status: Progressing 🔵*
+
+## 🏗️ The 2 Pillars of Loading Architecture
+
+```mermaid
+graph TD
+    P1["BK-01: Classical Scripts and Evaluation"] --> Core["Unit Pemuatan"]
+    P2["BK-02: ECMAScript Modules (ESM)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Classical Scripts and Evaluation](./BK-01_Scripts/)**: Evaluasi kode tradisional, Global Environment, dan mode non-strict.
+2.  **[BK-02: ECMAScript Modules (ESM)](./BK-02_Modules/)**: Struktur modular modern, mekanisme ekspor/impor, dan evaluasi asinkron.
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

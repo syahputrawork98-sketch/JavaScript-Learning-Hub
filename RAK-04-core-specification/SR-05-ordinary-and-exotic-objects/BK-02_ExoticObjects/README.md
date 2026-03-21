@@ -1,18 +1,24 @@
-# Buku 02: Exotic Objects (The Hybrid Units)
+# BK-02: Exotic Objects (Clause 10.2-10.5)
 
-Buku ini membedah unit-unit mesin hibrida yang memiliki perilaku khusus di luar standar objek biasa. Di dalam spesifikasi ECMA-262, unit-unit ini disebut sebagai **Exotic Objects**.
+> **"Unit dengan Perilaku Khusus."**
 
-## 🏗️ Katalog Unit Eksotis
-
-Setiap unit di bawah ini memiliki "piston" atau "segel" internal yang bekerja secara otomatis:
-
-1.  **[Bab 01: Array Exotics](./CH-01_ArrayExotics/)**: Unit dengan sinkronisasi otomatis antara slot data dan properti `length`.
-2.  **[Bab 02: Bound Function Exotics](./CH-02_BoundFunctionExotics/)**: Unit fungsi yang terkunci pada `this` dan argument tertentu.
-3.  **[Bab 03: String Exotics](./CH-03_StringExotics/)**: Unit string yang membungkus nilai primitif dan menyediakan akses index read-only.
-4.  **[Bab 04: Proxy Exotics](./CH-04_ProxyExotics/)**: Unit "Interceptor" yang memungkinkan arsitek mendefinisikan perilaku kustom untuk 13 Internal Methods.
-
-## 🔍 Mengapa Memahami Eksotisme?
-Memahami bagaimana Array atau Proxy bekerja di level "Exotic" membantu arsitek memprediksi efek samping (seperti performa atau mutabilitas) saat menggunakan unit-unit ini di dalam Grid yang padat.
+Buku ini membedah **Exotic Objects**, yaitu objek-objek yang "melanggar" satu atau lebih perilaku default (Ordinary) untuk memberikan fitur khusus seperti panjang array otomatis atau intersepsi Proxy.
 
 ---
-*Status: Gold Standard Upgrade in Progress*
+
+## 🏗️ Struktur Bab (Gold Standard)
+
+- **[CH-01: Array and String Exotics](./CH-01_ArrayStringExotics/)**
+  - Perilaku ajaib properti `length` dan indeks string.
+- **[CH-02: Bound Functions and Proxy Exotics](./CH-02_BoundProxyExotics/)**
+  - Objek yang bertindak sebagai jembatan atau perantara (Interceptors).
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami mengapa `Array` disebut objek eksotis (perilaku `[[DefineOwnProperty]]` yang unik).
+2. Menguasai mekanisme **Proxy** yang memungkinkan penulisan ulang metode internal secara dinamis.
+3. Mengenali **Bound Function** sebagai objek fungsi yang membawa konteks `this` yang terkunci.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-05](../README.md)*

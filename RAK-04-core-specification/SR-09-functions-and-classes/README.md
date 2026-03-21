@@ -1,27 +1,27 @@
-# SR-09: Functions and Methods (The Dynamic Generators)
+# SR-09: Functions and Classes (The Structural Units)
 
-> **"Sebuah Hub yang statis adalah Hub yang mati. SR-09 membedah 'Generator Dinamis' (The Dynamic Generators)—unit pembungkus logika yang memungkinkan energi dieksekusi berkali-kali, dikonfigurasi secara instan, dan ditransmisi antar-sirkuit."**
+> **"Arsitektur Unit Pemroses dan Blueprint Data. SR-09 membedah 'Fungsi dan Kelas' (The Structural Units)—bagaimana logika dibungkus dan struktur data diwariskan."**
 
-*Pemetaan ECMA-262: Clause 10 & 15*
-
-## 💎 Status: Gold Standard
-> **Mencakup pemetaan lengkap Clause 10 & 15 dengan 4 Buku Strategis, 3 Visualisasi SVG, dan 1 Laboratorium Terpadu.**
-
-## 📚 Daftar Buku
-
-1.  **[BK-01_StandardGenerators](./BK-01_StandardGenerators/)**: Anatomi fungsi dasar, Arrow Units, dan rahasia energi kontekstual (`this`).
-2.  **[BK-02_InterfaceLinks](./BK-02_InterfaceLinks/)**: Metode objek dan sensor akses (Getters/Setters).
-3.  **[BK-03_IndustrialBlueprints](./BK-03_IndustrialBlueprints/)**: Arsitektur Kelas dan rantai pewarisan energi (Heritage).
-4.  **[BK-04_SpecializedPulsars](./BK-04_SpecializedPulsars/)**: Unit canggih seperti Generator (Iterative) dan Async (Delayed).
-
-## 📊 Visualisasi Arsitektur
-- [Function Context Binding](./BK-01_StandardGenerators/assets/function_context_this.svg) - Dinamika `this` pada saat eksekusi.
-- [Accessor Sensor Gate](./BK-02_InterfaceLinks/assets/accessor_sensor_gate.svg) - Filter akses properti objek.
-- [Class Heritage Chain](./BK-03_IndustrialBlueprints/assets/class_heritage_chain.svg) - Transmisi prototipe antar-blueprint.
-- [Generator Pulsar Cycle](./BK-04_SpecializedPulsars/assets/generator_pulsar_cycle.svg) - Mekanisme Pause & Resume.
-
-## 🧪 Laboratorium
-- [Dynamic Generators Lab](./examples/dynamic_generators_lab.js) - Eksperimen Kelas, Konteks, dan Pulsar.
+**Source Hub**: 
+- [ECMA-262: Function and Class Definitions](https://tc39.es/ecma262/#sec-ecmascript-language-functions-and-classes)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 3 Pillars of Structural Architecture
+
+```mermaid
+graph TD
+    P1["BK-01: Function Definitions and Methods"] --> Core["Unit Struktural"]
+    P2["BK-02: Generator and Async Logic"] --> Core
+    P3["BK-03: Class Definition and Heritage"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Function Definitions and Methods](./BK-01_Functions/)**: Fungsi normal, Arrow functions, dan definisi metode di dalam objek.
+2.  **[BK-02: Generator and Async Logic](./BK-02_GeneratorsAsync/)**: Sirkuit yang dapat dijeda (Generator) dan aliran asinkron (Async).
+3.  **[BK-03: Class Definition and Heritage](./BK-03_Classes/)**: Blueprint objek modern dan mekanisme pewarisan (Extends).
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*

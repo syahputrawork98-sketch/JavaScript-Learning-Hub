@@ -1,16 +1,22 @@
-# Buku 01: Object Internal Mechanics
+# BK-01: Object Internal Mechanics (Clause 10.1)
 
-Buku ini membedah sifat "Hidup" dari objek di JavaScript. Kita akan melihat melampaui sintaks kurung kurawal `{}` dan memahami bagaimana *Engine* mengelola properti, menangani referensi memori, dan memberikan perilaku khusus pada objek tertentu seperti Array (Clause 10 pada ECMA-262).
+> **"Anatomi dan Perilaku Dasar Objek."**
 
-## Mengapa Mempelajari Ini?
-Objek adalah blok pembangun utama JavaScript. Tanpa memahami mekanika internalnya (seperti *Internal Slots*), pengembang sering terjebak dalam bug mutasi data yang sulit dilacak atau salah paham tentang bagaimana `Array` mengelola memorinya sendiri.
+Buku ini membedah mekanisme internal yang mendasari semua objek di JavaScript, menjelaskan bagaimana metode internal dan slot internal bekerja untuk menjaga integritas data.
 
-## Daftar Bab
+---
 
-1. **[Bab 01: Internal Slots & Methods (Mesin di Balik Cangkang)](./CH-01_InternalSlotsAndMethods/)**
-2. **[Bab 02: Reference Behavior (Variabel vs Objek)](./CH-02_ReferenceBehavior/)**
-3. **[Bab 03: Array Exotic Behavior (Sihir Properti Length)](./CH-03_ArrayExoticBehavior/)**
+## 🏗️ Struktur Bab (Gold Standard)
 
-## Prasyarat Pembaca
-- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-02_DataTypesAndValues / Buku 01: Primitive Types](../../SR-02_DataTypesAndValues/BK-01_PrimitiveTypes/)**: Memahami perbedaan objek dengan tipe primitif.
-- **[RAK-01-javascript/SR-01-javascript/SR-01-get-started-core / SR-04_ExecutableCodeAndContexts / Buku 01: Execution Contexts](../../SR-04_ExecutableCodeAndContexts/BK-01_ExecutionContexts/)**: Memahami bagaimana objek disimpan di dalam *Environment Records*.
+- **[CH-01: Object Internal Methods and Slots](./CH-01_InternalMechanics/)**
+  - Definisi `[[Get]]`, `[[Set]]`, `[[Prototype]]`, dan Invarian objek.
+
+---
+
+## 🎯 Fokus Pembelajaran
+1. Memahami perbedaan antara Properi Objek (terlihat) dan Internal Slots (tersembunyi).
+2. Menguasai daftar 14 metode internal esensial yang harus dimiliki setiap objek biasa.
+3. Mengenali batan-batasan (Invariants) yang menjamin Hub tetap stabil saat memanipulasi objek.
+
+---
+*Buku Status: [status.md](../../status.md) | Kembali ke [SR-05](../README.md)*
