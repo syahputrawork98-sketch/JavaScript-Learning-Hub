@@ -21,7 +21,7 @@ Buku ini membedah dua tipe data numerik utama dalam JavaScript: **Number** (64-b
 
 ## 🎯 Fokus Pembelajaran
 1. Memahami keterbatasan presisi IEEE 754 pada tipe `Number` (The 0.1 + 0.2 Trap).
-2. Mengeksekusi BigInt untuk perhitungan integer murni melampaui 2^53.
+2. Mengeksekusi BigInt for pure integer calculation beyond 2^53.
 3. Mengantisipasi perilaku Wrapping (modulo) pada level data biner (Uint8/Uint32).
 
 ---

@@ -4,7 +4,6 @@
 
 **Source Hub**: 
 - [ECMA-262: Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
-- [MDN: JavaScript Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 
 ---
 
@@ -25,4 +24,4 @@ graph TD
 3.  **[BK-03: Specification Data Types](./BK-03_SpecificationDataTypes/)**: Tipe meta internal spek (List, Record, Completion, Reference).
 
 ---
-*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*
+*Status: [status.md](./docs/status.md) | Back to [RAK-04](../README.md)*
