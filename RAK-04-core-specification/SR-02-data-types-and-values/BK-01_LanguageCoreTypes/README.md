@@ -8,21 +8,21 @@ Buku ini membedah semua tipe data utama yang tersedia bagi pengembang JavaScript
 
 ## 🏗️ Struktur Bab (Gold Standard)
 
-- **[CH-01: Primitive Types Basics](./CH-01_PrimitiveTypesBasics/)**
-  - Undefined, Null, dan Boolean: Fondasi logika Hub.
-- **[CH-02: String and Text Processing](./CH-02_StringAndTextProcessing/)**
-  - Manipulasi teks dan operasi pencarian internal.
-- **[CH-03: Symbols and Global Metadata](./CH-03_SymbolsAndGlobalMetadata/)**
-  - Penggunaan Symbol dan Well-Known Symbols untuk metadata sistem.
+- **[CH-01: Undefined, Null, dan Boolean](./CH-01_UndefinedNullBoolean/)**
+  - Fondasi logika Hub: Singleton types dan penanganan ketiadaan nilai.
+- **[CH-02: String and Text Processing](./CH-02_StringTextProcessing/)**
+  - Arsitektur UTF-16, Immutability, dan manipulasi teks tingkat tinggi.
+- **[CH-03: Symbols and Global Metadata](./CH-03_SymbolsMetadata/)**
+  - Identitas unik, Global Registry, dan Well-Known Symbols untuk meta-programming.
 - **[CH-04: Object Infrastructure](./CH-04_ObjectInfrastructure/)**
-  - Atribut properti, Internal Methods, dan Invarian objek.
+  - Internal Slots, Methods, dan perilaku objek Ordinary vs Exotic.
 
 ---
 
 ## 🎯 Fokus Pembelajaran
-1. Memahami perbedaan fundamental antara Tipe Primitif dan Objek.
-2. Menguasai mekanisme Internal Slots `[[...]]` yang menyimpan status objek.
-3. Mengenali perilaku sakral Internal Method Invariants yang menjamin integritas data.
+1. Memahami perbedaan fundamental antara Tipe Primitif dan Objek (Identity vs Value).
+2. Menguasai mekanisme Internal Slots `[[...]]` yang menyimpan status mesin Hub.
+3. Mengenali perilaku imutabilitas String dan keunikan absolut Symbol.
 
 ---
 *Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*

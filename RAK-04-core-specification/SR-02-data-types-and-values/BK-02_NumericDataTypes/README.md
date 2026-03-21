@@ -8,19 +8,21 @@ Buku ini membedah dua tipe data numerik utama dalam JavaScript: **Number** (64-b
 
 ## 🏗️ Struktur Bab (Gold Standard)
 
-- **[CH-01: The Number Type (IEEE 754)](./CH-01_TheNumberType/)**
-  - Pemahaman mendalam tentang desimal 64-bit, NaN, Infinity, dan presisi.
-- **[CH-02: The BigInt Type](./CH-02_TheBigIntType/)**
-  - Mengelola angka bulat besar tanpa batas presisi.
-- **[CH-03: Bitwise and Binary Operations](./CH-03_BitwiseAndBinaryOps/)**
-  - Manipulasi level rendah (AND, OR, XOR, Shifts) pada sistem angka Hub.
+- **[CH-01: The Number Type & IEEE 754](./CH-01_NumberTypeBasics/)**
+  - Pemahaman desimal 64-bit, NaN, Infinity, dan limitasi presisi biner.
+- **[CH-02: Number Arithmetic and Comparison](./CH-02_NumberArithmeticComparison/)**
+  - Algoritma operasi matematika dan sensor gerbang perbandingan.
+- **[CH-03: The BigInt Type & Operations](./CH-03_BigIntTypeOperations/)**
+  - Mengelola angka bulat raksasa tanpa batas presisi (Infinite Integrity).
+- **[CH-04: Mathematical Values and Clamping](./CH-04_SpecMathClamping/)**
+  - Transformasi dari nilai matematika ideal ke realita batas memori (Wrapping).
 
 ---
 
 ## 🎯 Fokus Pembelajaran
-1. Memahami keterbatasan presisi IEEE 754 pada tipe `Number`.
-2. Mengetahui kapan harus menggunakan `BigInt` untuk perhitungan integer murni.
-3. Menguasai operasi Bitwise sebagai cara tercepat memanipulasi status sirkuit.
+1. Memahami keterbatasan presisi IEEE 754 pada tipe `Number` (The 0.1 + 0.2 Trap).
+2. Mengeksekusi BigInt untuk perhitungan integer murni melampaui 2^53.
+3. Mengantisipasi perilaku Wrapping (modulo) pada level data biner (Uint8/Uint32).
 
 ---
 *Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*

@@ -8,21 +8,23 @@ Buku ini membedah tipe data meta (**Specification Types**) yang digunakan oleh p
 
 ## 🏗️ Struktur Bab (Gold Standard)
 
-- **[CH-01: Spec Collections and Structs](./CH-01_SpecCollectionsAndStructs/)**
-  - List, Record, Enum, dan Set: Struktur data internal spesifikasi.
-- **[CH-02: Control Flow Records](./CH-02_ControlFlowRecords/)**
-  - Completion Record: Bagaimana Hub melaporkan sukses atau gagal.
-- **[CH-03: Reference and Property Specs](./CH-03_ReferenceAndPropertySpecs/)**
-  - Reference Record dan Property Descriptors: Dasar dari pencarian variabel dan akses properti.
-- **[CH-04: Advanced Spec Components](./CH-04_AdvancedSpecComponents/)**
-  - Data Blocks, Environment Records, dan Abstract Closures.
+- **[CH-01: List, Record, dan Enum](./CH-01_ListRecordEnum/)**
+  - Struktur data internal spesifikasi yang mendasari sirkuit Hub.
+- **[CH-02: Completion Records and Flow Control](./CH-02_CompletionRecordsFlow/)**
+  - Protokol rambatan sukses (`normal`) dan interupsi (`abrupt`).
+- **[CH-03: Reference Records and Environment](./CH-03_ReferenceRecordsEnvironment/)**
+  - Kompas resolusi identitas dan arsitektur lemari arsip variabel.
+- **[CH-04: Property Descriptors and Data Blocks](./CH-04_DescriptorsDataBlocks/)**
+  - Izin akses properti dan pengelolaan blok memori mentah (Byte Arrays).
+- **[CH-05: Private Elements and Class Statics](./CH-05_PrivateElementsClassStatics/)**
+  - Enkapsulasi sirkuit privat sejati menggunakan Private Names (#).
 
 ---
 
 ## 🎯 Fokus Pembelajaran
-1. Memahami perbedaan antara Language Types (yang bisa Anda gunakan) dan Specification Types (internal).
-2. Menguasai konsep "Unwrapping" pada Completion Records dan Reference Records.
-3. Mengenali bagaimana "Data Blocks" mengelola memori biner mentah di balik sirkuit Hub.
+1. Memahami perbedaan antara Language Types (Runtime) dan Specification Types (Design-time).
+2. Menguasai mekanisme "Unwrapping" pada Reference dan Completion Records.
+3. Mengimplementasikan enkapsulasi keras menggunakan Private Elements.
 
 ---
 *Buku Status: [status.md](../../status.md) | Kembali ke [SR-02](../README.md)*
