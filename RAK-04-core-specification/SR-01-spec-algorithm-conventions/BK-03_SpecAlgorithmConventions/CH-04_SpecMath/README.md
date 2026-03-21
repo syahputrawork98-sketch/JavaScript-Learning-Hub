@@ -1,6 +1,6 @@
 # CH-04: Spec Mathematics and Shorthands
 
-> **"Kalkulator presisi Hub. `Spec Mathematics and Shorthands` membedah sistem matematika abstrak dan cara cepat spesifikasi untuk menjelaskan operasi yang rumit."**
+> **"Presisi Matematika dan Notasi Ekspres. `Spec Mathematics and Shorthands` membedah sistem kalkulasi absolut Hub dan singkatan-singkatan yang mempercepat penulisan standar."**
 
 **Source Hub**: 
 - [ECMA-262: Mathematical Operations](https://tc39.es/ecma262/#sec-mathematical-operations)
@@ -10,43 +10,45 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Matematika di spesifikasi berbeda dengan matematika di kode. Spesifikasi menggunakan **Mathematical Values** (MV)—angka ideal dengan presisi tak terbatas. Hub lalu mendefinisikan aturan bagaimana MV ini "dibulatkan" (clamped) menjadi tipe data Hub seperti `Number` (64-bit float) atau `BigInt`. **Shorthands** adalah frasa singkat (misal: "Return ?") yang merangkum banyak langkah logika sekaligus.
+Hub membedakan antara **Mathematical Value (MV)**—angka ideal teoritis dengan presisi tak terbatas—dan tipe data bahasa seperti `Number` atau `BigInt`. Algoritma Hub bekerja menggunakan MV terlebih dahulu, lalu menerapkan aturan pembulatan atau pemotongan (clamping) untuk menghasilkan nilai bahasa yang sesuai dengan memori fisik.
 
 **Model Mental**:
-- **Mathematical Value**: Angka murni di dalam pikiran (Sempurna).
-- **JavaScript Number**: Angka yang dicetak di atas kertas (Terbatas oleh lebar kertas).
-- **Shorthand**: Seperti singkatan "dll." yang membuat kalimat lebih pendek tapi semua orang tahu maksudnya.
+- **MV**: Angka murni di alam semesta logika (Tanpa batas).
+- **Number**: Angka yang Anda muat ke dalam tangki bensin 64-bit (Sangat terbatas dan memiliki sisa error).
 
 ---
 
-## 2. Visualisasi Sistem: Mathematical Precision
+## 2. Visualisasi Sistem: Mathematical Clamping
 
 ```mermaid
 graph LR
-    Theory[Mathematical Value: Infinity Precision] --> Conv{Conversion / Clamping}
-    Conv --> Num[Number: 64-bit Float]
-    Conv --> BI[BigInt: Arbitrary Precision]
+    Theory[Mathematical Value: Infinity Precision] --> Op1[Op: modulo 2^32]
+    Op1 --> Result[Uint32 Language Value]
+    
+    Theory --> Op2[Round to Nearest IEEE 754]
+    Op2 --> Result2[Number Language Value]
     
     style Theory fill:#e1f5fe,stroke:#01579b
-    style Num fill:#f1c40f,stroke:#333
+    style Result fill:#a8e6cf,stroke:#333
+    style Result2 fill:#a8e6cf,stroke:#333
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Operasi Logika (Clause 5.2.5 - 6.1)
-1. **The Abstract Equality Short**: Memahami bagaimana `==` dirangkum dalam satu tabel kebenaran raksasa.
-2. **Integer Indexed Expressions**: Aturan matematika untuk menghitung indeks array tanpa risiko angka pecahan.
-3. **The `X + Y` Notation**: Di spesifikasi, penjumlahan dilakukan pada Mathematical Values terlebih dahulu sebelum sirkuit dikonversi ke tipe data bahasa.
+### Operasi dan Singkatan (Clause 5.2.5 - 6.1)
+1. **Mathematical Operations**: Penjumlahan (`+`), pengurangan (`-`), dan eksponensial dilakukan pada Mathematical Values. Spesifikasi mendefinisikan secara eksplisit bagaimana menangani overflow.
+2. **Floating Point Arithmetic**: Memahami bahwa `(0.1 + 0.2)` di MV menghasilkan `0.3` absolut, tapi di tipe `Number` ia dipotong sesuai standar IEEE 754, menghasilkan `0.30000000000000004`.
+3. **Spec Shorthands**: Frasa seperti "Return ?" atau "Perform !" bukan hanya kata-kata, tapi merangkum seluruh rantaian logika `ReturnIfAbrupt`.
 
-### Arsitek Mindset: Precision Awareness
-- Selalu ingat bahwa apa yang Anda lihat di layar (misal: `0.1 + 0.2`) adalah hasil dari pembulatan (clamping) MV ke dalam format IEEE 754. Dengan memahami matematika spesifikasi, Anda akan berhenti menyalahkan "bug" bahasa dan mulai memahami batasan fisik sirkuit Hub.
+### Arsitek Mindset: Precision Safety
+- Jangan pernah mengasumsikan presisi "tak terbatas" di sirkuit uang atau data sensitif. Gunakan `BigInt` jika Anda memproses Mathematical Values yang sangat besar (integer), dan selalau sadari batasan presisi 64-bit saat melakukan kalkulasi pecahan di Hub.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/spec_math_precision_lab.js` untuk menguji perbedaan antara nilai matematika murni dan hasil evaluasi yang dibatasi oleh presisi 64-bit di Hub.
+Buka file `examples/spec_math_precision_audit.js` untuk membedah perbedaan antara hasil matematika ideal vs hasil evaluasi engine pada operasi floating point yang kritis.
 
 ---
 *Status: [status.md](../../../../../status.md)*

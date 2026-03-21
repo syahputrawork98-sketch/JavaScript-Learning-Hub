@@ -1,55 +1,58 @@
 # CH-03: Grammatical Parameters and Constraints
 
-> **"Kondisi sirkuit bersyarat. `Grammatical Parameters and Constraints` membedah bagaimana Hub melacak status eksekusi (seperti `async` atau `yield`) ke dalam struktur bahasanya."**
+> **"Propagasi Status dan Lookahead. `Grammatical Parameters and Constraints` membedah bagaimana Hub melacak status eksekusi (context) ke dalam rantaian validasi gramatikal."**
 
 **Source Hub**: 
 - [ECMA-262: Grammar Parameters](https://tc39.es/ecma262/#sec-grammar-parameters)
+- [ECMA-262: Lookahead Restrictions](https://tc39.es/ecma262/#sec-lookahead-restrictions)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Simbol non-terminal di Hub bisa memiliki **Parameters** (seperti `[In, Yield, Await]`). Ini adalah variabel status yang diwariskan ke bawah rantaian produksi. **Constraints** (seperti `Lookahead`) adalah batasan tambahan yang melarang kemunculan simbol tertentu segera setelah simbol saat ini.
+Dua mekanisme tercanggih dalam grammar Hub adalah **Grammatical Parameters** (variabel pada non-terminal) dan **Lookahead Restrictions** (pembatasan simbol berikutnya). Parameter seperti `[Yield]` memastikan bahwa kata kunci `yield` hanya valid saat berada di dalam rantaian produksi Generator. Lookahead memastikan ambiguitas kode (seperti blok `{}` vs objek `{}`) dapat diselesaikan sebelum dieksekusi.
 
 **Model Mental**:
-- **Parameters**: Seperti membawa "Izin Kerja" (Status: `Can_Yield`). Jika Anda sedang berada di dalam generator, Anda membawa izin itu. Jika tidak, izin dihapus dan Anda dilarang menggunakan tombol `yield`.
-- **Lookahead**: Seperti tanda dilarang belok kiri. Anda boleh berada di perempatan ini, tapi Anda dilarang melihat ke arah tertentu (Simbol tertentu dilarang muncul).
+- **Parameters**: Seperti pewarnaan sirkuit. Jika induknya "berwarna" `Async`, maka semua cabangnya akan ikut berwarna `Async` sampai rantaiannya selesai.
+- **Lookahead**: Seperti radar. Sebelum melangkah ke depan, Hub memindai satu simbol di depannya untuk memutuskan arah jalur produksi.
 
 ---
 
-## 2. Visualisasi Sistem: Parameter Inheritance
+## 2. Visualisasi Sistem: Parameter Flow
 
 ```mermaid
 graph TD
-    Func[FunctionDeclaration_Await] --> Body[FunctionBody_Await]
-    Body --> Exp[Expression_Await]
-    Exp --> Wait["'await' (Allowed)"]
+    Parent[Function_Yield] --> Child[Statement_Yield]
+    Child --> G{"'yield'"}
+    G -->|Valid because of Parameter| Success[AST Node: YieldExpression]
     
-    Func2[FunctionDeclaration] --> Body2[FunctionBody]
-    Body2 --> Exp2[Expression]
-    Exp2 --X Wait2["'await' (Forbidden)"]
+    Parent2[Function] --> Child2[Statement]
+    Child2 --> G2{"'yield'"}
+    G2 --X|Invalid: Parameter Missing| Fail[SyntaxError]
     
-    style Wait fill:#a8e6cf,stroke:#333
-    style Wait2 fill:#f8bbd0,stroke:#880e4f
+    style Success fill:#a8e6cf,stroke:#333
+    style Fail fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Kontrol Konteks (Clause 5.1.10 - 5.1.15)
-1. **The `[In]` Parameter**: Melacak apakah Anda sedang berada di dalam inisialisasi loop `for-in`, guna mencegah kebingungan dengan operator `in`.
-2. **Lookahead Restrictions**: Memastikan bahwa Hub tidak salah mengira sebuah objek sebagai blok kode saat penguraian berlangsung.
-3. **The "But Not" Notation**: Melarang kumpulan simbol tertentu dari sebuah produksi (misal: "Setiap Karakter *Kecuali* Ganti Baris").
+### Logika Kontekstual (Clause 5.1.10 - 5.1.15)
+1. **Parameter Prefixing**:
+   - `+Await`: Mengaktifkan fungsionalitas await.
+   - `~Yield`: Menonaktifkan fungsionalitas yield.
+2. **Lookahead Control (`[lookahead ∉ {set}]`)**: Mencegah parser terjebak dalam ambiguitas statis. Contoh: *ExpressionStatement* dilarang dimulai dengan `{` karena akan disalahartikan sebagai *Block*.
+3. **The `[In]` Parameter**: Menentukan apakah operator `in` diizinkan atau tidak dalam ekspresi relasional (khusus untuk inisialisasi loop `for`).
 
-### Arsitek Mindset: Context Awareness
-- Pahami bahwa sebuah kata kunci (seperti `await`) bisa valid di satu titik tapi menyebabkan error fatal di titik lain hanya karena parameter konteksnya berubah. Selalu sadari "Izin Kerja" (Context) apa yang sedang aktif di modul Anda.
+### Arsitek Mindset: Context Isolation
+- Pahami bahwa sebuah fitur bahasa bisa beroperasi sangat berbeda hanya karena parameter konteksnya berubah. Selalu sadari "Zone" (Konteks) di mana kode Anda berada, terutama saat Anda mencampur logika asinkron dan sinkron di dalam Agent Hub.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/grammar_context_lab.js` untuk menguji bagaimana Hub merespons kata kunci `yield` di dalam fungsi biasa vs fungsi generator melalui filter parameter grammar.
+Buka file `examples/lookahead_ambiguity_lab.js` untuk menguji bagaimana Hub menangani teks `{} + []` sebagai penambahan objek vs blok kode kosong tergantung pada konteks gramatikalnya.
 
 ---
 *Status: [status.md](../../../../../status.md)*

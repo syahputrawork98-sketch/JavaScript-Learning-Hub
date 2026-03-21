@@ -1,54 +1,53 @@
 # CH-03: Records, Lists, and Internal Data
 
-> **"Gudang data rahasia Hub. `Records, Lists, and Internal Data` membedah struktur penyimpanan yang digunakan oleh spesifikasi untuk mengelola status internal sirkuit."**
+> **"Infrastruktur Data Spesifikasi. `Records, Lists, and Internal Data` membedah struktur penyimpanan privat yang digunakan oleh engine Hub untuk mengelola status eksekusi."**
 
 **Source Hub**: 
-- [ECMA-262: Record and List Types](https://tc39.es/ecma262/#sec-list-and-record-specification-type)
+- [ECMA-262: List and Record Specification Types](https://tc39.es/ecma262/#sec-list-and-record-specification-type)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Spesifikasi menggunakan tipe data khusus yang tidak bisa diakses oleh kode JavaScript biasa. **Record** adalah kumpulan pasangan kunci-nilai statis (mirip objek tapi imutabel dan privat). **List** adalah urutan nilai (mirip array). Struktur-struktur ini digunakan untuk menyimpan segala sesuatu, mulai dari variabel di memori (Environment Record) hingga status modul.
+Untuk beroperasi, Hub memerlukan struktur data internal yang tidak bisa diotak-atik oleh teknisi melalui kode. **Record** didefinisikan sebagai kumpulan field statis yang ditulis dengan kurung siku ganda (e.g., `{ [[Value]], [[Writable]] }`). **List** adalah urutan nilai murni. Struktur-struktur ini menjadi fondasi bagi **Environment Records** (tempat variabel disimpan) dan **Global Object** di dalam memori.
 
 **Model Mental**:
-- **Record**: Formulir isian resmi Hub. Isinya tetap dan tidak bisa ditambah-tambah sembarangan setelah diisi.
-- **List**: Daftar antrean tugas Hub.
+- **Record**: Sebuah formulir identitas rahasia. Hub mengisi data di kolom-kolom tertentu dan membacanya untuk memutuskan perilaku objek.
+- **List**: Sebuah antrean atau tumpukan instruksi yang kaku.
 
 ---
 
-## 2. Visualisasi Sistem: Specification Data Model
+## 2. Visualisasi Sistem: Memory Record Blueprint
 
 ```mermaid
 graph LR
-    Spec[Specification Data] --> R[Record: { [[Field1]], [[Field2]] }]
-    Spec --> L[List: [ Item1, Item2, ... ]]
+    Entity[Object/Scope] --> EnvRec[Environment Record: Record]
+    EnvRec --> Fields["{ [[OuterEnv]], [[BindingList]] }"]
     
-    R --> Env[Environment Record: Variables]
-    R --> Prop[Property Descriptor]
-    L --> Args[Argument Lists]
+    Entity2[Property] --> PropDesc[Property Descriptor: Record]
+    PropDesc --> Fields2["{ [[Value]], [[Writable]], [[Configurable]] }"]
     
-    style R fill:#e1f5fe,stroke:#01579b
-    style L fill:#a8e6cf,stroke:#333
+    style EnvRec fill:#e1f5fe,stroke:#01579b
+    style PropDesc fill:#fff3e0,stroke:#e65100
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Infrastruktur Internal (Clause 6.2.1 - 6.2.2)
-1. **The Record Notation**: Ditulis dengan kurung kurawal `{ [[Field]]: value }`. Field-field ini bersifat privat bagi spesifikasi dan seringkali menentukan perilaku fundamental sebuah objek.
-2. **The List Notation**: Ditulis dengan kurung siku `« value1, value2 »`. Digunakan untuk melacak urutan operasi atau parameter fungsi.
-3. **Immutability**: Kebanyakan Record di level spec bersifat deskriptif—artinya mereka diciptakan untuk menjelaskan status di satu titik waktu tertentu.
+### Tipologi Data Internal (Clause 6.2.1 - 6.2.3)
+1. **Records**: Setiap field (tanda `[[ ]]`) adalah kunci akses yang memandu logika algoritma. Jika sebuah field tidak ada, spesifikasi mengasumsikan nilai default atau "undefined".
+2. **Lists**: Digunakan secara eksklusif dalam transmisi argumen fungsi dan pemrosesan modul (`[[RequestedModules]]`).
+3. **Internal Methods as Record Fields**: Banyak Record yang juga menyimpan pointer ke algoritma (metode), seperti `[[Get]]` atau `[[Set]]`.
 
-### Arsitek Mindset: Structured Thinking
-- Meskipun Anda tidak bisa menyentuh `Record` ini secara langsung, memahaminya membantu Anda memvisualisasikan bagaimana engine JavaScript "berpikir". Setiap kali Anda membuat variabel, bayangkan Hub sedang menulis satu baris di dalam sebuah **Environment Record**.
+### Arsitek Mindset: Metadata Awareness
+- Arsitektur sistem yang hebat tidak hanya peduli pada "Data", tapi juga pada "Metadata". Memahami bagaimana Hub menyimpan status variabel di dalam **Environment Record** akan membantu Anda menguasai konsep **Closure** dan **Scope Chain** secara mutlak dan mendalam.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/internal_record_mapping.js` untuk melihat bagaimana sebuah objek JavaScript "dipetakan" menjadi sebuah `Property Descriptor Record` di dalam memori engine.
+Buka file `examples/internal_state_mapping.js` untuk melihat pemetaan antara variabel JavaScript ke dalam struktur **Environment Record** virtual di level spesifikasi.
 
 ---
 *Status: [status.md](../../../../../status.md)*

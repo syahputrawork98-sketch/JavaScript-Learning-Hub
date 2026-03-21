@@ -1,59 +1,60 @@
 # CH-02: Completion Records and Errors
 
-> **"Protokol laporan status. `Completion Records and Errors` adalah cara Hub melaporkan apakah sebuah misi berhasil, gagal, atau melompat keluar dari jalur normal."**
+> **"Protokol Propagasi Status. `Completion Records and Errors` membedah bagaimana Hub melacak aliran kontrol, pengembalian nilai, dan kegagalan sirkuit secara formal."**
 
 **Source Hub**: 
-- [ECMA-262: Completion Records](https://tc39.es/ecma262/#sec-completion-record-specification-type)
+- [ECMA-262: Completion Record Specification Type](https://tc39.es/ecma262/#sec-completion-record-specification-type)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Hampir setiap langkah di spesifikasi mengembalikan sebuah **Completion Record**. Ini adalah paket data yang berisi tiga informasi: **[[Type]]** (Normal, Break, Continue, Return, atau Throw), **[[Value]]** (hasilnya), dan **[[Target]]** (label tujuan). **Abrupt Completion** terjadi jika tipenya bukan "Normal".
+Setiap langkah algoritma di Hub mengembalikan sebuah **Completion Record** (sebuah Record internal). Ia memiliki tiga field: **[[Type]]** (Normal, Break, Continue, Return, atau Throw), **[[Value]]** (data hasil), dan **[[Target]]** (label tujuan). Jika [[Type]] bukan "Normal", ia disebut **Abrupt Completion**.
 
 **Model Mental**:
-Bayangkan utusan yang kembali membawa laporan:
-- **Normal**: "Ini barangnya, misi selesai."
-- **Throw**: "Gagal! Ada ledakan di sirkuit!" (Membawa error).
-- **Return**: "Ini barangnya, dan saya langsung pulang." (Keluar dari fungsi).
+- **Normal Completion**: Lampu hijau. Arus energi mengalir lancar ke langkah berikutnya.
+- **Abrupt Completion**: Lampu merah atau kuning. Arus energi interupsi dan harus segera melompat ke penangan (seperti blok catch atau akhir fungsi).
 
 ---
 
-## 2. Visualisasi Sistem: Completion Dispatcher
+## 2. Visualisasi Sistem: Abrupt Propagation (Clause 6.2.4.4)
 
 ```mermaid
 graph TD
-    Op[Jalankan Operasi] --> Res{Tipe Hasil?}
-    Res -->|Normal| Cont[Langkah Selanjutnya]
-    Res -->|Throw/Return| Abr[Abrupt: Hentikan Langkah & Naikkan ke Atas]
+    Step[Run Algorithm Step] --> Res{Completion Record}
+    Res -->|[[Type]]: Normal| Next[Proceed to Next Step]
+    Res -->|[[Type]]: Throw| Abrupt[Bubble Up to Caller]
+    Res -->|[[Type]]: Return| Abrupt
     
-    Abr --> Handler{Ada Penanganan Error?}
-    Handler -->|Yes: try-catch| Recovery[Pindah ke blok Catch]
-    Handler -->|No| Exit[Matikan Sirkuit Agent]
+    Abrupt --> Catch{Caught in Try-Catch?}
+    Catch -->|Yes| Recovery[Resume with Normal Completion]
+    Catch -->|No| Exit[Propagate further up]
     
     style Res fill:#f1c40f,stroke:#333
-    style Abr fill:#f8bbd0,stroke:#880e4f
+    style Abrupt fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Mekanisme Pengembalian (Clause 6.2.4)
-1. **Normal Completion**: Aliran data berlanjut ke langkah berikutnya tanpa interupsi.
-2. **Abrupt Completion**: Aliran data segera berhenti di titik tersebut dan "bergelembung" (bubbles up) ke konteks eksekusi di atasnya sampai ditemukan penangan (seperti `try-catch`).
-3. **The `?` and `!` Shorthand**: 
-   - `?` (ReturnIfAbrupt): Jika gagal, segera lempar ke atas. Jika sukses, ambil nilainya saja.
-   - `!` (No-Failure Guarantee): Hub menjamin langkah ini tidak akan pernah gagal (pasti Normal).
+### Notasi Ringkas (Shorthands)
+1. **The `?` Prefix (ReturnIfAbrupt)**: 
+   - `let result = ? Operation()`. Singkatan dari: "Jalankan operasi, jika hasilnya Abrupt, kembalikan ke atas segera. Jika Normal, ambil nilainya saja."
+2. **The `!` Prefix (No-Failure)**: 
+   - `let val = ! Operation()`. Pernyataan tegas Hub bahwa operasi ini DIJAMIN berhasil (Normal) dan tidak akan pernah melempar error.
+3. **Abrupt Types**:
+   - `Return`: Menandakan selesainya eksekusi fungsi.
+   - `Throw`: Menandakan kegagalan fatal yang butuh penanganan (Error).
 
-### Arsitek Mindset: Safe Propagation
-- Memahami Completion Records akan mengubah cara Anda menulis logika error. Jangan biarkan sirkuit Anda "mati" secara misterius; pastikan setiap alur asinkron atau logika berat memiliki jalur pengembalian status (Try-Catch) yang jelas untuk menangani *Abrupt Completion*.
+### Arsitek Mindset: Reliable Control Flow
+- Pahami bahwa `try-catch` bukan "magic". Di level spesifikasi, itu hanyalah sebuah blok yang menangkap **Completion Record** bertipe `Throw` dan mengubahnya kembali menjadi `Normal` untuk melanjutkan sirkuit. Selalu desain sirkuit Anda agar siap menangani interupsi aliran energi secara anggun.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/completion_record_sim.js` untuk melihat simulasi bagaimana sebuah "Abrupt Return" menghentikan seluruh rantaian loop di dalam fungsi secara instan di level engine.
+Buka file `examples/completion_record_deep_audit.js` untuk melihat simulasi aliran data saat sebuah fungsi melempar error dan bagaimana ia dirambatkan melalui tumpukan pemanggilan (Call Stack).
 
 ---
 *Status: [status.md](../../../../../status.md)*

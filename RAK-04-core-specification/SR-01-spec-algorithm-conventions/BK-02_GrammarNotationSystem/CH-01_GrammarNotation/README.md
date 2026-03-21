@@ -1,54 +1,58 @@
 # CH-01: CFG and Primary Notation
 
-> **"Abjad tata bahasa Hub. `CFG and Primary Notation` menjelaskan bagaimana teks kode didekonstruksi menjadi simbol-simbol yang dimengerti oleh engine."**
+> **"Abstraksi BNF dan Hirarki Grammar. `CFG and Primary Notation` membedah fondasi Backus-Naur Form (BNF) yang mendasari seluruh struktur sintaksis Hub."**
 
 **Source Hub**: 
 - [ECMA-262: Context-Free Grammars](https://tc39.es/ecma262/#sec-context-free-grammars)
+- [ECMA-262: Grammar Notation](https://tc39.es/ecma262/#sec-grammar-notation)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-JavaScript menggunakan **Context-Free Grammar (CFG)** untuk mendefinisikan struktur bahasanya. **Terminal Symbols** adalah karakter tetap (seperti `if`, `{`, `+`), sedangkan **Nonterminal Symbols** adalah nama kategori (seperti *Statement*, *Expression*) yang bisa dipecah lagi menjadi simbol-simbol lain melalui **Productions** (Aturan).
+ECMAScript menggunakan **Context-Free Grammar (CFG)** yang direpresentasikan melalui variasi **BNF**. Spesifikasi memisahkan grammar menjadi empat lapisan: **Lexical** (tokenisasi), **Syntactic** (struktur perintah), **RegExp**, dan **Numeric String**. Setiap lapisan menjamin integritas data dari karakter mentah ke AST (Abstract Syntax Tree).
 
 **Model Mental**:
-Bayangkan Hub sedang merakit kalimat.
-- **Nonterminal**: Subjek, Predikat, Objek.
-- **Terminal**: Nama orang ("Andi"), Kata kerja ("Makan").
-- **Production**: Aturan yang menyatakan "Kalimat terdiri dari Subjek + Predikat".
+- **Lexical Grammar**: Pembuat bata. Ia mengubah lumpur (karakter Unicode) menjadi bata (Token).
+- **Syntactic Grammar**: Arsitek. Ia menyusun bata (Token) menjadi struktur bangunan (Statement/Expression).
 
 ---
 
-## 2. Visualisasi Sistem: Production Chain
+## 2. Visualisasi Sistem: Multi-Layer Validation
 
 ```mermaid
 graph TD
-    S[Nonterminal: Statement] --> If[Production 1: 'if' ( Terminal )]
-    S --> Block[Production 2: Block]
-    Block --> LCurly["'{' ( Terminal )"]
-    Block --> RCurly["'}' ( Terminal )"]
+    Source[Text Source] --> Lex[Lexical Grammar: Tokens]
+    Lex --> Syn[Syntactic Grammar: AST Structure]
+    Syn --> Eval[Execution Engine]
     
-    style If fill:#a8e6cf,stroke:#333
-    style LCurly fill:#a8e6cf,stroke:#333
+    Lex -.-> RE[RegExp Grammar]
+    Syn -.-> NS[Numeric String Grammar]
+    
+    style Syn fill:#a8e6cf,stroke:#333
+    style Lex fill:#e1f5fe,stroke:#01579b
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Anatomi Produksi (Clause 5.1.1 - 5.1.4)
-1. **Left-Hand Side (LHS)**: Simbol non-terminal yang sedang didefinisikan (di sebelah kiri tanda `:`).
-2. **Right-Hand Side (RHS)**: Daftar simbol (terminal/non-terminal) yang membentuk LHS (di sebelah kanan tanda `:`).
-3. **Chain Productions**: Saat sebuah non-terminal merujuk ke non-terminal lain tanpa teks terminal tambahan, menciptakan rantaian validasi di Hub.
+### Anatomi Notasi BNF (Clause 5.1.4)
+1. **Productions (`:` or `::` or `:::`)**: 
+   - `:` untuk Syntactic Grammar.
+   - `::` untuk Lexical Grammar.
+   - `:::` untuk RegExp Grammar.
+2. **Terminal vs Non-terminal**: Terminal ditulis dengan font tetap (e.g., `if`), Non-terminal ditulis miring (e.g., *IfStatement*).
+3. **Recursive Productions**: Banyak non-terminal di Hub bersifat rekursif (e.g., sebuah *Expression* bisa mengandung *Expression* lain), memungkinkan kedalaman logika tak terbatas.
 
-### Arsitek Mindset: Structural Strictness
-- Pahami bahwa setiap karakter yang Anda ketik di Hub harus lolos dari saringan Grammar ini. Jika struktur Anda tidak sesuai dengan rantaian produksi, Hub akan langsung menolak sirkuit Anda sebelum satu baris kode pun diproses (Syntax Error).
+### Arsitek Mindset: Structural Determinism
+- Memahami hirarki grammar memungkinkan Anda mendiagnosis **Syntax Errors** dengan presisi. Jika Hub melempar error, itu berarti input Anda gagal dipetakan ke rantaian produksi BNF di level Lexical atau Syntactic. Jangan melawan grammar; bangunlah sirkuit yang selaras dengannya.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/grammar_production_audit.js` untuk melihat bagaimana sebuah fungsi sederhana diurai menjadi rantaian produksi di level internal spesifikasi.
+Buka file `examples/grammar_layer_audit.js` untuk melihat bagaimana sebuah string diproses melalui filter Lexical dan Syntactic di level simulasi parser engine.
 
 ---
 *Status: [status.md](../../../../../status.md)*

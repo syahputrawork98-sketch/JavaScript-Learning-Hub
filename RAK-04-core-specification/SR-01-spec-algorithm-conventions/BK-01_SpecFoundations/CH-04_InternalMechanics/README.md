@@ -1,57 +1,59 @@
 # CH-04: Properties and Internal Slots
 
-> **"Mekanisme tersembunyi di balik objek. `Properties and Internal Slots` membedah bagaimana Hub menyimpan metadata dan instruksi rahasia di dalam setiap unit data."**
+> **"Anatomi Descriptor dan Internal Slots. `Properties and Internal Slots` membongkar mekanisme penyimpanan status di balik setiap objek Hub, dari atribut visibilitas hingga slot privat."**
 
 **Source Hub**: 
 - [ECMA-262: Property Attributes](https://tc39.es/ecma262/#sec-property-attributes)
+- [ECMA-262: Object Internal Slots and Internal Methods](https://tc39.es/ecma262/#sec-object-internal-slots-and-internal-methods)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap properti di Hub bukan sekadar nilai, melainkan sebuah struktur kecil yang dipagari oleh **Attributes** (seperti `Enumerable` atau `Configurable`). Selain itu, ada **Internal Slots** (ditulis dengan kurung siku ganda `[[ ]]`) yang merupakan variabel rahasia Hub untuk menyimpan status objek (seperti status privat sebuah kelas atau target sebuah Proxy).
+Setiap properti didefinisikan oleh **Property Descriptor** (sebuah Record internal). Ada dua jenis: **Data Property** (menyimpan nilai) dan **Accessor Property** (fungsi get/set). Selain properti yang terlihat, objek memiliki **Internal Slots** (e.g., `[[Prototype]]`, `[[Extensible]]`) yang menyimpan status engine dan tidak bisa diiterasi.
 
 **Model Mental**:
-Bayangkan laci (Property) di Hub.
-- **Value**: Barang di dalam laci.
-- **Attributes**: Kunci laci. Apakah bisa dibuka (Enumerable)? Apakah bisa diganti kuncinya (Configurable)?
-- **Internal Slots**: Ruang rahasia di bawah laci yang hanya bisa dibuka oleh teknisi pusat Hub menggunakan alat khusus.
+- **Data Descriptor**: Laci dengan kunci `writable`, `enumerable`, dan `configurable`.
+- **Accessor Descriptor**: Tombol yang saat ditekan (get) atau diputar (set) memicu aksi eksternal.
+- **Internal Slots**: Kabel-kabel internal di dalam mesin Hub yang menentukan apakah mesin bisa dimodifikasi atau tidak.
 
 ---
 
-## 2. Visualisasi Sistem: Anatomy of a Property
+## 2. Visualisasi Sistem: Descriptor vs Internal Slots
 
 ```mermaid
 graph TD
-    Prop[Property: 'energy'] --> Attr[Attributes]
-    Attr --> W[Writable: true/false]
-    Attr --> E[Enumerable: true/false]
-    Attr --> C[Configurable: true/false]
+    Obj[Object Entity] --> Prop[Property List]
+    Obj --> Slots[Internal Slots Table]
     
-    Obj[Object] --> Slot[[[Prototype]]]
-    Obj --> Slot2[[[PrivateElements]]]
+    Prop --> D[Data Descriptor: value, writable, ...]
+    Prop --> A[Accessor Descriptor: get, set, ...]
     
-    style Attr fill:#f1c40f,stroke:#333
-    style Slot fill:#f8bbd0,stroke:#880e4f
+    Slots --> P[[[Prototype]]]
+    Slots --> E[[[Extensible]]]
+    Slots --> Private[[[PrivateElements]]]
+    
+    style D fill:#e1f5fe,stroke:#01579b
+    style Slots fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Komponen Internal (Clause 4.4.32 - 4.4.38)
-1. **Property Attributes**: Menentukan perilaku meta-data dari sebuah identitas. Ini adalah cara Hub melindungi sirkuit penting agar tidak terhapus secara tidak sengaja.
-2. **Internal Slots & Methods**: Jantung dari spesifikasi. Mereka mendefinisikan *apa* yang dilakukan objek, bukan *bagaimana* ia melakukannya.
-3. **Data vs Accessor**: Properti bisa menyimpan energi langsung (Data) atau bertindak sebagai portal menuju fungsi lain (Accessor: Get/Set).
+### Detail Deskrpsi Properti (Clause 6.1.7.1)
+- **`[[Writable]]`**: Jika `false`, metode internal `[[Set]]` akan gagal (baik secara diam-diam atau melempar Error di Strict Mode).
+- **`[[Configurable]]`**: Jika `false`, tipe descriptor tidak bisa diubah dan properti tidak bisa dihapus. Ini adalah segel keamanan permanen.
+- **`[[Enumerable]]`**: Menentukan visibilitas properti dalam iterasi `for-in` atau `Object.keys()`.
 
-### Arsitek Mindset: Defensive Coding
-- Gunakan `Object.defineProperty()` untuk menciptakan properti yang tidak bisa diubah (`writable: false`). Hal ini sangat krusial saat Anda membangun framework atau library di mana status internal sistem tidak boleh diotak-atik oleh pengguna luar.
+### Arsitek Mindset: State Encapsulation
+- Manfaatkan **Internal Slots** (melalui **Private Fields** `#`) untuk enkapsulasi status yang benar-benar privat. Hindari konvensi underscore (`_private`) karena itu hanya "saran" sosial dan tidak memberikan perlindungan sirkuit di level engine Hub.
 
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/property_descriptors_audit.js` untuk membongkar atribut tersembunyi dari sebuah properti objek menggunakan `Object.getOwnPropertyDescriptor()`.
+Buka file `examples/property_lockdown_lab.js` untuk mensimulasikan "pembekuan" objek menggunakan `Object.freeze()` dan melihat bagaimana ia mengubah seluruh atribut `configurable` dan `writable` menjadi `false`.
 
 ---
 *Status: [status.md](../../../../../status.md)*
