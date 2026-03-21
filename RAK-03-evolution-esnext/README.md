@@ -1,30 +1,37 @@
-# Rak 03: Evolution & ESNext
-*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 100% - Gold Standard)*
+# RAK-03: Evolution & ESNext (The Progress)
 
-> **"The Future of JavaScript: TC39 & Beyond"**
-
-Rak ini mendokumentasikan evolusi berkelanjutan JavaScript melalui proses TC39 dan fitur-fitur masa depan (ESNext).
+> **"Sirkuit yang terus bermutasi. `RAK-03` membedah ekosistem evolusi JavaScript—dari dewan komite TC39 hingga fitur-fitur ESNext terbaru yang siap membentuk masa depan Hub."**
 
 ---
 
-## 🏗️ Struktur Sub-Rak (Tracks)
+## 🏗️ Evolution Hub Architecture
 
-1. **[SR-01-tc39-process](./SR-01-tc39-process/)**
-   - Mendekonstruksi 5 Tahap (Stage 0-4) standarisasi ECMAScript.
-2. **[SR-02-proposals-track](./SR-02-proposals-track/)**
-   - Monitoring Proposal aktif dan timeline rilis tahunan.
-3. **[SR-03-language-features](./SR-03-language-features/)**
-   - Katalog fitur yang telah mencapai Stage 4 dan masuk ke spesifikasi.
+```mermaid
+graph TD
+    Eco["SR-01: Evolution Ecosystem"] --> Hub["Progressive JavaScript"]
+    Core["SR-02: Modern Core Evolution"] --> Hub
+    Fut["SR-03: Future Hub / Proposals"] --> Hub
+    
+    style Hub fill:#a8e6cf,stroke:#333
+```
 
-> [!NOTE]
-> Materi Sejarah Awal dan Filosofi telah dipindahkan ke [RAK-01-introduction-essence](../RAK-01-introduction-essence/).
+---
+
+## 🛰️ Sub-Rack Collection:
+
+### 1. [SR-01: Evolution Ecosystem](./SR-01-evolution-ecosystem/)
+Membedah "Bagaimana" dan "Siapa" di balik layar. Fokus pada tata kelola TC39 dan 5 Tahap siklus spesifikasi (Stages 0-4).
+
+### 2. [SR-02: Modern Core Evolution](./SR-02-modern-core-evolution/)
+Membedah "Apa" yang telah berubah. Fokus pada fitur krusial ES2015+: Structural, Async, Data Resilience, dan Metaprogramming.
+
+### 3. [SR-03: Future Hub / Proposals](./SR-03-future-hub-proposals/)
+Membedah "Apa Selanjutnya". Memantau proposal aktif di Stage 1-4 seperti Temporal, Decorators, dan Records/Tuples.
 
 ---
 
-## 🎯 Key Goals
-- Memahami mekanisme **TC39** dalam membentuk masa depan bahasa.
-- Membedah fitur-fitur **ESNext** (ES2020+) secara teknis dan naratif.
-- Mengikuti prinsip **Digital Mirroring** terhadap perkembangan spesifikasi terbaru.
+## 🎯 Architectural Goal
+RAK-03 bukan sekadar daftar fitur, melainkan dokumentasi evolusi yang menghubungkan **RAK-04 (Spesifikasi)** dengan **RAK-02 (Foundation)**, memberikan konteks *Mengapa* sebuah fitur ada dan *Bagaimana* ia memengaruhi sirkuit Hub.
 
 ---
-*Back to [Library Root](../README.md)*
+*Status: [status.md](./docs/status.md) | Universal Architecture: 6-Rack Model*
