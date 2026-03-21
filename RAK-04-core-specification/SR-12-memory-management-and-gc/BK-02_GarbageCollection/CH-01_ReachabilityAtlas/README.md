@@ -2,44 +2,57 @@
 
 > **"Hub tidak akan menghancurkan apa pun yang masih memiliki jalur koneksi ke pusat kendali. `Reachability Atlas` adalah 'Aturan Konektivitas'—protokol yang menentukan apakah sebuah objek masih dianggap 'Dapat Dijangkau' atau sudah menjadi 'Isolasi'."**
 
-*Pemetaan Konseptual Arsitektur Hub*
-
-## 1. Mental Model: "The Roots of Energy"
-
-Hub memulai pencarian dari titik-titik fundamental yang disebut **Roots**:
-- **Global Objects**: Variabel di `globalThis`.
-- **Active Stack**: Variabel lokal dan parameter dalam fungsi yang sedang berjalan.
-- **Module Records**: Impor dan ekspor yang aktif.
-
-Selama sebuah objek bisa ditelusuri kembali ke salah satu **Roots** ini melalui rantai kabel (referensi), objek tersebut dianggap **Reachable** (Dapat Dijangkau) dan akan dipertahankan. Jika jalur terputus, objek tersebut masuk ke wilayah isolasi.
+**Source Hub**: 
+- [MDN: Garbage Collection](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#garbage_collection)
+- [V8 Blog: Visualizing GC](https://v8.dev/blog/free-garbage-collection)
+- [ECMA-262: Reachability](https://tc39.es/ecma262/#sec-reachability)
 
 ---
 
-## 2. Reference Chains
+## 1. Konsep & Esensi
 
-Konektivitas bisa bersifat langsung atau tidak langsung:
-- **Direct**: `A -> B`.
-- **Indirect**: `A -> B -> C`. (Jika A adalah Root, maka B dan C aman).
-- **Circular**: `B -> C -> B`. (Jika tidak ada Root yang terhubung ke B atau C, maka keduanya akan didaur ulang bersama).
+**Definisi Arsitek**:
+Dalam memori Hub, objek dianggap "hidup" selama ada jalur referensi yang valid dari **GC Roots**. **Reachability** adalah algoritma penelusuran graf di mana engine menelusuri semua objek yang terhubung untuk memastikan tidak ada data aktif yang terbuang.
+
+**Model Mental**:
+Bayangkan pusat kendali Hub sebagai "Akar" (Roots). Selama sebuah unit sensor masih terhubung kabel ke pusat atau ke unit lain yang terhubung ke pusat, unit itu aman. Jika kabelnya putus dan unit itu terisolasi di "Pulau" (Island), tim GC akan mendeteksinya.
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## 2. Visualisasi Sistem: Connectivity Graph
 
-```javascript
-let rootNode = { detail: "I am a root" }; // Reachable (via variable)
-let island = { node: "Isolated" };        // Reachable (via variable)
-
-island = null; // Tali ke 'island' putus. Objek {node: "Isolated"} menjadi UNREACHABLE.
+```mermaid
+graph TD
+    Root[GC Roots: Global/Stack] --> A[Objek A]
+    A --> B[Objek B]
+    B --> C[Objek C]
+    
+    subgraph Isolated_Island [Pulau Terisolasi]
+        D[Objek D] <--> E[Objek E]
+    end
+    
+    style Root fill:#f1c40f,stroke:#333
+    style Isolated_Island fill:#f9bbbb,stroke:#f44336
 ```
 
 ---
 
-## Arsitek Mindset: Mempertahankan Aliran
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Fokuslah pada **Roots**. Hati-hati dengan menaruh terlalu banyak data di variabel Global, karena mereka adalah Roots yang tidak pernah mati selama Hub berjalan, sehingga semua data yang terhubung ke sana tidak akan pernah didaur ulang (Memory Leak).
-- Pahami bahwa siklus referensi melingkar (Circular References) bukan lagi masalah bagi Hub modern selama mereka terputus dari Roots. Hub cukup cerdas untuk mendeteksi "pulau" data yang terisolasi dan membersihkan semuanya sekaligus.
+### Titik Awal (GC Roots)
+1. **Global Object**: Variabel di `window` atau `globalThis`.
+2. **Current Stack**: Variabel lokal dalam fungsi yang sedang dieksekusi.
+3. **Module Records**: Impor/Ekspor yang aktif dalam sistem modul.
+
+### Aturan Konektivitas
+- **Direct Reachability**: Objek yang ditunjuk langsung oleh Root.
+- **Transitive Reachability**: Objek yang ditunjuk oleh objek yang dapat dijangkau.
+- **Circular Islands**: Meskipun dua objek saling merujuk (A <-> B), jika keduanya tidak terhubung ke Root, maka keduanya tetap dianggap tidak terjangkau (*Unreachable*).
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+Buka file `examples/reachability_lab.js` untuk melihat bagaimana penghapusan referensi pada node pusat mengakibatkan seluruh cabang objek menjadi tidak terjangkau dalam satu siklus GC.
+
+---
+*Status: [status.md](../../../../../status.md)*

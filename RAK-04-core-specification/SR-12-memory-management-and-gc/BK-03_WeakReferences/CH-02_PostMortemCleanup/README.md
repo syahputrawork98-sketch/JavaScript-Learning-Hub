@@ -2,45 +2,57 @@
 
 > **"Saat sebuah unit energi benar-benar dihancurkan, Hub mungkin perlu menjalankan protokol penutupan formal. `Post-Mortem Cleanup` adalah 'Registri Finalisasi' (FinalizationRegistry)—mekanisme untuk mendaftarkan callback yang akan dipicu oleh Hub setelah objek didaur ulang."**
 
-*Pemetaan ECMA-262: Clause 28.4*
-
-## 1. Mental Model: "The Cleanup Task List"
-
-Bayangkan Anda memiliki unit generator eksternal yang memerlukan penutupan katup manual saat unit tersebut dihancurkan.
-- Anda mendaftarkan objek generator tersebut ke **`FinalizationRegistry`**.
-- Saat Garbage Collector menyapu objek tersebut dari Warehouse, Hub akan memicu fungsi callback yang telah Anda tentukan.
-- Ini memungkinkan Anda membersihkan sumber daya pendamping (seperti pointer memori manual, file handle, atau log eksternal) yang tidak dikelola secara otomatis oleh Hub.
+**Source Hub**: 
+- [MDN: FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry)
+- [ECMA-262: FinalizationRegistry Objects](https://tc39.es/ecma262/#sec-finalization-registry-objects)
+- [V8: FinalizationRegistry and Cleanup](https://v8.dev/features/weak-references#finalizationregistry)
 
 ---
 
-## 2. Kapan Callback Dipicu?
+## 1. Konsep & Esensi
 
-Penting untuk diingat: Callback ini bersifat asinkron dan tidak ada jaminan kapan tepatnya Hub akan memicunya. Hub biasanya menunggu hingga sirkuit utama sedang dalam kondisi santai sebelum menjalankan tugas pembersihan pasca-kematian ini.
+**Definisi Arsitek**:
+**`FinalizationRegistry`** memungkinkan Anda mendaftarkan sebuah *callback* yang akan dijalankan oleh engine setelah sebuah objek yang didaftarkan telah diklaim oleh **Garbage Collector**. Ini adalah protokol terakhir (post-mortem) untuk membersihkan sumber daya luar yang terkait dengan objek tersebut.
+
+**Model Mental**:
+Bayangkan Anda memiliki unit generator eksternal (di luar Hub utama) yang memerlukan penutupan katup manual saat unit generator internal (di dalam Hub) dihancurkan. Anda menitipkan pesan pada tim pembersih: "Jika unit internal ini kalian daur ulang, tolong beri tahu saya agar saya bisa menutup katup unit eksternalnya."
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## 2. Visualisasi Sistem: Cleanup Registry Flow
 
-```javascript
-const registry = new FinalizationRegistry((heldValue) => {
-    console.log(`[CLEANUP] Object '${heldValue}' has been recycled. Closing valves...`);
-});
+```mermaid
+sequenceDiagram
+    participant App as Hub Application
+    participant GC as Garbage Collector
+    participant FR as FinalizationRegistry
+    participant Ext as External Resource
 
-let sensor = { id: "SENSOR_A" };
-registry.register(sensor, "Sensor Internal A");
-
-sensor = null; // Mematikan sensor
-// Beberapa waktu kemudian, saat GC berjalan, log cleanup akan muncul.
+    App->>FR: register(target, heldValue)
+    Note over App, GC: Objek target menjadi Unreachable
+    GC->>GC: Mark-and-Sweep (Recycle)
+    GC-->>FR: Trigger Cleanup Notification
+    FR->>App: Callback Execution (heldValue)
+    App->>Ext: Close/Release Resource
 ```
 
 ---
 
-## Arsitek Mindset: Pelengkap, Bukan Pengganti
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Jangan gunakan `FinalizationRegistry` untuk logika penutupan yang sangat krusial (seperti menutup koneksi database yang mahal sesegera mungkin). Gunakan `try...finally` atau penutupan eksplisit untuk itu.
-- Gunakan registri ini hanya sebagai "Jaring Pengaman" terakhir untuk memastikan sumber daya pendamping tidak bocor jika teknisi lain lupa menutup sirkuit secara manual.
-- Hindari menaruh logika yang berat atau menciptakan objek baru di dalam callback finalisasi, karena hal ini bisa membebani siklus pembersihan berikutnya.
+### Kapan Callback Dipicu?
+- **Asinkron**: Tidak ada jaminan waktu yang tepat. Hub biasanya menunggu hingga tugas utama selesai sebelum memproses antrean finalisasi.
+- **Held Value**: Nilai yang Anda teruskan (bisa berupa ID string atau objek lain) untuk memberi tahu callback sumber daya mana yang harus dibersihkan.
+- **Unregister**: Anda bisa membatalkan pendaftaran (*unregister*) jika sumber daya sudah dibersihkan secara manual sebelum objek didaur ulang.
+
+### Arsitek Mindset: Jaring Pengaman
+- **Jangan diandalkan**: Jangan gunakan untuk logika bisnis kritis yang membutuhkan durasi pembersihan instan (seperti menutup koneksi DB). Gunakan `try...finally`.
+- **Side effects**: Hindari membuat objek baru atau menahan referensi baru di dalam callback, karena ini bisa merusak siklus GC berikutnya.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 4. Lab Praktis
+Buka file `examples/finalization_registry_lab.js` untuk melihat bagaimana callback post-mortem dipicu setelah sebuah objek sensor buatan dianggap mati oleh Hub.
+
+---
+*Status: [status.md](../../../../../status.md)*

@@ -2,37 +2,55 @@
 
 > **"Hub yang sehat adalah Hub yang hemat daya. `Efficiency Audits` adalah 'Audit Efisiensi'—kumpulan praktik terbaik untuk memastikan penggunaan memori tetap minimum dan performa Hub tetap maksimal."**
 
-*Pemetaan Konseptual Arsitektur Hub*
-
-## 1. Mental Model: "Clean Coding as Energy Saving"
-
-Efisiensi memori bukan hanya tentang memperbaiki kebocoran, tetapi tentang mendesain sirkuit yang sedari awal hemat tempat.
-
----
-
-## 2. Strategi Audit Efisiensi
-
-- **Pool vs Allocation**: Untuk objek yang sangat sering dibuat dan dihancurkan (seperti partikel dalam simulasi), pertimbangkan untuk menggunakan **Object Pool**—menggunakan kembali objek lama daripada membiarkannya didaur ulang dan membuat yang baru.
-- **Primitif vs Objek**: Gunakan tipe data primitif (Number, Boolean) untuk data kecil agar tersimpan di Stack yang cepat, hindari membungkusnya dalam objek (`new Number()`) jika tidak perlu.
-- **Batch Processing**: Proses stream data besar dalam potongan kecil (Chunks) alih-alih memuat semuanya ke Warehouse (Heap) sekaligus.
-- **WeakRef Monitoring**: Gunakan `WeakRef` untuk meninjau apakah sebuah unit cache masih ada atau perlu dimuat ulang dari database eksternal.
+**Source Hub**: 
+- [Chrome DevTools: Memory profiling](https://developer.chrome.com/docs/devtools/memory-problems/heap-snapshots/)
+- [V8: Fast properties](https://v8.dev/blog/fast-properties)
+- [ECMA-262: Memory Safety](https://tc39.es/ecma262/#sec-memory-model)
 
 ---
 
-## 3. Tooling Hub (Profiling)
+## 1. Konsep & Esensi
 
-Seorang arsitek harus tahu cara menggunakan alat audit:
-- **Memory Snapshots**: Mengambil foto Warehouse untuk melihat objek apa yang paling banyak memakan tempat.
-- **Allocation Timelines**: Memantau lonjakan penggunaan memori saat operasi tertentu dijalankan.
+**Definisi Arsitek**:
+Efisiensi memori bukan hanya tentang memperbaiki kebocoran, tetapi tentang mendesain sirkuit yang sedari awal hemat tempat. Audit Efisiensi melibatkan pemantauan periodik terhadap **Heap Snapshot** dan **Allocation Timeline** untuk mengidentifikasi "Hot Spots" di mana memori terbuang percuma.
+
+**Model Mental**:
+Bayangkan merancang panel kontrol Hub agar setiap sirkuit hanya menggunakan kabel seperlunya. Jangan gunakan kabel tembaga tebal (objek besar) untuk tugas yang bisa diselesaikan dengan kawat tipis (primitif).
+
+---
+
+## 2. Visualisasi Sistem: Profiling Audit Flow
+
+```mermaid
+graph LR
+    Start[Beban Kerja Tinggi] --> Capture[Capture Heap Snapshot]
+    Capture --> Compare[Compare Snapshots]
+    Compare --> Identify{Growth Detected?}
+    Identify -->|Yes| Audit[Audit Retention Path]
+    Identify -->|No| Maintain[Maintain Baseline]
+    Audit --> Fix[Refactor/Cleanup]
+    
+    style Identify fill:#f1c40f,stroke:#333
+    style Fix fill:#f44336,stroke:#333,color:#fff
+```
 
 ---
 
-## Arsitek Mindset: Kesadaran Lanjutan
+## 3. Mekanisme & Hubungan
 
-Sebagai arsitek Hub:
-- Jangan melakukan optimasi prematur. Tulis blueprint yang bersih terlebih dahulu, lalu lakukan audit efisiensi hanya jika Hub mulai melambat atau kapasitas Warehouse mulai kritis.
-- Pahami bahwa Garbage Collector memiliki biaya CPU. Semakin banyak "sampah" yang Anda buat, semakin sering tim pembersih bekerja, yang bisa menyebabkan jeda kecil (Jank) pada aliran energi aplikasi.
-- Selalu dokumentasikan sirkuit yang menggunakan memori besar agar teknisi di masa depan tahu cara mengelolanya dengan benar.
+### Strategi Penghematan Energi
+1. **Object Pooling**: Gunakan kembali objek lama untuk tugas yang berulang (misal: partikel grafik) daripada terus menciptakan objek baru yang harus dibersihkan GC.
+2. **Shallow vs Deep Trees**: Hindari struktur objek yang terlalu dalam (*deeply nested*) karena memperberat tugas penelusuran **Mark-and-Sweep**.
+3. **Lazy Allocation**: Jangan deklarasikan data besar di awal aplikasi jika data tersebut hanya dibutuhkan saat event tertentu dipicu.
+
+### Arsitek Mindset: Kesadaran Lanjutan
+- **Premature Optimization**: Jangan mengoptimasi sebelum ada data profiling yang membuktikan ada masalah. Tulis kode yang bersih/terbaca dulu.
+- **GC Overhead**: Sadari bahwa setiap kali GC berjalan, aliran energi (CPU) akan teralih sejenak. Minimalkan "sampah" untuk meminimalkan jeda (*Jank*).
 
 ---
-*Status: Gold Standard 💎*
+
+## 4. Lab Praktis
+Buka file `examples/memory_profiling_lab.js` untuk berlatih membaca profil memori menggunakan `process.memoryUsage()` dan mengidentifikasi anomali pertumbuhan Heap secara real-time.
+
+---
+*Status: [status.md](../../../../../status.md)*

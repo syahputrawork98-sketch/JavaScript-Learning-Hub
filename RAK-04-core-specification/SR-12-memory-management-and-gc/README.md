@@ -2,19 +2,30 @@
 
 > **"Sebuah Hub yang efisien adalah Hub yang mampu membersihkan sisa-sisa energinya sendiri. SR-12 membedah 'Sistem Daur Ulang' (The Recycling System)—mekanisme alokasi memori dan pembersihan otomatis (Garbage Collection) yang menjaga ketersediaan sumber daya Grid."**
 
-*Pemetaan Konseptual Arsitektur Hub*
-
-## 📚 Daftar Buku
-
-1.  **[BK-01_AllocationAndLifecycle](./BK-01_AllocationAndLifecycle/)**: Membedah pembagian domain memori (Stack vs Heap) dan perjalanan hidup sebuah objek.
-2.  **[BK-02_GarbageCollection](./BK-02_GarbageCollection/)**: Mekanisme pencarian objek terisolasi melalui atlas konektivitas (Reachability).
-3.  **[BK-03_WeakReferences](./BK-03_WeakReferences/)**: Penggunaan referensi hantu untuk memantau tanpa menahan ketersediaan energi.
-4.  **[BK-04_MemoryOptimization](./BK-04_MemoryOptimization/)**: Strategi pencegahan kebocoran energi dan audit efisiensi Hub.
-
-## 📊 Visualisasi Arsitektur
-- [Memory Stack vs Heap](./BK-01_AllocationAndLifecycle/assets/memory_stack_heap_distribution.svg) - Perbedaan Workbench (Stack) dan Warehouse (Heap).
-- [Reachability Atlas](./BK-02_GarbageCollection/assets/reachability_reference_graph.svg) - Bagaimana GC menentukan objek mana yang harus didaur ulang.
-- [Weak Reference Ghost Link](./BK-03_WeakReferences/assets/weak_reference_ghost_link.svg) - Jalur pantau tanpa menahan siklus hidup objek.
+**Source Hub**: 
+- [MDN: JavaScript Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+- [V8: Garbage Collection Docs](https://v8.dev/docs/garbage-collection)
+- [ECMA-262: Memory Model](https://tc39.es/ecma262/#sec-memory-model)
 
 ---
-*Status: Gold Standard 💎*
+
+## 🏗️ The 4 Memory Pillars
+
+```mermaid
+graph TD
+    P1["BK-01: Lifecycle (Allocation)"] --> Core["Advanced Memory Mastery"]
+    P2["BK-02: Collection (Daur Ulang)"] --> Core
+    P3["BK-03: Weakness (Ghost Links)"] --> Core
+    P4["BK-04: Optimization (Audit)"] --> Core
+```
+
+---
+
+## Koleksi Buku:
+1.  **[BK-01: Allocation and Lifecycle](./BK-01_AllocationAndLifecycle/)**: Membedah pembagian domain memori (Stack vs Heap).
+2.  **[BK-02: Garbage Collection](./BK-02_GarbageCollection/)**: Mekanisme pencarian objek terisolasi melalui atlas konektivitas.
+3.  **[BK-03: Weak References](./BK-03_WeakReferences/)**: Penggunaan referensi hantu untuk memantau tanpa menahan energi.
+4.  **[BK-04: Memory Optimization](./BK-04_MemoryOptimization/)**: Strategi pencegahan kebocoran energi dan audit efisiensi.
+
+---
+*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*
