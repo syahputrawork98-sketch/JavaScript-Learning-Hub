@@ -12,7 +12,7 @@
 **Definisi Arsitek**:
 Tipe data ini disebut **Specification Types**—mereka tidak ada di dalam runtime JavaScript, tapi mereka adalah "bahasa pemrograman" yang digunakan untuk menulis spesifikasi Hub.
 - **Record**: Koleksi field statis (seperti `{ [[Value]], [[Writable]] }`).
-- **List**: Urutan nilai murni (seperti daftar argumen).
+- **List**: Urutan nilai murni (seperti daftar argumen `« 1, 2 »`).
 - **Enum**: Kumpulan konstanta unik (seperti `~empty~` atau `~normal~`).
 
 ---
@@ -37,14 +37,20 @@ graph TD
 ## 3. Mekanisme & Hubungan
 
 ### Infrastruktur Internal (Clause 6.2.1 - 6.2.3)
-1. **Record Composition**: Hampir seluruh entitas di Hub, mulai dari **Property Descriptor** hingga **Environment Record**, adalah sebuah Record.
-2. **List Transparency**: Spesifikasi sering menggunakan notasi seperti « 1, 2, 3 » untuk merepresentasikan List. List bersifat pasif; ia hanya menyimpan data untuk diproses oleh algoritma.
-3. **The Enum Role**: Digunakan sebagai flag status. Contoh: `[[Type]]` dalam **Completion Record** adalah sebuah Enum yang berisi values seperti `normal` atau `throw`.
+1.  **Record Composition**: Hampir seluruh entitas di Hub, mulai dari **Property Descriptor** hingga **Environment Record**, adalah sebuah Record. Ia bertindak sebagai wadah status yang sangat disiplin.
+2.  **The Enum Role**: Enum digunakan sebagai flag status yang menentukan arah alur sirkuit. Contoh paling krusial adalah `[[Type]]` dalam **Completion Record** yang menentukan apakah eksekusi berlanjut atau meledak (throw).
+3.  **Cross-Rack Linking**: Pemahaman tentang Record dalam **BK-03** adalah prasyarat untuk memahami **RAK-06** (Engine Internals), karena di sanalah Record ini dipetakan ke memori fisik mesin (V8/JavaScriptCore).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/spec_type_simulation.js` untuk mensimulasikan bagaimana struktur Record dan List mengelola data di balik layar sebuah pemanggilan fungsi.
+## 4. Arsitek Mindset
+Bayangkan Specification Types sebagai "Blueprint" dari sebuah mesin. Anda tidak bisa menyentuhnya saat mesin berjalan, tapi jika Anda memahami blueprint-nya, Anda bisa memprediksi dengan tepat bagaimana mesin itu akan bereaksi terhadap setiap input yang Anda berikan.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Record Structures](./examples/01_record_structures.js)**: Simulasi penyimpanan metadata internal menggunakan objek JS yang meniru perilaku Record dan List spesifikasi.
 
 ---
 *Status: [status.md](../../../../../status.md)*

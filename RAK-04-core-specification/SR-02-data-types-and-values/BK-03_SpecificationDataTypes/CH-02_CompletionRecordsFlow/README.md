@@ -10,7 +10,7 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap instruksi di Hub mengembalikan sebuah **Completion Record**. Ia adalah Record dengan tiga field utama: `[[Type]]`, `[[Value]]`, dan `[[Target]]`. Mekanisme ini memastikan bahwa Hub selalu tahu apakah ia harus lanjut ke baris berikutnya (`normal`), keluar dari fungsi (`return`), atau meledakkan sirkuit (`throw`).
+Setiap instruksi di Hub mengembalikan sebuah **Completion Record**. Ia adalah Record dengan tiga field utama: `[[Type]]` (Enum), `[[Value]]` (Language Type), dan `[[Target]]`. Mekanisme ini memastikan Hub selalu tahu status eksekusi terakhir: apakah harus lanjut ke baris berikutnya (`normal`), keluar dari fungsi (`return`), atau memutus sirkuit akibat error (`throw`).
 
 ---
 
@@ -26,9 +26,6 @@ graph TD
     Abrupt --> Found{Found catch?}
     Found -->|Yes| Resume[Resume as 'normal']
     Found -->|No| Propagate[Bubble Up to Caller]
-    
-    style Res fill:#f1c40f,stroke:#333
-    style Abrupt fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
@@ -36,16 +33,21 @@ graph TD
 ## 3. Mekanisme & Hubungan
 
 ### Anatomi Kontrol Aliran (Clause 6.2.4)
-1. **Normal vs Abrupt**: Segala sesuatu yang bukan `normal` disebut **Abrupt Completion**. Ini adalah interupsi aliran energi yang sah di dalam Hub.
-2. **The `?` and `!` Shorthands**: 
-   - `?`: "Jalankan, jika gagal langsung lempar ke atas (bubble up)."
-   - `!`: "Jalankan, ini dijamin tidak akan pernah gagal (sirkuit aman)."
-3. **Completion Unwrapping**: Sebagian besar algoritma hanya peduli pada `[[Value]]` dari sebuah Record bertipe `normal`. Nilai ini diekstraksi sebelum diproses lebih lanjut.
+1.  **Normal vs Abrupt**: Segala sesuatu yang bukan `normal` disebut **Abrupt Completion**. Ini adalah strategi Hub untuk menghentikan aliran energi secara sah tanpa merusak integritas sistem.
+2.  **The `?` Shorthand (ReturnIfAbrupt)**: Dalam spesifikasi, tanda tanya `?` berarti: "Jalankan operasi ini. Jika hasilnya adalah abrupt completion, langsung kembalikan (bubble up) hasilnya ke pemanggil."
+3.  **The `!` Shorthand**: Tanda seru `!` berarti: "Jalankan operasi ini. Saya (penulis spesifikasi) menjamin sirkuit ini 100% aman dan tidak akan pernah menghasilkan abrupt completion."
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/completion_flow_lab.js` untuk melihat simulasi bagaimana sinyal `throw` merambat melalui tumpukan pemanggilan fungsi sampai ia diubah kembali menjadi `normal` oleh blok `catch`.
+## 4. Arsitek Mindset
+Setiap blok `try...catch` di kode Anda adalah instruksi kepada Hub untuk mengubah `throw completion` kembali menjadi `normal completion`. Pahami bahwa error bukanlah akhir, melainkan sinyal status yang harus Anda "tangkap" dan "normalisir" di sirkuit tingkat atas.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[Completion Propagation](./examples/01_completion_propagation.js)**: Simulasi bagaimana status `throw` merambat ke atas melalui tumpukan fungsi.
+2.  **[Shorthand Logic](./examples/02_shorthand_logic.js)**: Demonstrasi logika di balik operator `?` dan `!` dalam penanganan error.
 
 ---
 *Status: [status.md](../../../../../status.md)*

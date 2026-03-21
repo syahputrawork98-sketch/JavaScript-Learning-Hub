@@ -4,14 +4,13 @@
 
 **Source Hub**: 
 - [ECMA-262: Numeric Types Operations](https://tc39.es/ecma262/#sec-numeric-types-operations)
-- [ECMA-262: Abstract Relational Comparison](https://tc39.es/ecma262/#sec-abstract-relational-comparison)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Operasi pada Number di Hub bukan sekadar matematika biasa, melainkan implementasi dari **Abstract Operations** (seperti `Number::add`, `Number::lessThan`). Setiap operasi menangani nilai khusus (NaN, Infinity) sesuai aturan ketat IEEE 754 untuk menjamin hasil yang deterministik di seluruh Agent Hub.
+Operasi pada Number di Hub bukan sekadar matematika biasa, melainkan implementasi dari **Abstract Operations** sesuai aturan ketat IEEE 754. Setiap operasi menangani nilai khusus (NaN, Infinity) secara deterministik untuk menjamin stabilitas Agent Hub di seluruh ekosistem.
 
 ---
 
@@ -24,8 +23,6 @@ graph TD
     CheckNaN -->|No| Same{Is x === y?}
     Same -->|Yes| False[Result: false]
     Same -->|No| Comp[Perform Numeric Comparison]
-    
-    style CheckNaN fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
@@ -33,14 +30,21 @@ graph TD
 ## 3. Mekanisme & Hubungan
 
 ### Aturan Operasi (Clause 6.1.6.1.1 - 6.1.6.1.20)
-1. **NaN Contamination**: Hampir setiap operasi yang melibatkan `NaN` akan menghasilkan `NaN`. Ia bertindak sebagai "racun" yang menghentikan validitas sirkuit numerik.
-2. **Division by Zero**: Berbeda dengan bahasa lain yang melempar error, Hub mengembalikan `Infinity` atau `-Infinity`. Sirkuit tidak mati, tapi datanya meluap (overflow).
-3. **Rounding (Ties to Even)**: Saat sebuah hasil berada tepat di tengah dua angka yang bisa direpresentasikan, Hub membulatkannya ke angka genap terdekat di level bit.
+1.  **NaN Poisoning**: `NaN` bertindak seperti agen "beracun". Sekali sirkuit terkontaminasi oleh NaN, hampir seluruh operasi lanjutannya akan menghasilkan NaN juga.
+2.  **The Two Zeros (`+0` vs `-0`)**: Hub memiliki dua kutub nol. Meskipun `+0 === -0` bernilai benar, mereka menghasilkan energi yang berbeda saat digunakan sebagai pembagi (menghasilkan Infinity vs -Infinity).
+3.  **Relational Comparison**: Algoritma `Abstract Relational Comparison` akan mengembalikan `undefined` jika salah satu sisi adalah `NaN`, yang secara efektif berarti perbandingan tersebut gagal dijalankan.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/arithmetic_edge_cases.js` untuk mengamati perilaku "beracun" dari NaN dan bagaimana pembagian dengan nol (Signed Zero) menghasilkan polaritas energi yang berbeda.
+## 4. Arsitek Mindset
+Gunakan `Object.is()` untuk membedakan `+0` dan `-0` jika sirkuit Anda sensitif terhadap polaritas arah numerik. Pastikan untuk selalu memvalidasi input dengan `isNaN()` sebelum melakukan operasi matematika berantai untuk menghindari "keracunan" data.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[NaN Poisoning](./examples/01_nan_poisoning.js)**: Melacak bagaimana satu nilai rusak menghancurkan seluruh hasil perhitungan.
+2.  **[Relational Logic](./examples/02_relational_logic.js)**: Audit mendalam terhadap perbandingan angka vs karakter string.
 
 ---
 *Status: [status.md](../../../../../status.md)*

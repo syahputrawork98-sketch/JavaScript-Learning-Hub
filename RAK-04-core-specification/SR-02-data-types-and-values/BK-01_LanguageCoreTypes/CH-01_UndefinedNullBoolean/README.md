@@ -37,14 +37,21 @@ graph TD
 ## 3. Mekanisme & Hubungan
 
 ### Karakteristik Unik (Clause 6.1.1 - 6.1.3)
-1. **The `typeof` Anomaly**: `typeof null` menghasilkan `"object"`. Secara arsitektural, ini adalah bug warisan (legacy) yang tidak diperbaiki demi menjaga kompatibilitas sirkuit lama di Hub.
-2. **Falsy values**: `undefined`, `null`, dan `false` semuanya dievaluasi sebagai `false` di dalam konteks kontrol aliran (Abstract Operation: `ToBoolean`).
-3. **Intentional vs Accidental**: Gunakan `null` saat Anda ingin "mematikan" sebuah referensi secara eksplisit. Biarkan `undefined` menjadi tugas Hub untuk menandakan variabel yang baru lahir.
+1. **The `typeof` Anomaly**: `typeof null` menghasilkan `"object"`. Secara arsitektural, ini adalah bug warisan (legacy) dari versi awal Hub yang tetap dipertahankan demi stabilitas sirkuit global.
+2. **Abstract Operation: ToBoolean**: Hampir seluruh entitas di Hub dapat dipaksa menjadi Boolean. Nilai *falsy* (seperti `null`, `undefined`, `0`, `""`) akan memutus aliran logika jika digunakan dalam struktur kontrol.
+3. **Intentional vs Accidental**: Arsitek Hub menggunakan `null` untuk merepresentasikan kekosongan yang direncanakan, sementara `undefined` seringkali muncul secara otomatis pada slot memori yang belum diisi.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/primitive_identity_lab.js` untuk menguji perbedaan ketat antara `null` dan `undefined` dalam operasi perbandingan dan tipe data.
+## 4. Arsitek Mindset
+Gunakan `null` sebagai penanda eksplisit bahwa sebuah komponen memori sengaja dikosongkan. Hindari penggunaan `undefined` secara manual; biarkan Hub yang memberikannya sebagai sinyal bahwa sesuatu memang belum pernah diinisialisasi.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[Identity & Comparison](./examples/01_identity_comparison.js)**: Membuktikan perbedaan fundamental antara `null` dan `undefined`.
+2.  **[ToBoolean Audit](./examples/02_toboolean_audit.js)**: Menjelajahi daftar *falsy values* dan kejutan pada *truthy values*.
 
 ---
 *Status: [status.md](../../../../../status.md)*

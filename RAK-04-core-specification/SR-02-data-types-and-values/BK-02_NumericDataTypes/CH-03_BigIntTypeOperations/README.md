@@ -10,7 +10,7 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-**BigInt** adalah tipe data primitif yang mewakili **Mathematical Value** berupa integer (angka bulat) dengan presisi arbiter. Tidak seperti Number, BigInt tidak memiliki batas atas atau bawah selama memori Hub masih mencukupi. Ia dirancang untuk sirkuit yang membutuhkan integritas absolut pada angka bulat besar (misal: ID Database 64-bit atau Kriptografi).
+**BigInt** adalah tipe data primitif yang mewakili **Mathematical Value** berupa integer tanpa batas presisi. Ia dirancang untuk sirkuit yang membutuhkan integritas absolut pada angka bulat besar (misal: ID Database 64-bit atau Kriptografi), di mana tipe `Number` biasa akan mengalami kegagalan bit.
 
 ---
 
@@ -30,14 +30,21 @@ graph TD
 ## 3. Mekanisme & Hubungan
 
 ### Aturan Isolasi (Clause 6.1.6.2)
-1. **No Mixed Operations**: Hub melarang keras pencampuran BigInt dan Number dalam satu operasi (`1n + 1` melempar TypeError). Ini mencegah kehilangan presisi terselubung saat BigInt yang besar dipaksa masuk ke wadah Number yang sempit.
-2. **No Unary Plus**: Operator `+` (unary plus) tidak bekerja pada BigInt karena Hub sering menggunakannya untuk konversi ke Number, yang bertentangan dengan prinsip isolasi BigInt.
-3. **Integral Division**: Pembagian BigInt selalu membulat ke angka nol (truncate). Sisa bagi harus dicari menggunakan operator modulo `%`.
+1.  **No Mixed Operations**: Hub melarang keras pencampuran BigInt dan Number dalam satu operasi (`1n + 1` melempar TypeError). Ini adalah jaminan keamanan agar BigInt yang presisi tidak tercemar oleh ketidakpastian bit (floating-point) milik Number.
+2.  **Integral Division**: Pembagian BigInt selalu membulat menuju nol (truncate). Ia tidak pernah menghasilkan pecahan, menjadikannya sirkuit yang murni integer.
+3.  **Unary Limitation**: Operator `+` tidak diperbolehkan pada BigInt karena secara historis `+` digunakan Hub untuk mengonversi nilai menjadi Number—tindakan yang dianggap berbahaya bagi integritas BigInt.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/bigint_integrity_lab.js` untuk mensimulasikan kegagalan penanganan ID besar pada tipe Number dan bagaimana BigInt menyelesaikannya dengan presisi 100%.
+## 4. Arsitek Mindset
+Gunakan BigInt sebagai standar de-facto untuk semua ID numerik yang berasal dari sistem eksternal (Database/API). Jangan pernah mengonversi BigInt ke Number kecuali Anda benar-benar yakin nilainya berada di bawah `MAX_SAFE_INTEGER`.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[BigInt Integrity](./examples/01_bigint_integrity.js)**: Membuktikan keunggulan presisi BigInt atas Number pada skala raksasa.
+2.  **[Isolation Rules](./examples/02_isolation_rules.js)**: Memahami protokol keamanan Hub dalam melarang pencampuran tipe numerik.
 
 ---
 *Status: [status.md](../../../../../status.md)*

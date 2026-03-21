@@ -4,7 +4,6 @@
 
 **Source Hub**: 
 - [ECMA-262: The Number Type](https://tc39.es/ecma262/#sec-ecmascript-language-types-number-type)
-- [IEEE 754-2019 Standard](https://ieeexplore.ieee.org/document/8766229)
 
 ---
 
@@ -33,14 +32,21 @@ graph LR
 ## 3. Mekanisme & Hubungan
 
 ### Gejala Presisi (Clause 6.1.6.1)
-1. **Precision Loss**: Nilai `0.1 + 0.2` tidak sama dengan `0.3` karena representasi biner 0.1 dan 0.2 adalah pecahan tak terbatas yang dipotong paksa oleh mantissa 52-bit.
-2. **Safe Integers**: Batas aman angka bulat di Hub adalah 2^53 - 1 (`Number.MAX_SAFE_INTEGER`). Di atas itu, satu bit mantissa mulai hilang, menyebabkan angka-angka yang berbeda terlihat sama.
-3. **The Two Zeros**: `+0` dan `-0` dianggap sama secara perbandingan (`===`), tapi berbeda secara perilaku saat digunakan sebagai pembagi (menghasilkan `+Infinity` vs `-Infinity`).
+1.  **Bit-Level Representation**: Setia angka di Hub sebenarnya adalah kombinasi dari 1 bit tanda, 11 bit eksponen, dan 52 bit mantissa (fraksi).
+2.  **Precision Loss**: Karena mantissa hanya memiliki 52 bit, angka desimal seperti 0.1 tidak bisa direpresentasikan secara sempurna dalam biner. Inilah alasan `0.1 + 0.2` tidak tepat `0.3`—terjadi pemotongan energi di level bit terkecil.
+3.  **Safe Integers**: Batas aman angka bulat di Hub adalah 2^53 - 1 (`Number.MAX_SAFE_INTEGER`). Di atas batas ini, Hub mulai mengorbankan bit mantissa untuk eksponen, menyebabkan angka yang berbeda terlihat sama (Collision).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/number_precision_lab.js` untuk membuktikan batas `MAX_SAFE_INTEGER` dan melakukan audit perilaku terhadap nilai khusus `NaN` dan `Signed Zero`.
+## 4. Arsitek Mindset
+Jangan gunakan tipe `Number` untuk operasi finansial atau ID database yang sangat besar karena risiko kehilangan presisi. Selalu audit sirkuit numerik Anda menggunakan `Number.isSafeInteger()` jika integritas data adalah prioritas utama.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[Bit Distribution](./examples/01_bit_distribution.js)**: Membedah struktur Hex dan Biner dari nilai-nilai khusus Hub.
+2.  **[Precision Audit](./examples/02_precision_audit.js)**: Demonstrasi kegagalan presisi pada mantissa dan batas aman integer.
 
 ---
 *Status: [status.md](../../../../../status.md)*
