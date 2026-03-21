@@ -2,51 +2,59 @@
 
 > **"Dulu, Hub harus membungkus setiap modul asinkron dalam fungsi 'async' hanya untuk memulai. Sekarang, dengan Top-Level Await, sistem dapat melakukan 'Inisialisasi Instan' (Instant Initialization) langsung di level teratas modul, menyederhanakan docking antar unit."**
 
-ES2022 memungkinkan penggunaan kata kunci `await` di luar fungsi `async` pada level teratas sebuah modul.
-
-## 1. Mental Model: "Instant Initialization"
-
-Bayangkan unit cadangan energi yang butuh memuat data konfigurasi dari penyimpanan pusat sebelum bisa aktif.
-- **Dulu**: Anda harus membuat fungsi pembungkus seperti `async function init() { ... }` dan memanggilnya. Ini sering menyebabkan masalah urutan pemuatan (*race condition*).
-- **Sekarang**: Modul tersebut bisa langsung memanggil `await fetchConfig()`. Modul lain yang melakukan `import` akan menunggu secara otomatis sampai konfigurasi tersebut selesai dimuat sebelum melanjutkannya.
-
-![Top Level Await](./assets/top_level_await.svg)
+**Source Hub**: 
+- [MDN: top-level await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await#top_level_await)
+- [V8: Top-level await](https://v8.dev/features/top-level-await)
+- [ECMA-262: Module Execution](https://tc39.es/ecma262/#sec-moduleevaluation)
 
 ---
 
-## 2. Praktik di Lapangan
+## 1. Konsep & Esensi
 
-```javascript
-/* Di dalam DatabaseConnector.mjs */
-const connection = await connectToGrid(); // Tunggu koneksi stabil
-export { connection };
+**Definisi Arsitek**:
+ES2022 memungkinkan penggunaan kata kunci `await` di luar fungsi `async` pada level teratas sebuah modul. Ini mengubah modul menjadi unit asinkron yang memblokir eksekusi modul yang mengimpornya sampai janji (*promise*) terpenuhi, menjamin ketersediaan sumber daya sebelum kode konsumen berjalan.
 
-/* Di dalam HubApp.mjs */
-import { connection } from './DatabaseConnector.mjs';
-// connection sudah pasti siap digunakan di sini!
+**Model Model**:
+- **Dulu**: Anda harus membuat fungsi pembungkus seperti `async function init() { ... }` dan memanggilnya. Ini sering menyebabkan masalah urutan pemuatan (*race condition*).
+- **Sekarang**: Modul tersebut bisa langsung memanggil `await fetchConfig()`. Modul lain yang melakukan `import` akan menunggu secara otomatis sampai konfigurasi tersebut selesai dimuat sebelum melanjutkannya.
+
+---
+
+## 2. Visualisasi Sistem: Dependency Blocking
+
+```mermaid
+sequenceDiagram
+    participant Main as HubApp.mjs
+    participant Conn as DbConnector.mjs
+    participant API as Grid Storage
+
+    Main->>Conn: Import { data }
+    activate Conn
+    Conn->>API: await fetch()
+    Note over Conn,API: Blocking Module Eval
+    API-->>Conn: Response
+    deactivate Conn
+    Conn-->>Main: Export { data }
+    Note right of Main: Connection Ready!
 ```
 
 ---
 
-## 3. Manfaat Operasional
+## 3. Mekanisme & Hubungan
 
+### Manfaat Operasional
 - **Resource Loading**: Memuat model AI atau dataset besar sebelum mengekspor fungsi.
-- **Dynamic Imports**: Memilih modul mana yang akan dimuat berdasarkan kondisi lingkungan saat startup.
-- **Dependency Awareness**: Menjamin urutan eksekusi yang benar antar modul asinkron.
+- **Dependency Awareness**: Menjamin urutan eksekusi yang benar antar modul asinkron tanpa *boilerplate* `init()`.
 
----
-
-## Arsitek Mindset: Startup yang Terkendali
-
-Sebagai arsitek Hub:
+### Arsitek Mindset: Startup yang Terkendali
 - Gunakan Top-Level Await untuk inisialisasi yang *memang harus* selesai sebelum Hub mulai melayani permintaan.
-- Hati-hati: Jika pengunduhan data sangat lambat, ini akan menahan pemuatan semua modul lain yang bergantung padanya. Pertimbangkan untuk memberikan batas waktu (timeout) pada operasi `await` di level teratas.
-- Gunakan fitur ini di dalam file `.mjs` atau di dalam project dengan `"type": "module"` pada `package.json`.
+- **Hati-hati**: Operasi yang menggantung (hang) pada top-level await akan memblokir seluruh pohon dependensi aplikasi. Gunakan `Promise.race` dengan timeout jika diperlukan.
+- Syarat: Hanya berlaku pada **ES Modules** (`.mjs` atau `type: module`).
 
 ---
 
-## Hands-on: Lab Inisialisasi Instan
-Buka folder `examples/` untuk mencoba bagaimana Top-Level Await mempermudah penambatan data asinkron antar unit Hub.
+## 4. Lab Praktis
+Buka folder `examples/top_level_await_lab.js` untuk melihat bagaimana Top-Level Await mempermudah integrasi data asinkron antar unit Hub tanpa race condition.
 
 ---
-*Status: [status.md](../../../status.md)*
+*Status: [status.md](../../../../../status.md)*

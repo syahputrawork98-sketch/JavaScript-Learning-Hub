@@ -2,55 +2,59 @@
 
 > **"Data yang berceceran di Grid sulit dianalisis. Object Grouping adalah 'Pengklasifikasi Energi' (Energy Classifier) yang secara otomatis mengumpulkan unit-unit data ke dalam boks kategori yang tepat tanpa perlu algoritma manual yang rumit."**
 
-ES2024 memperkenalkan `Object.groupBy()` dan `Map.groupBy()` sebagai cara standar untuk mengelompokkan elemen koleksi berdasarkan kriteria tertentu.
-
-## 1. Mental Model: "Energy Classifier"
-
-Bayangkan tumpukan sensor dari berbagai sektor (Alpha, Beta, Gamma) masuk ke pengolah data.
-- **Dulu**: Anda harus membuat loop `forEach`, menyiapkan objek kosong, mengecek apakah kategori sudah ada, lalu melakukan `.push()`.
-- **Sekarang**: Anda cukup memberikan daftar sensor dan instruksi ("Kelompokkan berdasarkan sektor"), dan mesin Classifier akan memberikan hasilnya seketika.
-
-![Group By Classifier](./assets/group_by_classifier.svg)
+**Source Hub**: 
+- [MDN: Object.groupBy()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/groupBy)
+- [MDN: Map.groupBy()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/groupBy)
+- [ECMA-262: Object.groupBy](https://tc39.es/ecma262/#sec-object.groupby)
 
 ---
 
-## 2. Cara Kerja Classifier
+## 1. Konsep & Esensi
 
-```javascript
-const drones = [
-  { id: 1, type: "flying" },
-  { id: 2, type: "crawling" },
-  { id: 3, type: "flying" }
-];
+**Definisi Arsitek**:
+ES2024 memperkenalkan `Object.groupBy()` dan `Map.groupBy()` sebagai metode statis untuk melakukan pengelompokan elemen koleksi (iterable) berdasarkan kriteria yang ditentukan dalam fungsi callback. Ini meniadakan kebutuhan akan logika `reduce` atau `forEach` manual untuk tugas pengelompokan yang umum.
 
-const grouped = Object.groupBy(drones, (d) => d.type);
-/* Hasil: 
-{ 
-  flying: [{id: 1, ...}, {id: 3, ...}], 
-  crawling: [{id: 2, ...}] 
-} 
-*/
+**Model Mental**:
+Bayangkan tumpukan sensor dari berbagai sektor (Alpha, Beta).
+- **Dulu**: Anda harus melakukan loop manual, mengecek kategori, dan mendorong data ke array yang tepat.
+- **Sekarang**: Anda cukup mendaftarkan sensor dan mesin Classifier akan mengotomatisasi pengelompokan ke dalam boks kategori secara instan.
+
+---
+
+## 2. Visualisasi Sistem: Automated Classification
+
+```mermaid
+graph TD
+    Input[Array of Items] --> CB{Callback Function}
+    CB -->|Key: A| BoxA[Group A]
+    CB -->|Key: B| BoxB[Group B]
+    BoxA --> Output[Result Object/Map]
+    BoxB --> Output
+
+    style Output fill:#f9f,stroke:#333
+    style Input fill:#9f9,stroke:#333
 ```
 
 ---
 
-## 3. Map.groupBy()
+## 3. Mekanisme & Hubungan
 
-Sama seperti `Object.groupBy`, namun mengembalikan sebuah `Map`. Sangat berguna jika kriteria pengelompokan Anda berupa objek atau jika Anda butuh fitur performa tinggi dari Map.
+### Object.groupBy() vs Map.groupBy()
+- **Object.groupBy**: Mengembalikan objek `null-prototype` (bersih). Cocok untuk output yang akan dikonsumsi langsung oleh JSON atau UI.
+- **Map.groupBy**: Mengembalikan sebuah `Map`. Penting jika kunci pengelompokan Anda adalah objek atau jika Anda butuh performa tinggi untuk akses data berulang.
 
----
-
-## Arsitek Mindset: Organisasi Otomatis
-
-Sebagai arsitek Hub:
-- Gunakan `Object.groupBy` untuk visualisasi data atau laporan akhir yang butuh dikonsumsi oleh UI Hub.
-- Gunakan `Map.groupBy` jika data tersebut akan diolah kembali secara intensif atau jika Anda butuh kunci pengelompokan yang kompleks.
-- Fitur ini sangat mengurangi jumlah kode (*boilerplate*) dan memperkecil kemungkinan bug pada logika pengelompokan manual.
-
----
-
-## Hands-on: Lab Klasifikasi Energi
-Buka file `examples/energy_grouping_lab.js` untuk mencoba pengelompokan inventaris Hub berdasarkan level urgensi secara otomatis.
+```javascript
+const drones = [
+  { id: 1, type: "flying" },
+  { id: 2, type: "crawling" }
+];
+const grouped = Object.groupBy(drones, (d) => d.type);
+```
 
 ---
-*Status: [status.md](../../../status.md)*
+
+## 4. Lab Praktis
+Buka file `examples/energy_grouping_lab.js` untuk mencoba pengelompokan inventaris Hub berdasarkan level urgensi secara otomatis menggunakan `Object.groupBy`.
+
+---
+*Status: [status.md](../../../../../status.md)*

@@ -13,7 +13,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **RAK-01-introduction-essence** | **Introduction & Essence** | 100% | 100/100 | 🟢 Gold Standard |
 | **RAK-02-javascript-foundation** | **JavaScript Foundation** | 100% | 100/100 | 🟢 Gold Standard |
-| **RAK-03-evolution-esnext** | **Evolution & TC39** | 65% | 65/100 | 🟡 Partial |
+| **RAK-03-evolution-esnext** | **Evolution & TC39** | 100% | 100/100 | 🟢 Gold Standard |
 | **RAK-04-core-specification** | **Core Specification** | 80% | 80/100 | 🟡 Sync Pending |
 | **RAK-05-runtime-apis** | **Modern Runtimes** | 70% | 70/100 | 🟡 Partial |
 | **RAK-06-engines-internals** | **JavaScript Engines** | 85% | 85/100 | 🟡 Partial |
