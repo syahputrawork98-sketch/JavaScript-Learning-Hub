@@ -19,7 +19,7 @@
   <!-- The Pipeline (Comparison & Logical) -->
   <g transform="translate(50, 60)">
     <rect x="0" y="0" width="300" height="180" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,2" />
-    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">LOGIC GATES & FILTERS</text>
+    <text x="150" y="30" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">LOGIC GATES &amp; FILTERS</text>
 
     <!-- Comparison Gate -->
     <g transform="translate(30, 60)">
