@@ -33,6 +33,15 @@ graph LR
     style Result2 fill:#a8e6cf,stroke:#333
 ```
 
+### Mathematical Clamping Logic
+```mermaid
+graph LR
+    MV[Mathematical Value] -- "Floor(MV)" --> Int[Integer]
+    Int -- "Mod(Int, 2^8)" --> Uint8[Uint8 Value]
+    
+    style MV fill:#e1f5fe,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -48,7 +57,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/spec_math_precision_audit.js` untuk membedah perbedaan antara hasil matematika ideal vs hasil evaluasi engine pada operasi floating point yang kritis.
+Buka file `examples/spec_math_audit.js` untuk membedah perbedaan antara hasil matematika ideal vs hasil evaluasi engine pada operasi floating point yang kritis.
 
 ---
 *Status: [status.md](../../../../../status.md)*

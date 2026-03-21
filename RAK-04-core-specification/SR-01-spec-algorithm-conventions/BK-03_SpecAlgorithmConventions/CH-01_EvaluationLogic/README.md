@@ -35,6 +35,14 @@ graph TD
     style RS fill:#a8e6cf,stroke:#333
 ```
 
+### Operation Dispatch Architecture
+```mermaid
+graph LR
+    User[Code: obj.prop] --> Spec[Abstract Op: GetValue]
+    Spec --> Int[[[Get]]]
+    Int -->|Default| Ord[Ordinary Property Access]
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan

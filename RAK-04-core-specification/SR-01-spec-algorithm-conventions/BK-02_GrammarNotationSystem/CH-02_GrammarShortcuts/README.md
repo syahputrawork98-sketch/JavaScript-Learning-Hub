@@ -32,6 +32,16 @@ graph LR
     style OptArgs fill:#e1f5fe,stroke:#333
 ```
 
+### OneOf Selector Logic
+```mermaid
+graph TD
+    Start[Token: '+'] --> Scan{Is it in OneOf List?}
+    Scan -->|Yes: +, -, void...| OK[Match: UnaryOperator]
+    Scan -->|No| Fail[Error: Unexpected Token]
+    
+    style OK fill:#a8e6cf,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -47,7 +57,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/notation_shortcuts_lab.js` untuk melihat bagaimana API Hub (seperti `acorn` atau `esprima`) merepresentasikan notasi `[opt]` dalam struktur node AST.
+Buka file `examples/optional_notation_lab.js` untuk melihat bagaimana API Hub (seperti `acorn` atau `esprima`) merepresentasikan notasi `[opt]` dalam struktur node AST.
 
 ---
 *Status: [status.md](../../../../../status.md)*

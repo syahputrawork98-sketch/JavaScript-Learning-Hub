@@ -34,6 +34,15 @@ graph TD
     style Throw fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Restricted Production Hazard
+```mermaid
+graph LR
+    K["'return'"] -- "LineTerminator (\n)" --> ASI["; Inserted"]
+    ASI --> Dead[No-Man's Land: Code Below Ignored]
+    
+    style ASI fill:#f1c40f,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -49,7 +58,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/asi_hazard_audit.js` untuk melihat bagaimana `return \n 10` dievaluasi menjadi `undefined` dan bagaimana `(a+b)\n [1,2].map()` menyebabkan error runtime yang fatal.
+Buka file `examples/asi_logic_lab.js` untuk melihat bagaimana `return \n 10` dievaluasi menjadi `undefined` dan bagaimana `(a+b)\n [1,2].map()` menyebabkan error runtime yang fatal.
 
 ---
 *Status: [status.md](../../../../../status.md)*

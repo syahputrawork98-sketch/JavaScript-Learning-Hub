@@ -32,6 +32,16 @@ graph LR
     style PropDesc fill:#fff3e0,stroke:#e65100
 ```
 
+### Environment Record Schema
+```mermaid
+graph TD
+    ER[Environment Record] --> Dec[Declarative: var, let, const]
+    ER --> Obj[Object: with, global]
+    ER --> Func[Function: this, super]
+    
+    style ER fill:#a8e6cf,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -47,7 +57,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/internal_state_mapping.js` untuk melihat pemetaan antara variabel JavaScript ke dalam struktur **Environment Record** virtual di level spesifikasi.
+Buka file `examples/internal_data_lab.js` untuk melihat pemetaan antara variabel JavaScript ke dalam struktur **Environment Record** virtual di level spesifikasi.
 
 ---
 *Status: [status.md](../../../../../status.md)*

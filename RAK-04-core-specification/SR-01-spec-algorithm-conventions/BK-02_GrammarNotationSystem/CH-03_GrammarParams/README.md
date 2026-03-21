@@ -35,6 +35,16 @@ graph TD
     style Fail fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Contextual Flag Propagation
+```mermaid
+graph LR
+    A[AsyncContext: +Await] --> B[StatementListItem_Await]
+    B --> C[AssignmentExpression_Await]
+    C --> D["'await' Expression"]
+    
+    style A fill:#f1c40f,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -52,7 +62,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/lookahead_ambiguity_lab.js` untuk menguji bagaimana Hub menangani teks `{} + []` sebagai penambahan objek vs blok kode kosong tergantung pada konteks gramatikalnya.
+Buka file `examples/grammar_params_lab.js` untuk menguji bagaimana Hub menangani teks `{} + []` sebagai penambahan objek vs blok kode kosong tergantung pada konteks gramatikalnya.
 
 ---
 *Status: [status.md](../../../../../status.md)*

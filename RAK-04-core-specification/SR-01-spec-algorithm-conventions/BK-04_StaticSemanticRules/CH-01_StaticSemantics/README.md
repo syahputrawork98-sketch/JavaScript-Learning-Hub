@@ -35,6 +35,14 @@ graph TD
     style Err fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Script vs Module Static Constraints
+| Feature | Script Mode | Module Mode |
+| :--- | :--- | :--- |
+| `import`/`export` | Forbidden (SyntaxError) | Required for ESM |
+| `this` top-level | `globalThis` | `undefined` |
+| `StrictMode` | Optional | Always ON (Implicit) |
+| Duplicate `const` | Forbidden | Forbidden |
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -51,7 +59,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/static_semantic_audit.js` untuk melihat bagaimana Hub menolak eksekusi file secara instan saat mendeteksi deklarasi `const` ganda, meskipun kesalahan tersebut berada di baris paling akhir.
+Buka file `examples/static_semantics_lab.js` untuk melihat bagaimana Hub menolak eksekusi file secara instan saat mendeteksi deklarasi `const` ganda, meskipun kesalahan tersebut berada di baris paling akhir.
 
 ---
 *Status: [status.md](../../../../../status.md)*

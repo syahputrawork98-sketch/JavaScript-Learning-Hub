@@ -38,6 +38,17 @@ graph TD
     style Slots fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Property Attributes Impact
+```mermaid
+graph LR
+    W[Writable: false] --> E1[Cannot overwrite value]
+    C[Configurable: false] --> E2[Cannot delete or change attributes]
+    E[Enumerable: false] --> E3[Hidden from for-in/keys]
+    
+    style W fill:#f8bbd0,stroke:#880e4f
+    style C fill:#f8bbd0,stroke:#880e4f
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -53,7 +64,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/property_lockdown_lab.js` untuk mensimulasikan "pembekuan" objek menggunakan `Object.freeze()` dan melihat bagaimana ia mengubah seluruh atribut `configurable` dan `writable` menjadi `false`.
+Buka file `examples/property_descriptor_lab.js` untuk mensimulasikan "pembekuan" objek menggunakan `Object.freeze()` dan melihat bagaimana ia mengubah seluruh atribut `configurable` dan `writable` menjadi `false`.
 
 ---
 *Status: [status.md](../../../../../status.md)*

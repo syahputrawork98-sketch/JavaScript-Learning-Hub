@@ -34,6 +34,17 @@ graph TD
     style Lex fill:#e1f5fe,stroke:#01579b
 ```
 
+### BNF Symbol Legend
+```mermaid
+graph LR
+    T["'if' / '{'"] -->|Terminal| V[Literal Code Point]
+    NT["IfStatement"] -->|Non-terminal| D[Recursive Definition]
+    P[": / :: / :::"] -->|Production| R[Rule Connection]
+    
+    style T fill:#a8e6cf,stroke:#333
+    style NT fill:#e1f5fe,stroke:#01579b
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -52,7 +63,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/grammar_layer_audit.js` untuk melihat bagaimana sebuah string diproses melalui filter Lexical dan Syntactic di level simulasi parser engine.
+Buka file `examples/grammar_cfg_audit.js` untuk melihat bagaimana sebuah string diproses melalui filter Lexical dan Syntactic di level simulasi parser engine.
 
 ---
 *Status: [status.md](../../../../../status.md)*

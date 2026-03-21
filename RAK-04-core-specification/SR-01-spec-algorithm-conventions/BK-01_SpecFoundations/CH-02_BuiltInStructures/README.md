@@ -34,6 +34,18 @@ graph TD
     style HostProperty fill:#fff3e0,stroke:#e65100
 ```
 
+### Intrinsic Object Map
+```mermaid
+graph LR
+    Root[%Object.prototype%] --> Obj[%Object%]
+    Root --> Func[%Function.prototype%]
+    Func --> F1[%Function%]
+    Root --> ArrP[%Array.prototype%]
+    ArrP --> A1[%Array%]
+    
+    style Root fill:#f1c40f,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan

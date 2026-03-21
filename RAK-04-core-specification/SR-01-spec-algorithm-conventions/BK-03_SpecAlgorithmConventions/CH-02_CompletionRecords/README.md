@@ -35,6 +35,16 @@ graph TD
     style Abrupt fill:#f8bbd0,stroke:#880e4f
 ```
 
+### Completion Type Flow
+```mermaid
+graph LR
+    N[Normal] --> Cont[Continue Execution]
+    T[Throw] --> Err[Search for Handlers]
+    R[Return] --> Fin[Exit Context with Value]
+    
+    style T fill:#f8bbd0,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -54,7 +64,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/completion_record_deep_audit.js` untuk melihat simulasi aliran data saat sebuah fungsi melempar error dan bagaimana ia dirambatkan melalui tumpukan pemanggilan (Call Stack).
+Buka file `examples/completion_record_lab.js` untuk melihat simulasi aliran data saat sebuah fungsi melempar error dan bagaimana ia dirambatkan melalui tumpukan pemanggilan (Call Stack).
 
 ---
 *Status: [status.md](../../../../../status.md)*

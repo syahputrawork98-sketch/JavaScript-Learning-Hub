@@ -34,6 +34,17 @@ graph LR
     style Top fill:#f1c40f,stroke:#333
 ```
 
+### Type Conversion Flow
+```mermaid
+graph LR
+    Input[Input Value] --> Op{Abstract Op}
+    Op -->|ToNumber| Num[Number / BigInt]
+    Op -->|ToString| Str[String]
+    Op -->|ToBoolean| Bool[true / false]
+    
+    style Op fill:#f1c40f,stroke:#333
+```
+
 ---
 
 ## 3. Mekanisme & Hubungan
@@ -49,7 +60,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/toprimitive_logic_lab.js` untuk melihat bagaimana Hub mengonversi objek kustom menjadi primitif melalui manipulasi metode `Symbol.toPrimitive`.
+Buka file `examples/toprimitive_lab.js` untuk melihat bagaimana Hub mengonversi objek kustom menjadi primitif melalui manipulasi metode `Symbol.toPrimitive`.
 
 ---
 *Status: [status.md](../../../../../status.md)*
