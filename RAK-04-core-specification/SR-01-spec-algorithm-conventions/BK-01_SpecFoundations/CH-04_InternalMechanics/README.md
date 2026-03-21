@@ -1,70 +1,50 @@
-# CH-04: Properties and Internal Slots
+# CH-04: Internal Mechanics & Slots
 
-> **"Anatomi Descriptor dan Internal Slots. `Properties and Internal Slots` membongkar mekanisme penyimpanan status di balik setiap objek Hub, dari atribut visibilitas hingga slot privat."**
+> **"Sirkuit Tersembunyi. `Internal Mechanics & Slots` membedah penyimpanan status privat mesin yang menempel pada setiap objek di Hub."**
 
 **Source Hub**: 
-- [ECMA-262: Property Attributes](https://tc39.es/ecma262/#sec-property-attributes)
-- [ECMA-262: Object Internal Slots and Internal Methods](https://tc39.es/ecma262/#sec-object-internal-slots-and-internal-methods)
+- [ECMA-262: Internal Methods and Slots](https://tc39.es/ecma262/#sec-algorithm-conventions-internal-methods-and-slots)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap properti didefinisikan oleh **Property Descriptor** (sebuah Record internal). Ada dua jenis: **Data Property** (menyimpan nilai) dan **Accessor Property** (fungsi get/set). Selain properti yang terlihat, objek memiliki **Internal Slots** (e.g., `[[Prototype]]`, `[[Extensible]]`) yang menyimpan status engine dan tidak bisa diiterasi.
-
-**Model Mental**:
-- **Data Descriptor**: Laci dengan kunci `writable`, `enumerable`, dan `configurable`.
-- **Accessor Descriptor**: Tombol yang saat ditekan (get) atau diputar (set) memicu aksi eksternal.
-- **Internal Slots**: Kabel-kabel internal di dalam mesin Hub yang menentukan apakah mesin bisa dimodifikasi atau tidak.
+**Internal Slots** (ditulis sebagai `[[SlotName]]`) adalah variabel privat milik engine yang menempel pada sebuah objek. Mereka tidak bisa diakses via string atau simbol, namun mereka menyimpan "jiwa" dari objek tersebut (misal: data internal sebuah Map atau status internal sebuah Promise).
 
 ---
 
-## 2. Visualisasi Sistem: Descriptor vs Internal Slots
+## 2. Visualisasi Sistem: Object Anatomy
 
 ```mermaid
 graph TD
-    Obj[Object Entity] --> Prop[Property List]
-    Obj --> Slots[Internal Slots Table]
+    Obj[Object Instance] --> Public[Public Properties: x, y]
+    Obj --> Hidden[Internal Slots: private data]
     
-    Prop --> D[Data Descriptor: value, writable, ...]
-    Prop --> A[Accessor Descriptor: get, set, ...]
-    
-    Slots --> P[[[Prototype]]]
-    Slots --> E[[[Extensible]]]
-    Slots --> Private[[[PrivateElements]]]
-    
-    style D fill:#e1f5fe,stroke:#01579b
-    style Slots fill:#f8bbd0,stroke:#880e4f
-```
-
-### Property Attributes Impact
-```mermaid
-graph LR
-    W[Writable: false] --> E1[Cannot overwrite value]
-    C[Configurable: false] --> E2[Cannot delete or change attributes]
-    E[Enumerable: false] --> E3[Hidden from for-in/keys]
-    
-    style W fill:#f8bbd0,stroke:#880e4f
-    style C fill:#f8bbd0,stroke:#880e4f
+    Hidden --> S1["[[MapData]]"]
+    Hidden --> S2["[[Prototype]]"]
+    Hidden --> S3["[[Extensible]]"]
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Detail Deskrpsi Properti (Clause 6.1.7.1)
-- **`[[Writable]]`**: Jika `false`, metode internal `[[Set]]` akan gagal (baik secara diam-diam atau melempar Error di Strict Mode).
-- **`[[Configurable]]`**: Jika `false`, tipe descriptor tidak bisa diubah dan properti tidak bisa dihapus. Ini adalah segel keamanan permanen.
-- **`[[Enumerable]]`**: Menentukan visibilitas properti dalam iterasi `for-in` atau `Object.keys()`.
-
-### Arsitek Mindset: State Encapsulation
-- Manfaatkan **Internal Slots** (melalui **Private Fields** `#`) untuk enkapsulasi status yang benar-benar privat. Hindari konvensi underscore (`_private`) karena itu hanya "saran" sosial dan tidak memberikan perlindungan sirkuit di level engine Hub.
+### Infrastruktur Slot (Clause 6.1.7.3)
+1. **Enkapsulasi Total**: Slot internal bersifat imun terhadap teknik refleksi apapun di level JS. Hal ini dilakukan demi keamanan sirkuit inti mesin.
+2. **Incompatible Receivers**: Jika sebuah metode (misal: `Map.prototype.get`) mencoba mengakses slot `[[MapData]]` pada objek yang tidak memilikinya, Hub akan memutus sirkuit dengan melempar TypeError.
+3. **Cross-Rack Linking**: Pemahaman slot internal di **SR-01** akan diperdalam di **RAK-06** (Engine Internals) saat kita membedah bagaimana V8 memetakan slot ini ke dalam *C++ Object Layout*.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/property_descriptor_lab.js` untuk mensimulasikan "pembekuan" objek menggunakan `Object.freeze()` dan melihat bagaimana ia mengubah seluruh atribut `configurable` dan `writable` menjadi `false`.
+## 4. Arsitek Mindset
+Anggaplah objek di Hub seperti "Black Box". Anda berinteraksi dengan permukaan publiknya, namun performa dan perilakunya sangat bergantung pada apa yang tersimpan secara tersembunyi di dalam slot internalnya.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Internal Slots Audit](./examples/01_internal_slots.js)**: Membuktikan keberadaan status tersembunyi dan bagaimana Hub memvalidasi identitas objek sebelum akses slot.
 
 ---
 *Status: [status.md](../../../../../status.md)*

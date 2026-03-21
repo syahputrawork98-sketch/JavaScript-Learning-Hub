@@ -1,6 +1,6 @@
-# CH-02: Completion Records and Errors
+# CH-02: Completion Records and Status Flow
 
-> **"Protokol Propagasi Status. `Completion Records and Errors` membedah bagaimana Hub melacak aliran kontrol, pengembalian nilai, dan kegagalan sirkuit secara formal."**
+> **"Protokol Rambatan Status. `Completion Records and Status Flow` membedah bagaimana Hub melacak keberhasilan, kegagalan, dan interupsi eksekusi di level spesifikasi."**
 
 **Source Hub**: 
 - [ECMA-262: Completion Record Specification Type](https://tc39.es/ecma262/#sec-completion-record-specification-type)
@@ -10,61 +10,42 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap langkah algoritma di Hub mengembalikan sebuah **Completion Record** (sebuah Record internal). Ia memiliki tiga field: **[[Type]]** (Normal, Break, Continue, Return, atau Throw), **[[Value]]** (data hasil), dan **[[Target]]** (label tujuan). Jika [[Type]] bukan "Normal", ia disebut **Abrupt Completion**.
-
-**Model Mental**:
-- **Normal Completion**: Lampu hijau. Arus energi mengalir lancar ke langkah berikutnya.
-- **Abrupt Completion**: Lampu merah atau kuning. Arus energi interupsi dan harus segera melompat ke penangan (seperti blok catch atau akhir fungsi).
+Setiap langkah algoritma mengembalikan sebuah **Completion Record**. Ia adalah wadah status yang memberi tahu Hub: "Apakah eksekusi ini `normal`, `return`, `throw`, `break`, atau `continue`?". Inilah mekanisme yang memungkinkan error di satu fungsi bisa "meledak" (bubble up) sampai ke penangan catch yang tepat.
 
 ---
 
-## 2. Visualisasi Sistem: Abrupt Propagation (Clause 6.2.4.4)
+## 2. Visualisasi Sistem: Abrupt Completion Circuit
 
 ```mermaid
 graph TD
-    Step[Run Algorithm Step] --> Res{Completion Record}
-    Res -->|[[Type]]: Normal| Next[Proceed to Next Step]
-    Res -->|[[Type]]: Throw| Abrupt[Bubble Up to Caller]
-    Res -->|[[Type]]: Return| Abrupt
+    Exec[Execute Operation] --> Res{Completion Type?}
+    Res -->|normal| Next[Continue Aliran]
+    Res -->|throw| Break[Abrupt! Break Circuit]
     
-    Abrupt --> Catch{Caught in Try-Catch?}
-    Catch -->|Yes| Recovery[Resume with Normal Completion]
-    Catch -->|No| Exit[Propagate further up]
+    Break --> Propagation[Bubble up to Caller Context]
     
-    style Res fill:#f1c40f,stroke:#333
-    style Abrupt fill:#f8bbd0,stroke:#880e4f
-```
-
-### Completion Type Flow
-```mermaid
-graph LR
-    N[Normal] --> Cont[Continue Execution]
-    T[Throw] --> Err[Search for Handlers]
-    R[Return] --> Fin[Exit Context with Value]
-    
-    style T fill:#f8bbd0,stroke:#333
+    style Break fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Notasi Ringkas (Shorthands)
-1. **The `?` Prefix (ReturnIfAbrupt)**: 
-   - `let result = ? Operation()`. Singkatan dari: "Jalankan operasi, jika hasilnya Abrupt, kembalikan ke atas segera. Jika Normal, ambil nilainya saja."
-2. **The `!` Prefix (No-Failure)**: 
-   - `let val = ! Operation()`. Pernyataan tegas Hub bahwa operasi ini DIJAMIN berhasil (Normal) dan tidak akan pernah melempar error.
-3. **Abrupt Types**:
-   - `Return`: Menandakan selesainya eksekusi fungsi.
-   - `Throw`: Menandakan kegagalan fatal yang butuh penanganan (Error).
-
-### Arsitek Mindset: Reliable Control Flow
-- Pahami bahwa `try-catch` bukan "magic". Di level spesifikasi, itu hanyalah sebuah blok yang menangkap **Completion Record** bertipe `Throw` dan mengubahnya kembali menjadi `Normal` untuk melanjutkan sirkuit. Selalu desain sirkuit Anda agar siap menangani interupsi aliran energi secara anggun.
+### Infrastruktur Status (Clause 6.2.4)
+1. **Normal Completion**: Eksekusi berjalan mulus tanpa interupsi.
+2. **Abrupt Completion**: Segala status yang memutus alur normal (misal: Error/Throw). Saat ini terjadi, Hub segera mencari sirkuit penyelamat (`try...catch`) terdekat.
+3. **The Shorthand Operators**: Spesifikasi menggunakan `?` (ReturnIfAbrupt) untuk menghemat penulisan pengecekan status manual pada setiap langkah.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/completion_record_lab.js` untuk melihat simulasi aliran data saat sebuah fungsi melempar error dan bagaimana ia dirambatkan melalui tumpukan pemanggilan (Call Stack).
+## 4. Arsitek Mindset
+Jangan melihat error (`throw`) sebagai kegagalan sistem, tapi sebagai **Sinyal Status Abrupt**. Penggunaan `try...catch` yang bijak adalah cara arsitek membelokkan kembali status *abrupt* menjadi status *normal* agar sirkuit aplikasi tetap menyala.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Completion Flow](./examples/01_completion_flow.js)**: Simulasi bagaimana Hub mendeteksi tipe completion 'normal' vs 'throw' di level internal.
 
 ---
 *Status: [status.md](../../../../../status.md)*

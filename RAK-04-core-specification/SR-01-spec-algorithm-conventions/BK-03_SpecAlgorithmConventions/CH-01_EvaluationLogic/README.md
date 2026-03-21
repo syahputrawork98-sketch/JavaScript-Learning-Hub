@@ -1,65 +1,50 @@
-# CH-01: Abstract Operations and Evaluation
+# CH-01: Evaluation Logic & Step Execution
 
-> **"Protokol Eksekusi dan Operasi Abstrak. `Abstract Operations and Evaluation` membedah bagaimana Hub mengevaluasi teks kode melalui serangkaian algoritma yang terdefinisi secara kaku."**
+> **"Ritme Eksekusi Internal. `Evaluation Logic & Step Execution` membedah bagaimana Hub memecah setiap perintah menjadi langkah-langkah mikro yang deterministik dan prosedural."**
 
 **Source Hub**: 
 - [ECMA-262: Algorithm Conventions](https://tc39.es/ecma262/#sec-algorithm-conventions)
-- [ECMA-262: Abstract Operations](https://tc39.es/ecma262/#sec-abstract-operations)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setiap instruksi di Hub dijalankan melalui **Evaluation Algorithms**. Spesifikasi menggunakan **Abstract Operations**—kumpulan fungsi logika internal (seperti `Call`, `ToNumber`, `Get`) yang tidak terlihat oleh teknisi tapi menjadi bahan bangunan seluruh fitur bahasa. Perilaku algoritma ini bersifat **Syntax-Directed**, artinya langkah-langkahnya ditentukan oleh bentuk struktur kode di AST.
-
-**Model Mental**:
-- **Evaluation**: Seperti menjalankan skrip di command line. Hub membaca baris demi baris perintah sirkuit.
-- **Abstract Operations**: Modul-modul utilitas internal Hub. Mereka adalah blok bangunan logika yang digunakan berulang kali untuk menjamin konsistensi sirkuit.
+Setiap instruksi di Hub dijalankan melalui algoritma yang terdiri dari urutan **Langkah (Steps)** bernomor. Ini adalah "SOP Mesin" yang menjamin bahwa setiap implementer engine (V8, WebKit, dst) menghasilkan perilaku yang identik saat mengeksekusi kode Anda.
 
 ---
 
-## 2. Visualisasi Sistem: Evaluation Dispatch (Clause 5.2)
+## 2. Visualisasi Sistem: Sequential Execution Flow
 
 ```mermaid
 graph TD
-    Node[AST Node: IfStatement] --> Semantic{Semantic Type?}
-    Semantic -->|Static| SS[Static Semantics: Early Errors]
-    Semantic -->|Runtime| RS[Runtime Semantics: Evaluation]
+    Entry[Internal Operation] --> S1[Step 1: Validate Type]
+    S1 --> S2[Step 2: Convert to Internal Record]
+    S2 --> S3[Step 3: Perform Core Calculation]
+    S3 --> S4[Step 4: Return Completion Record]
     
-    RS --> Op1[Op: GetValue]
-    RS --> Op2[Op: ToBoolean]
-    Op2 --> Branch{Decision}
-    
-    style SS fill:#f1c40f,stroke:#333
-    style RS fill:#a8e6cf,stroke:#333
-```
-
-### Operation Dispatch Architecture
-```mermaid
-graph LR
-    User[Code: obj.prop] --> Spec[Abstract Op: GetValue]
-    Spec --> Int[[[Get]]]
-    Int -->|Default| Ord[Ordinary Property Access]
+    style S3 fill:#fff3e0,stroke:#e65100
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Tipologi Operasi (Clause 5.2.1 - 5.2.5)
-1. **Runtime Semantics**: Algoritma yang mendefinisikan apa yang terjadi saat kode barulah dijalankan.
-2. **Static Semantics**: Algoritma yang dijalankan sebelum eksekusi (Validasi).
-3. **Implicit Parameters**: Banyak operasi abstrak menerima parameter tersembunyi seperti `thisValue` atau `NewTarget`.
-4. **Operation Dispatch**: Memahami bahwa `Call(F, V, arguments)` adalah jembatan utama antara kode pengguna dan mesin internal Hub.
-
-### Arsitek Mindset: Predictable Logic
-- Di level teknisi senior, Anda harus mampu memvisualisasikan **Abstract Operations** yang sedang bekerja di balik kode Anda. Saat Anda menulis `obj[key]`, sadarilah bahwa Hub sedang melakukan rantaian operasi `ToPropertyKey(key)` diikuti oleh `obj.[[Get]](key, obj)`. Pengetahuan ini krusial untuk mengoptimalkan performa sirkuit.
+### Anatomi Algoritma (Clause 5.2)
+1. **Numbered Steps**: Langkah bernomor memberikan urutan kronologis. Jika satu langkah gagal (throw), langkah berikutnya tidak akan pernah dialiri daya.
+2. **Implicit Context**: Algoritma sering bergantung pada konteks tersembunyi seperti `this value` atau `Running Execution Context`.
+3. **Sub-Steps**: Langkah besar dapat memiliki sub-langkah (a, b, c) untuk menangani percabangan logika yang lebih detail tanpa merusak alur utama.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/abstract_op_audit.js` untuk melacak rantaian operasi abstrak yang terjadi saat sebuah properti diakses dan dikonversi menjadi tipe data lain.
+## 4. Arsitek Mindset
+Bacalah algoritma spesifikasi seperti membaca instruksi perakitan mesin. Keandalan JavaScript bukan berasal dari "sihir", tapi dari kepatuhan mesin terhadap setiap langkah mikro yang didefinisikan secara kaku di sini.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Step Execution](./examples/01_step_execution.js)**: Simulasi bagaimana Hub membedah satu operasi menjadi empat langkah prosedural yang berbeda.
 
 ---
 *Status: [status.md](../../../../../status.md)*

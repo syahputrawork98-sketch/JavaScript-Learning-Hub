@@ -1,6 +1,6 @@
-# CH-02: Optionality and OneOf
+# CH-02: Grammar Shortcuts and Notation
 
-> **"Akselerator Produksi. `Optionality and OneOf` membedah notasi pemendek spesifikasi yang menjaga agar deklarasi tata bahasa tetap ringkas dan bebas redundansi."**
+> **"Shorthand Spesifikasi. `Grammar Shortcuts and Notation` membedah simbol-simbol efisiensi yang digunakan spesifikasi untuk mendeskripsikan aturan bahasa yang kompleks secara ringkas."**
 
 **Source Hub**: 
 - [ECMA-262: Notational Conventions](https://tc39.es/ecma262/#sec-notational-conventions)
@@ -10,54 +10,43 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Untuk menghindari duplikasi ribuan aturan, Hub menggunakan **Shortcuts**. **`[opt]`** menandakan opsionalitas di level simbol, sementara **`one of`** mendefinisikan set terminal yang saling eksklusif. Di level expert, kita juga mengenal notasi **"but not"** untuk membatasi set terminal tertentu (filter negatif).
-
-**Model Mental**:
-- **`[opt]`**: Pintu gerbang. Anda boleh lewat membawa barang atau tangan kosong.
-- **`one of`**: Switch selector. Hanya satu jalur energi yang bisa aktif dari daftar yang tersedia.
+Untuk menghindari pengulangan teks yang membosankan, spesifikasi Hub menggunakan notasi khusus:
+- **Optionality (`opt`)**: Bagian yang boleh ada atau tidak ada.
+- **OneOf**: Pilihan dari daftar konstanta.
+- **Lookahead**: Pengecekan token berikutnya tanpa benar-benar "memakannya".
 
 ---
 
-## 2. Visualisasi Sistem: Production Tree Optimization
+## 2. Visualisasi Sistem: Optionality Logic
 
 ```mermaid
 graph LR
-    Prod[Aturan: UnaryOperator] --> Type{Notation}
-    Type --> OneOf["one of: delete, void, typeof, +, -, ~, !"]
+    Start[Statement] --> Expr{Expression exists?}
+    Expr -->|Yes| Full[Execute Expression]
+    Expr -->|No| Semi[Empty Statement]
     
-    Prod2[Aturan: CallExpression] --> Base[MemberExpression]
-    Base --> OptArgs["Arguments [opt]"]
-    
-    style OneOf fill:#f1c40f,stroke:#333
-    style OptArgs fill:#e1f5fe,stroke:#333
-```
-
-### OneOf Selector Logic
-```mermaid
-graph TD
-    Start[Token: '+'] --> Scan{Is it in OneOf List?}
-    Scan -->|Yes: +, -, void...| OK[Match: UnaryOperator]
-    Scan -->|No| Fail[Error: Unexpected Token]
-    
-    style OK fill:#a8e6cf,stroke:#333
+    style Expr fill:#fff3e0,stroke:#e65100
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Optimasi Notasi (Clause 5.1.5 - 5.1.8)
-1. **The `one of` Advantage**: Digunakan hampir di seluruh level lexer untuk mendefinisikan digit, operator, dan kata kunci tanpa harus menulis barisan produksi satu per satu.
-2. **The "But Not" Constraint**: Sangat krusial dalam mendefinisikan Identifier. Contoh: "Simbol ini valid *tetapi bukan* salah satu dari ReservedWord".
-3. **Empty Production (`[empty]`)**: Representasi formal di mana sebuah simbol tidak menghasilkan token apapun namun tetap valid secara struktural.
-
-### Arsitek Mindset: Efficiency by Abstraction
-- Terapkan pola `one of` saat Anda merancang skema validasi input untuk sistem Anda. Menentukan pilihan yang diizinkan secara deklaratif jauh lebih aman dan mudah di-audit daripada menggunakan logika imperatif `if-else` yang tersebar luas.
+### Simbol Efisiensi (Clause 5.1.5)
+1.  **Production Rules**: Ditulis sebagai `NonTerminal : Terminal`. Ini adalah rumus dasar pembuatan perintah di Hub.
+2.  **Lookahead Restriction**: Digunakan untuk mencegah ambiguitas, misalnya untuk memastikan bahwa `let[` tidak dianggap sebagai awal dari deklarasi variabel jika itu sebenarnya adalah akses properti array.
+3.  **Chain Productions**: Jika beberapa aturan memiliki struktur yang mirip, spesifikasi menggabungkannya menggunakan parameter (seperti yang akan dibahas di unit berikutnya).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/optional_notation_lab.js` untuk melihat bagaimana API Hub (seperti `acorn` atau `esprima`) merepresentasikan notasi `[opt]` dalam struktur node AST.
+## 4. Arsitek Mindset
+Bacalah notasi spesifikasi seperti membaca skema sirkuit. `opt` berarti sirkuit tersebut memiliki percabangan opsional yang tetap menjaga aliran energi tetap aman meskipun komponen tersebut tidak dipasang (tidak ditulis di kode).
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Grammar Logic](./examples/01_grammar_logic.js)**: Simulasi aturan tata bahasa yang memiliki komponen opsional dan pilihan konstanta.
 
 ---
 *Status: [status.md](../../../../../status.md)*

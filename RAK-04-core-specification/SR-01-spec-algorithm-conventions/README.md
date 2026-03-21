@@ -27,4 +27,4 @@ graph TD
 4.  **[BK-04: Static Semantic Rules](./BK-04_StaticSemanticRules/)**: Mekanisme deteksi Early Errors sebelum eksekusi.
 
 ---
-*Status: [status.md](../../status.md) | Back to [RAK-04](../README.md)*
+*Status: [status.md](./docs/status.md) | Back to [RAK-04](../README.md)*

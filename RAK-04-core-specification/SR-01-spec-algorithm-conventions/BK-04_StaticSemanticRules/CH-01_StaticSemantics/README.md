@@ -1,65 +1,50 @@
-# CH-01: Static Semantics and Early Errors
+# CH-01: Early Errors & Static Constraints
 
-> **"Kesesuaian dan Validasi Statis. `Static Semantics and Early Errors` membedah satpam intelektual Hub yang memproses integritas kode sebelum energi (runtime) dilepaskan ke sirkuit."**
+> **"Sensor Sintaksis. `Early Errors & Static Constraints` membedah sistem pertahanan Hub yang mendeteksi kesalahan sirkuit sebelum sepeser pun energi eksekusi dialirkan."**
 
 **Source Hub**: 
 - [ECMA-262: Static Semantic Rules](https://tc39.es/ecma262/#sec-static-semantic-rules)
-- [ECMA-262: Strict Mode of ECMAScript](https://tc39.es/ecma262/#sec-strict-mode-of-ecmascript)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Setelah kode lolos dari filter Grammar (Syntax), Hub menjalankan serangkaian **Static Semantic Rules**. Jika aturan ini dilanggar, Hub melempar **Early SyntaxError**. Tidak seperti runtime error, Early Error bersifat fatal bagi seluruh unit kode (Script/Module); tidak ada satu pun baris kode yang akan dieksekusi jika gerbang ini mendeteksi kegagalan.
-
-**Model Mental**:
-- **Grammar**: Memeriksa apakah sirkuit tersambung secara fisik.
-- **Static Semantics**: Memeriksa apakah voltase dan komponennya masuk akal secara logika. Jika Anda memasang dua baterai (Variable Declaration) dengan kutub yang sama (Duplicate Name) di satu jalur, Hub akan mematikan daya sebelum sirkuit terbakar.
+**Static Semantics** adalah sekumpulan aturan yang divalidasi oleh Hub tepat setelah proses parsing selesai, namun **sebelum** kode dijalankan. Jika aturan ini dilanggar (misal: penggunaan deklarasi ganda di level yang sama), Hub akan melempar **Early Error** (biasanya berupa SyntaxError) dan membatalkan seluruh proses eksekusi script.
 
 ---
 
-## 2. Visualisasi Sistem: Semantic Validation Gate (Clause 5.1)
+## 2. Visualisasi Sistem: Static Validation Gap
 
 ```mermaid
 graph TD
-    Parsed[AST Tree Ready] --> Check1{Scope: Repetition?}
-    Check1 -->|Yes: let x; let x;| Err[Throw Early SyntaxError]
-    Check1 -->|No| Check2{StrictMode: Forbidden?}
-    Check2 -->|Yes: with statement| Err
-    Check2 -->|No| Check3{Module: Valid context?}
-    Check3 -->|No: import in script| Err
-    Check3 -->|Yes| Success[Pass to Execution Engine]
+    Code[Source Code] --> P[Parsing: AST Creation]
+    P --> S[Static Semantic Validation]
+    S -->|Fail: Early Error| Stop[HALT: No Execution]
+    S -->|Pass| Exec[Execution: Runtime Aliran]
     
-    style Success fill:#a8e6cf,stroke:#333
-    style Err fill:#f8bbd0,stroke:#880e4f
+    style S fill:#f8bbd0,stroke:#880e4f
 ```
-
-### Script vs Module Static Constraints
-| Feature | Script Mode | Module Mode |
-| :--- | :--- | :--- |
-| `import`/`export` | Forbidden (SyntaxError) | Required for ESM |
-| `this` top-level | `globalThis` | `undefined` |
-| `StrictMode` | Optional | Always ON (Implicit) |
-| Duplicate `const` | Forbidden | Forbidden |
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Tipologi Validasi (Clause 5.1.1)
-1. **Early Error Detection**: Aturan spesifik yang dinyatakan dengan "It is a Syntax Error if...". Contoh: menggunakan `await` di level top-level sebuah Script (bukan Module).
-2. **Lexical Binding Validation**: Memastikan tidak ada tabrakan nama variabel di dalam scope yang sama. Hub memetakan seluruh nama di **Environment Record** secara statis sebelum eksekusi dimulai.
-3. **Strict Mode Constraints**: Menambahkan filter tambahan, seperti pelarangan kata kunci `with`, penghapusan variabel menggunakan `delete`, dan parameter fungsi duplikat.
-4. **Binding Initialization Check**: Mendeteksi penggunaan variabel sebelum deklarasi (Temporal Dead Zone) secara parsial melalui analisis statis.
-
-### Arsitek Mindset: Static Pre-emption
-- Manfaatkan **Static Semantics** sebagai jaring pengaman utama. Dengan menggunakan `type="module"` atau `"use strict"`, Anda mengaktifkan ribuan filter validasi tambahan yang membantu mendeteksi kesalahan arsitektural di tahap pengembangan, bukan di tahap produksi yang kritis.
+### Infrastruktur Keamanan (Clause 13)
+1.  **Strict Mode Constraints**: Banyak aturan semantik statis yang hanya muncul saat `use strict` diaktifkan, seperti larangan nama parameter fungsi yang duplikat.
+2.  **Lexical Scope Validation**: Hub secara statis mengecek apakah ada variabel `const` atau `let` yang dideklarasikan ulang di dalam blok yang sama. Deteksi ini terjadi secara instan tanpa perlu menunggu kode tersebut dieksekusi.
+3.  **Cross-Rack Linking**: Pemahaman semantik statis di **SR-01** adalah landasan bagi **RAK-03** (Fitur Modern), karena fitur seperti `private fields` (#) sangat bergantung pada validasi statis untuk mencegah akses ilegal.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/static_semantics_lab.js` untuk melihat bagaimana Hub menolak eksekusi file secara instan saat mendeteksi deklarasi `const` ganda, meskipun kesalahan tersebut berada di baris paling akhir.
+## 4. Arsitek Mindset
+Rancanglah sirkuit aplikasi Anda agar "gagal lebih awal" (*fail fast*). Semantik statis adalah sahabat arsitek karena ia menangkap bug struktural secara otomatis sebelum bug tersebut masuk ke dalam runtime yang kompleks dan sulit didebug.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Early Errors](./examples/01_early_errors.js)**: Demonstrasi bagaimana Hub mendeteksi kesalahan sintaksis dan redeklarasi variabel secara statis.
 
 ---
 *Status: [status.md](../../../../../status.md)*

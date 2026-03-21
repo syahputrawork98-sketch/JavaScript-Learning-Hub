@@ -1,6 +1,6 @@
-# CH-04: Spec Mathematics and Shorthands
+# CH-04: Spec Math & Precision Logic
 
-> **"Presisi Matematika dan Notasi Ekspres. `Spec Mathematics and Shorthands` membedah sistem kalkulasi absolut Hub dan singkatan-singkatan yang mempercepat penulisan standar."**
+> **"Logika Presisi Ideal. `Spec Math & Precision Logic` membedah perbedaan antara matematika murni yang digunakan spesifikasi dan batasan fisik tipe data Number di runtime."**
 
 **Source Hub**: 
 - [ECMA-262: Mathematical Operations](https://tc39.es/ecma262/#sec-mathematical-operations)
@@ -10,54 +10,40 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Hub membedakan antara **Mathematical Value (MV)**—angka ideal teoritis dengan presisi tak terbatas—dan tipe data bahasa seperti `Number` atau `BigInt`. Algoritma Hub bekerja menggunakan MV terlebih dahulu, lalu menerapkan aturan pembulatan atau pemotongan (clamping) untuk menghasilkan nilai bahasa yang sesuai dengan memori fisik.
-
-**Model Mental**:
-- **MV**: Angka murni di alam semesta logika (Tanpa batas).
-- **Number**: Angka yang Anda muat ke dalam tangki bensin 64-bit (Sangat terbatas dan memiliki sisa error).
+Dalam buku spesifikasi, Hub beroperasi menggunakan **Mathematical Values (MV)**—angka ideal dengan presisi tak terbatas. Namun, saat nilai ini dikonversi menjadi **Language Type** (seperti Number 64-bit), terjadilah pemotongan sirkuit akibat batasan fisik **IEEE 754**.
 
 ---
 
-## 2. Visualisasi Sistem: Mathematical Clamping
+## 2. Visualisasi Sistem: Math to Number Conversion
 
 ```mermaid
 graph LR
-    Theory[Mathematical Value: Infinity Precision] --> Op1[Op: modulo 2^32]
-    Op1 --> Result[Uint32 Language Value]
+    MV[Mathematical Value: 0.1 + 0.2] --> Conv{IEEE 754 Rounding}
+    Conv --> Num[Number Type: 0.30000000000000004]
     
-    Theory --> Op2[Round to Nearest IEEE 754]
-    Op2 --> Result2[Number Language Value]
-    
-    style Theory fill:#e1f5fe,stroke:#01579b
-    style Result fill:#a8e6cf,stroke:#333
-    style Result2 fill:#a8e6cf,stroke:#333
-```
-
-### Mathematical Clamping Logic
-```mermaid
-graph LR
-    MV[Mathematical Value] -- "Floor(MV)" --> Int[Integer]
-    Int -- "Mod(Int, 2^8)" --> Uint8[Uint8 Value]
-    
-    style MV fill:#e1f5fe,stroke:#333
+    style MV fill:#a8e6cf,stroke:#333
+    style Num fill:#f8bbd0,stroke:#880e4f
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Operasi dan Singkatan (Clause 5.2.5 - 6.1)
-1. **Mathematical Operations**: Penjumlahan (`+`), pengurangan (`-`), dan eksponensial dilakukan pada Mathematical Values. Spesifikasi mendefinisikan secara eksplisit bagaimana menangani overflow.
-2. **Floating Point Arithmetic**: Memahami bahwa `(0.1 + 0.2)` di MV menghasilkan `0.3` absolut, tapi di tipe `Number` ia dipotong sesuai standar IEEE 754, menghasilkan `0.30000000000000004`.
-3. **Spec Shorthands**: Frasa seperti "Return ?" atau "Perform !" bukan hanya kata-kata, tapi merangkum seluruh rantaian logika `ReturnIfAbrupt`.
-
-### Arsitek Mindset: Precision Safety
-- Jangan pernah mengasumsikan presisi "tak terbatas" di sirkuit uang atau data sensitif. Gunakan `BigInt` jika Anda memproses Mathematical Values yang sangat besar (integer), dan selalau sadari batasan presisi 64-bit saat melakukan kalkulasi pecahan di Hub.
+### Operasi Matematika (Clause 6.1.6)
+1.  **Ideal Math**: Di dalam spek, `1/3` adalah tepat sepertiga. Tidak ada error presisi di dunia spesifikasi.
+2.  **Conversion Rules**: Spesifikasi mendefinisikan secara kaku bagaimana sebuah MV dikonversi menjadi Number (double-precision) atau BigInt (arbitrary-precision).
+3.  **Clamping & Wrapping**: Jika sebuah MV melampaui batas tipe data bahasa (misal: 300 untuk `Uint8`), Hub memiliki algoritma khusus untuk "memaksanya" masuk kembali ke dalam sirkuit (Wrapping) atau menahannya di batas maksimum (Clamping).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/spec_math_audit.js` untuk membedah perbedaan antara hasil matematika ideal vs hasil evaluasi engine pada operasi floating point yang kritis.
+## 4. Arsitek Mindset
+Sadarilah bahwa ketidakakuratan `0.1 + 0.2 === 0.300...` di Hub bukanlah kesalahan algoritma, tapi adalah konsekuensi dari "perampingan" nilai matematika ideal (Spec Math) saat dipetakan ke dalam sirkuit fisik 64-bit (Language Type).
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Precision Logic](./examples/01_precision_logic.js)**: Demonstrasi perbedaan antara nilai matematika ideal (Spec) vs realita implementasi IEEE 754.
 
 ---
 *Status: [status.md](../../../../../status.md)*

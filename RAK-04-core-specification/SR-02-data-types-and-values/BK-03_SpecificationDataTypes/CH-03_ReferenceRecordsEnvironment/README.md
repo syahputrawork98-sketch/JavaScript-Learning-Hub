@@ -4,14 +4,13 @@
 
 **Source Hub**: 
 - [ECMA-262: Reference Record Specification Type](https://tc39.es/ecma262/#sec-reference-record-specification-type)
-- [ECMA-262: Environment Records](https://tc39.es/ecma262/#sec-environment-records)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Saat Anda menulis `x = 10`, Hub tidak langsung menaruh nilai ke memori. Ia menciptakan **Reference Record**—sebuah kompas internal yang menunjuk ke **Environment Record** (wadah variabel). Reference menyimpan informasi tentang siapa pemilik variabel tersebut (`[[Base]]`) dan apakah ia bisa diubah atau tidak.
+Saat Anda menulis `x = 10`, Hub tidak langsung merujuk pada nilai di memori. Ia menciptakan **Reference Record**—sebuah kompas internal yang menunjuk ke **Environment Record** (wadah variabel). Reference menyimpan informasi tentang pemilik variabel (`[[Base]]`), nama variabel (`[[ReferencedName]]`), dan apakah akses tersebut dilakukan dalam mode ketat (`[[Strict]]`).
 
 ---
 
@@ -26,22 +25,27 @@ graph LR
     Base --> Storage[Memory Storage]
     
     style Ref fill:#e1f5fe,stroke:#01579b
-    style Base fill:#a8e6cf,stroke:#333
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Lapisan Lingkungan (Clause 6.2.5 - 9.1)
-1. **Declarative Environment**: Digunakan untuk menyimpan variabel dari `let`, `const`, dan `class`. Sangat efisien dan berada di level mesin.
-2. **Object Environment**: Digunakan untuk objek global (`window` / `globalThis`) atau blok `with`. Kurang efisien karena harus mencari properti di dalam objek dinamis.
-3. **Unresolvable Reference**: Jika `[[Base]]` adalah `undefined`, Hub tahu bahwa variabel tersebut tidak ada (melempar `ReferenceError` di mode ketat).
+### Lapisan Lingkungan (Clause 6.2.5)
+1.  **The [[Base]] Component**: Base bisa berupa sebuah **Environment Record** atau sebuah **Object**. Jika Base bernilai `undefined`, Hub tahu bahwa variabel tersebut "Unresolvable" (melempar ReferenceError).
+2.  **Binding Loss**: Dalam operasi `getValue(ref)`, Hub melakukan inspeksi pada sirkuit lingkungan. Jika rujukan tidak ditemukan, Hub akan naik satu tingkat ke lingkungan induk (*Outer Environment*) sampai mencapai sirkuit Global.
+3.  **Strict Mode Integrity**: Jika `[[Strict]]` bernilai benar, Hub melarang pembuatan variabel baru secara otomatis pada Base global, memaksa arsitek untuk selalu mendeklarasikan variabel.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/reference_logic_lab.js` untuk melihat simulasi bagaimana Hub mendeteksi variabel yang tidak didefinisikan melalui mekanisme `GetBase([[Reference]])`.
+## 4. Arsitek Mindset
+Reference Error berarti kompas internal Hub kehilangan arah (`[[Base]]` tidak ditemukan). Selalu pastikan setiap identitas "terdaftar" di lingkungan yang tepat agar sirkuit resolusi Hub tidak memutus aliran eksekusi Anda.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Reference Resolution](./examples/01_reference_resolution.js)**: Simulasi bagaimana Hub mencari dan mengekstrak nilai dari sebuah sirkuit lingkungan.
 
 ---
 *Status: [status.md](../../../../../status.md)*

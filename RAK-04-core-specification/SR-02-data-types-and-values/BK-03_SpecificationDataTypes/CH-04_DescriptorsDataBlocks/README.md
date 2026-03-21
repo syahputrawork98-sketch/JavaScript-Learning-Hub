@@ -11,7 +11,7 @@
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-**Property Descriptors** adalah Record yang mendefinisikan "izin" bagi setiap properti (Data atau Accessor). Di level yang lebih rendah, Hub mengelola **Data Blocks**—urutan byte mentah yang digunakan untuk menyimpan data dalam `ArrayBuffer`. Ini adalah jembatan langsung antara Hub dan hardware memori.
+**Property Descriptors** adalah Record yang mendefinisikan "izin" bagi setiap properti objek. Ia adalah penjaga gerbang yang menentukan apakah sebuah nilai bisa diubah (`writable`) atau dihapus (`configurable`). Di level yang lebih rendah, Hub mengelola **Data Blocks**—urutan byte mentah yang digunakan untuk menyimpan data dalam sirkuit memori byte-access seperti `ArrayBuffer`.
 
 ---
 
@@ -24,23 +24,27 @@ graph TD
     Type -->|Accessor| AAttr["[[Get]], [[Set]]"]
     
     Desc --> Common["[[Enumerable]], [[Configurable]]"]
-    
-    style Type fill:#f1c40f,stroke:#333
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Kendali Akses (Clause 6.2.6 - 6.2.8)
-1. **Integrity Levels**: `Object.preventExtensions`, `Object.seal`, dan `Object.freeze` bekerja dengan memodifikasi field `[[Configurable]]` dan `[[Writable]]` pada seluruh descriptor di dalam objek tersebut.
-2. **Accessor Precedence**: Jika sebuah descriptor memiliki `[[Get]]`, ia TIDAK boleh memiliki `[[Value]]`. Perampasan data harus dilakukan secara dinamis melalui portal fungsi.
-3. **Data Blocks Isolation**: Setiap Data Block memiliki ukuran tetap dan diinisialisasi dengan nol. Sekali dibuat, sirkuit memori ini dipisahkan dari sirkuit logika bahasa sampai ia dipetakan via `TypedArray`.
+### Kendali Akses & Blok Memori (Clause 6.2.6 - 6.2.8)
+1.  **Data vs Accessor**: Sebuah properti hanya bisa menjadi salah satu pola: ia menyimpan nilai mentah (*Data Descriptor*) atau bertindak sebagai portal fungsi (*Accessor Descriptor*). Mencampur keduanya akan menyebabkan kegagalan validasi sirkuit Hub.
+2.  **Integrity Constraints**: Melalui API seperti `Object.freeze()`, arsitek secara langsung memodifikasi seluruh sirkuit deskriptor properti menjadi `configurable: false` dan `writable: false`, menciptakan objek yang tak tertembus modifikasi.
+3.  **Data Blocks Isolation**: Data Block bersifat atomik dan statis. Begitu didefinisikan ukurannya, sirkuit memori ini dipisahkan dari sirkuit logika bahasa, memastikan keamanan akses memori tingkat rendah.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/descriptor_lock_lab.js` untuk melihat bagaimana penguncian descriptor mencegah penghapusan properti penting meskipun nilainya masih bisa diubah.
+## 4. Arsitek Mindset
+Pahami bahwa di balik setiap properti objek yang terlihat sederhana, terdapat sistem pertahanan deskriptor yang rumit. Gunakan *Accessor Descriptors* (Get/Set) saat Anda membutuhkan validasi data otomatis saat terjadi aliran state ke dalam objek.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Descriptor Types](./examples/01_descriptor_types.js)**: Membandingkan perilaku deskriptor Data vs Accessor dan bagaimana Hub menolak percampuran keduanya.
 
 ---
 *Status: [status.md](../../../../../status.md)*

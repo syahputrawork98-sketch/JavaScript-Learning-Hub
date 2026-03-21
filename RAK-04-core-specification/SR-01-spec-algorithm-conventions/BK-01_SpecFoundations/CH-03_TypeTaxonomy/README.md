@@ -1,66 +1,54 @@
-# CH-03: Data Type Taxonomies
+# CH-03: Type Taxonomy (Language vs Spec)
 
-> **"Taksonomi Tipe dan Operasi Abstrak. `Data Type Taxonomies` membedah klasifikasi data dari level nilai matematika hingga abstraksi bahasa yang digunakan oleh engine Hub."**
+> **"Taksonomi Tipe Hub. `Type Taxonomy` membedah perbedaan antara nilai yang hidup di dalam kode Anda dan konsep abstrak yang hidup di dalam buku spesifikasi."**
 
 **Source Hub**: 
-- [ECMA-262: Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
-- [ECMA-262: Relational Operators (ToPrimitive)](https://tc39.es/ecma262/#sec-toprimitive)
+- [ECMA-262: ECMAScript Data Types and Values](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Hub membedakan antara **Mathematical Value** (nilai ideal tak terbatas) dan **ECMAScript Language Types**. Setiap tipe bahasa memiliki algoritma konversi internal yang disebut **Abstract Operations** (seperti `ToNumber`, `ToString`, `ToBoolean`). Operasi yang paling krusial adalah **`ToPrimitive(input, preferredType)`**, yang mengubah objek menjadi nilai atomik.
-
-**Model Mental**:
-- **Language Types**: Topeng yang Anda lihat (String, Number).
-- **Mathematical Value (MV)**: Kebenaran di balik topeng. Angka `10` di kode adalah representasi dari nilai matematika absolut 10.
-- **ToPrimitive**: Mesin penghancur. Ia mencoba menghancurkan struktur kompleks (Object) menjadi elemen dasar (Primitive).
+Hub membagi dunia data menjadi dua lapisan:
+1. **Language Types**: Nilai yang Anda gunakan langsung di kode (Undefined, Null, Boolean, String, Symbol, Number, BigInt, Object).
+2. **Specification Types**: Abstraksi meta-data yang digunakan hanya oleh spesifikasi untuk mendeskripsikan logika internal (Record, List, Completion, Reference, dst).
 
 ---
 
-## 2. Visualisasi Sistem: Conversion Pipeline
+## 2. Visualisasi Sistem: Type Stratification
 
 ```mermaid
-graph LR
-    Obj[Object Value] --> Top[Op: ToPrimitive]
-    Top --> hint{Hint?}
-    hint -->|Default/Number| Order[Try: valueOf -> toString]
-    hint -->|String| Order2[Try: toString -> valueOf]
-    Order --> Prim[Primitive Result]
-    Order2 --> Prim
+graph TD
+    Data[Data Unit] --> L[Language Layer: Accessible]
+    Data --> S[Spec Layer: Conceptual]
     
-    style Top fill:#f1c40f,stroke:#333
-```
-
-### Type Conversion Flow
-```mermaid
-graph LR
-    Input[Input Value] --> Op{Abstract Op}
-    Op -->|ToNumber| Num[Number / BigInt]
-    Op -->|ToString| Str[String]
-    Op -->|ToBoolean| Bool[true / false]
+    L --> Primitif[Undefined, Number, etc]
+    L --> Objek[Reference based]
     
-    style Op fill:#f1c40f,stroke:#333
+    S --> Control[Completion, Reference]
+    S --> Meta[Record, List]
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Taksonomi Kedalaman (Clause 6.1)
-1. **The Number Type (IEEE 754)**: Memahami bahwa `Number` bukan sekadar angka, tapi implementasi floating point 64-bit yang memiliki batas presisi dan nilai khusus (`+Infinity`, `-Infinity`, `NaN`).
-2. **The BigInt Type**: Tipe data yang mewakili Mathematical Value secara integer dengan presisi tak terbatas (tidak bisa dicampur dengan Number).
-3. **Specification Types (Clause 6.2)**: Tipe data internal seperti **Record**, **List**, **Completion**, dan **Reference**. Teknisi tidak bisa mengakses ini, tapi ini adalah mesin penggerak seluruh semantik bahasa.
-
-### Arsitek Mindset: Type Integrity
-- Hindari "Coercion" terselubung. Selalu gunakan konversi eksplisit (seperti `Number(val)`) daripada mengandalkan `ToPrimitive` otomatis (seperti `val + 0`). Konsistensi tipe data adalah kunci utama integritas sirkuit logika di Hub.
+### Hierarki Data (Clause 6.1)
+1. **Language Layer (Fuel)**: Lapisan ini adalah bahan bakar sirkuit Anda. Setiap tipe memiliki identitas dan aturan konversi (Abstract Operations) yang ketat.
+2. **Spec Layer (Blueprint)**: Lapisan ini tidak pernah menyentuh memori runtime Anda secara langsung. Ia adalah alat bantu navigasi bagi implementer engine untuk membangun perilaku Hub yang konsisten.
+3. **The Bridge**: Melalui operasi seperti `[[Get]]` atau `[[Set]]`, spesifikasi (Record/Reference) memanipulasi nilai di dunia nyata (Language Types).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/toprimitive_lab.js` untuk melihat bagaimana Hub mengonversi objek kustom menjadi primitif melalui manipulasi metode `Symbol.toPrimitive`.
+## 4. Arsitek Mindset
+Kuasailah **Language Types** untuk menulis kode yang efisien, namun pelajarilah **Specification Types** untuk memahami *mengapa* kode tersebut berjalan seperti itu. Pemahaman di level taksonomi ini memisahkan antara koder biasa dan arsitek bahasa.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Taxonomy Audit](./examples/01_taxonomy_audit.js)**: Membedah perbedaan antara tipe data bahasa yang nyata vs simulasi tipe data spesifikasi.
 
 ---
 *Status: [status.md](../../../../../status.md)*

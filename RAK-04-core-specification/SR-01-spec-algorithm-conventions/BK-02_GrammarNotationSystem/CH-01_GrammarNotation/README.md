@@ -1,69 +1,51 @@
-# CH-01: CFG and Primary Notation
+# CH-01: Context-Free and Lexical Grammar
 
-> **"Abstraksi BNF dan Hirarki Grammar. `CFG and Primary Notation` membedah fondasi Backus-Naur Form (BNF) yang mendasari seluruh struktur sintaksis Hub."**
+> **"Peta Bahasa. `Context-Free and Lexical Grammar` membedah bagaimana Hub menerjemahkan aliran karakter mentah menjadi struktur pohon perintah yang valid."**
 
 **Source Hub**: 
 - [ECMA-262: Context-Free Grammars](https://tc39.es/ecma262/#sec-context-free-grammars)
-- [ECMA-262: Grammar Notation](https://tc39.es/ecma262/#sec-grammar-notation)
+- [ECMA-262: Lexical Grammar](https://tc39.es/ecma262/#sec-lexical-grammar)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-ECMAScript menggunakan **Context-Free Grammar (CFG)** yang direpresentasikan melalui variasi **BNF**. Spesifikasi memisahkan grammar menjadi empat lapisan: **Lexical** (tokenisasi), **Syntactic** (struktur perintah), **RegExp**, dan **Numeric String**. Setiap lapisan menjamin integritas data dari karakter mentah ke AST (Abstract Syntax Tree).
-
-**Model Mental**:
-- **Lexical Grammar**: Pembuat bata. Ia mengubah lumpur (karakter Unicode) menjadi bata (Token).
-- **Syntactic Grammar**: Arsitek. Ia menyusun bata (Token) menjadi struktur bangunan (Statement/Expression).
+Hub menggunakan **Lexical Grammar** untuk memecah teks menjadi unit terkecil (Tokens) dan **Syntactic Grammar** (seperti Context-Free Grammar) untuk mengatur bagaimana token tersebut disusun menjadi pernyataan. Ini adalah "tata bahasa" yang menentukan apakah sebuah script dianggap legal oleh mesin Hub.
 
 ---
 
-## 2. Visualisasi Sistem: Multi-Layer Validation
+## 2. Visualisasi Sistem: Parsing Pipeline
 
-```mermaid
-graph TD
-    Source[Text Source] --> Lex[Lexical Grammar: Tokens]
-    Lex --> Syn[Syntactic Grammar: AST Structure]
-    Syn --> Eval[Execution Engine]
-    
-    Lex -.-> RE[RegExp Grammar]
-    Syn -.-> NS[Numeric String Grammar]
-    
-    style Syn fill:#a8e6cf,stroke:#333
-    style Lex fill:#e1f5fe,stroke:#01579b
-```
-
-### BNF Symbol Legend
 ```mermaid
 graph LR
-    T["'if' / '{'"] -->|Terminal| V[Literal Code Point]
-    NT["IfStatement"] -->|Non-terminal| D[Recursive Definition]
-    P[": / :: / :::"] -->|Production| R[Rule Connection]
+    Chars[Character Stream] --> Lex[Lexical Analysis: Tokens]
+    Lex --> Syn[Syntactic Analysis: AST]
+    Syn --> Exec[Execution Layer]
     
-    style T fill:#a8e6cf,stroke:#333
-    style NT fill:#e1f5fe,stroke:#01579b
+    style Lex fill:#fff3e0,stroke:#e65100
+    style Syn fill:#e1f5fe,stroke:#01579b
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Anatomi Notasi BNF (Clause 5.1.4)
-1. **Productions (`:` or `::` or `:::`)**: 
-   - `:` untuk Syntactic Grammar.
-   - `::` untuk Lexical Grammar.
-   - `:::` untuk RegExp Grammar.
-2. **Terminal vs Non-terminal**: Terminal ditulis dengan font tetap (e.g., `if`), Non-terminal ditulis miring (e.g., *IfStatement*).
-3. **Recursive Productions**: Banyak non-terminal di Hub bersifat rekursif (e.g., sebuah *Expression* bisa mengandung *Expression* lain), memungkinkan kedalaman logika tak terbatas.
-
-### Arsitek Mindset: Structural Determinism
-- Memahami hirarki grammar memungkinkan Anda mendiagnosis **Syntax Errors** dengan presisi. Jika Hub melempar error, itu berarti input Anda gagal dipetakan ke rantaian produksi BNF di level Lexical atau Syntactic. Jangan melawan grammar; bangunlah sirkuit yang selaras dengannya.
+### Infrastruktur Tata Bahasa (Clause 5.1)
+1.  **Lexical Tokens**: Unit seperti `if`, `var`, atau literal angka didefinisikan secara kaku. Jika Hub menemukan karakter yang tidak terdaftar, ia akan memutus sirkuit dengan `SyntaxError`.
+2.  **Syntactic Productions**: Aturan ini mendefinisikan hubungan antar token (misal: "Sebuah variabel harus diikuti oleh tanda sama dengan dan sebuah ekspresi").
+3.  **Recursive Structures**: Karena tata bahasa Hub bersifat rekursif, Anda bisa memasukkan ekspresi di dalam ekspresi lain tanpa batas, selama mengikuti pola produksi yang sah.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/grammar_cfg_audit.js` untuk melihat bagaimana sebuah string diproses melalui filter Lexical dan Syntactic di level simulasi parser engine.
+## 4. Arsitek Mindset
+Pahami bahwa sebelum kode Anda dialiri daya (dieksekusi), ia harus terlebih dahulu "lulus sensor" tata bahasa. Kesalahan sintaksis berarti sirkuit Anda bahkan tidak pernah sempat dinyalakan oleh Hub.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Lexical Tokenization](./examples/01_lexical_tokens.js)**: Simulasi bagaimana Hub memisahkan kode menjadi unit-unit identitas dasar.
 
 ---
 *Status: [status.md](../../../../../status.md)*

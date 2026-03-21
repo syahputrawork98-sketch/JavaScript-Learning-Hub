@@ -1,9 +1,8 @@
 # CH-01: Objects and Prototypal Ethics
 
-> **"Morfologi dan Etika Objek. `Objects and Prototypal Ethics` membedah struktur fundamental entitas di JavaScript dari perspektif metode internal dan delegasi prototipe."**
+> **"Morfologi dan Etika Objek. `Objects and Prototypal Ethics` membedah struktur fundamental entitas di Hub dari perspektif metode internal dan delegasi prototipe."**
 
 **Source Hub**: 
-- [ECMA-262: Ordinary and Exotic Objects Behaviors](https://tc39.es/ecma262/#sec-ordinary-and-exotic-objects-behaviors)
 - [ECMA-262: Essential Internal Methods](https://tc39.es/ecma262/#sec-algorithm-conventions-internal-methods-and-slots)
 
 ---
@@ -12,10 +11,6 @@
 
 **Definisi Arsitek**:
 Sebuah **Object** di Hub didefinisikan secara eksklusif oleh **Essential Internal Methods**-nya. Jika sebuah objek menggunakan algoritma default (Base) untuk metode ini, ia adalah **Ordinary Object**. Jika ia menimpa (*override*) satu saja metode internal (misal: `[[Get]]` pada Proxy), ia diklasifikasikan sebagai **Exotic Object**.
-
-**Model Mental**:
-- **Internal Methods**: Bahasa isyarat rahasia engine. Saat Anda mengetik `obj.x`, engine memanggil `obj.[[Get]]("x", obj)`.
-- **Exotic Behavior**: Seperti sel mutan (e.g., Array) yang memiliki logika khusus pada metode `[[DefineOwnProperty]]` untuk menyinkronkan properti `length`.
 
 ---
 
@@ -26,7 +21,6 @@ graph TD
     Access["Code: obj.prop"] --> Dispatch{Method Type?}
     Dispatch -->|Ordinary| Ord["[[Get]] (Default Algorithm)"]
     Dispatch -->|Exotic: Proxy| ExoP["[[Get]] (Trap: 'get')"]
-    Dispatch -->|Exotic: Array| ExoA["[[Get]] (Default) + Custom [[DefineOwnProperty]] for length"]
     
     Ord --> Proto["[[GetPrototypeOf]] check"]
     ExoP --> Handler["Execute Proxy Handler"]
@@ -35,37 +29,26 @@ graph TD
     style ExoP fill:#f8bbd0,stroke:#880e4f
 ```
 
-### Prototypal Chain Execution
-```mermaid
-graph LR
-    O1[Object: A] -- "[[Get]]('x')" --> O1_X{Has 'x'?}
-    O1_X -- No --> O2[Object: B (Prototype)]
-    O2 -- "[[Get]]('x')" --> O2_X{Has 'x'?}
-    O2_X -- Yes --> Ret[Return Value]
-    
-    style O1 fill:#e1f5fe,stroke:#01579b
-    style O2 fill:#fff3e0,stroke:#e65100
-```
-
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Tabel Metode Internal Esensial (Clause 6.1.7.2)
-| Internal Method | Penjelasan Teknis | Default Behavior (Ordinary) |
-| :--- | :--- | :--- |
-| `[[GetPrototypeOf]]` | Mengambil koneksi delegasi. | Mengembalikan nilai slot `[[Prototype]]`. |
-| `[[Get]]` | Mengambil nilai properti. | Mencari di `self`, jika tidak ada, panggil `[[Get]]` pada Prototype. |
-| `[[Set]]` | Menyimpan nilai properti. | Melakukan pengecekan `Writable` sebelum modifikasi. |
-| `[[HasProperty]]` | Mengecek eksistensi. | Mengembalikan Boolean (termasuk hasil dari rantai Prototype). |
-
-### Arsitek Mindset: Behavioral Consistency
-- Saat membangun abstraksi tingkat tinggi, sadarilah bahwa **Exotic Objects** (seperti `Proxy`, `Bound Function`, atau `Array`) memiliki "biaya" performa karena menginterupsi alur transmisi standar engine. Gunakan prototipe delegasi daripada Proxy jika tujuannya hanya untuk berbagi logika (*logical sharing*).
+### Karakteristik Perilaku (Clause 6.1.7.2)
+1. **Delegation Flow**: Saat `[[Get]]` gagal menemukan nilai di sirkuit lokal, ia secara otomatis memanggil `[[GetPrototypeOf]]` dan melanjutkan pencarian ke sirkuit delegasi (Prototype) sampai mencapai `null`.
+2. **Exotic Mutants**: Objek seperti **Array** memiliki metode `[[DefineOwnProperty]]` yang eksotis untuk mensinkronisasi slot `length` dengan indeks elemen secara otomatis.
+3. **Integritas Transmisi**: Protokol metode internal menjamin bahwa setiap interaksi objek di Hub bersifat deterministik, meskipun objek tersebut memiliki perilaku kustom (Proxy).
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/internal_method_audit.js` untuk melihat bagaimana sebuah `Proxy` menginterupsi metode internal `[[Get]]` dan membandingkannya dengan perilaku `Ordinary Object`.
+## 4. Arsitek Mindset
+Rancanglah objek sebagai unit yang memiliki perilaku, bukan sekadar data. Gunakan delegasi prototipe untuk efisiensi memori, namun gunakan **Proxy** jika Anda butuh kontrol total (interupsi) terhadap aliran data internal objek Anda.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah dua pilar utama:
+1.  **[Internal Method Dispatch](./examples/01_method_dispatch.js)**: Demonstrasi perbedaan antara ordinary objek dan interupsi Proxy.
+2.  **[Delegation Flow](./examples/02_delegation_flow.js)**: Melacak alur pencarian nilai pada rantai prototipe secara rekursif.
 
 ---
 *Status: [status.md](../../../../../status.md)*

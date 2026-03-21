@@ -1,68 +1,53 @@
-# CH-03: Grammatical Parameters and Constraints
+# CH-03: Grammar Parameters
 
-> **"Propagasi Status dan Lookahead. `Grammatical Parameters and Constraints` membedah bagaimana Hub melacak status eksekusi (context) ke dalam rantaian validasi gramatikal."**
+> **"Konteks Tata Bahasa. `Grammar Parameters` membedah bagaimana aturan Hub berubah secara dinamis tergantung pada konteks tempat kode tersebut ditulis (Generator, Async, atau Module)."**
 
 **Source Hub**: 
 - [ECMA-262: Grammar Parameters](https://tc39.es/ecma262/#sec-grammar-parameters)
-- [ECMA-262: Lookahead Restrictions](https://tc39.es/ecma262/#sec-lookahead-restrictions)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Dua mekanisme tercanggih dalam grammar Hub adalah **Grammatical Parameters** (variabel pada non-terminal) dan **Lookahead Restrictions** (pembatasan simbol berikutnya). Parameter seperti `[Yield]` memastikan bahwa kata kunci `yield` hanya valid saat berada di dalam rantaian produksi Generator. Lookahead memastikan ambiguitas kode (seperti blok `{}` vs objek `{}`) dapat diselesaikan sebelum dieksekusi.
-
-**Model Mental**:
-- **Parameters**: Seperti pewarnaan sirkuit. Jika induknya "berwarna" `Async`, maka semua cabangnya akan ikut berwarna `Async` sampai rantaiannya selesai.
-- **Lookahead**: Seperti radar. Sebelum melangkah ke depan, Hub memindai satu simbol di depannya untuk memutuskan arah jalur produksi.
+Sebuah ekspresi yang sama bisa memiliki makna berbeda tergantung parameternya.
+- **`[+Yield]`**: Di dalam generator, `yield` adalah keyword bermakna tinggi.
+- **`[~Yield]`**: Di luar generator, `yield` hanyalah nama variabel biasa.
+Parameter ini memastikan Hub tidak perlu menulis ulang ribuan aturan tata bahasa untuk setiap fitur baru.
 
 ---
 
-## 2. Visualisasi Sistem: Parameter Flow
+## 2. Visualisasi Sistem: Context Switching
 
 ```mermaid
 graph TD
-    Parent[Function_Yield] --> Child[Statement_Yield]
-    Child --> G{"'yield'"}
-    G -->|Valid because of Parameter| Success[AST Node: YieldExpression]
+    Code[Token: 'yield'] --> Context{Production Context?}
+    Context -->|Generator Role| Key[Keyword: Control Flow]
+    Context -->|Normal Role| Ident[Identifier: Variable Name]
     
-    Parent2[Function] --> Child2[Statement]
-    Child2 --> G2{"'yield'"}
-    G2 --X|Invalid: Parameter Missing| Fail[SyntaxError]
-    
-    style Success fill:#a8e6cf,stroke:#333
-    style Fail fill:#f8bbd0,stroke:#880e4f
-```
-
-### Contextual Flag Propagation
-```mermaid
-graph LR
-    A[AsyncContext: +Await] --> B[StatementListItem_Await]
-    B --> C[AssignmentExpression_Await]
-    C --> D["'await' Expression"]
-    
-    style A fill:#f1c40f,stroke:#333
+    style Key fill:#f8bbd0,stroke:#880e4f
+    style Ident fill:#a8e6cf,stroke:#333
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Logika Kontekstual (Clause 5.1.10 - 5.1.15)
-1. **Parameter Prefixing**:
-   - `+Await`: Mengaktifkan fungsionalitas await.
-   - `~Yield`: Menonaktifkan fungsionalitas yield.
-2. **Lookahead Control (`[lookahead ∉ {set}]`)**: Mencegah parser terjebak dalam ambiguitas statis. Contoh: *ExpressionStatement* dilarang dimulai dengan `{` karena akan disalahartikan sebagai *Block*.
-3. **The `[In]` Parameter**: Menentukan apakah operator `in` diizinkan atau tidak dalam ekspresi relasional (khusus untuk inisialisasi loop `for`).
-
-### Arsitek Mindset: Context Isolation
-- Pahami bahwa sebuah fitur bahasa bisa beroperasi sangat berbeda hanya karena parameter konteksnya berubah. Selalu sadari "Zone" (Konteks) di mana kode Anda berada, terutama saat Anda mencampur logika asinkron dan sinkron di dalam Agent Hub.
+### Parameter Utama (Clause 5.1.5)
+1. **Inheritance**: Parameter mengalir ke bawah (inherited) dari fungsi ke sub-ekspresi di dalamnya, menjaga konsistensi konteks.
+2. **The `Await` Flag**: Mirip dengan `Yield`, parameter `[+Await]` mengubah perilaku sirkuit saat berada di dalam fungsi `async`.
+3. **Cross-Rack Linking**: Parameter tata bahasa menghubungkan **RAK-03** (Fitur Modern) dengan mesin inti di **RAK-04**, memungkinkan penambahan fitur baru tanpa merusak struktur lama.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/grammar_params_lab.js` untuk menguji bagaimana Hub menangani teks `{} + []` sebagai penambahan objek vs blok kode kosong tergantung pada konteks gramatikalnya.
+## 4. Arsitek Mindset
+Sadarilah konteks tempat Anda bekerja. Kode yang valid di satu tempat (misal: Script biasa) bisa jadi ilegal di tempat lain (misal: Module atau Async context) karena perbedaan parameter tata bahasa yang diterapkan oleh Hub.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Parameter Context](./examples/01_parameter_context.js)**: Simulasi pergantian peran token `yield` dan `await` berdasarkan konteks eksekusi.
 
 ---
 *Status: [status.md](../../../../../status.md)*

@@ -1,63 +1,48 @@
-# CH-03: Records, Lists, and Internal Data
+# CH-03: Internal Data & Environment Simulation
 
-> **"Infrastruktur Data Spesifikasi. `Records, Lists, and Internal Data` membedah struktur penyimpanan privat yang digunakan oleh engine Hub untuk mengelola status eksekusi."**
+> **"Wadah Eksekusi. `Internal Data & Environment Simulation` membedah bagaimana Hub mengelola penyimpanan variabel dan status eksekusi melalui Environment Records."**
 
 **Source Hub**: 
-- [ECMA-262: List and Record Specification Types](https://tc39.es/ecma262/#sec-list-and-record-specification-type)
+- [ECMA-262: Environment Records](https://tc39.es/ecma262/#sec-environment-records)
 
 ---
 
 ## 1. Konsep & Esensi
 
 **Definisi Arsitek**:
-Untuk beroperasi, Hub memerlukan struktur data internal yang tidak bisa diotak-atik oleh teknisi melalui kode. **Record** didefinisikan sebagai kumpulan field statis yang ditulis dengan kurung siku ganda (e.g., `{ [[Value]], [[Writable]] }`). **List** adalah urutan nilai murni. Struktur-struktur ini menjadi fondasi bagi **Environment Records** (tempat variabel disimpan) dan **Global Object** di dalam memori.
-
-**Model Mental**:
-- **Record**: Sebuah formulir identitas rahasia. Hub mengisi data di kolom-kolom tertentu dan membacanya untuk memutuskan perilaku objek.
-- **List**: Sebuah antrean atau tumpukan instruksi yang kaku.
+**Environment Record** adalah struktur data internal tempat Hub mendaftarkan (binding) setiap nama variabel dan fungsinya. Setiap kali Anda mendeklarasikan sesuatu, Hub mencatatnya di dalam Record ini sebagai bagian dari status eksekusi aktif.
 
 ---
 
-## 2. Visualisasi Sistem: Memory Record Blueprint
+## 2. Visualisasi Sistem: Environment record Schema
 
-```mermaid
-graph LR
-    Entity[Object/Scope] --> EnvRec[Environment Record: Record]
-    EnvRec --> Fields["{ [[OuterEnv]], [[BindingList]] }"]
-    
-    Entity2[Property] --> PropDesc[Property Descriptor: Record]
-    PropDesc --> Fields2["{ [[Value]], [[Writable]], [[Configurable]] }"]
-    
-    style EnvRec fill:#e1f5fe,stroke:#01579b
-    style PropDesc fill:#fff3e0,stroke:#e65100
-```
-
-### Environment Record Schema
 ```mermaid
 graph TD
-    ER[Environment Record] --> Dec[Declarative: var, let, const]
-    ER --> Obj[Object: with, global]
-    ER --> Func[Function: this, super]
+    Env[Environment Record] --> Bindings[Binding: x, y]
+    Env --> Outer[Outer Link: Parent Env]
     
-    style ER fill:#a8e6cf,stroke:#333
+    Bindings --> Storage[Memory Storage]
 ```
 
 ---
 
 ## 3. Mekanisme & Hubungan
 
-### Tipologi Data Internal (Clause 6.2.1 - 6.2.3)
-1. **Records**: Setiap field (tanda `[[ ]]`) adalah kunci akses yang memandu logika algoritma. Jika sebuah field tidak ada, spesifikasi mengasumsikan nilai default atau "undefined".
-2. **Lists**: Digunakan secara eksklusif dalam transmisi argumen fungsi dan pemrosesan modul (`[[RequestedModules]]`).
-3. **Internal Methods as Record Fields**: Banyak Record yang juga menyimpan pointer ke algoritma (metode), seperti `[[Get]]` atau `[[Set]]`.
-
-### Arsitek Mindset: Metadata Awareness
-- Arsitektur sistem yang hebat tidak hanya peduli pada "Data", tapi juga pada "Metadata". Memahami bagaimana Hub menyimpan status variabel di dalam **Environment Record** akan membantu Anda menguasai konsep **Closure** dan **Scope Chain** secara mutlak dan mendalam.
+### Struktur Lingkungan (Clause 9.1)
+1. **Declarative Environments**: Digunakan untuk menyimpan variabel dari deklarasi `const`, `let`, dan `function`.
+2. **Object Environments**: Digunakan untuk mengikat properti dari objek global atau blok `with` ke dalam ruang lingkup variabel.
+3. **Function Environments**: Rekaman khusus yang juga menyimpan informasi tentang nilai `this` dan `super`.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/internal_data_lab.js` untuk melihat pemetaan antara variabel JavaScript ke dalam struktur **Environment Record** virtual di level spesifikasi.
+## 4. Arsitek Mindset
+Setiap akses variabel di Hub adalah proses pencarian di dalam sirkuit Environment Record. Jika Hub tidak menemukannya di record aktif, ia akan memanjat melalui jalur **Outer Link** sampai ke lingkungan global—inilah yang kita sebut sebagai *Scope Chain*.
+
+---
+
+## 5. Lab Praktis
+Eksperimen di folder `examples/` membedah pilar utama:
+1.  **[Environment Simulation](./examples/01_env_simulation.js)**: Simulasi pembuatan binding variabel dan pencarian identitas di dalam sirkuit lingkungan internal.
 
 ---
 *Status: [status.md](../../../../../status.md)*
