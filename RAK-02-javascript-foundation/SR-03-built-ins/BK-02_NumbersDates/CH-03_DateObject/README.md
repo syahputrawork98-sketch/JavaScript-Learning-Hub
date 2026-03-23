@@ -1,58 +1,33 @@
 # CH-03: Date Object (Temporal Management)
 
-> **"Segala aktivitas di Hub Energi membutuhkan pelacakan waktu yang presisi. Date Object adalah instrumen utama kita untuk mengukur momen dan durasi."**
+> **"Chapter ini membahas `Date` sebagai instrumen utama JavaScript untuk membaca momen, mengatur waktu, dan memahami beda antara UTC dan waktu lokal."**
 
-## 🔗 Source Hub
+## Source Hub
 - **Primary Source**: [MDN Web Docs - Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 - **Technical Reference**: [ECMA-262 - Date Objects](https://tc39.es/ecma262/#sec-date-objects)
 
-## 🎓 Senior Terminology
-- **Epoch Time**: Titik awal perhitungan waktu di dunia komputer (1 Januari 1970 00:00:00 UTC).
-- **Unix Timestamp**: Jumlah milidetik (atau detik) yang berlalu sejak Epoch Time hingga saat ini.
-- **Timezone Offset**: Selisih waktu antara waktu lokal sistem dengan waktu standar UTC.
+## 1. Struktur Chapter
+### A. [SEC-01: Reading and Setting Time](./SEC-01_ReadWriteTime/README.md)
+Getter dan setter dasar pada objek `Date`.
 
-## 1. Mental Model: "The Chronometer"
+### B. [SEC-02: UTC and Local Time](./SEC-02_UTCAndLocalTime/README.md)
+Cara berpikir tentang timestamp, UTC, dan tampilan lokal.
 
-Banyangkan **Date Object** sebagai **Kronometer Universal** di Hub Energi kita. Ia tidak hanya mencatat waktu lokal, tapi juga menghubungkan kita ke aliran waktu universal (UTC) yang dimulai sejak "Ledakan Besar Digital" (Epoch) pada 1 Januari 1970. Setiap milidetik yang berlalu adalah denyut nadi yang dicatat oleh Kronometer ini.
-
-![The Chronometer](./assets/chronometer.svg)
-
----
-
-## 2. Mengambil Waktu (Getter Methods)
-
-Untuk membaca data dari Kronometer, kita menggunakan metode *Getter*:
-- **`getFullYear()`**: Tahun (4 digit).
-- **`getMonth()`**: Bulan (0-11) — **Peringatan**: Januari adalah `0`.
-- **`getDate()`**: Tanggal (1-31).
-- **`getDay()`**: Hari dalam seminggu (0-6).
-- **`getTime()`**: Unix Timestamp (milidetik sejak Epoch).
+### C. [SEC-03: Date Practices](./SEC-03_DatePractices/README.md)
+Praktik aman untuk penyimpanan dan pengiriman waktu.
 
 ---
 
-## 3. Mengatur Waktu (Setter Methods)
+## Arsitek Mindset: Time Is Tricky
 
-Anda bisa memutar jarum jam Kronometer secara manual:
-- **`setFullYear(2030)`**: Melompat ke masa depan.
-- **`setHours(0, 0, 0)`**: Mengatur ulang ke tengah malam.
-
-```javascript
-const event = new Date();
-event.setMonth(11); // Mengatur ke Desember
-```
+Sebagai arsitek Hub:
+- Perlakukan waktu sebagai data yang mudah membingungkan jika format dan zona waktunya tidak jelas.
+- Pisahkan penyimpanan waktu dari tampilan waktu ke pengguna.
 
 ---
 
-## 4. UTC vs Waktu Lokal
-
-JavaScript selalu mencatat waktu dalam UTC di latar belakang, tapi menampilkannya dalam waktu lokal sistem Anda.
-
-**Arsitek Mindset**: Dalam aplikasi Hub yang terdistribusi, **selalu simpan dan kirim waktu dalam format UTC** (misal: `toISOString()`). Lakukan konversi ke waktu lokal hanya saat data akan ditampilkan ke pengguna untuk menghindari kebingungan zona waktu (*Timezone Hell*).
+## Hands-on: Lab Chronometer
+Chapter ini tetap memakai lab di `examples/date_lab.js` untuk menghitung waktu dan menjadwalkan aktivitas.
 
 ---
-
-## Hands-on: Penjadwal Reset Hub
-Buka file `examples/date_lab.js` untuk membuat script yang menghitung sisa waktu hingga jadwal reset mingguan Hub berikutnya menggunakan manipulasi objek Date.
-
----
-*Back to [Numbers & Dates](../README.md)*
+*Status: [x] Complete (3 Sections).*

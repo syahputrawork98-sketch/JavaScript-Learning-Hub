@@ -1,67 +1,30 @@
 # CH-02: Array Modification (Collection Mutation)
 
-> **"Sebuah koleksi data bersifat dinamis. Kita membutuhkan alat untuk menambah, menghapus, dan menyisipkan unit energi ke dalam urutan array dengan presisi tinggi."**
+> **"Chapter ini membahas cara menambah, menghapus, dan menyisipkan elemen dalam array, beserta biaya operasionalnya."**
 
-## 🔗 Source Hub
-- **Primary Source**: [MDN Web Docs - Array Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
-- **Technical Reference**: [ECMA-262 - Array Prototype Mutation](https://tc39.es/ecma262/#sec-properties-of-the-array-prototype-object)
+## Source Hub
+- **Primary Source**: [MDN Web Docs - Array instance methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods)
+- **Technical Reference**: [ECMA-262 - Array Prototype Methods](https://tc39.es/ecma262/#sec-properties-of-the-array-prototype-object)
 
-## 🎓 Senior Terminology
-- **Stack Methods**: Operasi `push()` dan `pop()` yang mengelola data dari ujung akhir array (Last-In, First-Out).
-- **Queue Methods**: Operasi `shift()` dan `unshift()` yang mengelola data dari ujung awal array (First-In, First-Out).
-- **Splice Surgery**: Metode paling kuat yang mampu menghapus, menambah, dan mengganti elemen di posisi mana pun dalam array secara bersamaan.
+## 1. Struktur Chapter
+### A. [SEC-01: Stack and Queue Operations](./SEC-01_StackQueueOps/README.md)
+`push`, `pop`, `shift`, dan `unshift`.
 
-## 1. Mental Model: "The Dynamic Platform"
-
-Bayangkan **Array Modification** sebagai **Operasi di Platform Stasiun**.
-- **Push & Pop**: Menaruh atau mengambil barang dari gerbong paling belakang. Ini sangat cepat karena tidak mengganggu urutan gerbong lain.
-- **Shift & Unshift**: Menaruh atau mengambil barang dari gerbong paling depan. Ini jauh lebih berat karena Anda harus menggeser nomor urut (indeks) seluruh gerbong di belakangnya.
-
-![Array Operations](./assets/array_ops.svg)
+### B. [SEC-02: Splice and In-Place Changes](./SEC-02_SpliceAndInPlace/README.md)
+Pembedahan posisi tertentu dan mutasi langsung pada koleksi.
 
 ---
 
-## 2. Operasi Tumpukan (Stack: LIFO)
+## Arsitek Mindset: Mutation Has Cost
 
-Metode yang paling efisien karena hanya menyentuh ujung akhir array:
-- **`push(item)`**: Menambahkan unit energi baru ke akhir rel.
-- **`pop()`**: Mengambil unit energi terakhir.
-
-```javascript
-let stack = [];
-stack.push("Log-1"); // ["Log-1"]
-stack.pop();         // "Log-1", stack is []
-```
+Sebagai arsitek Hub:
+- Tidak semua mutasi punya biaya yang sama.
+- Operasi di depan array biasanya lebih mahal daripada operasi di belakang.
 
 ---
 
-## 3. Operasi Antrian (Queue: FIFO)
-
-Operasi ini lebih "mahal" secara performa karena memicu re-indexing:
-- **`unshift(item)`**: Menambahkan di depan.
-- **`shift()`**: Mengambil dari depan.
-
-**Arsitek Mindset**: Dalam aplikasi Hub yang menangani ribuan data, hindari penggunaan `shift()` jika memungkinkan. Gunakan teknik lain seperti membalikkan array atau menggunakan struktur data *Linked List* kustom jika performa di depan sangat kritis.
+## Hands-on: Lab Collection Mutation
+Chapter ini tetap memakai lab di `examples/array_performance.js` untuk melihat biaya operasi array.
 
 ---
-
-## 4. Bedah Internal: `splice`
-
-`splice()` adalah alat bedah paling serbaguna. Ia bisa:
-1.  **Menghapus**: `splice(index, count)`
-2.  **Menyisipkan**: `splice(index, 0, newItem)`
-3.  **Mengganti**: `splice(index, 1, newItem)`
-
-```javascript
-let cores = ["A", "B", "D"];
-cores.splice(2, 0, "C"); // Menyisipkan "C" di indeks 2
-// cores: ["A", "B", "C", "D"]
-```
-
----
-
-## Hands-on: Lab Optimasi Sirkuit
-Buka file `examples/array_performance.js` untuk membandingkan kecepatan antara 100.000 operasi `push` vs 100.000 operasi `unshift` di Hub Energi Anda.
-
----
-*Back to [Indexed Collections](../README.md)*
+*Status: [x] Complete (2 Sections).*
