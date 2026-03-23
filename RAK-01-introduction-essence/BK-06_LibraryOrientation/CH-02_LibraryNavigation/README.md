@@ -3,9 +3,9 @@
 **"Kompas sang Penjelajah Kode"**
 *Target: Memahami cara navigasi antar Rak dalam waktu < 2 menit.*
 
-## 🔗 Source Hub
-- **Universal Standard**: [docs/standards/architecture.md](../../docs/standards/architecture.md)
-- **Master Plan**: [docs/repository-plan/README.md](../../docs/repository-plan/README.md)
+## Source Hub
+- **Universal Standard**: [docs/standards/architecture.md](../../../docs/standards/architecture.md)
+- **Master Plan**: [docs/repository-plan/README.md](../../../docs/repository-plan/README.md)
 
 ## 1. Definisi & Konsep (The Logic)
 Perpustakaan ini dibagi menjadi **6 Rak Utama**. Setiap Rak memiliki tugas spesifik:
