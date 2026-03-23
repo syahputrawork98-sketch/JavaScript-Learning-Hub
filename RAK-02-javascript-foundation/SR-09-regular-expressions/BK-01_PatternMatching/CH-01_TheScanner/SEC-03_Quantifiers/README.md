@@ -4,6 +4,10 @@
 
 **Quantifiers** menentukan berapa banyak karakter (atau kelompok karakter) yang harus dicocokkan oleh scanner pola Anda. Mereka sangat berguna untuk menangani data yang memiliki panjang bervariasi.
 
+## Source Hub
+- [MDN Web Docs - Quantifiers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers)
+- [MDN Web Docs - Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
 ---
 
 ## 1. Mental Model: "The Pulse Counters"
@@ -15,6 +19,14 @@ Bayangkan pemindai radar mendeteksi sinyal listrik di Hub:
 - **`{n,m}` (Range)**: Penghitung presisi tinggi. Hanya menangkap sinyal jika jumlah kemunculannya berada di antara batas `n` dan `m`.
 
 ![Quantifier Pulse Premium](./assets/quantifier_pulse_premium.svg)
+
+```mermaid
+flowchart LR
+    A[base pattern] --> B[* zero or more]
+    A --> C[+ one or more]
+    A --> D[? optional]
+    A --> E[{n,m} ranged count]
+```
 
 ---
 

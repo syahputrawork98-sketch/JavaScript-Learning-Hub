@@ -4,6 +4,11 @@
 
 **Async Iterators** adalah evolusi dari iterator biasa yang dirancang untuk menangani sumber data asinkron. Alih-alih mendapatkan nilai secara instan, pemanggil akan mendapatkan sebuah **Promise** untuk setiap potongan data yang ditarik.
 
+## Source Hub
+- [MDN Web Docs - Symbol.asyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)
+- [MDN Web Docs - for await...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of)
+- [MDN Web Docs - Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+
 ---
 
 ## 1. Mental Model: "The Latency Compensator"
@@ -14,6 +19,14 @@ Bayangkan ban berjalan di Hub yang terhubung ke pembangkit listrik di planet lai
 3. Robot (Loop `for await...of`) akan menunggu dengan sabar sampai janji tersebut terpenuhi (*resolved*) dan energi akhirnya tiba. Begitu tiba, ia segera memprosesnya dan menekan tombol `next()` lagi untuk data berikutnya.
 
 ![Async Iterator Premium](./assets/async_iterator_premium.svg)
+
+```mermaid
+flowchart LR
+    A[async iterable] --> B[next()]
+    B --> C[Promise]
+    C --> D[resolved value]
+    D --> E[for await...of consumes]
+```
 
 ---
 

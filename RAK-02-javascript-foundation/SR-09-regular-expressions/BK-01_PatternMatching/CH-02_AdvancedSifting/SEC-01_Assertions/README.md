@@ -4,6 +4,10 @@
 
 **Assertions** adalah instruksi khusus yang tidak mencocokkan karakter, melainkan mencocokkan **posisi**. Mereka sering disebut sebagai *Zero-width Assertions* karena mereka melakukan pengecekan kondisi tanpa menggerakkan kursor pemindaian melintasi karakter.
 
+## Source Hub
+- [MDN Web Docs - Assertions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
+- [MDN Web Docs - Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
 ---
 
 ## 1. Mental Model: "The Boundary Perimeter"
@@ -15,6 +19,14 @@ Bayangkan grid data Hub sebagai wilayah yang dilindungi:
 - **Lookarounds**: Scanner seperti memiliki "Mata Laser" yang bisa mengintip ke depan atau ke belakang untuk memastikan ada pola tertentu sebelum ia memutuskan untuk mencocokkan data saat ini.
 
 ![Boundary Assertions Premium](./assets/boundary_assertions_premium.svg)
+
+```mermaid
+flowchart LR
+    A[text position] --> B[^ start]
+    A --> C[$ end]
+    A --> D[\b word boundary]
+    A --> E[lookarounds]
+```
 
 ---
 

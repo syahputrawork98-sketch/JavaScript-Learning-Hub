@@ -4,6 +4,10 @@
 
 **Error Handling** tingkat lanjut di JavaScript tidak hanya tentang menangkap kesalahan, tetapi juga tentang klasifikasi, pelacakan penyebab (*Error Chaining*), dan pembersihan sumber daya yang aman.
 
+## Source Hub
+- [MDN Web Docs - Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+- [MDN Web Docs - try...catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)
+
 ---
 
 ## 1. Mental Model: "The Nested Fuses"
@@ -15,6 +19,15 @@ Setiap operasi kritis di dalam Hub dilindungi oleh sistem sekring:
 - **`cause` (The Lineage)**: Rekam jejak yang menghubungkan satu ledakan ke ledakan lainnya untuk mengetahui akar masalah sebenarnya.
 
 ![Nested Fuses Premium](./assets/nested_fuses_premium.svg)
+
+```mermaid
+flowchart LR
+    A[try block] --> B{error?}
+    B -->|yes| C[catch block]
+    B -->|no| D[success path]
+    C --> E[finally]
+    D --> E
+```
 
 ---
 

@@ -4,6 +4,10 @@
 
 Regular Expressions (RegExp) adalah objek yang mendeskripsikan pola karakter. JavaScript menyediakan dua cara utama untuk menciptakan pemindai pola ini.
 
+## Source Hub
+- [MDN Web Docs - RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [MDN Web Docs - Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
 ---
 
 ## 1. Mental Model: "The Pattern Scanner"
@@ -12,6 +16,14 @@ Regular Expressions (RegExp) adalah objek yang mendeskripsikan pola karakter. Ja
 - **RegExp Constructor (The Dynamic Assembly)**: Seperti merakit pemindai di lapangan berdasarkan input variabel yang baru diterima. Sedikit lebih lambat karena dikompilasi saat runtime, namun memberikan fleksibilitas tanpa batas.
 
 ![Scanner Models Premium](./assets/scanner_models_premium.svg)
+
+```mermaid
+flowchart LR
+    A[static pattern] --> B[/literal/]
+    C[dynamic pattern] --> D[new RegExp(...)]
+    B --> E[reuse in code]
+    D --> F[build from variables]
+```
 
 ---
 

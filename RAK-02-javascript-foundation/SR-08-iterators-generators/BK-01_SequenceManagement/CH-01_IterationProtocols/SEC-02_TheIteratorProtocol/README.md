@@ -4,6 +4,10 @@
 
 **Iterator Protocol** menentukan cara standar sebuah objek menghasilkan urutan nilai (baik terbatas maupun tidak terbatas). Sebuah objek adalah iterator jika ia memiliki metode `next()` yang mengembalikan objek hasil iterasi.
 
+## Source Hub
+- [MDN Web Docs - Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+- [MDN Web Docs - Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
+
 ---
 
 ## 1. Mental Model: "The Sequential Puller"
@@ -16,6 +20,14 @@ Bayangkan sebuah robot penarik di ujung ban berjalan (conveyor).
    - **`done`**: Indikator status. Apakah ini data terakhir (`true`) atau masih ada data lain di belakangnya (`false`)?
 
 ![Iterator Puller Premium](./assets/iterator_puller_premium.svg)
+
+```mermaid
+flowchart LR
+    A[iterator] --> B[next()]
+    B --> C[{ value, done }]
+    C -->|done false| D[next value available]
+    C -->|done true| E[iteration finished]
+```
 
 ---
 

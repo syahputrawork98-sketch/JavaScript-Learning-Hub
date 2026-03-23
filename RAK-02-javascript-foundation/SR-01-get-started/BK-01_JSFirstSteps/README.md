@@ -16,4 +16,4 @@ Buku ini dirancang untuk memberikan orientasi filosofis dan teknis bagi pemula. 
 10. **[CH-10: Interactive Hub (Basic Browser Interaction)](./CH-10_InteractiveHubBrowserInteraction/)**: Menghubungkan JS ke DOM untuk aksi visual kinetik.
 
 ---
-*Status: 🟢 Complete (10 Chapters)*
+*Status: [x] Complete (10 Chapters).*

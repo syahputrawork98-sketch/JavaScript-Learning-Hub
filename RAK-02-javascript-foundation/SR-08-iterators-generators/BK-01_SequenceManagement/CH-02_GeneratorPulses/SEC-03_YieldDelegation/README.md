@@ -4,6 +4,10 @@
 
 Ekspresi **`yield*`** digunakan untuk mendelegasikan proses iterasi ke objek **Iterable** lain. Ini memungkinkan sebuah generator untuk memanggil generator lain (atau iterable apa pun) dan mengalirkan seluruh nilainya seolah-olah nilai tersebut berasal dari dirinya sendiri.
 
+## Source Hub
+- [MDN Web Docs - yield*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield*)
+- [MDN Web Docs - function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+
 ---
 
 ## 1. Mental Model: "The Sub-Grid Relay"
@@ -14,6 +18,13 @@ Bayangkan Hub memiliki **Generator Induk** yang mengelola seluruh Grid.
 - Secara otomatis, "Ban Berjalan" dari Sektor Baterai disambungkan langsung ke jalur output utama Hub. Semua data dari baterai akan mengalir keluar melalui delegasi ini.
 
 ![Relay Premium](./assets/relay_premium.svg)
+
+```mermaid
+flowchart LR
+    A[main generator] --> B[yield* subGenerator]
+    B --> C[sub values flow outward]
+    C --> D[main generator resumes after sub finishes]
+```
 
 ---
 
@@ -57,7 +68,7 @@ function* main() {
 Sebagai arsitek Hub:
 - **Modular Design**: Gunakan `yield*` untuk memecah prosedur generator yang sangat panjang menjadi beberapa potongan kecil (sub-modules) yang lebih mudah diuji dan dikelola.
 - **Recursive Streams**: `yield*` sangat kuat untuk menangani struktur data rekursif (seperti Folder di dalam Folder) dengan tetap menjaga aliran data tetap linear bagi konsumen.
-- **Efficiency**: Delegasi ini menjaga tumpukan memori (*stack*) tetap efisien karena tidak perlu membuat loop manual di setiap tingkat hierarki.
+- **Readability**: Delegasi ini membantu menjaga generator utama tetap pendek dan lebih mudah diikuti dibanding menulis loop manual panjang di satu tempat.
 
 ---
 

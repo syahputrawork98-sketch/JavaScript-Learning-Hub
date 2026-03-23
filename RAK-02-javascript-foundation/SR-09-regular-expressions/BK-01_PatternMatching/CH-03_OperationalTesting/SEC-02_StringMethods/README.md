@@ -4,6 +4,12 @@
 
 Metode yang menempel pada objek String (seperti `match`, `replace`, `split`) adalah konsumen utama dari pola RegExp Anda. Mereka menggunakan scanner tersebut untuk mencari, membagi, atau mengubah isi string asli.
 
+## Source Hub
+- [MDN Web Docs - String.prototype.match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+- [MDN Web Docs - String.prototype.matchAll()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)
+- [MDN Web Docs - String.prototype.replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+- [MDN Web Docs - String.prototype.split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+
 ---
 
 ## 1. Mental Model: "The Data Modifiers"
@@ -15,6 +21,16 @@ Bayangkan data mengalir masuk ke stasiun pemrosesan Hub:
 - **`.split()`**: Stasiun Pemecah. Ia memotong aliran data menjadi potongan-potongan kecil berdasarkan pembatas pola.
 
 ![Data Modifiers Premium](./assets/data_modifiers_premium.svg)
+
+```mermaid
+flowchart LR
+    A[string] --> B[match / matchAll]
+    A --> C[replace]
+    A --> D[split]
+    B --> E[extract results]
+    C --> F[transformed string]
+    D --> G[pieces of text]
+```
 
 ---
 

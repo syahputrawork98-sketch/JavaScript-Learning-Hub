@@ -10,4 +10,4 @@ Buku ini membahas logika JavaScript yang lebih mendalam, memungkinkan Anda memba
 4. **[CH-04: Array Methods](./CH-04_ArrayMethods/)**: Mengelola Rak Baterai secara efisien.
 
 ---
-*Status: 🟢 Complete (4 Chapters)*
+*Status: [x] Complete (4 Chapters).*

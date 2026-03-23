@@ -4,6 +4,10 @@
 
 **Character Classes** adalah komponen dasar RegExp yang memungkinkan pemindai untuk mencocokkan satu karakter dari set karakter yang sudah ditentukan. Ini adalah cara tercepat untuk membedah data berdasarkan "tanda tangan" kategorinya.
 
+## Source Hub
+- [MDN Web Docs - Character classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes)
+- [MDN Web Docs - Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+
 ---
 
 ## 1. Mental Model: "The Frequency Sifters"
@@ -14,6 +18,15 @@ Bayangkan filter pada pemindai pola Anda memiliki tiga slot utama untuk menyarin
 - **`\s` (Spaces)**: Hanya menangkap spasi, tab, dan jeda baris.
 
 ![Character Sifters Premium](./assets/character_sifters_premium.svg)
+
+```mermaid
+flowchart LR
+    A[input text] --> B[character class]
+    B --> C[\d digits]
+    B --> D[\w word chars]
+    B --> E[\s spaces]
+    B --> F[[a-z] custom range]
+```
 
 ---
 

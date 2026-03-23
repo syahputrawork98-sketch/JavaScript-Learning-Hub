@@ -4,6 +4,10 @@
 
 **Generator functions** adalah jenis fungsi spesial yang dapat dihentikan di tengah jalan (*pause*) dan dilanjutkan kembali (*resume*). Mereka ditandai dengan sintaksis `function*` dan selalu mengembalikan sebuah objek **Generator**.
 
+## Source Hub
+- [MDN Web Docs - function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+- [MDN Web Docs - Iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators)
+
 ---
 
 ## 1. Mental Model: "The Pulse Generator"
@@ -14,6 +18,15 @@ Bayangkan sebuah mesin generator di Hub.
 - Mesin akan mengirimkan satu "Denyut" (Pulse) data, lalu berhenti bernapas (*pause*), namun ia tetap mengingat semua kondisi internalnya (variabel, posisi baris).
 
 ![Generator Pulse Premium](./assets/pulse_gen_premium.svg)
+
+```mermaid
+flowchart LR
+    A[call generator function] --> B[generator object]
+    B --> C[next()]
+    C --> D[yield value]
+    D --> E[pause state]
+    E --> C
+```
 
 ---
 

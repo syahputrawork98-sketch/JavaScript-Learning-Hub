@@ -10,4 +10,4 @@ Buku ini membahas konsep Pemrograman Berorientasi Objek (OOP) dalam JavaScript. 
 4. **[CH-04: JSON Data](./CH-04_JSONData/)**: Cara mentransmisikan data energi antar sistem.
 
 ---
-*Status: 🟢 Complete (4 Chapters)*
+*Status: [x] Complete (4 Chapters).*

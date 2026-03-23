@@ -4,6 +4,11 @@
 
 Gula sintaksis ini memudahkan kita memproses objek yang sudah tersertifikasi sebagai **Iterable**. Mereka adalah konsumen otomatis yang akan menarik data sampai sinyal `done: true` diterima.
 
+## Source Hub
+- [MDN Web Docs - for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+- [MDN Web Docs - Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- [MDN Web Docs - Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+
 ---
 
 ## 1. Mental Model: "The Content Harvesters"
@@ -13,6 +18,14 @@ Bayangkan sebuah ladang data yang sudah terhubung ke gerbang `Symbol.iterator`. 
 - **Spread Operator (`...`)**: Seperti kipas besar yang meniup seluruh isi kontainer data dan menyebarkannya ke dalam wadah (array) baru.
 
 ![Content Harvester Premium](./assets/harvester_premium.svg)
+
+```mermaid
+flowchart LR
+    A[iterable source] --> B[for...of loop]
+    A --> C[spread syntax]
+    B --> D[consume values one by one]
+    C --> E[copy into new array]
+```
 
 ---
 

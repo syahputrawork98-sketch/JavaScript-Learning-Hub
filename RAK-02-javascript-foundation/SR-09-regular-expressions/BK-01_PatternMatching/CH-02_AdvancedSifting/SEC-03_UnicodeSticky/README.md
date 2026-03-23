@@ -4,6 +4,10 @@
 
 **Flags** adalah parameter opsional yang ditambahkan di akhir RegExp (setelah garis miring penutup) untuk mengubah perilaku dasar pencarian pola.
 
+## Source Hub
+- [MDN Web Docs - Advanced searching with flags](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags)
+- [MDN Web Docs - RegExp.prototype.flags](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/flags)
+
 ---
 
 ## 1. Mental Model: "The Global Calibrators"
@@ -15,6 +19,15 @@ Bayangkan pemindai pola Anda memiliki panel kontrol dengan beberapa dial kalibra
 - **`y` (Sticky)**: Memaksa scanner untuk hanya mencari tepat di posisi saat ini (`lastIndex`), tanpa melompat ke depan. Ini adalah mode "Melekat".
 
 ![Global Calibrators Premium](./assets/global_calibrators_premium.svg)
+
+```mermaid
+flowchart LR
+    A[/pattern/] --> B[g global]
+    A --> C[i ignore case]
+    A --> D[m multiline]
+    A --> E[u unicode]
+    A --> F[y sticky]
+```
 
 ---
 
@@ -32,7 +45,7 @@ Bayangkan pemindai pola Anda memiliki panel kontrol dengan beberapa dial kalibra
 ---
 
 ## 3. Kekuatan Sticky (y) dalam Parsing
-Flag `y` adalah rahasia di balik performa tinggi sistem *Tokenizer* (pemecah kode). Ia menjamin bahwa data ditemukan secara berurutan tanpa ada jeda atau karakter yang terlewat di tengah-tengah aliran data.
+Flag `y` berguna saat Anda memang ingin pencarian berlangsung tepat dari posisi saat ini tanpa melompat jauh ke depan. Dalam praktik, ini membantu parser atau tokenizer kecil tetap disiplin membaca input langkah demi langkah.
 
 ---
 

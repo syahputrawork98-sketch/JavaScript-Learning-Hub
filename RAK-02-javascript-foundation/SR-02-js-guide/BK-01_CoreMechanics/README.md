@@ -8,4 +8,4 @@ Sub-Rak ini membedah mekanisme internal yang mengatur bagaimana JavaScript menge
 3.  **[CH-03: Object Mastery](./CH-03_ObjectMastery/README.md)**: Arsitektur objek dan pewarisan tingkat lanjut.
 
 ---
-*Status: [status.md][../../../status.md)*
+*Status: [status.md](../../../status.md)*

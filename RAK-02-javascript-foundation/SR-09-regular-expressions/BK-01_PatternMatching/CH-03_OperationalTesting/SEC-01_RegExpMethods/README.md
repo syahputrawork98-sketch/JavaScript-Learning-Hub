@@ -4,6 +4,11 @@
 
 Metode yang menempel pada objek RegExp (`test` dan `exec`) adalah instrumen utama untuk melakukan validasi cepat dan ekstraksi data yang mendalam dari aliran teks di Grid.
 
+## Source Hub
+- [MDN Web Docs - RegExp.prototype.test()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)
+- [MDN Web Docs - RegExp.prototype.exec()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
+- [MDN Web Docs - RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+
 ---
 
 ## 1. Mental Model: "The Probe Analyzers"
@@ -13,6 +18,14 @@ Bayangkan dua jenis alat sensor di tangan Anda:
 - **`.exec()` (The Biopsy Probe)**: Seperti tim forensik yang membedah sampel data. Ia mengembalikan objek hasil yang sangat detail, termasuk isi dari setiap *Capturing Group*, posisi index temuan, dan input aslinya.
 
 ![Probe Analyzers Premium](./assets/probe_analyzers_premium.svg)
+
+```mermaid
+flowchart LR
+    A[RegExp scanner] --> B[test()]
+    A --> C[exec()]
+    B --> D[boolean answer]
+    C --> E[detailed match data]
+```
 
 ---
 

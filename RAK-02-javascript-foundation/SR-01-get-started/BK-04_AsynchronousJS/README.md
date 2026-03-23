@@ -1,6 +1,6 @@
 # BK-04: Asynchronous JavaScript
 
-Buku ini membahas salah satu konsep paling kuat sekaligus menantang dalam JavaScript: **Asynchronicity**. Kita akan belajar bagaimana menangani proses yang memakan waktu (seperti mengambil data atau menunggu sensor) tanpa menghentikan seluruh sistem energi Hub kita.
+Buku ini membahas salah satu konsep paling kuat sekaligus menantang dalam JavaScript: **Asynchronicity**. Kita akan belajar bagaimana menangani proses yang memakan waktu, seperti mengambil data atau menunggu sensor, tanpa menghentikan seluruh sistem energi Hub kita.
 
 ## Daftar Chapter:
 
@@ -10,4 +10,4 @@ Buku ini membahas salah satu konsep paling kuat sekaligus menantang dalam JavaSc
 4. **[CH-04: Async/Await](./CH-04_AsyncAwait/)**: Cara tercanggih menulis kode asinkron.
 
 ---
-*Status: 🟢 Complete (4 Chapters)*
+*Status: [x] Complete (4 Chapters).*

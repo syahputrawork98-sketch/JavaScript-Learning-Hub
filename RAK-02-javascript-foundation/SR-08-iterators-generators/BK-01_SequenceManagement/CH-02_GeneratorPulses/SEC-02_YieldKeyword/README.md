@@ -4,6 +4,10 @@
 
 `yield` adalah instrumen paling krusial dalam fungsi generator. Ia bukan sekadar perintah `return` yang berhenti di tengah jalan, melainkan sebuah titik pertukaran data dua arah.
 
+## Source Hub
+- [MDN Web Docs - yield](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield)
+- [MDN Web Docs - function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+
 ---
 
 ## 1. Mental Model: "The Flow Regulator"
@@ -14,6 +18,14 @@ Bayangkan sebuah gerbang regulator di bendungan energi Hub.
 3. **Input (Pull)**: Operator Hub bisa melemparkan paket instruksi balik ke dalam gerbang tersebut saat memberikan perintah lanjut (`next(feedback)`). Instruksi ini akan ditangkap oleh variabel internal di sisi kiri `yield`.
 
 ![Yield Regulator Premium](./assets/yield_regulator_premium.svg)
+
+```mermaid
+flowchart LR
+    A[generator runs] --> B[yield value out]
+    B --> C[pause]
+    D[next input] --> E[resume]
+    E --> F[input becomes yield result]
+```
 
 ---
 

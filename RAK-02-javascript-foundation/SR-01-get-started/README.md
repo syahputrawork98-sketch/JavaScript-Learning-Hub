@@ -2,7 +2,7 @@
 
 > **"Pintu Masuk ke Dunia Energi Web."**
 
-Selamat datang di Rak pertama JavaScript Knowledge Base. Di sini, kita akan memulai perjalanan dari nol—dari memahami mengapa JavaScript disebut sebagai energi web hingga menulis baris kode pertama Anda.
+Selamat datang di Rak pertama JavaScript Knowledge Base. Di sini, kita memulai perjalanan dari nol, dari memahami mengapa JavaScript disebut sebagai energi web hingga menulis baris kode pertama Anda.
 
 ## Daftar Buku (Books)
 

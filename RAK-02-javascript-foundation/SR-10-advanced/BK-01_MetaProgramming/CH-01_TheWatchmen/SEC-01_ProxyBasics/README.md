@@ -4,6 +4,10 @@
 
 **Proxy** dan **Reflect** adalah fondasi dari *Meta-programming* di JavaScript. Mereka memungkinkan kita untuk mendefinisikan perilaku kustom bagi operasi dasar pada objek (seperti pembacaan properti atau pemanggilan fungsi).
 
+## Source Hub
+- [MDN Web Docs - Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+- [MDN Web Docs - Meta programming](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Meta_programming)
+
 ---
 
 ## 1. Mental Model: "The Watchmen"
@@ -13,6 +17,14 @@ Bayangkan seorang penjaga pintu (Proxy) yang berdiri di depan brankas data (Targ
 - **The Reflect (The Official Record)**: Jika penjaga mengizinkan akses, ia menggunakan alat pembuka brankas resmi (**Reflect**) untuk mengambil data dengan cara yang benar dan terstandarisasi, lalu menyerahkannya kembali ke pengguna.
 
 ![Watchman Premium](./assets/watchman_premium.svg)
+
+```mermaid
+flowchart LR
+    A[user access] --> B[Proxy]
+    B --> C[handler trap]
+    C --> D[Reflect]
+    D --> E[target object]
+```
 
 ---
 
