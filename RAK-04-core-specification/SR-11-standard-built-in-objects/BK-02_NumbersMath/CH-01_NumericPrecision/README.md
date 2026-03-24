@@ -46,7 +46,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/numeric_precision_lab.js` untuk membuktikan fenomena `0.1 + 0.2` dan melihat bagaimana `BigInt` menangani angka faktorial besar dengan mudah.
+Buka file `examples/01_numeric_precision_lab.js` untuk membuktikan fenomena `0.1 + 0.2` dan melihat bagaimana `BigInt` menangani angka faktorial besar dengan mudah.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

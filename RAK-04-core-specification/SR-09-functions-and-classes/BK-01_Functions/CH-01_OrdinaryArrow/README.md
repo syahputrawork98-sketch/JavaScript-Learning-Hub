@@ -44,7 +44,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/function_arrow_comparison.js` untuk membuktikan perbedaan nilai `this` saat dipanggil dari dalam event listener.
+Buka file `examples/01_function_arrow_comparison.js` untuk membuktikan perbedaan nilai `this` antara fungsi biasa dan arrow function.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

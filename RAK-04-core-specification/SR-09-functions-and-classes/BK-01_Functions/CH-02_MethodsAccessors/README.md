@@ -47,7 +47,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/accessor_validation_lab.js` untuk membuat objek "SafeStorage" yang memvalidasi tipe data sebelum menyimpannya melalui setter.
+Buka file `examples/01_accessor_validation_lab.js` untuk membuat objek "SafeStorage" yang memvalidasi tipe data sebelum menyimpannya melalui setter.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

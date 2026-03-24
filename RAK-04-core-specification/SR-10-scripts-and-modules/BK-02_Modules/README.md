@@ -19,4 +19,4 @@ Buku ini membedah arsitektur **Modul** modern yang menyediakan isolasi tingkat t
 3. Mengenali tiga fase siklus hidup modul: *Parse*, *Instantiate*, dan *Evaluate*.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-10](../README.md)*

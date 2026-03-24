@@ -48,7 +48,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/class_inheritance_lab.js` untuk membedah bagaimana rantai prototipe diciptakan secara dinamis saat menggunakan `extends`.
+Buka file `examples/01_class_inheritance_lab.js` untuk membedah bagaimana rantai prototipe diciptakan saat menggunakan `extends`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

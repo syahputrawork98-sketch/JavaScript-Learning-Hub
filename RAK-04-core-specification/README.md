@@ -1,10 +1,12 @@
 # Rak 04: Core Specification
-*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: 100% - SR-01 to SR-12 Gold Standard)*
- (The Brain Pillars)
+*Rak Status: [docs/status.md](./docs/status.md) (Aggregated Progress: Audit in Progress - Gold Standard claims under revalidation)*
+(The Brain Pillars)
 
 *Level: Practitioner/Architect*
 
 Rak ini merupakan jantung dari perpustakaan `JavaScript-Knowledge-Base`. Di sini, pilar-pilar bahasa JavaScript dibedah secara mendalam menggunakan pemetaan granular 12 Sub-Rak yang terinspirasi langsung dari struktur Clause spesifikasi **ECMA-262**.
+
+Status global `RAK-04` sedang diaudit ulang. `SR-11` telah memasuki fase sinkronisasi struktur, sementara sub-rak lain masih menunggu pass validasi yang sama.
 
 ## Daftar Sub-Rak (12 Tracks)
 

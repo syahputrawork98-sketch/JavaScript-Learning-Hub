@@ -19,4 +19,4 @@ Buku ini membedah sintaksis **Class** yang merupakan cara modern di Hub untuk me
 3. Mengenali bagaimana Hub menangani field privat (`#field`) melalui slot internal `[[PrivateElements]]`.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-09](../README.md)*

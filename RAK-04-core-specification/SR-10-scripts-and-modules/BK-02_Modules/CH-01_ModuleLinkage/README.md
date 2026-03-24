@@ -46,7 +46,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/module_namespace_lab.js` untuk melihat bagaimana objek namespace modul berperilaku dan mengapa Anda tidak bisa mengubah nilainya dari luar.
+Buka file `examples/01_module_namespace_lab.mjs` untuk melihat bagaimana objek namespace modul berperilaku dan mengapa Anda tidak bisa mengubah nilainya dari luar.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

@@ -45,7 +45,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/global_object_audit.js` untuk melihat daftar lengkap properti yang tersedia di objek global Hub Anda saat ini menggunakan `Object.getOwnPropertyNames(globalThis)`.
+Buka file `examples/01_global_object_audit.js` untuk melihat daftar lengkap properti yang tersedia di objek global Hub Anda saat ini menggunakan `Object.getOwnPropertyNames(globalThis)`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

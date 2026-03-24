@@ -21,4 +21,4 @@ Buku ini membedah bagaimana Hub menangani angka, mulai dari angka presisi ganda 
 3. Mengenali objek `Math` sebagai unit pengolah statis yang tidak memiliki konstruktor.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*

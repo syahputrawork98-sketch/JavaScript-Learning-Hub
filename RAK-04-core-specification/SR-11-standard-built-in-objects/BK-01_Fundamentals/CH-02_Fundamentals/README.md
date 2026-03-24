@@ -45,7 +45,7 @@ graph LR
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/fundamental_intrinsics_lab.js` untuk melihat bagaimana penggunaan `Symbol` dapat menyembunyikan properti sensitif dari iterasi standar `for...in`.
+Buka file `examples/01_fundamental_intrinsics_lab.js` untuk melihat bagaimana penggunaan `Symbol` dapat menyembunyikan properti sensitif dari iterasi standar `for...in`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

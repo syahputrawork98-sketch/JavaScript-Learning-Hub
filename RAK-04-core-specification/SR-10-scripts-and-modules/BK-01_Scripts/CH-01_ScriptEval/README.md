@@ -46,7 +46,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/script_global_leak_lab.js` untuk melihat bagaimana deklarasi `var` di satu skrip mencemari scope di skrip lainnya di dalam Hub yang sama.
+Buka file `examples/01_script_global_leak_lab.js` untuk melihat bagaimana deklarasi `var` di satu skrip mencemari scope di skrip lainnya di dalam Hub yang sama.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

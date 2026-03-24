@@ -45,7 +45,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/async_infinite_stream.js` untuk membuat sirkuit yang terus menghasilkan data acak setiap satu detik menggunakan asinkron generator.
+Buka file `examples/01_async_infinite_stream.js` untuk melihat aliran nilai yang dihasilkan oleh async generator secara bertahap.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

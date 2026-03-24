@@ -47,7 +47,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/async_v_generator_lab.js` untuk melihat bagaimana kita bisa mensimulasikan aliran asinkron menggunakan generator secara manual (seperti cara kerja `co` library).
+Buka file `examples/01_async_v_generator_lab.js` untuk melihat perbedaan bentuk alur antara generator dan async function.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

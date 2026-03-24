@@ -50,7 +50,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/date_math_lab.js` untuk mensimulasikan perhitungan durasi waktu eksekusi sirkuit dan membedakan berbagai metode pembulatan `Math`.
+Buka file `examples/01_date_math_lab.js` untuk mensimulasikan perhitungan durasi waktu eksekusi sirkuit dan membedakan berbagai metode pembulatan `Math`.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

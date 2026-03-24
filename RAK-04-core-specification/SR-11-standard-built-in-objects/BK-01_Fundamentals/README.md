@@ -21,4 +21,4 @@ Buku ini membedah objek-objek fundamental yang menjadi basis bagi seluruh operas
 3. Mengenali `Symbol` sebagai cara untuk membuat kunci properti yang unik dan tak terlihat.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*

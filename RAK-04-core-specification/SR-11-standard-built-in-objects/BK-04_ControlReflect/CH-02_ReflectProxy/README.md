@@ -48,7 +48,7 @@ graph TD
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/proxy_validation_lab.js` untuk membuat sistem log otomatis yang mencatat setiap kali sebuah properti objek sensitif diakses atau diubah.
+Buka file `examples/01_proxy_validation_lab.js` untuk membuat sistem log otomatis yang mencatat setiap kali sebuah properti objek sensitif diakses atau diubah.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

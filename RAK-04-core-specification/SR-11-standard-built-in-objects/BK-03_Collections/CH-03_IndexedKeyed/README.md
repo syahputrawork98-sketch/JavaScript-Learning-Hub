@@ -22,6 +22,16 @@
 
 ## 2. Visualisasi Sistem: Collection Selection Matrix
 
+```mermaid
+graph TD
+    Array[Array] --> Indexed[Indexed Access]
+    Map[Map] --> Keyed[Keyed Lookup]
+    Set[Set] --> Unique[Unique Membership]
+    WeakMap[WeakMap] --> Weak[GC-aware Storage]
+```
+
+---
+
 | Koleksi | Tipe Kunci | Order | Duplikat | Kasus Penggunaan |
 | :--- | :--- | :--- | :--- | :--- |
 | **Array** | Numerik (0, 1...) | Fixed | YES | Daftar urut, Stack, Queue |
@@ -44,7 +54,7 @@
 ---
 
 ## 4. Lab Praktis
-Buka file `examples/collection_performance_lab.js` untuk menguji kecepatan akses data antara `Map` vs `Object` pada satu juta entri data.
+Buka file `examples/01_collection_performance_lab.js` untuk menguji kecepatan akses data antara `Map` vs `Object` pada serangkaian entri data dinamis.
 
 ---
-*Status: [status.md](../../../../../status.md)*
+*Status: [x] Complete | [status.md](../../../../../status.md)*

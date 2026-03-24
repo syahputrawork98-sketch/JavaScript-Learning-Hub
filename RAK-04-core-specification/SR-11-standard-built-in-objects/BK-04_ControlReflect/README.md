@@ -21,4 +21,4 @@ Buku ini membedah objek-objek canggih yang mengatur asinkronitas (**Promise**) d
 3. Mengenali `Reflect` sebagai pasangan aman untuk operasi internal Hub.
 
 ---
-*Buku Status: [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
+*Buku Status: [x] Complete | [status.md](../../status.md) | Kembali ke [SR-11](../README.md)*
