@@ -4,17 +4,13 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 
 ## Daftar Dokumen Utama
 
-### 1. Standar & Protokol
-- **[Architecture Standards](./standards/architecture.md)**: Hierarki RAK > SR > BK > CH > SEC (Standard Unified).
-- **[Naming Conventions](./standards/conventions.md)**: Aturan penamaan folder dan file.
-- **[PPM Workflow](./standards/workflow.md)**: Alur Kerja Penulisan Materi & Aturan "Explicit Nil".
-- **[Status Protocol](./standards/status-protocol.md)**: Standar pelaporan progress dan status Gold Standard.
-- **[RAK-02 vs RAK-04 Boundary](./standards/rak-02-vs-rak-04-boundary.md)**: Kontrak pemisahan antara layer fondasi-praktik dan layer spesifikasi.
+### 1. Pilar Standar Utama
+- **[Repository Standards](./standards/repository-standards.md)**: Arsitektur 6-Level, Konvensi Penamaan, & Protokol Status.
+- **[Content Workflow](./standards/content-workflow.md)**: Alur Kerja Penulisan (PPM V4), Riset (Rule 0), & Standar 8-Point README.
+- **[Aesthetics & Tone](./standards/aesthetics-and-tone.md)**: Identitas Visual (JS Yellow), Mermaid Standards, & Brand Voice (Kinetic).
+- **[Contribution Guide](./standards/contribution-guide.md)**: Panduan Kontributor Internal & Eksternal.
 
-### 2. Cetak Biru (Blueprints)
-- **[Repository Plan](./repository-plan/README.md)**: Dekonstruksi MDN & Spec ke dalam 5-Rack Architecture.
-
-### 3. Narasi & Orientasi Filosofis
+### 2. Narasi & Orientasi Filosofis
 *Seluruh narasi sejarah dan filosofi telah dipindahkan ke dalam perpustakaan utama untuk mendukung pembelajaran kontekstual:*
 - **[Evolution & History](../RAK-02-evolution/SR-01-history-origins/)**
 - **[Philosophy & Essence](../RAK-02-evolution/SR-02-philosophy-essence/)**
@@ -25,7 +21,6 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 
 ```text
 /docs
-├── standards/             # Standar & Protokol (Architecture, Conventions, etc.)
-├── repository-plan/       # Cetak biru 5-Rack Universal
+├── standards/             # Pilar Standar (Struktur, Workflow, Estetika)
 └── README.md              # File ini (Hub navigasi)
 ```
