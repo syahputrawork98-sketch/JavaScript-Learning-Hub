@@ -1,34 +1,63 @@
-# CH-02: Advanced Sifting (Precision Pattern Control)
+# CH-02: Advanced Logic
 
-> **"Setelah scanner dasar terbentuk, langkah berikutnya adalah membuatnya lebih presisi. CH-02 membedah teknik regex yang membantu kita mengontrol konteks, kelompok, dan perilaku pencarian."**
+![Status](https://img.shields.io/badge/STATUS-COMPLETE-green?style=for-the-badge)
 
-## Source Hub
-- **Primary Source**: [MDN Web Docs - Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
-- **Technical Reference**: [MDN Web Docs - Assertions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Assertions)
-
-## 1. Kontrol Presisi
-
-### A. [SEC-01: Assertions](./SEC-01_Assertions/README.md)
-Menentukan posisi dan konteks tanpa memakan karakter secara langsung.
-
-### B. [SEC-02: Groups & Ranges](./SEC-02_GroupsRanges/README.md)
-Membantu mengelompokkan potongan pola dan membatasi karakter yang diizinkan.
-
-### C. [SEC-03: Flags](./SEC-03_UnicodeSticky/README.md)
-Mengubah perilaku scanner agar cocok dengan kebutuhan pencarian tertentu.
+> **"Logika Penyaringan: Membedah Grup Penangkap dan Penegasan Lookaround."**
 
 ---
 
-## Arsitek Mindset: Presisi dengan Kendali
+## 🔗 Source Hub
+- **Primary Source**: [MDN Web Docs - Assertions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions)
+- **Technical Reference**: [ECMA-262 - Groups and Backreferences](https://tc39.es/ecma262/#sec-groups-and-backreferences)
+- **Conceptual Parent**: [BK-01 Pattern Matching](../README.md)
 
-Sebagai arsitek Hub:
-- Gunakan fitur lanjutan untuk membuat regex lebih tepat sasaran, bukan lebih misterius.
-- Pastikan tiap tambahan seperti group, lookaround, atau flag punya alasan yang jelas.
+---
+
+## 🌓 1. Essence: The Logic
+Penyaringan data teks sering membutuhkan kriteria di luar pencocokan literal. Di **CH-02**, kita membedah mekanisme internal **Capture Groups** `(...)` untuk mengekstrak segmen data atomik dan **Lookaround Assertions** `(?=...)` untuk melakukan pengecekan kondisi tanpa memakan karakter pemindaian.
+
+Memahami **Advanced Logic** ini memungkinkan Anda membangun Hub aplikasi yang mampu melakukan ekstraksi data bersyarat (seperti memvalidasi format password yang kompleks) dengan tingkat presisi yang sangat tinggi, tanpa perlu penulisan kode imperatif yang panjang.
 
 ---
 
-## Hands-on: Lab Precision Control
-Masuk ke section-section di chapter ini untuk melihat bagaimana scanner dibuat lebih cermat terhadap konteks dan variasi data.
+## 🎨 2. Visual Logic: The Pattern Sifting Flow
+Mekanisme pemisahan dan penyaringan data teks berdasarkan kriteria kompleks:
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph LR
+    Input[Input Text] -- "Regex Scan" --> Sifter[Pattern Sifter]
+    Sifter -- "Capture Group" --> Res[Extracted Segment]
+    Sifter -- "Assertion (Lookaround)" --> Log[Condition Check]
+    
+    subgraph Sifting_Logic
+    Log -- "Match OK" --> Res
+    Log -- "Match Fail" --> Null[Discard]
+    end
+    
+    style Sifter fill:#f7df1e,stroke:#333;
+    style Res fill:#90EE90,stroke:#333;
+    style Null fill:#ffcccb,stroke:#333;
+```
 
 ---
-*Status: [x] Complete (3 Sections).*
+
+## 🏛️ 3. Sections Atlas
+- **[SEC-01: Groups & Backreferences](./CH-02_AdvancedSifting/)**: Membedah teknik pengkapuran segmen data (`(...)`, `\1`) dan referensi balik.
+- **[SEC-02: Lookaround Assertions](./CH-02_AdvancedSifting/)**: Meninjau pemindaian bersyarat (Lookahead/Lookbehind) tanpa konsumsi karakter.
+- **[SEC-03: Quantifiers Pulse](./CH-02_AdvancedSifting/)**: Menjelaskan frekuensi pencocokan (`+`, `*`, `?`, `{n,m}`) secara kinetik.
+
+---
+
+## 🧪 4. The Lab (Logic Lab)
+Uji ketajaman ekstraksi data bersyarat dan penyaringan grup di laboratorium:
+- `../examples/regex_logic_demo.js`
+
+---
+
+## ⚠️ 5. Common Pitfalls & Myths
+- **Mitos**: *"Lakukan lookup manual setelah pencarian regex."* (Salah, gunakan **Capture Groups** untuk mengekstrak data atomik langsung dari hasil pencocokan pertama, menghemat energi siklus aplikasi).
+- **Mitos**: *"Assertions mengonsumsi teks pindaian."* (Faktanya, **Lookahead** dan **Lookbehind** bersifat non-konsumtif; mereka hanya memastikan kondisi ada atau tidak, lalu mesin akan melanjutkan pemindaian dari posisi yang sama, bukan dari akhir kondisi tersebut).
+
+---
+*Back to [Pattern Matching](../README.md)*
