@@ -1,29 +1,58 @@
-# BK-01: Function Mechanics (The Processing Core)
+# BK-01: Function Mechanics
 
-> **"Sebelum memilih bentuk fungsi yang paling modern, kita perlu memahami mesin dasarnya terlebih dahulu. BK-01 membedah bagaimana unit operasi menerima input, berinteraksi dengan lingkup di sekitarnya, dan mempertahankan alur logika secara terkontrol."**
+![Book Header](https://img.shields.io/badge/BK--01-FUNCTION_MECHANICS-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-PARTIAL-orange?style=for-the-badge)
 
-## Source Hub
+> **"Membedah Sistem Transmisi: Dari Input Hingga Persistensi Memori."**
+
+---
+
+## 🔗 Source Hub
 - **Primary Source**: [MDN Web Docs - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - **Technical Reference**: [ECMA-262 - Function Definitions](https://tc39.es/ecma262/#sec-function-definitions)
-
-## 1. Jalur Input dan Output
-
-### A. [CH-01: Input Output](./CH-01_InputOutput/README.md)
-Membedah bagaimana fungsi menerima data dan menangani variasi argumen.
-- `default parameters`
-- `rest parameters`
-- `arguments`
-
-### B. [CH-02: Internal Logic](./CH-02_InternalLogic/README.md)
-Membedah bagaimana fungsi berinteraksi dengan scope dan mengelola logika berlapis.
-- lexical scoping
-- closures
-- recursion
+- **Conceptual Parent**: [SR-06 Functions](../README.md)
 
 ---
 
-## Hands-on: Lab Mekanika Fungsi
-Pelajari setiap section untuk melihat bagaimana fungsi menyerap input, mengingat state, dan memecah masalah menjadi alur yang lebih kecil.
+## 🌓 1. Essence: The Narrative
+Mekanika fungsi adalah tentang bagaimana data mengalir masuk, diolah di dalam "atap" leksikal yang aman, dan bagaimana hasil olahannya dipertahankan. Di sini kita membedah transmisi parameter, aturan akses variabel melalui **Scope Chain**, hingga keajaiban **Closures** yang memungkinkan fungsi "mengingat" lingkungannya bahkan setelah operasinya selesai.
 
 ---
-*Status: 🟢 Complete (2 Chapters, 6 Sections)*
+
+## 🗺️ 2. Landscape: The Big Picture
+Unit-unit mekanika di dalam buku ini:
+
+### 🎨 Visual Logic: The Operational Flow
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph LR
+    IO[CH-01: I/O Handling] --> Scope[CH-02: Lexical Scope]
+    Scope --> Close[CH-03: Closures]
+    Close --> Recur[CH-04: Recursion]
+    
+    style IO fill:#fff,stroke:#333
+    style Scope fill:#f7df1e,stroke:#333
+    style Close fill:#f7df1e,stroke:#333,stroke-width:2px
+```
+
+### 🏛️ Table of Materials
+| Bab | Judul | Status | Visual | Lab |
+| :--- | :--- | :--- | :---: | :---: |
+| **CH-01** | [I/O Handling (Params & Returns)](./CH-01_InputOutput/) | [x] Complete | [x] Mermaid | [x] Lab |
+| **CH-02** | [Lexical Scope & Scope Chain](./CH-02_LexicalScope/) | [x] Complete | [x] Mermaid | [x] Lab |
+| **CH-03** | [Closures (The Persistent Mechanism)](./CH-03_Closures/) | [x] Complete | [x] Mermaid | [x] Lab |
+| **CH-04** | [Recursion (Functional Loops)](./CH-04_Recursion/) | [x] Complete | [x] Mermaid | [x] Lab |
+
+---
+
+## 🧪 3. The Lab (Mechanics Proof)
+Gunakan folder `examples/` di setiap Bab untuk membuktikan bagaimana **Scope Chain** bekerja dan memverifikasi persistensi data pada **Closures**.
+
+---
+
+## ⚠️ 4. Common Pitfalls & Myths
+- **Mitos**: *"Setiap fungsi memiliki kopian memorinya sendiri."* (Faktanya, fungsi menggunakan **Lexical Scoping** untuk merujuk ke data yang sudah ada di memori sekitarnya).
+- **Mitos**: *"Recursion selalu lebih lambat dari loop biasa."* (Bergantung pada mesin, namun rekursi seringkali memberikan kejelasan arsitektur yang lebih baik untuk masalah yang bersifat bertingkat).
+
+---
+*Status: [/] Partial. Sedang dalam tahap normalisasi hierarki Bab (CH).*
