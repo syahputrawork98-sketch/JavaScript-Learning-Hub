@@ -1,7 +1,7 @@
 # SR-07: Standard Built-in Universe
 
 ![SR Hub](https://img.shields.io/badge/SR--07-BUILT_INS-red?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD_IN_PROGRESS-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
 > **"Perpustakaan & Gudang Suku Cadang: Kumpulan Komponen Standar yang Selalu Tersedia untuk Membangun Arsitektur Kompleks."**
 

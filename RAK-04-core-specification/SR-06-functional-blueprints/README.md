@@ -1,7 +1,7 @@
 # SR-06: Functional & Class Blueprints
 
 ![SR Hub](https://img.shields.io/badge/SR--06-FUNCTIONS-red?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD_IN_PROGRESS-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
 > **"Blueprint Pabrik & Robot: Bagaimana Instruksi Kerja Dibungkus, Dijeda, dan Diwariskan Secara Arsitektural."**
 

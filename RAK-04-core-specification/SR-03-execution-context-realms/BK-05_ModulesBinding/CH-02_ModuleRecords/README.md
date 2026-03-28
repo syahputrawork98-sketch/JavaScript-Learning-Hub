@@ -1,54 +1,67 @@
-# CH-01: Module Records (The Structural Blueprints)
+# CH-02: Module Records (The Structural Blueprints)
 
-> **"Blueprint statis yang memungkinkan jaringan modul dibaca sebelum energinya dijalankan."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-**Source Hub**:
-- [ECMA-262: Modules](https://tc39.es/ecma262/#sec-modules)
-- [ECMA-262: Source Text Module Records](https://tc39.es/ecma262/#sec-source-text-module-records)
+> **"Cetak Biru Modul: Bagaimana Engine Merepresentasikan Unit Kode Terisolasi Melalui Struktur Data Abstract Module Record."**
 
 ---
 
-## 1. Mental Model: "The Network Map"
-
-Module tidak langsung dijalankan saat ditemukan. Engine terlebih dahulu membangun representasi struktural:
-- daftar impor,
-- daftar ekspor,
-- hubungan dependensi,
-- identitas modul di dalam graph.
+## 🌐 Source Hub
+- **Parent Book**: [BK-05: Modules and Binding](../README.md)
+- **Primary Source**: [ECMA-262: Abstract Module Records (Clause 15.2.1.1)](https://tc39.es/ecma262/#sec-abstract-module-records)
 
 ---
 
-## 2. Visualisasi Sistem: Module Record Graph
+## 🌓 1. Essence: The Narrative
+
+### The Record Identity
+Sebelum kode modul dijalankan, engine menyusunnya ke dalam **Module Record**. Ini adalah objek internal yang menyimpan metadata tentang apa yang dibutuhkan modul tersebut (impor) dan apa yang ia bagikan (ekspor). Berbeda dengan script biasa, Module Record memiliki fase siklus hidup yang sangat ketat.
+
+### Source Text Module
+Jenis yang paling umum adalah **SourceText Module Record**. Ia menyimpan representasi AST (Abstract Syntax Tree) dari file `.js` atau `.mjs` Anda dan mengatur hubungan antara binding lokal dengan slot memori yang akan dibagikan ke modul lain.
+
+---
+
+## 🗺️ 2. Visual Logic: The Module Record Fields
 
 ```mermaid
-graph TD
-    Source[Source Text] --> Record[Module Record]
-    Record --> Imports[Import Entries]
-    Record --> Exports[Export Entries]
-    Record --> Graph[Dependency Graph]
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+classDiagram
+    class ModuleRecord {
+        +[[Realm]]
+        +[[Environment]]
+        +[[HostDefined]]
+    }
+    class SourceTextModuleRecord {
+        +[[ECMAScriptCode]]
+        +[[RequestedModules]]
+        +[[ImportEntries]]
+        +[[ExportEntries]]
+    }
+    SourceTextModuleRecord --|> ModuleRecord : Extends
 ```
 
 ---
 
-## 3. Mekanisme & Hubungan
+## ⚙️ 3. Spec-Internals: Abstract Operations
 
-1. Module record memungkinkan engine melakukan analisis statis sebelum evaluation.
-2. Graph dependensi dibentuk lebih awal sehingga error linkage bisa terdeteksi sebelum top-level code berjalan.
-3. Sifat singleton pada module muncul karena satu record yang sama dipakai ulang dalam graph yang sama.
-
----
-
-## 4. Lab Praktis
-
-Buka file `examples/01_module_records_lab.mjs` untuk melihat impor yang membaca konfigurasi dari satu sumber dan tetap bekerja sebagai satu graph yang sama.
+Engine menggunakan operasi abstrak berikut untuk mengoperasikan Module Records:
+1.  **Link()**: Menghubungkan semua impor ke ekspor yang sesuai di modul lain.
+2.  **Evaluate()**: Mengeksekusi kode top-level modul.
+3.  **GetExportedNames()**: Mencatat semua nama yang diekspor untuk resolusi eksternal.
 
 ---
 
-## 5. Arsitek Mindset: Keuntungan Statis
+## 🧪 4. The Lab: Discovery Specimens
 
-- Module record adalah alasan mengapa ESM kuat untuk tooling dan optimasi.
-- Struktur statis memberi fondasi untuk tree shaking dan dependency validation.
-- Pahami graph-nya, bukan hanya sintaks `import`/`export`-nya.
+Eksperimen Metadata Modul:
+1.  **[examples/module_metadata_lab.mjs](../../../../../examples/module_metadata_lab.mjs)**: Investigasi properti `import.meta` dan status record.
+2.  **[examples/namespace_object_inspect.mjs](../../../../../examples/namespace_object_inspect.mjs)**: Bedah objek `* as ns` untuk melihat representasi record di level bahasa.
 
 ---
-*Status: [x] Complete | [status.md](../../../docs/status.md)*
+
+## 🧠 5. Arsitek Mindset: Struktur Mendahului Eksekusi
+Sebagai arsitek, pahami bahwa **Module Records bersifat statis**. Engine memetakan semua impor dan ekspor SEBELUM sebaris pun kode dijalankan. Inilah alasan mengapa `import` harus berada di tingkat atas dan tidak bisa di dalam blok `if`. Keamanan dan efisiensi ESM berasal dari kepastian struktural yang diberikan oleh Module Record ini.
+
+---
+*Status: 🟢 Gold Standard | Kembali ke [BK-05](../README.md)*

@@ -1,47 +1,75 @@
 # CH-02: Function Environments (The Command Centers)
 
-> **"Setiap fungsi di Hub adalah 'Pusat Komando' (The Command Center) kecil yang memiliki aturan otoritasnya sendiri. `Function Environment Record` adalah sistem yang mengelola akses ke instansi khusus seperti `this` dan `super`."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-*Pemetaan ECMA-262: Clause 9.1.1.2 (Function Environment Records)*
-
-## 1. Mental Model: "The Command Center"
-
-Bayangkan sebuah pusat komando mandiri yang memiliki:
-- **`[[ThisValue]]`**: Kabel yang menunjuk ke siapa pemilik pusat komando ini saat ini.
-- **`[[ThisBindingStatus]]`**: Status apakah `this` sudah boleh diakses (Sangat penting di `constructor` subclass).
-- **`[[HomeObject]]`**: Alamat gedung tempat fungsi ini dibangun (Digunakan oleh `super`).
+> **"Pusat Komando Eksekusi: Sub-ruang yang Mengatur Konteks 'this', Akses 'super', dan Binding Parameter Fungsi."**
 
 ---
 
-## 2. This Binding: Siapa yang Menyetir?
-
-Di JavaScript, `this` tidak ditentukan saat fungsi dibuat, melainkan saat **terminal diaktifkan** (Execution Context dibuat).
-- **Arrow Functions**: Tidak memiliki Command Center sendiri; mereka meminjam kabel `this` dari baki di bawahnya (Lexical `this`).
-- **Standard Functions**: Membuat `this` baru berdasarkan cara mereka dipanggil.
+## 🌐 Source Hub
+- **Parent Book**: [BK-02: Environment Records](../README.md)
+- **Primary Source**: [ECMA-262: Function Environment Records (Clause 9.1.1.2)](https://tc39.es/ecma262/#sec-function-environment-records)
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## 🌓 1. Essence: The Narrative
 
-```javascript
-const hubManual = {
-    model: "X-200",
-    checkModel: function() {
-        console.log(this.model); // 'this' menunjuk ke hubManual
+### The Local Command Center
+Setiap kali fungsi dipanggil, engine menciptakan **Function Environment Record**. Ini adalah varian dari *Declarative Record* yang memiliki tugas tambahan untuk mengelola parameter fungsi (`arguments`), serta menentukan nilai **`this`** dan tautan **`super`**.
+
+### Specialty Bindings
+Berbeda dengan record biasa, Function Record melacak:
+- **[[ThisValue]]**: Lokasi memori yang dirujuk oleh kata kunci `this`.
+- **[[ThisBindingStatus]]**: Status pengikatan (lexical, initialized, uninitialized).
+- **[[FunctionObject]]**: Referensi balik ke fungsi yang sedang dieksekusi.
+- **[[HomeObject]]**: Digunakan untuk resolusi `super` pada metode objek atau kelas.
+
+---
+
+## 🗺️ 2. Visual Logic: The Function Record Layout
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#00bcd4', 'primaryTextColor': '#fff'}}}%%
+classDiagram
+    class FunctionEnvRecord {
+        +[[ThisValue]]
+        +[[ThisBindingStatus]]
+        +[[FunctionObject]]
+        +[[HomeObject]]
+        +[[NewTarget]]
     }
-};
-
-const orphanCheck = hubManual.checkModel;
-orphanCheck(); // undefined (atau error di strict mode) karena 'this' menunjuk ke Global Stage
+    class DeclarativeRecord {
+        +HasBinding(N)
+        +CreateMutableBinding(N)
+    }
+    FunctionEnvRecord --|> DeclarativeRecord : Extends
 ```
 
 ---
 
-## Arsitek Mindset: Otoritas Konteks
+## ⚙️ 3. Spec-Internals: Binding Methods
 
-Sebagai arsitek Hub:
-- Gunakan Arrow Functions jika Anda ingin fungsi tersebut tetap setia pada konteks tempat ia dilahirkan (seperti di dalam event listener atau timeout).
-- Sadarilah bahwa `super` memerlukan `[[HomeObject]]` yang statis, itulah sebabnya Anda tidak bisa memindahkan metode yang menggunakan `super` ke objek lain secara sembarangan di dalam Grid.
+Function Record menambahkan metode khusus untuk manajemen konteks:
+
+| Metode | Deskripsi |
+| :--- | :--- |
+| **BindThisValue(V)** | Menetapkan nilai `this` untuk pemanggilan fungsi. |
+| **GetThisBinding()** | Mengambil nilai `this` saat ini (Melempar error jika uninitialized). |
+| **HasThisBinding()** | Mengecek apakah record mendukung pengikatan `this`. |
+| **HasSuperBinding()** | Mengecek apakah record mendukung pemanggilan `super`. |
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 🧪 4. The Lab: Discovery Specimens
+
+Eksperimen Konteks Fungsi:
+1.  **[examples/function_context_verify.js](../../../../../examples/function_context_verify.js)**: Verifikasi perilaku `this` pada arrow function vs regular function.
+2.  **[examples/super_binding_lab.js](../../../../../examples/super_binding_lab.js)**: Pembuktian mekanisme `super` melalui `[[HomeObject]]`.
+
+---
+
+## 🧠 5. Arsitek Mindset: Arrow Functions vs Regular
+Memahami **Function Environment Record** menjelaskan mengapa Arrow Functions tidak memiliki `this` sendiri. Secara teknis, Arrow Functions memiliki `[[ThisBindingStatus]]` bernilai `"lexical"`. Ini berarti mereka tidak mengimplementasikan `BindThisValue` dan akan selalu menelusuri `[[OuterEnv]]` untuk menemukan `this` dari "Command Center" di atasnya.
+
+---
+*Status: 🟢 Gold Standard | Kembali ke [BK-02](../README.md)*

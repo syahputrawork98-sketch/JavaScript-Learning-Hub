@@ -1,54 +1,63 @@
 # CH-02: Bound Functions and Proxy Exotics
 
-> **"Jembatan dan Perantara sirkuit. `Bound Functions and Proxy Exotics` adalah komponen yang bertugas membelokkan atau membungkus aliran energi eksekusi."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-**Source Hub**: 
-- [ECMA-262: Proxy Exotic Objects](https://tc39.es/ecma262/#sec-proxy-exotic-objects)
-- [ECMA-262: Bound Function Exotic Objects](https://tc39.es/ecma262/#sec-bound-function-exotic-objects)
+> **"Intersepsi & Pengikatan: Bagaimana Objek Eksotis Menangani Delegasi Panggilan dan Trap Internal Melalui Objek Target."**
 
 ---
 
-## 1. Konsep & Esensi
-
-**Definisi Arsitek**:
-**Proxy** adalah puncak dari fleksibilitas Hub. Ia adalah objek eksotis yang mendefinisikan ulang (me-trap) SEMUA 14 metode internal. **Bound Function** adalah fungsi yang diciptakan melalui `.bind()` yang memiliki nilai `this` dan argumen awal yang terkunci secara permanen di dalam slot internalnya.
-
-**Model Mental**:
-- **Proxy**: Seorang satpam/filter di depan gedung. Setiap ada yang mau masuk (Get), keluar (Set), atau bertanya (Has), satpam tersebut bisa memutuskan apa yang harus dilakukan.
-- **Bound Function**: Sebuah surat perintah yang sudah ditandatangani. Anda tidak bisa mengubah siapa pengirimnya (this) saat surat itu dijalankan.
+## 🌐 Source Hub
+- **Parent Book**: [BK-03: Exotic Objects](../README.md)
+- **Primary Source**: [ECMA-262: Proxy Exotic Objects (Clause 10.5)](https://tc39.es/ecma262/#sec-proxy-exotic-objects)
 
 ---
 
-## 2. Visualisasi Sistem: Proxy Interception
+## 🌓 1. Essence: The Narrative
+
+### The Shadow Call
+**Bound Function** dan **Proxy** adalah puncak dari perilaku eksotis. Mereka tidak menyimpan data secara langsung, melainkan bertindak sebagai "cangkang" atau perantara untuk objek lain (**Target Object**).
+
+### Bound Function
+Setiap kali fungsi di-bind (`.bind()`), engine menciptakan **Bound Function Exotic Object**. Objek ini mengunci secara permanen nilai `this` dan argumen awal, sehingga pemanggilan di masa depan akan selalu menggunakan konteks yang telah ditetapkan sebelumnya, ke mana pun fungsi tersebut dikirim.
+
+---
+
+## 🗺️ 2. Visual Logic: The Proxy Interception
 
 ```mermaid
-graph LR
-    User[Request: proxy.id] --> Proxy[[Proxy Object]]
-    Proxy --> Trap{Has 'get' trap?}
-    Trap -->|Yes| Handler[Run Handler Function]
-    Trap -->|No| Target[Forward to Target Object]
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    Op[Operation: [[Get]]/[[Set]]] --> P[Proxy Object]
+    P --> Trap{Trap Defined?}
+    Trap -- Yes --> Handler[Handler Object: Traps Result]
+    Trap -- No --> Target[Target Object: Default Work]
     
-    style Proxy fill:#f8bbd0,stroke:#880e4f
-    style Handler fill:#a8e6cf,stroke:#333
+    style P fill:#e1f5fe,stroke:#333
+    style Target fill:#c8e6c9,stroke:#333
 ```
 
 ---
 
-## 3. Mekanisme & Hubungan
+## ⚙️ 3. Spec-Internals: The Slot Registry
 
-### Kekuatan Proxy (Clause 10.5)
-- Proxy dapat digunakan untuk validasi data otomatis, penayangan pembaruan secara reaktif, atau menciptakan objek virtual yang datanya tidak benar-benar ada di memori sampai diminta.
-
-### Bound Function (Clause 10.4.1)
-- Memiliki slot internal `[[BoundTargetFunction]]`, `[[BoundThis]]`, dan `[[BoundArguments]]`. Saat dipanggil, ia secara otomatis melakukan "Unpacking" pada nilai-nilai ini sebelum menjalankan fungsi aslinya.
-
-### Arsitek Mindset: Trap Overhead
-- Hati-hati: Setiap trap di Proxy adalah sirkuit tambahan. Menggunakan Proxy di dalam loop yang sangat padat (High-Frequency) akan menambah beban kerja Hub secara signifikan. Gunakan Proxy sebagai lapisan pelindung tingkat tinggi (Architecture Boundaries), bukan untuk sirkuit komputasi mikro.
+Objek-objek ini memiliki slot internal khusus untuk menjaga delegasi:
+- **`[[ProxyTarget]]`**: Referensi ke objek asli yang diwakili.
+- **`[[ProxyHandler]]`**: Objek yang berisi fungsi "trap" untuk setiap metode internal.
+- **`[[BoundTargetFunction]]`**: Fungsi asli sebelum diikat.
+- **`[[BoundThis]]`**: Nilai `this` yang terkunci secara permanen.
 
 ---
 
-## 4. Lab Praktis
-Buka file `examples/proxy_trap_lab.js` untuk melihat bagaimana kita bisa memantau dan memblokade akses ke properti objek menggunakan Proxy.
+## 🧪 4. The Lab: Discovery Specimens
+
+Eksperimen Delegasi Eksotis:
+1.  **[examples/proxy_interception_lab.js](../../../../../examples/proxy_interception_lab.js)**: Mempelajari bagaimana `[[Get]]` dapat dialihkan untuk memutar nilai kustom.
+2.  **[examples/bound_this_leak_test.js](../../../../../examples/bound_this_leak_test.js)**: Mencoba memaksakan `this` baru pada bound function (dan membuktikan kegagalannya).
 
 ---
-*Status: [status.md](../../../../../status.md)*
+
+## 🧠 5. Arsitek Mindset: Keamanan & Abstraksi
+Sebagai arsitek, gunakan **Proxy** untuk membangun lapisan abstraksi yang aman (misal: validasi skema data otomatis atau penguncian akses properti privat). Namun, sadarilah bahwa Proxy adalah "Heavy Object" — setiap operasi melalui Proxy memiliki biaya *trap execution* tambahan. Gunakan secara strategis untuk gerbang utama data, bukan untuk operasi perulangan mikro-detik.
+
+---
+*Status: 🟢 Gold Standard | Kembali ke [BK-03](../README.md)*

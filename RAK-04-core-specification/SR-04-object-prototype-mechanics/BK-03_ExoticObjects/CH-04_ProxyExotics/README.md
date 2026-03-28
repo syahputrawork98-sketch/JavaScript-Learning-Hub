@@ -1,49 +1,39 @@
 # CH-04: Proxy Exotics (The Interceptor Shield)
 
-> **"Untuk keamanan tingkat tinggi, Hub menyediakan perisai yang bisa mencegat setiap sinyal. `ProxyExoticObject` adalah 'Perisai Pencegat' (The Interceptor Shield) — unit transparan yang berdiri di depan mesin asli untuk memantau, mengubah, atau memblokir akses ke slot internal."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-*Pemetaan ECMA-262: Clause 10.5 (Proxy Exotic Objects)*
-
-## 1. Mental Model: "The Interceptor Shield"
-
-Bayangkan Anda ingin menyentuh tombol di Mesin A. Namun, Mesin A dibungkus oleh kaca pintar (Proxy).
-- Saat tangan Anda mendekat (misal: memanggil `[[Get]]`), kaca tersebut mendeteksi gerakan Anda.
-- Kaca tersebut memiliki **Traps** (Jebakan). Jika jebakan `get` aktif, kaca akan menjalankan logikanya sendiri sebelum (atau alih-alih) membiarkan Anda menyentuh mesin asli.
-
-## 🏗️ The Interceptor Shield
-
-```mermaid
-graph LR
-    User[JS Access] --> Proxy[Proxy Object]
-    Proxy --> Trap{Trap Defined?}
-    Trap -->|Yes| Logic[Execute Handler Trap]
-    Trap -->|No| Forward[Forward to Target]
-    Logic --> Result[Return Result]
-    Forward --> Result
-```
-
-## 🔍 Mekanisme Pencegatan
-
-Proxy adalah objek paling eksotis karena ia **mendefinisikan ulang seluruh 13 Metode Internal**.
-- Jika Anda mendefinisikan `handler.get`, maka `[[Get]]` pada Proxy tersebut tidak lagi melakukan pencarian standar, melainkan memanggil fungsi `handler.get` Anda.
-- Jika tidak ada jebakan yang didefinisikan, sinyal akan diteruskan (*forward*) ke mesin asli (`Target`).
+> **"Perisai Intersepsi: Objek Eksotis Paling Powerfull yang Mendefinisikan Ulang Seluruh Hubungan Internal Antar Objek Melalui Mekanisme Trap."**
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## 🌐 Source Hub
+- **Parent Book**: [BK-03: Exotic Objects](../README.md)
+- **Primary Source**: [ECMA-262: Proxy Exotic Objects (Clause 10.5)](https://tc39.es/ecma262/#sec-proxy-exotic-objects)
 
-```javascript
-const targetMachine = { power: 100 };
-const shield = new Proxy(targetMachine, {
-    get(target, prop) {
-        console.log(`[LOG] Sinyal ke ${prop} dicegat!`);
-        return target[prop] * 2; // Menggandakan output energi secara semu
-    }
-});
+---
 
-console.log(shield.power); // [LOG] Sinyal ke power dicegat! -> 200
-```
+## 🌓 1. Essence: The Narrative
 
+### The Ultimate Interceptor
+**Proxy Exotic Object** adalah satu-satunya objek di JavaScript yang dapat mengubah perilaku **semua** 14 metode internal esensial. Ia bertindak sebagai perisai transparan di depan objek lain (**Target**). Setiap kali operasi dilakukan pada Proxy, ia akan memicu fungsi khusus (**Trap**) yang didefinisikan dalam objek **Handler**.
+
+### Invariants Enforcement
+Meskipun Proxy sangat fleksibel, mesin JavaScript tetap menjaga integritas data melalui **Invariants of Internal Methods**. Proxy tidak boleh memberikan hasil yang "mustahil" (misal: melaporkan properti tidak ada padahal aslinya imutabel dan ada). Jika dilanggar, engine akan melempar `TypeError` untuk menjaga stabilitas memori.
+
+---
+
+## 🗺️ 2. Visual Logic: The Interception Flow
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph TD
+    Req[Operation: e.g. deleteProperty] --> P[Proxy Object]
+    P --> H{Is 'delete' trap defined?}
+    H -- Yes --> Act[Run Handler.deleteProperty]
+    H -- No --> Forward[Forward to Target Object]
+    
+    Act --> Result[Boolean Return]
+    Forward --> Result
 ---
 
 ## Arsitek Mindset: Biaya Keamanan

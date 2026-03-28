@@ -1,32 +1,30 @@
-# CH-01: Array and String Exotics
+# CH-01: Array and String Exotics (Legacy Indexting)
 
-> **"Kelebihan struktural yang unik. `Array and String Exotics` menjelaskan mengapa beberapa objek standar di Hub memiliki 'sihir' yang tidak dimiliki objek biasa."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-**Source Hub**: 
-- [ECMA-262: Array Exotic Objects](https://tc39.es/ecma262/#sec-array-exotic-objects)
-- [ECMA-262: String Exotic Objects](https://tc39.es/ecma262/#sec-string-exotic-objects)
+> **"Akses Karakter & Indeks Bawaan: Bagaimana Objek Eksotis Mengelola Perilaku Khusus pada Indeks Numerik dan Panjang (Length)."**
 
 ---
 
-## 1. Konsep & Esensi
-
-**Definisi Arsitek**:
-Objek Eksotis adalah objek yang mendefinisikan ulang metode internal esensialnya. **Array** adalah contoh paling umum; ia memodifikasi `[[DefineOwnProperty]]` agar properti `length` selalu sinkron dengan jumlah elemen. **String** eksotis memodifikasi `[[GetOwnProperty]]` agar karakter individual bisa diakses seolah-olah mereka adalah properti numerik (`str[0]`).
-
-**Model Mental**:
-- **Ordinary Object**: Kotak standar. Isinya apa pun yang Anda taruh.
-- **Array Exotic**: Kotak pintar dengan layar penghitung di luar. Setiap kali Anda memasukkan barang, layar (length) bertambah otomatis.
-- **String Exotic**: Buku catatan yang sudah dicetak halamannya. Anda tidak bisa menambah halaman, hanya bisa membacanya melalui nomor halaman (index).
+## 🌐 Source Hub
+- **Parent Book**: [BK-03: Exotic Objects](../README.md)
+- **Primary Source**: [ECMA-262: Array Exotic Objects (Clause 10.4.2)](https://tc39.es/ecma262/#sec-array-exotic-objects)
 
 ---
 
-## 2. Visualisasi Sistem: Array Length Sync
+## 🌓 1. Essence: The Narrative
+
+### Numeric Indexing
+Objek Array dan String adalah jenis **Exotic Objects** yang paling umum ditemui. Perilaku eksotis mereka terletak pada cara mereka menangani **Numeric Indices** (seperti `arr[0]` atau `str[5]`).
+
+### Array Length Magic
+Array memiliki "sirkuit" internal yang menghubungkan indeks numerik dengan properti `length`. Setiap kali indeks baru ditambahkan, `length` akan diperbarui secara otomatis. Sebaliknya, jika `length` diperkecil, elemen-elemen di luar batas tersebut akan dihapus secara instan dari memori.
+
+---
+
+## 🗺️ 2. Visual Logic: The Indexing Circuit
 
 ```mermaid
-graph TD
-    User[User: arr[10] = 'X'] --> Array[[Array Object]]
-    Array --> Define[[Internal: [[DefineOwnProperty]]]]
-    Define --> Check{Is Index > length?}
     Check -->|Yes| UpdateLength[Update length to Index + 1]
     Check -->|No| NormalValue[Regular Property Update]
     

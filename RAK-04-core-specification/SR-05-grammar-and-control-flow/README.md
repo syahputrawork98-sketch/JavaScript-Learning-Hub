@@ -1,7 +1,7 @@
 # SR-05: Grammar & Control Flow
 
 ![SR Hub](https://img.shields.io/badge/SR--05-GRAMMAR-red?style=for-the-badge)
-![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD_IN_PROGRESS-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
 > **"Sistem Navigasi & Transmisi: Bagaimana Input Teks Diterjemahkan Menjadi Gerakan Mekanis yang Teratur dan Terpola."**
 

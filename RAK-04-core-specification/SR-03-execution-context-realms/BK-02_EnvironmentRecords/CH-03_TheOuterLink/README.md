@@ -1,59 +1,72 @@
-# CH-03: The Outer Link (Scope Chains)
+# CH-03: The Outer Link Mechanic (Scope Chains)
 
-> **"Jika sebuah baki tidak memiliki alat yang dibutuhkannya, ia akan mencari ke baki di bawahnya. `Outer Environment Link` adalah 'Pipa Penghubung Ke Luar' (The Outer Link) — sistem navigasi yang menghubungkan setiap gudang penyimpanan ke gudang induknya."**
+![Status](https://img.shields.io/badge/STATUS-GOLD_STANDARD-green?style=for-the-badge)
 
-*Pemetaan ECMA-262: Clause 9.1.2 (The Outer Environment Link)*
-
-## 1. Mental Model: "The Outer Link"
-
-Bayangkan setiap kotak penyimpanan di Hub memiliki lubang di bagian bawah yang tersambung ke kotak di luarnya.
-- Jika Anda mencari kunci "X" di kotak Anda dan tidak ketemu, tangan Anda akan merogoh melalui "Outer Link" ke kotak induk.
-- Proses ini berlanjut sampai Anda mencapai **Global Environment**, kotak terakhir yang tidak memiliki Outer Link (`null`).
+> **"Jembatan Antar-Dimensi: Mekanisme Tautan Luar yang Memungkinkan Engine Menelusuri Hirarki Scope Hingga ke Akar Global."**
 
 ---
 
-## 🏗️ The Outer Link (Scope Chain)
+## 🌐 Source Hub
+- **Parent Book**: [BK-02: Environment Records](../README.md)
+- **Primary Source**: [ECMA-262: Environment Record Hierarchy (Clause 9.1.1)](https://tc39.es/ecma262/#sec-the-environment-record-hierarchy)
+
+---
+
+## 🌓 1. Essence: The Narrative
+
+### The Recursive Link
+Setiap **Environment Record** memiliki satu slot internal krusial: **`[[OuterEnv]]`**. Slot ini menyimpan referensi ke Environment Record yang membungkusnya secara leksikal. Inilah yang secara teknis membangun sirkuit yang kita kenal sebagai **Scope Chain**.
+
+### The End of the Line
+Penelusuran variabel adalah proses rekursif. Engine memeriksa Record saat ini; jika tidak ditemukan, ia mengikuti kabel `[[OuterEnv]]` ke Record berikutnya. Proses ini berhenti hanya jika:
+1.  Variabel ditemukan.
+2.  `[[OuterEnv]]` bernilai **`null`** (menandakan kita telah mencapai **Global Environment** terjauh).
+
+---
+
+## 🗺️ 2. Visual Logic: The Chain Resolution Flow
 
 ```mermaid
-graph TD
-    Global[Global Env Record]
-    Outer[Outer Scope Record]
-    Local[Local Scope Record]
-    
-    Local -->|"[[OuterEnv]]"| Outer
-    Outer -->|"[[OuterEnv]]"| Global
-    
-    style Local fill:#2ecc71,color:#fff
-    style Outer fill:#f1c40f
-    style Global fill:#e74c3c,color:#fff
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+graph BT
+    G[Global Environment Record]
+    M[Module/Script Environment Record]
+    F[Function Environment Record]
+    C[Block Environment Record]
+
+    C -- "[[OuterEnv]]" --> F
+    F -- "[[OuterEnv]]" --> M
+    M -- "[[OuterEnv]]" --> G
+    G -- "[[OuterEnv]]" --> NULL[null]
+
+    style NULL fill:#333,color:#fff
 ```
 
 ---
 
-## 3. Praktik Lapangan (Lab)
+## ⚙️ 3. Spec-Internals: Recursive Lookup Algorithm
 
-```javascript
-const sector = "CENTRAL";
-
-function alpha() {
-    const subSector = "ALPHA_1";
-    
-    function beta() {
-        console.log(subSector); // Ketemu di Outer Link (alpha scope)
-        console.log(sector);    // Ketemu di Global Outer Link
-    }
-    beta();
-}
-alpha();
-```
+Algoritma internal untuk resolusi variabel (Simplified):
+1.  Let *lex* be the current Execution Context's LexicalEnvironment.
+2.  Repeat:
+    a. Let *exists* be *lex*.**HasBinding**(*name*).
+    b. If *exists* is **true**, return the binding from *lex*.
+    c. Let *outer* be *lex*.**[[OuterEnv]]**.
+    d. If *outer* is **null**, throw **ReferenceError**.
+    e. Set *lex* to *outer*.
 
 ---
 
-## Arsitek Mindset: Kedalaman Jalur
+## 🧪 4. The Lab: Discovery Specimens
 
-Sebagai arsitek Hub:
-- Ingat bahwa semakin jauh sebuah variabel berada di "Outer Link", semakin lama waktu yang dibutuhkan Hub untuk menemukannya. Posisikan data yang sering digunakan sedekat mungkin dengan terminal aktif.
-- **Closures**: Sebuah fungsi membawa "Pipa Outer Link"-nya kemanapun ia pergi, bahkan setelah baki induknya diambil dari rak (Call Stack). Inilah alasan variabel tetap hidup di memori selama fungsinya masih ada.
+Eksperimen Rantai Scope:
+1.  **[examples/scope_chain_traversal.js](../../../../../examples/scope_chain_traversal.js)**: Visualisasi langkah demi langkah pencarian variabel di level engine.
+2.  **[examples/shadowing_mechanics.js](../../../../../examples/shadowing_mechanics.js)**: Bagaimana binding lokal "memutus" jalur pencarian ke atas.
 
 ---
-*Status: [status.md](../../../docs/status.md)*
+
+## 🧠 5. Arsitek Mindset: Static Scoping
+Karena **`[[OuterEnv]]`** ditetapkan saat fungsi/blok dibuat (bukan saat dijalankan), JavaScript bersifat **Statically Scoped**. Sebagai arsitek, ini berarti Anda dapat memprediksi variabel mana yang akan diakses hanya dengan melihat struktur kode di editor, tanpa harus menjalankan program. Pemahaman ini sangat vital untuk mengelola performaLookup: semakin "jauh" variabel berada di rantai `[[OuterEnv]]`, semakin banyak langkah memori yang harus dilakukan engine.
+
+---
+*Status: 🟢 Gold Standard | Kembali ke [BK-02](../README.md)*
