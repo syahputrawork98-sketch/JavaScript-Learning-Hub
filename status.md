@@ -6,12 +6,13 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 
 ## 📢 STATUS AKTIF SAAT INI (REBUILD PHASE)
 * **Fase Proyek:** `REBUILD / RESTRUCTURE PHASE` (Pembangunan Ulang & Restrukturisasi).
-* **Batch Terkini:** `Batch 6 — Formalisasi Material Content Standard` (Selesai Dieksekusi, Siap Direview).
+* **Batch Terkini:** `Batch 7 — Detail Mapping Legacy dan Strategi Deletion` (Selesai Dieksekusi, Siap Direview).
 * **Source of Truth:** GitHub repository setelah tindakan `commit` dan `push` manual oleh User.
 * **Struktur Target Baru:**
   * **Project Control:** [docs/project/](./docs/project/) (AKTIF)
   * **Kebijakan Penulisan:** [docs/project/material-writing-policy.md](./docs/project/material-writing-policy.md) (AKTIF)
   * **Standar Struktur Materi:** [docs/project/material-content-standard.md](./docs/project/material-content-standard.md) (ACTIVE DRAFT)
+  * **Rencana Migrasi & Deletion:** [docs/project/legacy-migration-deletion-plan.md](./docs/project/legacy-migration-deletion-plan.md) (DRAFT / PLANNING)
   * **Perpustakaan Utama:** [materi/](./materi/) (AKTIF - Kerangka Rak 00-17)
 * **Migrasi Konten:** `BELUM DIMULAI` (Fase Fondasi).
 * **Status Folder Lama (`RAK-*`):** `LEGACY SOURCE` (Tetap dipertahankan seutuhnya, tidak boleh dihapus).
@@ -49,6 +50,7 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 ---
 
 ## 📜 Log Perubahan Global (Changelog)
+* **2026-05-19**: **BATCH 7 COMPLETED** — Pembuatan berkas `legacy-migration-deletion-plan.md` (DRAFT / PLANNING) untuk mapping detail per subfolder legacy ke 18 target Rak baru serta memetakan rencana deletion bertahap yang aman. Tidak ada migrasi fisik dan tidak ada penghapusan folder legacy RAK-* yang dilakukan.
 * **2026-05-19**: **BATCH 6 COMPLETED** — Pembuatan berkas `material-content-standard.md` (ACTIVE DRAFT) untuk meresmikan standar penulisan materi/struktur. Tautan kebijakan diperbarui di `material-writing-policy.md` dan `docs/README.md`. Belum ada migrasi materi fisik dan belum ada penghapusan folder legacy RAK-* yang dilakukan.
 * **2026-05-18**: **BATCH 5.1 COMPLETED** — Perbaikan catatan Review Gate, sinkronisasi status & roadmap, perbaikan link mapping di migration-policy, pembersihan typo, serta penyusunan Material Writing Policy.
 * **2026-05-18**: **BATCH 5 COMPLETED** — Review Gate oleh Room Chat 01 selesai dengan status Needs Fix ringan.

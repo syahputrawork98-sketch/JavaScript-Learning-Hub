@@ -4,11 +4,11 @@ Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 5.1. T
 
 ---
 
-## 1. Rencana Perjalanan Batch (Batches 1 - 6)
+## 1. Rencana Perjalanan Batch (Batches 1 - 7)
 
 ```mermaid
 gantt
-    title Peta Rencana Fondasi Rebuild (Batch 1-6)
+    title Peta Rencana Fondasi Rebuild (Batch 1-7)
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
     Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
@@ -19,7 +19,8 @@ gantt
     Batch 5 - Review Gate oleh Room Chat 01 (Read-Only)          :done, des5, after des4, 1d
     Batch 5.1 - Fix Review Gate & Material Writing Policy        :done, des6, after des5, 1d
     section Standardisasi
-    Batch 6 - Formalisasi Material Content Standard              :active, des7, after des6, 1d
+    Batch 6 - Formalisasi Material Content Standard              :done, des7, after des6, 1d
+    Batch 7 - Detail Mapping Legacy dan Strategi Deletion        :active, des8, after des7, 1d
 ```
 
 ### [Batch 1] — Setup Project Control & Portable Add Instructions
@@ -54,14 +55,19 @@ gantt
 
 ### [Batch 6] — Formalisasi Material Content Standard
 * **Tujuan:** Membentuk standar resmi penulisan materi untuk struktur Buku, Bab, Subbab, analogi, diagram, dan latihan sebelum migrasi dimulai.
-* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Pembuatan berkas `docs/project/material-content-standard.md`, serta pembaruan terkait pada `material-writing-policy.md`, `docs/README.md`, `current-status.md`, `roadmap-active.md`, dan `status.md`.
+
+### [Batch 7] — Detail Mapping Legacy dan Strategi Deletion
+* **Tujuan:** Melakukan pembacaan struktur RAK-* legacy, merumuskan pemetaan detail per subfolder/topik ke 18 target Rak baru, serta menyusun rencana penghapusan bertahap yang aman.
+* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Output:** Pembuatan berkas `docs/project/legacy-migration-deletion-plan.md`, serta pembaruan terkait pada `migration-policy.md`, `material-writing-policy.md`, `docs/README.md`, `current-status.md`, `roadmap-active.md`, dan `status.md`.
 
 ---
 
 ## 2. Catatan Penting Prosedur
 
 > [!IMPORTANT]
-> * **Tahap Fondasi:** Batch 1 sampai Batch 6 adalah pembentukan fondasi struktural, standardisasi materi, pemetaan, dan arsitektur kontrol proyek yang kini siap dipause dengan aman.
+> * **Tahap Fondasi:** Batch 1 sampai Batch 7 adalah pembentukan fondasi struktural, standardisasi materi, pemetaan rinci topik, strategi deletion bertahap, dan arsitektur kontrol proyek yang kini siap dipause dengan aman.
 > * **Review Gate:** Batch 5 bersifat **Read-Only (Audit)**. Seluruh catatan perbaikan diselesaikan di Batch 5.1.
-> * **Migrasi Konten:** Migrasi detail materi pembelajaran dari folder lama **hanya boleh dimulai** setelah project diaktifkan kembali dan standar penulisan baru disepakati di Room Chat 00 sesuai [Material Writing Policy](./material-writing-policy.md). Standardisasi resmi awal telah disiapkan sebagai active draft di bawah [Material Content Standard](./material-content-standard.md).
+> * **Migrasi Konten:** Migrasi detail materi pembelajaran dari folder lama **hanya boleh dimulai** setelah project diaktifkan kembali dan standar penulisan baru disepakati di Room Chat 00 sesuai [Material Writing Policy](./material-writing-policy.md). Standardisasi resmi awal telah disiapkan sebagai active draft di bawah [Material Content Standard](./material-content-standard.md). Rencana detail pemetaan dan penghapusan bertahap diatur pada [Legacy Migration & Deletion Plan](./legacy-migration-deletion-plan.md).

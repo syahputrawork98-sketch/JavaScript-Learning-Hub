@@ -18,13 +18,16 @@ Dokumen ini mencatat keputusan resmi dari Room Chat 00 dan User mengenai kebijak
 
 Selama fase setup/fondasi ini berjalan, folder lama `RAK-*` (`RAK-01` s/d `RAK-06` di root) **dilarang keras** untuk dihapus, diubah namanya, atau dipindahkan. Folder legacy ini adalah jaminan keamanan data agar tidak ada catatan belajar yang hilang.
 
-Namun, pada fase penulisan ulang dan migrasi materi di masa mendatang, folder/berkas lama `RAK-*` dapat direncanakan untuk dihapus secara bertahap dengan mematuhi **5 Syarat Keamanan Mutlak** berikut:
+Proses pembersihan bertahap, kriteria kelayakan, dan pemetaan detail per topik diatur sepenuhnya dalam [Legacy Migration & Deletion Plan](./legacy-migration-deletion-plan.md). Gaya penulisan dan struktur bab baru wajib merujuk secara ketat pada [Material Content Standard](./material-content-standard.md).
+
+Namun, pada fase penulisan ulang dan migrasi materi di masa mendatang, folder/berkas lama `RAK-*` dapat direncanakan untuk dihapus secara bertahap dengan mematuhi **6 Syarat Keamanan Mutlak** (sebagaimana tercantum dalam rencana migrasi dan penghapusan):
 
 1. **Kajian Ulang:** Materi lama di dalam file legacy tersebut sudah dikaji kelayakannya oleh asisten.
 2. **Pemindahan Sukses:** Materi tersebut sudah selesai ditulis ulang atau dipindahkan ke dalam struktur target baru di bawah `materi/`.
 3. **Peta Hubungan Jelas:** Pemetaan asal (source) dan tujuan (target) pemindahan tercatat dengan jelas pada dokumen mapping.
 4. **Audit Independen:** Hasil migrasi materi baru telah diperiksa dan disetujui melalui audit read-only oleh Room Chat 01.
 5. **Persetujuan Owner:** Room Chat 00 dan User telah memberikan keputusan eksplisit tertulis bahwa bagian legacy tersebut sudah aman dan diperbolehkan untuk dihapus.
+6. **Eksekusi Bertahap:** Deletion dilakukan secara bertahap (per topik/subfolder), dilarang keras dilakukan secara massal.
 
 > [!WARNING]
 > * **Bukan Penghapusan Massal:** Penghapusan folder/file legacy sama sekali tidak boleh dilakukan secara massal atau dalam satu batch besar.

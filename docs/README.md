@@ -27,6 +27,7 @@ Seluruh dokumentasi aktif untuk tata kelola, kebijakan, status, dan rencana proy
 * [Materi Structure Plan](./project/materi-structure-plan.md) — Cetak biru pembagian 18 rak pembelajaran baru.
 * [Migration Policy](./project/migration-policy.md) — Prosedur pemindahan materi lama secara aman.
 * [Legacy to Materi Mapping](./project/legacy-to-materi-mapping.md) — Peta pemetaan awal dari folder legacy RAK-* ke materi baru.
+* [Legacy Migration & Deletion Plan](./project/legacy-migration-deletion-plan.md) — Rencana detail mapping, strategi migrasi, dan deletion bertahap folder legacy.
 * [Material Writing Policy](./project/material-writing-policy.md) — Kebijakan penulisan materi baru (PPM V4 deprecated) dan regulasi penghapusan legacy source.
 * [Material Content Standard](./project/material-content-standard.md) — Standar struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan.
 

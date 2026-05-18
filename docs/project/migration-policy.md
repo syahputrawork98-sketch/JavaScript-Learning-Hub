@@ -24,9 +24,9 @@ Untuk menjaga keamanan materi, migrasi dilakukan berdasarkan prinsip-prinsip ber
 * Jangan langsung menghapus file lama segera setelah disalin. Penghapusan file lama hanya boleh dilakukan setelah seluruh batch migrasi dinyatakan `VERIFIED` & `ACCEPTED` oleh Room Chat 00.
 
 ### C. Pemetaan Terlebih Dahulu (Mapping-First Policy)
-* Sebelum memindahkan file apa pun, tim asisten harus membuat dokumen pemetaan detail (mapping plan).
-* Pemetaan ini mencantumkan file asal (di RAK lama) dan folder target (di Rak 00-17 baru).
-* **Batch 4** dari Roadmap Aktif direncanakan khusus untuk menyusun mapping awal ini. **Jangan melakukan migrasi fisik sebelum Batch 4 selesai dan disetujui.**
+* Sebelum memindahkan file apa pun, tim asisten wajib menyusun dokumen pemetaan detail (mapping plan).
+* Peta pemetaan awal berada di [legacy-to-materi-mapping.md](./legacy-to-materi-mapping.md) dan rencana detail per topik serta tahapan penghapusan aman diatur dalam [Legacy Migration & Deletion Plan](./legacy-migration-deletion-plan.md).
+* **Jangan melakukan migrasi fisik atau penghapusan materi sebelum instruksi resmi disepakati dan disetujui di Room Chat 00.**
 
 ---
 
@@ -34,7 +34,7 @@ Untuk menjaga keamanan materi, migrasi dilakukan berdasarkan prinsip-prinsip ber
 
 Ketika fase migrasi telah dibuka secara resmi oleh Room Chat 00, setiap proses pemindahan mengikuti alur berikut:
 
-1. **Rujuk Dokumen Mapping:** Lihat [legacy-to-materi-mapping.md](./legacy-to-materi-mapping.md) untuk menentukan file target.
+1. **Rujuk Dokumen Mapping:** Lihat [legacy-to-materi-mapping.md](./legacy-to-materi-mapping.md) dan rencana detail di [legacy-migration-deletion-plan.md](./legacy-migration-deletion-plan.md) untuk menentukan file target.
 2. **Salin & Format Ulang:** Salin materi dari folder lama ke subfolder rak baru. Lakukan pemformatan agar mengikuti gaya penulisan premium (analogies, Mermaid diagram, Catatan Interview, Latihan Kecil).
 3. **Smoke Test:** Uji keterbacaan file markdown baru di environment lokal.
 4. **Laporkan Kemajuan:** Laporkan hasil pemindahan per topik di status laporan Gemini.
