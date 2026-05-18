@@ -10,7 +10,11 @@ Rak ini membedah mekanisme runtime penting JavaScript seperti global/local scope
 - Execution Context Lifecycle (Creation Phase & Execution Phase)
 
 ## Status
-Status: PLANNED / PLACEHOLDER
+Status: **PILOT STAGE ACTIVE**
+
+## Buku Terdaftar
+*   **[Buku 1 — Scope dan Lexical Environment](./BK-01-scope-dan-lexical-environment/README.md)** (Status: `PILOT / ACTIVE DRAFT`) — Membahas dasar-dasar scope, perbedaan Global/Function/Block scope, serta penelusuran lexical scope chain.
 
 ## Catatan Migrasi
-Rak ini belum berisi materi final. Materi lama dari folder `RAK-*` akan dipetakan dan dimigrasikan bertahap setelah mapping disetujui.
+*   Buku pertama (`BK-01`) telah dirintis sebagai pilot penulisan resmi untuk menguji model [Material Content Standard](../../docs/project/material-content-standard.md).
+*   Sisa buku dan materi lama dari folder `RAK-*` akan dipetakan, ditulis ulang, dan dimigrasikan bertahap setelah pilot ini diverifikasi dan disetujui oleh Room Chat 00.

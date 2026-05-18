@@ -210,9 +210,8 @@ materi/03-scope-closure-this-dan-execution-context/
 
 ## 10. Status Rencana
 
-Status: **DRAFT / PLANNING**
+Status: **DRAFT / PLANNING (PILOT STAGE ACTIVE)**
 
-*   **Belum ada migrasi fisik** dari folder lama ke baru.
-*   **Belum ada deletion** terhadap file atau folder legacy `RAK-*`.
-*   **Belum ada materi baru** yang ditulis secara mendalam di rak-rak pembelajaran.
-*   Proses ini sepenuhnya berfokus pada pendataan struktural dan kesepakatan rencana kerja.
+*   **Pilot Pertama Aktif:** Pilot buku pertama telah resmi dimulai pada sub-rak `materi/03-scope-closure-this-dan-execution-context/BK-01-scope-dan-lexical-environment/` untuk menguji coba efektivitas penulisan Material Content Standard secara nyata.
+*   **Belum ada migrasi fisik massal** dari folder lama ke baru di luar pengerjaan 3 bab pilot ini.
+*   **Belum ada deletion** terhadap file atau folder legacy `RAK-*`. Seluruh file legacy tetap utuh 100%.

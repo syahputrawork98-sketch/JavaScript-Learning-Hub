@@ -6,7 +6,7 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ## 1. Status Utama Proyek
 * **Fase Aktif:** `REBUILD / RESTRUCTURE PHASE` (Fase Rebuild & Restrukturisasi).
-* **Batch Terkini:** `Batch 7 — Detail Mapping Legacy dan Strategi Deletion` (Selesai Dieksekusi, Siap Direview).
+* **Batch Terkini:** `Batch 8 — Pilot Buku Pertama: Scope dan Lexical Environment` (Selesai Dieksekusi, Siap Direview).
 * **Source of Truth:** GitHub repository setelah tindakan `commit` dan `push` manual oleh User.
 
 ---
@@ -17,7 +17,8 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 | **Pusat Kontrol (`docs/project/`)** | **AKTIF** | Menjadi satu-satunya *Source of Truth* baru untuk aturan, scope, status, dan roadmap. |
 | **Kebijakan Penulisan (`material-writing-policy.md`)** | **SINKRON** | Menyimpan aturan penangguhan standar penulisan lama (PPM V4 deprecated), mengarah ke `material-content-standard.md`, & regulasi penghapusan legacy `RAK-*` bertahap. |
 | **Standar Struktur (`material-content-standard.md`)** | **ACTIVE DRAFT** | Standar resmi awal struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan. |
-| **Rencana Migrasi & Deletion (`legacy-migration-deletion-plan.md`)** | **DRAFT / PLANNING** | Rencana detail mapping per topik, kriteria kelayakan, syarat penghapusan aman, dan prioritas migrasi. |
+| **Rencana Migrasi & Deletion (`legacy-migration-deletion-plan.md`)** | **DRAFT / PLANNING (PILOT ACTIVE)** | Rencana detail mapping per topik, kriteria kelayakan, syarat penghapusan aman, dan prioritas migrasi. |
+| **Pilot Buku Pertama (`BK-01`)** | **PILOT / ACTIVE DRAFT** | Buku pilot pertama "Scope dan Lexical Environment" selesai ditulis sebanyak 3 bab lengkap dengan standar baru. |
 | **Pusat Materi (`materi/`)** | **AKTIF** | Folder `materi/` telah dilengkapi dengan 18 kerangka folder rak pembelajaran (Rak 00 s/d 17) beserta `README.md` placeholder. |
 | **Berkas Root (`README`, `FITUR`, `Status`)** | **SINKRON** | Dokumen di level root telah dirapikan, relative links dibersihkan, dan dibebaskan dari referensi eksternal eksplisit. |
 | **Gerbang Dokumentasi (`docs/README.md`)** | **SINKRON** | Gateway dokumentasi baru selesai dibuat dengan tata letak relative links yang bersih. |
@@ -27,17 +28,17 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ---
 
-## 3. Poin-Poin Kunci Status Batch 7
-* **Pemetaan Rinci Topik Legacy:** Berkas baru `docs/project/legacy-migration-deletion-plan.md` telah dibuat untuk memetakan seluruh subfolder di bawah RAK-01 s/d RAK-06 secara detail ke 18 target Rak baru.
-* **Strategi Penghapusan Bertahap (Deletion Phases):** Mengunci skema penghapusan aman 5 fase (Fase A s/d E) dan menetapkan 6 Syarat Mutlak yang wajib dipenuhi sebelum file lama dihapus.
-* **Prioritas & Rekomendasi Pilot:** Menetapkan urutan migrasi strategis dimulai dari Rak 03 (Scope & Closure) dan menyepakati subfolder pilot `BK-01-scope-dan-lexical-environment` sebagai langkah pertama.
-* **Kepatuhan Pembatasan Ketat:** Tidak ada pemindahan materi fisik yang dilakukan, tidak ada penulisan bab materi, dan tidak ada penghapusan folder `RAK-*` legacy. Folder lama tetap utuh 100%.
+## 3. Poin-Poin Kunci Status Batch 8
+* **Buku Pilot Pertama Selesai Ditulis:** Menyelesaikan penulisan `BK-01-scope-dan-lexical-environment` yang berisi `README.md` buku dan 3 bab utama (`01-apa-itu-scope.md`, `02-global-function-dan-block-scope.md`, `03-lexical-scope-dan-scope-chain.md`).
+* **Implementasi Standar Baru (MCS Approved):** Seluruh materi di dalam buku pilot ditulis dengan pendekatan interaktif: bahasa manusia, analogi bertarget, batasan analogi teknis, visualisasi Mermaid diagram, real-world case, dan latihan soal prediksi output.
+* **Integrasi Navigasi Kontrol:** Rak 03 README, status proyek, dan roadmap telah disinkronkan untuk mencatat keberadaan pilot aktif.
+* **Kepatuhan Pembatasan (No Mass Migration & No Legacy Deletion):** Tidak ada pemindahan file fisik dari folder legacy lainnya dan tidak ada penghapusan folder `RAK-*`. Folder lama tetap utuh 100%.
 
 ---
 
 ## 4. Status Pause / Handoff Sementara
 
-Project JavaScript Knowledge Base sedang berada di fase setup/rebuild fondasi. Setelah Batch 7, project dapat dipause sementara dengan aman karena seluruh dokumen kontrol telah tersinkronisasi penuh.
+Project JavaScript Knowledge Base sedang berada di fase setup/rebuild fondasi. Setelah Batch 8, project dapat dipause sementara dengan aman karena seluruh dokumen kontrol telah tersinkronisasi penuh.
 
 Jika project dilanjutkan di chat baru:
 1. Baca [add-instruksi-chatgpt-project.md](./add-instruksi-chatgpt-project.md) (Add Instructions ChatGPT Project).
@@ -51,5 +52,5 @@ Jika project dilanjutkan di chat baru:
 ---
 
 ## 5. Langkah Berikutnya
-Setelah Batch 7 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek siap dipause dengan aman. Saat diaktifkan kembali:
-* **Fase Baru — Inisiasi Pilot Penulisan Buku (Batch 8)** pada sub-rak `materi/03-scope-closure-this-dan-execution-context/BK-01-scope-dan-lexical-environment/` menggunakan standar penulisan baru yang telah disepakati.
+Setelah Batch 8 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek siap dipause dengan aman. Saat diaktifkan kembali:
+* **Fase Baru — Review Buku Pilot & Ekspansi Penulisan Materi (Batch 9)** pada sub-rak pembelajaran lainnya (seperti Rak 02 Core Language atau Rak 06 Async Concurrency) menggunakan basis standar penulisan baru yang telah diuji coba.
