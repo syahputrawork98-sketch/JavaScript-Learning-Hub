@@ -4,11 +4,11 @@ Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 5.1. T
 
 ---
 
-## 1. Rencana Perjalanan Batch (Batches 1 - 5.1)
+## 1. Rencana Perjalanan Batch (Batches 1 - 6)
 
 ```mermaid
 gantt
-    title Peta Rencana Fondasi Rebuild (Batch 1-5.1)
+    title Peta Rencana Fondasi Rebuild (Batch 1-6)
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
     Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
@@ -17,7 +17,9 @@ gantt
     Batch 4 - Legacy Mapping RAK lama ke Rak Baru               :done, des4, after des3, 1d
     section Review & Gate
     Batch 5 - Review Gate oleh Room Chat 01 (Read-Only)          :done, des5, after des4, 1d
-    Batch 5.1 - Fix Review Gate & Material Writing Policy        :active, des6, after des5, 1d
+    Batch 5.1 - Fix Review Gate & Material Writing Policy        :done, des6, after des5, 1d
+    section Standardisasi
+    Batch 6 - Formalisasi Material Content Standard              :active, des7, after des6, 1d
 ```
 
 ### [Batch 1] — Setup Project Control & Portable Add Instructions
@@ -47,14 +49,19 @@ gantt
 
 ### [Batch 5.1] — Fix Review Gate Notes & Dokumentasi Kebijakan Migrasi Materi
 * **Tujuan:** Memperbaiki seluruh temuan audit Batch 5, menyelaraskan sinkronisasi `status.md` dan `roadmap-active.md`, serta mendokumentasikan kebijakan penangguhan materi baru dan regulasi penghapusan legacy `RAK-*` bertahap di bawah [Material Writing Policy](./material-writing-policy.md).
-* **Status:** `SELESAI DIEKSEKUSI` (Oleh Gemini 3 Flash, Siap Direview).
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Sinkronisasi menyeluruh status, pembersihan sisa nama repo pembanding eksternal, koreksi relative links mapping di `migration-policy.md`, dan pembuatan berkas kebijakan penulisan formal.
+
+### [Batch 6] — Formalisasi Material Content Standard
+* **Tujuan:** Membentuk standar resmi penulisan materi untuk struktur Buku, Bab, Subbab, analogi, diagram, dan latihan sebelum migrasi dimulai.
+* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Output:** Pembuatan berkas `docs/project/material-content-standard.md`, serta pembaruan terkait pada `material-writing-policy.md`, `docs/README.md`, `current-status.md`, `roadmap-active.md`, dan `status.md`.
 
 ---
 
 ## 2. Catatan Penting Prosedur
 
 > [!IMPORTANT]
-> * **Tahap Fondasi:** Batch 1 sampai Batch 5.1 adalah pembentukan fondasi struktural, pembersihan tautan, penyusunan peta mapping, dan arsitektur kontrol proyek yang kini siap dipause dengan aman.
+> * **Tahap Fondasi:** Batch 1 sampai Batch 6 adalah pembentukan fondasi struktural, standardisasi materi, pemetaan, dan arsitektur kontrol proyek yang kini siap dipause dengan aman.
 > * **Review Gate:** Batch 5 bersifat **Read-Only (Audit)**. Seluruh catatan perbaikan diselesaikan di Batch 5.1.
-> * **Migrasi Konten:** Migrasi detail materi pembelajaran dari folder lama **hanya boleh dimulai** setelah project diaktifkan kembali dan standar penulisan baru disepakati di Room Chat 00 sesuai [Material Writing Policy](./material-writing-policy.md).
+> * **Migrasi Konten:** Migrasi detail materi pembelajaran dari folder lama **hanya boleh dimulai** setelah project diaktifkan kembali dan standar penulisan baru disepakati di Room Chat 00 sesuai [Material Writing Policy](./material-writing-policy.md). Standardisasi resmi awal telah disiapkan sebagai active draft di bawah [Material Content Standard](./material-content-standard.md).

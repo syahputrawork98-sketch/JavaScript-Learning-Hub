@@ -28,11 +28,12 @@ Seluruh dokumentasi aktif untuk tata kelola, kebijakan, status, dan rencana proy
 * [Migration Policy](./project/migration-policy.md) — Prosedur pemindahan materi lama secara aman.
 * [Legacy to Materi Mapping](./project/legacy-to-materi-mapping.md) — Peta pemetaan awal dari folder legacy RAK-* ke materi baru.
 * [Material Writing Policy](./project/material-writing-policy.md) — Kebijakan penulisan materi baru (PPM V4 deprecated) dan regulasi penghapusan legacy source.
+* [Material Content Standard](./project/material-content-standard.md) — Standar struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan.
 
 ---
 
 ## Catatan Penting
 * Folder [project/](./project/) adalah satu-satunya **Pusat Kontrol Aktif** proyek rebuild saat ini.
 * Folder `docs/standards/` lama telah **dipensiunkan seutuhnya** dan isinya telah diintegrasikan secara ringkas ke berkas di bawah [project/](./project/).
-* **Standar Penulisan Materi Baru:** Standar penulisan materi yang baru belum ditetapkan secara aktif (PPM V4 telah dinyatakan tidak aktif). Detail aturan penulisan dan larangan eksekusi prematur dapat dibaca pada [Material Writing Policy](./project/material-writing-policy.md).
+* **Standar Penulisan Materi Baru:** Standar penulisan materi yang baru telah diformalkan sebagai active draft pada [Material Content Standard](./project/material-content-standard.md). PPM V4 telah dinyatakan tidak aktif seutuhnya. Detail aturan penulisan dan larangan eksekusi prematur dapat dibaca pada [Material Writing Policy](./project/material-writing-policy.md).
 * **Legacy Source:** Folder materi lama (`RAK-*` di tingkat root) tetap dipertahankan penuh sebagai bahan dasar migrasi dan **tidak boleh dihapus** di fase rebuild awal ini.

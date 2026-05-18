@@ -4,12 +4,13 @@ Dokumen ini mencatat keputusan resmi dari Room Chat 00 dan User mengenai kebijak
 
 ---
 
-## 🛑 1. Penangguhan & Kebijakan Penulisan Materi Baru (PPM V4 Deprecated)
+## 🛑 1. Standar Struktur & Kebijakan Penulisan Materi (PPM V4 Deprecated)
 
-* **PPM V4 Deprecated:** Standar penulisan lama (PPM V4) dinyatakan **tidak aktif** dan tidak digunakan sebagai standar aktif untuk penulisan materi baru.
-* **Standar Baru Belum Ditetapkan:** Standar kualitas dan format penulisan materi JavaScript yang baru belum diputuskan. Standar baru akan didiskusikan secara mendalam bersama User dan Room Chat 00 sebelum fase penulisan atau migrasi materi dimulai secara resmi.
-* **Larangan Eksekusi Prematur:** Sebelum standar penulisan baru disepakati secara resmi, Executor (Gemini 3 Flash) **dilarang keras** menulis materi panjang, mengedit subfolder pembelajaran secara mendalam, atau melakukan migrasi konten secara massal.
-* **Tindakan Saat Ini:** Pengerjaan difokuskan penuh hanya pada pembentukan fondasi kontrol proyek dan penyusunan peta mapping awal.
+* **PPM V4 Deprecated:** Standar penulisan lama (PPM V4) dinyatakan **tidak aktif** dan tidak digunakan sebagai acuan penulisan.
+* **Material Content Standard (ACTIVE DRAFT):** Standar resmi baru untuk struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan telah diformalkan di [Material Content Standard](./material-content-standard.md).
+* **Larangan Eksekusi Prematur:** Meskipun standar baru telah disepakati sebagai *active draft*, Executor (Gemini 3 Flash) **dilarang keras** menulis materi panjang, membuat buku/bab secara fisik di dalam rak, atau melakukan migrasi konten secara massal sebelum ada batch instruksi resmi yang disetujui untuk pilot penulisan atau migrasi.
+* **Tindakan Saat Ini:** Pengerjaan difokuskan penuh pada penataan administrasi, arsitektur proyek, standardisasi, dan pemetaan (mapping) awal.
+* **Anti-Deletion Legacy:** Folder legacy `RAK-*` dilarang keras dihapus, diubah namanya, atau dipindahkan sebelum seluruh materi dikaji, ditulis ulang sesuai standar baru, di-review, dan mendapatkan persetujuan tertulis resmi.
 
 ---
 
