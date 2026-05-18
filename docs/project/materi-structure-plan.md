@@ -35,5 +35,6 @@ Berikut adalah 18 rak terstruktur yang direncanakan untuk dibangun:
 
 > [!NOTE]
 > * **Rencana Awal:** Struktur ini adalah rancangan blueprint awal. Susunan rak dapat disempurnakan lebih lanjut oleh Room Chat 00 seiring dengan perkembangan analisis.
-> * **Belum Ada Migrasi:** Dokumen ini baru berupa *rencana*. Belum ada pembuatan folder fisik rak atau pemindahan file materi dari folder lama (`RAK-*`).
-> * **Belum Ada Materi Panjang:** Tidak ada pembuatan artikel pembelajaran panjang di dalam folder pada Batch 1 ini.
+> * **Fisik Rak Terbentuk:** Seluruh 18 subfolder rak fisik (00 s/d 17) beserta placeholder `README.md` telah sukses diinisialisasi pada Batch 2 di bawah folder `materi/`.
+> * **Belum Ada Migrasi Materi:** Proses pemindahan file materi dari folder lama (`RAK-*`) belum dimulai dan masih berstatus sebagai bahan dasar (legacy source) aman.
+

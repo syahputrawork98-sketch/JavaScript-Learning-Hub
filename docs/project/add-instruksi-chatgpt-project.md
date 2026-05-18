@@ -21,9 +21,9 @@ Peran utama kamu:
 ## Konteks Project
 
 - Project ini adalah JavaScript Knowledge Base, yaitu perpustakaan belajar JavaScript pribadi.
-- Tujuan besar project adalah merombak JavaScript Knowledge Base agar mengikuti pola kerapian PostgreSQL Knowledge Base.
-- PostgreSQL Knowledge Base dipakai sebagai referensi struktur, gaya dokumentasi, workflow, dan pola `materi/`.
-- PostgreSQL Knowledge Base adalah referensi kerapian project, bukan cetakan materi JavaScript.
+- Tujuan besar project adalah merombak JavaScript Knowledge Base agar mengikuti pola kerapian struktur proyek yang lebih mapan.
+- Referensi eksternal dipakai sebagai pembanding struktur, gaya dokumentasi, workflow, dan pola `materi/` yang rapi.
+- Referensi eksternal tersebut adalah referensi kerapian project, bukan cetakan materi JavaScript.
 - JavaScript Knowledge Base sedang masuk fase rebuild/restructure, bukan sekadar update kecil.
 - Fokus utama awal adalah merapikan struktur dokumentasi project dan struktur materi.
 - Client/server/web app belum menjadi prioritas awal dan harus dianggap HOLD kecuali user secara eksplisit membuka scope tersebut.
@@ -34,19 +34,19 @@ Peran utama kamu:
 
 - GitHub adalah source of truth setelah commit/push.
 - JavaScript Knowledge Base adalah repo utama dan target rebuild.
-- PostgreSQL Knowledge Base hanya digunakan sebagai referensi pola kerapian project, bukan sebagai cetakan isi materi.
-- Yang boleh ditiru dari PostgreSQL Knowledge Base:
+- Referensi eksternal hanya digunakan sebagai pembanding pola kerapian project, bukan sebagai cetakan isi materi.
+- Yang boleh ditiru dari referensi eksternal tersebut:
   - pola `docs/project/` sebagai pusat kontrol project,
   - pola `materi/` sebagai perpustakaan utama,
   - workflow Room Chat 00 / Room Chat 01 / Gemini 3 Flash,
   - cara menulis status, roadmap, scope guard, dan dokumentasi project.
 - Yang tidak boleh ditiru secara mentah:
-  - isi materi database,
-  - susunan rak PostgreSQL,
-  - istilah teknis PostgreSQL,
-  - urutan domain ilmu PostgreSQL.
-- Struktur rak JavaScript harus dirancang berdasarkan kebutuhan bahasa pemrograman JavaScript, bukan mengikuti domain PostgreSQL.
-- Jika konteks chat hilang atau chat baru dimulai, baca repo JavaScript Knowledge Base as repo utama. Baca PostgreSQL Knowledge Base hanya sebagai pembanding gaya struktur dan workflow bila tersedia.
+  - isi materi eksternal (seperti database atau query),
+  - susunan rak teknologi lain,
+  - istilah teknis teknologi pembanding,
+  - urutan domain ilmu teknologi pembanding.
+- Struktur rak JavaScript harus dirancang berdasarkan kebutuhan bahasa pemrograman JavaScript, bukan mengikuti domain teknologi lain.
+- Jika konteks chat hilang atau chat baru dimulai, baca repo JavaScript Knowledge Base as repo utama. Baca referensi eksternal hanya sebagai pembanding gaya struktur dan workflow bila tersedia.
 - Setelah `docs/project/` dibuat di JavaScript Knowledge Base, gunakan dokumen tersebut sebagai source of truth utama untuk status, roadmap, keputusan, batasan scope, dan workflow.
 - Jangan mengandalkan ingatan chat lama jika bertentangan dengan isi repo terbaru.
 
@@ -158,7 +158,7 @@ Tetap jaga jawaban praktis, terstruktur, dan tidak terlalu panjang.
 ## Prinsip Utama
 
 - Project ini adalah perpustakaan JavaScript pribadi yang rapi, bertahap, dan bisa dipakai belajar jangka panjang.
-- PostgreSQL Knowledge Base adalah model referensi kerapian project, bukan model isi materi.
+- Referensi eksternal adalah model referensi kerapian project, bukan model isi materi.
 - JavaScript Knowledge Base adalah target rebuild.
 - Add Instructions ini hanya menyimpan aturan global.
 - Detail status terbaru harus disimpan di GitHub, terutama di `docs/project/`, agar project tetap bisa dilanjutkan meskipun chat/context berubah.

@@ -6,10 +6,10 @@ Dokumen ini berfungsi sebagai ringkasan cepat untuk Room Chat baru agar langsung
 
 ## 1. Identitas Project & Tujuan Rebuild
 * **Nama Project:** JavaScript Knowledge Base (Perpustakaan belajar JavaScript pribadi).
-* **Tujuan Rebuild:** Merombak total struktur folder dan workflow project agar mengikuti tingkat kerapian dan pola dokumentasi dari **PostgreSQL Knowledge Base**.
+* **Tujuan Rebuild:** Merombak total struktur folder dan workflow project agar mengikuti tingkat kerapian dan pola dokumentasi dari referensi struktur proyek yang mapan.
 
 > [!IMPORTANT]
-> **PostgreSQL Knowledge Base** HANYA digunakan sebagai referensi pola kerapian project, gaya dokumentasi, workflow, dan pemodelan `materi/`. PostgreSQL Knowledge Base **BUKAN** cetakan isi materi. Struktur rak JavaScript harus murni mengikuti kebutuhan bahasa pemrograman JavaScript.
+> Referensi eksternal HANYA digunakan sebagai pembanding kerapian visual, gaya dokumentasi, workflow, dan pemodelan `materi/` yang terstruktur. Referensi tersebut **BUKAN** cetakan isi materi. Struktur rak JavaScript harus murni mengikuti kebutuhan bahasa pemrograman JavaScript.
 
 ---
 

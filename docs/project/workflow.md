@@ -75,9 +75,10 @@ graph TD
 
 ---
 
-## 4. Alur Riset & Penulisan Materi (PPM V4)
+## 4. Alur Riset & Penulisan Materi
 
-Setiap penyusunan materi final (README.md di subfolder bab) harus mengikuti tahapan penulisan berikut demi menjaga kualitas **Gold Standard**:
+> [!NOTE]
+> Standar penulisan materi baru belum ditetapkan secara aktif. Format dan standar penulisan materi baru akan dibahas dan ditetapkan pada fase penulisan/migrasi materi berikutnya. Untuk sementara, alur riset dan penulisan diarahkan menggunakan panduan umum berikut:
 
 1. **Source Alignment & Spec-Rigor:** Menghubungkan bahasan dengan link spesifikasi resmi (ECMA-262 / MDN) untuk akurasi mutlak.
 2. **Konsep & Esensi (Dual Definition):** Menyajikan definisi formal dan analogi model mental yang mudah dipahami.

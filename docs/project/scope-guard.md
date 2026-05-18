@@ -20,9 +20,9 @@ Semua asisten AI (Room Chat 00, Room Chat 01, dan Gemini 3 Flash) wajib mematuhi
 * Sektor program/aplikasi seperti frontend, backend, server-side code, logic API, database schema, authentication/login, deployment config, atau fitur web app lainnya berstatus **HOLD**.
 * Jangan membuat, mengedit, atau mengaktifkan script server/client apa pun kecuali ada permintaan eksplisit yang disetujui di Room Chat 00.
 
-### D. Jangan Meniru Isi PostgreSQL Knowledge Base secara Mentah
-* PostgreSQL Knowledge Base adalah model referensi kerapian visual dan tata kelola proyek, **bukan** cetakan isi materi.
-* **Dilarang keras** meniru istilah database, susunan rak database, query SQL, atau urutan domain ilmu PostgreSQL ke dalam repositori JavaScript.
+### D. Jangan Meniru Isi Referensi Struktur Proyek secara Mentah
+* Referensi eksternal hanya digunakan sebagai pembanding kerapian visual dan tata kelola proyek, **bukan** cetakan isi materi.
+* **Dilarang keras** meniru istilah database, susunan rak database, query SQL, atau urutan domain ilmu teknologi pembanding ke dalam repositori JavaScript.
 * Struktur rak JavaScript harus murni didasarkan pada kebutuhan dan domain bahasa pemrograman JavaScript.
 
 ### E. Kebijakan Rak 17 (Berita, Isu, & Update Ekosistem)

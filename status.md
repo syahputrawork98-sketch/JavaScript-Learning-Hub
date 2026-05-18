@@ -6,10 +6,10 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 
 ## 📢 STATUS AKTIF SAAT INI (REBUILD PHASE)
 * **Fase Proyek:** `REBUILD / RESTRUCTURE PHASE` (Pembangunan Ulang & Restrukturisasi).
-* **Target Rebuild:** Merapikan struktur folder dan tata kelola materi mengikuti PostgreSQL Knowledge Base.
+* **Target Rebuild:** Merapikan struktur folder dan tata kelola materi mengikuti referensi struktur proyek yang mapan.
 * **Struktur Target Baru:**
-  * **Project Control:** [docs/project/](file:///i:/Workspace/Workspace-Syahputrawork/01-Language-Hubs-Workspace/JavaScript-Knowledge-Base/docs/project/) (AKTIF)
-  * **Perpustakaan Utama:** [materi/](file:///i:/Workspace/Workspace-Syahputrawork/01-Language-Hubs-Workspace/JavaScript-Knowledge-Base/materi/) (AKTIF - Kerangka Rak 00-17)
+  * **Project Control:** [docs/project/](./docs/project/) (AKTIF)
+  * **Perpustakaan Utama:** [materi/](./materi/) (AKTIF - Kerangka Rak 00-17)
 * **Migrasi Konten:** `BELUM DIMULAI` (Fase Fondasi).
 * **Status Folder Lama (`RAK-*`):** `LEGACY SOURCE` (Tetap dipertahankan seutuhnya, tidak boleh dihapus).
 * **Client / Server / Web App:** `HOLD` (Ditangguhkan).
@@ -46,6 +46,7 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 ---
 
 ## 📜 Log Perubahan Global (Changelog)
+* **2026-05-18**: **BATCH 4 IN PROGRESS** — Pembersihan identitas (cleanup PostgreSQL & PPM V4), penyusunan docs/README.md baru, perbaikan relative links, dan pembuatan mapping legacy ke materi/.
 * **2026-05-18**: **BATCH 3 COMPLETED** — Sinkronisasi berkas root (README, FITUR, Status) & cleanup berkas kontrol lama (`.cursorrules`, `docs/standards/`, `docs/README.md`).
 * **2026-05-18**: **BATCH 2 COMPLETED** — Pembuatan 18 subfolder rak fisik (`00` s/d `17`) beserta placeholder `README.md` di bawah `materi/`.
 * **2026-05-18**: **BATCH 1 COMPLETED** — Pendirian Pusat Kontrol baru di `docs/project/` (Instruksi portable, status, roadmap, workflow, scope guard).
@@ -55,5 +56,5 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 * **2026-03-28**: **RAK-04 FINAL SYNC** — Phase 12 (Built-ins) Gold Standard.
 * **2026-03-28**: **RAK-04 HARDENING** — Phase 11 (Grammar & Blueprints) Gold Standard.
 * **2026-03-21**: **RAK-04 SYNC** — SR-01, SR-02, SR-08/12 Gold Standard.
-* **2026-03-20**: **RAK-03 SYNC** — Penyelarasan PPM V4.
-* **2026-03-19**: PPM V4 Gold Standard Sync Pilot.
+* **2026-03-20**: **RAK-03 SYNC** — Penyelarasan standar riset materi.
+* **2026-03-19**: Pilot Sinkronisasi Standar Riset Materi.
