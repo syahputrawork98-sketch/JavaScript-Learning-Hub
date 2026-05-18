@@ -57,7 +57,7 @@ Setiap kali Anda menulis kata kunci `function` dan membuka kurung kurawal `{ ...
 
 ### 3. Block Scope
 Blok adalah potongan kode apa pun yang dibatasi oleh sepasang kurung kurawal `{ }`. Ini termasuk blok `if`, `else`, loop `for`, loop `while`, atau bahkan kurung kurawal kosong tanpa kata kunci di depannya. 
-Variabel yang dideklarasikan dengan `let` atau `const` di dalam blok hanya hidup selama eksekusi berada di dalam blok tersebut. Begitu baris eksekusi keluar dari blok, variabel itu dihancurkan.
+Variabel yang dideklarasikan dengan `let` atau `const` di dalam blok hanya hidup selama eksekusi berada di dalam blok tersebut. Begitu baris eksekusi keluar dari blok, variabel itu dihancurkan. Secara umum, binding block tidak lagi bisa diakses setelah keluar dari block. Namun jika ada closure yang menangkap binding tersebut, engine dapat mempertahankan environment terkait selama masih dibutuhkan.
 
 ---
 
@@ -65,7 +65,7 @@ Variabel yang dideklarasikan dengan `let` atau `const` di dalam blok hanya hidup
 Bagaimana engine mengevaluasi perbedaan ini?
 *   **var (Function/Global Scoped):** Ketika compile phase, engine memindahkan deklarasi `var` ke tingkat teratas dari fungsi terdekat (atau ke Global Scope jika di luar fungsi). Blok `{ }` seperti `if` atau `for` sama sekali diabaikan. Ini disebut proses *Hoisting*.
 *   **let & const (Block Scoped):** Saat kompilasi, engine menaruh `let` dan `const` ke dalam kategori *Block Lexical Environment* khusus. Engine mendirikan batasan ketat pada sepasang kurung kurawal `{ }` terdekat. 
-*   **Temporal Dead Zone (TDZ):** Selain membatasi scope, `let` dan `const` tidak di-inisialisasi dengan `undefined` saat hoist. Mereka masuk ke area terlarang TDZ sejak awal blok dibaca hingga baris deklarasi didekati. Mencoba membaca mereka di TDZ akan memicu `ReferenceError`.
+*   **Temporal Dead Zone (TDZ):** Selain membatasi scope, `let` dan `const` tidak di-inisialisasi dengan `undefined` saat hoist. Mereka masuk ke area terlarang TDZ sejak awal blok dibaca hingga deklarasi dieksekusi atau binding diinisialisasi. Mencoba membaca mereka di TDZ akan memicu `ReferenceError`.
 
 ---
 
@@ -208,6 +208,10 @@ try {
 }
 ```
 
+> [!NOTE]
+> **Catatan:**
+> Contoh ini berjalan di environment browser karena memakai `document`. Contoh ini juga merupakan jembatan awal menuju closure, karena callback event listener tetap dapat mengakses `sessionToken` dari scope tempat callback dibuat.
+
 ---
 
 ## Latihan
@@ -262,7 +266,7 @@ Apa hasil eksekusi fungsi `tesTDZ()` di atas? Sebutkan baris mana yang akan meng
 *   **Global Scope:** Ruang publik terluar. Berumur panjang, rentan polusi bentrok nama.
 *   **Function Scope:** Terisolasi ketat di dalam sepasang `{ }` milik fungsi. Baik `var`, `let`, maupun `const` terkurung di sini.
 *   **Block Scope:** Terisolasi di antara `{ }` milik blok seperti `if` atau `for`. Hanya `let` dan `const` yang mematuhi batas ini.
-*   **Masalah `var`:** Tidak mengenal Block Scope, berpotensi bocor keluar blok, dan rentan terhadap anomali hoisting/TDZ.
+*   **Masalah `var`:** Tidak mengenal Block Scope, berpotensi bocor keluar blok, dan rentan terhadap hoisting dengan nilai awal undefined, sedangkan let dan const memiliki Temporal Dead Zone sampai deklarasinya dieksekusi/diinisialisasi.
 
 ---
 

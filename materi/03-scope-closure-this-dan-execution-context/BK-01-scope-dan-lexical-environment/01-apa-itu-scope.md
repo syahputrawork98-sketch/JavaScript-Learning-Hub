@@ -105,7 +105,7 @@ Ketika file JavaScript Anda dimuat:
 2.  **Fase Eksekusi:** 
     *   Engine membuat Global Execution Context dan menaruh `namaAplikasi` di dalamnya.
     *   Saat `sapaPengguna()` dipanggil, Context Baru didorong ke atas Call Stack. Lingkungan lokal dibuat. `namaUser` dialokasikan di dalam memori lokal tersebut.
-    *   Setelah fungsi selesai dijalankan, seluruh lingkungan lokal `sapaPengguna` secara default akan dihancurkan oleh Garbage Collector untuk membebaskan RAM, sehingga variabel `namaUser` benar-benar lenyap dari memori.
+    *   Setelah fungsi selesai dijalankan, seluruh lingkungan lokal `sapaPengguna` secara default akan dihancurkan oleh Garbage Collector untuk membebaskan RAM, sehingga variabel `namaUser` benar-benar lenyap dari memori. Namun, perlu dicatat sebagai *caveat*: dalam kasus biasa, environment lokal bisa dibersihkan setelah fungsi selesai. Namun jika ada function lain yang masih menutup/mengakses variabel dari environment tersebut, seperti pada closure, environment itu bisa tetap dipertahankan oleh engine.
 
 ---
 
@@ -186,6 +186,10 @@ console.log(counter.baca());   // 2
 count = 999; // Ini hanya membuat variabel global baru bernama 'count', tidak mengubah 'count' di dalam!
 console.log(counter.baca());   // Tetap 2! Sangat aman!
 ```
+
+> [!NOTE]
+> **Catatan mode eksekusi:**
+> Pada sloppy mode, assignment tanpa deklarasi seperti `count = 999` dapat membuat variabel global baru. Pada strict mode atau ES module, pola ini bisa menghasilkan ReferenceError. Inti contohnya: assignment tersebut tetap tidak mengubah `count` yang terlindungi di scope closure.
 
 ---
 

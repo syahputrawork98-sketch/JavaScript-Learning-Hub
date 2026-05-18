@@ -1,13 +1,13 @@
 # Roadmap Aktif — JavaScript Knowledge Base Rebuild
 
-Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 5.1. Tahapan ini difokuskan penuh untuk membangun fondasi arsitektur dan kontrol proyek sebelum migrasi materi detail dimulai.
+Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 9.1. Tahapan ini difokuskan penuh untuk membangun fondasi arsitektur dan kontrol proyek sebelum migrasi materi detail dimulai.
 
 ---
-## 1. Rencana Perjalanan Batch (Batches 1 - 8)
+## 1. Rencana Perjalanan Batch (Batches 1 - 9.1)
 
 ```mermaid
 gantt
-    title Peta Rencana Fondasi Rebuild (Batch 1-8)
+    title Peta Rencana Fondasi Rebuild (Batch 1-9.1)
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
     Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
@@ -20,7 +20,10 @@ gantt
     section Standardisasi
     Batch 6 - Formalisasi Material Content Standard              :done, des7, after des6, 1d
     Batch 7 - Detail Mapping Legacy dan Strategi Deletion        :done, des8, after des7, 1d
-    Batch 8 - Pilot Buku Pertama: Scope & Lexical Env            :active, des9, after des8, 1d
+    Batch 8 - Pilot Buku Pertama: Scope & Lexical Env            :done, des9, after des8, 1d
+    section Review & Hardening
+    Batch 9 - Review Pilot Buku Pertama oleh Room Chat 01        :done, des10, after des9, 1d
+    Batch 9.1 - Fix Kecil Pilot Buku Scope & Lexical Env         :active, des11, after des10, 1d
 ```
 
 ### [Batch 1] — Setup Project Control & Portable Add Instructions
@@ -65,14 +68,24 @@ gantt
 
 ### [Batch 8] — Pilot Buku Pertama: Scope dan Lexical Environment
 * **Tujuan:** Membuat buku pertama dan 3 bab pilot mengenai Scope dan Lexical Environment di bawah Rak 03 untuk menguji coba efektivitas penulisan Material Content Standard secara nyata.
-* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Pembuatan folder `materi/03-.../BK-01-scope-dan-lexical-environment/` beserta `README.md` buku, `01-apa-itu-scope.md`, `02-global-function-dan-block-scope.md`, dan `03-lexical-scope-dan-scope-chain.md`, serta sinkronisasi dokumen kontrol proyek.
+
+### [Batch 9] — Review Pilot Buku Pertama oleh Room Chat 01
+* **Tujuan:** Melakukan review menyeluruh terhadap buku pilot pertama BK-01 dari sisi keselarasan spesifikasi teknis dan kepatuhan standar penulisan.
+* **Status:** `SELESAI / COMMITTED` (Accepted with Notes)
+* **Output:** Buku pilot dinilai sukses sebagai landasan model tetapi dengan catatan kecil untuk perbaikan detail teknis (refinements).
+
+### [Batch 9.1] — Fix Kecil Pilot Buku Scope dan Lexical Environment
+* **Tujuan:** Menyelesaikan seluruh catatan perbaikan teknis minor dari review Batch 9 terhadap buku pilot pertama agar lebih presisi.
+* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Output:** Perbaikan relative link, penyematan caveat closure di Bab 01 & Bab 02, penjelasan sloppy/strict mode, presisi hoisting/TDZ, istilah standardisasi [[Scopes]] statis, dan catatan duplicate const SyntaxError.
 
 ---
 
 ## 2. Catatan Penting Prosedur
 
 > [!IMPORTANT]
-> * **Tahap Fondasi & Pilot:** Batch 1 sampai Batch 8 mencakup pembentukan arsitektur kontrol, standardisasi penulisan, mapping rinci, dan keberhasilan penyelesaian buku pilot pertama yang kini siap dipause dengan aman.
+> * **Tahap Fondasi & Pilot:** Batch 1 sampai Batch 9.1 mencakup pembentukan arsitektur kontrol, standardisasi penulisan, mapping rinci, dan keberhasilan penyelesaian serta penyempurnaan (hardening) buku pilot pertama yang kini siap dipause dengan aman.
 > * **Review Gate:** Batch 5 bersifat **Read-Only (Audit)**. Seluruh catatan perbaikan diselesaikan di Batch 5.1.
 > * **Ekspansi Penulisan Materi:** Langkah penulisan atau pemindahan materi di rak lain **hanya boleh dimulai** setelah pilot buku pertama ini ditinjau, dievaluasi, dan disetujui secara resmi oleh Room Chat 00 sesuai kebijakan yang berlaku. Rencana detail pemetaan dan penghapusan bertahap diatur pada [Legacy Migration & Deletion Plan](./legacy-migration-deletion-plan.md).

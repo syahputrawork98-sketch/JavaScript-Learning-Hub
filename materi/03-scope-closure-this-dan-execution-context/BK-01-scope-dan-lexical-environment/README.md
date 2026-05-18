@@ -10,7 +10,7 @@ Buku ini berfungsi sebagai landasan teoretis dan praktis utama sebelum melangkah
 Status: **PILOT / ACTIVE DRAFT**
 
 > [!NOTE]
-> Buku ini merupakan **pilot pertama** yang ditulis secara resmi untuk menguji implementasi [Material Content Standard](../../docs/project/material-content-standard.md). Semua bab di dalamnya disusun mengikuti pola bahasa manusia $\rightarrow$ analogi $\rightarrow$ batas analogi $\rightarrow$ penjelasan teknis mendalam $\rightarrow$ diagram/simulasi $\rightarrow$ latihan prediksi output.
+> Buku ini merupakan **pilot pertama** yang ditulis secara resmi untuk menguji implementasi [Material Content Standard](../../../docs/project/material-content-standard.md). Semua bab di dalamnya disusun mengikuti pola bahasa manusia $\rightarrow$ analogi $\rightarrow$ batas analogi $\rightarrow$ penjelasan teknis mendalam $\rightarrow$ diagram/simulasi $\rightarrow$ latihan prediksi output.
 
 ---
 

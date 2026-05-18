@@ -58,11 +58,9 @@ Jika Anda mendeklarasikan fungsi `A` di level global, maka scope terluar dari `A
 ---
 
 ## Penjelasan Teknis
-Ketika JavaScript engine membuat sebuah fungsi, secara internal engine akan menyematkan properti rahasia yang disebut **`[[Scopes]]`** pada objek fungsi tersebut. 
+Secara konsep, function membawa referensi ke lexical environment tempat ia dibuat. Dalam pembahasan spesifikasi, konsep ini lebih dekat dengan internal mechanism seperti environment reference / `[[Environment]]`. Istilah `[[Scopes]]` sering terlihat sebagai representasi di DevTools atau mental model engine, tetapi jangan dianggap sebagai nama standar utama yang selalu sama di semua spesifikasi/engine.
 
-*   Properti `[[Scopes]]` ini bertindak sebagai "memori genetik" fungsi.
-*   Ia menyimpan daftar seluruh *Lexical Environment* yang menaungi fungsi tersebut pada saat ia dilahirkan (dideklarasikan).
-*   Ketika fungsi tersebut dieksekusi, engine membuat *Lexical Environment* lokal baru dan menetapkan tautan **`Outer Reference`** miliknya untuk menunjuk langsung ke lingkungan yang disimpan di dalam properti rahasia `[[Scopes]]` tersebut.
+Ketika engine membuat fungsi, ia menyimpan daftar lexical environment yang menaungi fungsi tersebut pada saat dilahirkan (dideklarasikan). Ketika fungsi tersebut dieksekusi, engine membuat *Lexical Environment* lokal baru dan menetapkan tautan **`Outer Reference`** miliknya untuk menunjuk langsung ke lingkungan referensi tempat ia dibuat.
 
 Inilah cara kerja **Scope Chain** yang sebenarnya. Scope chain adalah rantai fisik objek *Lexical Environment* yang terhubung satu sama lain melalui properti *Outer Reference* internal.
 
@@ -107,6 +105,10 @@ Mari kita analisis perilaku eksekusi kode di atas secara saksama:
     *   **Output yang dicetak:** `"Budi (Global)"`.
 
 *Kesimpulan:* Meskipun `cetakNama` dipanggil di dalam `eksekutor` yang memiliki variabel `nama = "Joko"`, fungsi `cetakNama` sama sekali tidak terpengaruh oleh lingkungan `eksekutor` karena mereka tidak memiliki hubungan kekerabatan lexical.
+
+> [!IMPORTANT]
+> **Catatan Outer Reference:**
+> Yang penting: `cetakNama` mencari variabel berdasarkan tempat ia ditulis/dibuat. Jika `cetakNama` ditulis di global scope, outer reference-nya mengarah ke global environment, bukan ke scope `eksekutor`, meskipun dipanggil dari dalam `eksekutor`.
 
 ---
 
@@ -245,6 +247,7 @@ jalankanAnak();
 
 **Pertanyaan:**
 1. Apakah pendeklarasikan ulang konstanta `nilai` di baris terakhir akan menyebabkan error sintaksis? Jelaskan mengapa!
+   *(Catatan: Jika dua deklarasi `const` berada pada scope yang sama, kode akan gagal lebih awal sebagai SyntaxError sebelum eksekusi normal berjalan. Jangan biarkan pembaca mengira error baru terjadi saat runtime biasa setelah beberapa baris berjalan).*
 2. Jika konstanta di baris terakhir diubah namanya menjadi variabel lain sehingga tidak error, output angka berapakah yang akan dicetak di konsol saat `jalankanAnak()` dipanggil? 10, 20, atau 30?
 3. Jelaskan langkah demi langkah pencarian scope (*scope chain lookup*) yang dilakukan oleh JavaScript engine hingga berhasil menemukan nilai tersebut!
 
@@ -253,7 +256,7 @@ jalankanAnak();
 ## Ringkasan
 *   **Lexical Scope:** Hubungan antar scope diputuskan secara statis saat penulisan kode (compile time), bukan saat pemanggilan (runtime).
 *   **Scope Chain Lookup:** Proses pencarian variabel berjalan secara **satu arah ke luar** dari scope lokal $\rightarrow$ outer scope $\rightarrow$ global scope.
-*   **Ingatan Genetik (`[[Scopes]]`):** Setiap fungsi mengingat lingkungan tempat ia ditulis secara permanen melalui properti rahasia internal.
+*   **Ingatan Genetik (Environment Reference):** Setiap fungsi secara konsep mengingat lingkungan tempat ia ditulis secara permanen melalui referensi/pointer internal (sering direpresentasikan sebagai `[[Scopes]]` di DevTools).
 *   **Outer Reference:** Pointer runtime yang menghubungkan satu *Lexical Environment* ke lingkungan di luarnya untuk membentuk rantai pencarian (*scope chain*).
 
 ---
