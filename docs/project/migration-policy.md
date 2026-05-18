@@ -40,3 +40,13 @@ Ketika fase migrasi telah dibuka secara resmi oleh Room Chat 00, setiap proses p
 4. **Laporkan Kemajuan:** Laporkan hasil pemindahan per topik di status laporan Gemini.
 5. **Verifikasi Chat 01:** Room Chat 01 meninjau kebenaran format dan struktur secara read-only.
 6. **Keputusan Chat 00:** Room Chat 00 menyetujui pemindahan dan memperbarui status menjadi `VERIFIED`.
+
+---
+
+## 4. Jaminan Akurasi Spesifikasi (Spec-Rigor)
+
+Selama proses migrasi, pembuat materi wajib memverifikasi validitas data dengan prinsip:
+* **No Assumptions:** Jangan mengandalkan ingatan atau tebakan. Selalu lakukan cross-reference dengan spesifikasi resmi.
+* **Sumber Otoritatif:** Rujuk langsung pada draf standardisasi ECMA-262 (tc39.es), MDN Web Docs, serta dokumentasi backend resmi (seperti Node.js API Docs) untuk bagian-bagian server-side runtime.
+* **Badges Status:** Tandai materi yang baru dipindahkan dengan status `DRAFT` atau `PLANNED` di awal, dan biarkan Room Chat 01 serta Room Chat 00 yang menyetujui transisi status ke `VERIFIED`.
+

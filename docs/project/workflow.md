@@ -72,3 +72,16 @@ graph TD
 > [!WARNING]
 > * **Review Gate:** Gemini 3 Flash hanya berperan sebagai Executor. Gemini tidak boleh mengambil alih peran reviewer akhir. Review gate wajib dilewati melalui verifikasi Room Chat 01 dan keputusan akhir Room Chat 00.
 > * **Pencegahan Loop:** Jangan pernah membuat instruksi yang memaksa Gemini melakukan analisa berulang-ulang tanpa aksi konkret, atau terjebak dalam looping perbaikan kode.
+
+---
+
+## 4. Alur Riset & Penulisan Materi (PPM V4)
+
+Setiap penyusunan materi final (README.md di subfolder bab) harus mengikuti tahapan penulisan berikut demi menjaga kualitas **Gold Standard**:
+
+1. **Source Alignment & Spec-Rigor:** Menghubungkan bahasan dengan link spesifikasi resmi (ECMA-262 / MDN) untuk akurasi mutlak.
+2. **Konsep & Esensi (Dual Definition):** Menyajikan definisi formal dan analogi model mental yang mudah dipahami.
+3. **Visualisasi Sistem (Mermaid):** Menyediakan diagram alur eksekusi/representasi memori secara **inline** di dalam berkas markdown.
+4. **Mekanisme Pembuktian (Under-The-Hood):** Menjelaskan bagaimana JavaScript Engine (V8/Libuv) mengeksekusi kode di balik layar.
+5. **Lab Praktis & Pitfalls:** Mengaitkan dengan contoh kode nyata serta mendokumentasikan jebakan (anti-patterns) umum.
+

@@ -12,8 +12,8 @@ gantt
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
     Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
-    Batch 2 - Setup Kerangka materi/ dan Rak 00-17              :active, des2, after des1, 1d
-    Batch 3 - Sinkronisasi Root Docs (README & Status)           : des3, after des2, 1d
+    Batch 2 - Setup Kerangka materi/ dan Rak 00-17              :done, des2, after des1, 1d
+    Batch 3 - Sinkronisasi Root Docs (README & Status)           :active, des3, after des2, 1d
     Batch 4 - Legacy Mapping RAK lama ke Rak Baru               : des4, after des3, 1d
     section Review & Gate
     Batch 5 - Review Gate oleh Room Chat 01 (Read-Only)          : des5, after des4, 1d
@@ -26,13 +26,13 @@ gantt
 
 ### [Batch 2] — Setup Kerangka `materi/` dan Rak 00–17
 * **Tujuan:** Menginisialisasi 18 rak pembelajaran baru (Rak 00 s/d 17) sebagai wadah penampung materi yang terstruktur.
-* **Status:** `SELESAI DIEKSEKUSI` (Oleh Gemini 3 Flash, Siap Direview).
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Folder kosong/placeholder untuk masing-masing rak beserta file `README.md` awal di setiap rak yang menjelaskan cakupan bahasannya.
 
 ### [Batch 3] — Sinkronisasi Root Docs: README, FITUR, dan Status
-* **Tujuan:** Merapikan dokumen di level root (`README.md`, `FITUR.md`, dan `status.md`) agar selaras dengan fase rebuild yang sedang berjalan.
-* **Status:** `BELUM DIMULAI`.
-* **Output:** Sinkronisasi deskripsi proyek, status pencapaian, dan pembaruan visual agar konsisten dengan gaya visual premium.
+* **Tujuan:** Merapikan dokumen di level root (`README.md`, `FITUR.md`, dan `status.md`) agar selaras dengan fase rebuild yang sedang berjalan serta membersihkan kontrol lama.
+* **Status:** `SELESAI DIEKSEKUSI` (Oleh Gemini 3 Flash, Siap Direview).
+* **Output:** Sinkronisasi deskripsi proyek, status pencapaian, dan pembaruan visual agar konsisten dengan gaya visual premium, serta menghapus `.cursorrules`, `docs/README.md`, dan folder `docs/standards/`.
 
 ### [Batch 4] — Legacy Mapping dari RAK lama ke Rak Baru
 * **Tujuan:** Membuat peta jalan (mapping) pemindahan konten secara detail dari RAK lama (RAK 01 - RAK 06) ke rak baru yang dirancang (Rak 00 - 17).

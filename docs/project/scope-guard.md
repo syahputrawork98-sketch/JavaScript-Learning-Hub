@@ -45,3 +45,26 @@ Semua asisten AI (Room Chat 00, Room Chat 01, dan Gemini 3 Flash) wajib mematuhi
 
 ## 3. Penegakan Batasan (Enforcement)
 Jika Executor (Gemini 3 Flash) menerima perintah yang melanggar poin-poin di atas, Executor **wajib** menolak secara sopan, menunjukkan dokumen `docs/project/scope-guard.md` ini, dan meminta konfirmasi ulang dari Room Chat 00.
+
+---
+
+## 4. Standar Kualitas Konten & Estetika Visual (Gold Standard)
+
+Meskipun isi materi disesuaikan untuk JavaScript, seluruh dokumen materi final wajib mematuhi standar estetika berikut untuk menjamin keindahan visual premium:
+
+### A. Skema Warna & Visual Identity
+* **Primary Color:** `#F7DF1E` (JS Yellow) - Digunakan untuk aksen, badge, dan elemen kunci.
+* **Secondary Color:** `#000000` (Classic Black) - Dasar tipografi utama.
+
+### B. Standardisasi Diagram Mermaid
+Seluruh diagram alur eksekusi wajib menggunakan inisialisasi tema khusus untuk keterbacaan tingkat tinggi:
+```markdown
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
+```
+
+### C. Core DNA Thinking (Model Mental JavaScript)
+Dalam menguraikan konsep pemrograman, penjelasan harus didasarkan pada 3 pilar berpikir:
+1. **Execution & Event Model:** Menjelaskan Call Stack, Event Loop, Task Queue, dan Microtask Queue.
+2. **Object & Scope Model:** Menjelaskan Lexical Scoping, Closures, Prototypal Chain, dan First-class Functions.
+3. **Multi-Paradigm Flexibility:** Menyeimbangkan penjelasan gaya Functional, Object-Oriented (ES6 Classes), dan Event-Driven.
+
