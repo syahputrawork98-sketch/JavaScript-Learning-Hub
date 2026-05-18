@@ -15,7 +15,7 @@ Dokumen ini berfungsi sebagai ringkasan cepat untuk Room Chat baru agar langsung
 
 ## 2. Status & Fokus Saat Ini
 * **Status Saat Ini:** `REBUILD / RESTRUCTURE PHASE` (Fase Rebuild & Restrukturisasi Awal).
-* **Fokus Aktif:** Setup kontrol project (`docs/project/`) dan inisialisasi pusat perpustakaan baru (`materi/`).
+* **Fokus Aktif:** Setup kontrol proyek (`docs/project/`), inisialisasi kerangka perpustakaan baru (`materi/`), penyelesaian dan hardening Buku Pilot pertama (`BK-01`), dan perapian dokumen handoff Batch 10 untuk sesi berikutnya.
 * **Legacy Source:** Folder/rak lama (seperti `RAK-01` sampai `RAK-06`) **TIDAK BOLEH DIHAPUS** atau diubah namanya. Folder tersebut dianggap sebagai *legacy source* / bahan migrasi.
 * **Scope Hold:** Bagian `client/`, `server/`, frontend, backend, sistem login/auth, database, deployment, dan web app lainnya berstatus **HOLD** (ditangguhkan) kecuali jika user secara eksplisit meminta scope tersebut dibuka.
 
@@ -42,4 +42,5 @@ Untuk menjaga keteraturan project, workflow dibagi menjadi peran-peran berikut:
 Jika memulai Room Chat baru atau jika asisten kehilangan konteks:
 1. Baca file ini dan `docs/project/add-instruksi-chatgpt-project.md`.
 2. Sinkronkan pemahaman mengenai status terakhir di `docs/project/current-status.md`.
-3. Lanjutkan pengerjaan sesuai dengan step aktif di `docs/project/roadmap-active.md`.
+3. Pahami starter point kelanjutan proyek pada serah terima resmi [Room Handoff Batch 10](./room-handoff-batch-10.md).
+4. Lanjutkan pengerjaan sesuai dengan step aktif di `docs/project/roadmap-active.md`.

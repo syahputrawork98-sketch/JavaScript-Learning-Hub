@@ -30,6 +30,7 @@ Seluruh dokumentasi aktif untuk tata kelola, kebijakan, status, dan rencana proy
 * [Legacy Migration & Deletion Plan](./project/legacy-migration-deletion-plan.md) — Rencana detail mapping, strategi migrasi, dan deletion bertahap folder legacy.
 * [Material Writing Policy](./project/material-writing-policy.md) — Kebijakan penulisan materi baru (PPM V4 deprecated) dan regulasi penghapusan legacy source.
 * [Material Content Standard](./project/material-content-standard.md) — Standar struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan.
+* [Room Handoff Batch 10](./project/room-handoff-batch-10.md) — Ringkasan handoff setelah Batch 10 untuk melanjutkan project di room baru.
 
 ---
 

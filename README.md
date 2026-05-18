@@ -60,6 +60,7 @@ Area ini memuat berkas-berkas pengarah masa depan proyek agar pengerjaan tetap t
 * [roadmap-active.md](./docs/project/roadmap-active.md) — Peta tahapan pengerjaan Batch 1 hingga Batch 5.
 * [materi-structure-plan.md](./docs/project/materi-structure-plan.md) — Cetak biru pembagian 18 rak pembelajaran baru.
 * [migration-policy.md](./docs/project/migration-policy.md) — Kebijakan keselamatan transfer data dari legacy source.
+* [room-handoff-batch-10.md](./docs/project/room-handoff-batch-10.md) — Petunjuk serah terima resmi (handoff) untuk sesi room chat baru.
 
 ### 2. Perpustakaan Pembelajaran — [materi/](./materi/)
 Wadah pembelajaran baru yang tersusun rapi menjadi 18 rak bertahap dari tingkat orientasi dasar hingga tingkat internal mesin (Engine Internals):

@@ -1,13 +1,13 @@
 # Roadmap Aktif — JavaScript Knowledge Base Rebuild
 
-Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 9.1. Tahapan ini difokuskan penuh untuk membangun fondasi arsitektur dan kontrol proyek sebelum migrasi materi detail dimulai.
+Dokumen ini memetakan rencana kerja terstruktur dari Batch 1 hingga Batch 10. Tahapan ini difokuskan penuh untuk membangun fondasi arsitektur dan kontrol proyek sebelum migrasi materi detail dimulai.
 
 ---
-## 1. Rencana Perjalanan Batch (Batches 1 - 9.1)
+## 1. Rencana Perjalanan Batch (Batches 1 - 10)
 
 ```mermaid
 gantt
-    title Peta Rencana Fondasi Rebuild (Batch 1-9.1)
+    title Peta Rencana Fondasi Rebuild (Batch 1-10)
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
     Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
@@ -23,7 +23,9 @@ gantt
     Batch 8 - Pilot Buku Pertama: Scope & Lexical Env            :done, des9, after des8, 1d
     section Review & Hardening
     Batch 9 - Review Pilot Buku Pertama oleh Room Chat 01        :done, des10, after des9, 1d
-    Batch 9.1 - Fix Kecil Pilot Buku Scope & Lexical Env         :active, des11, after des10, 1d
+    Batch 9.1 - Fix Kecil Pilot Buku Scope & Lexical Env         :done, des11, after des10, 1d
+    section Dokumentasi & Handoff
+    Batch 10 - Dokumentasi Handoff & Penutup Siklus 1            :active, des12, after des11, 1d
 ```
 
 ### [Batch 1] — Setup Project Control & Portable Add Instructions
@@ -78,14 +80,19 @@ gantt
 
 ### [Batch 9.1] — Fix Kecil Pilot Buku Scope dan Lexical Environment
 * **Tujuan:** Menyelesaikan seluruh catatan perbaikan teknis minor dari review Batch 9 terhadap buku pilot pertama agar lebih presisi.
-* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Perbaikan relative link, penyematan caveat closure di Bab 01 & Bab 02, penjelasan sloppy/strict mode, presisi hoisting/TDZ, istilah standardisasi [[Scopes]] statis, dan catatan duplicate const SyntaxError.
+
+### [Batch 10] — Dokumentasi Final, Handoff Room Baru, dan Penutup Siklus 1
+* **Tujuan:** Merapikan dokumentasi proyek dan menyusun petunjuk serah terima (handoff) agar kelanjutan proyek di room chat baru berjalan mulus.
+* **Status:** `Selesai Dieksekusi / Siap Direview`
+* **Output:** Pembuatan berkas `docs/project/room-handoff-batch-10.md`, pembaruan Docs README, current status, roadmap, room context summary, portable Add Instructions, global status.md, dan root README.md.
 
 ---
 
 ## 2. Catatan Penting Prosedur
 
 > [!IMPORTANT]
-> * **Tahap Fondasi & Pilot:** Batch 1 sampai Batch 9.1 mencakup pembentukan arsitektur kontrol, standardisasi penulisan, mapping rinci, dan keberhasilan penyelesaian serta penyempurnaan (hardening) buku pilot pertama yang kini siap dipause dengan aman.
+> * **Tahap Fondasi & Pilot:** Batch 1 sampai Batch 10 mencakup pembentukan arsitektur kontrol, standardisasi penulisan, mapping rinci, pilot buku pertama, review/hardening, serta penyusunan serah terima (handoff) untuk dilanjutkan di room baru secara terarah (Batch 11+).
 > * **Review Gate:** Batch 5 bersifat **Read-Only (Audit)**. Seluruh catatan perbaikan diselesaikan di Batch 5.1.
 > * **Ekspansi Penulisan Materi:** Langkah penulisan atau pemindahan materi di rak lain **hanya boleh dimulai** setelah pilot buku pertama ini ditinjau, dievaluasi, dan disetujui secara resmi oleh Room Chat 00 sesuai kebijakan yang berlaku. Rencana detail pemetaan dan penghapusan bertahap diatur pada [Legacy Migration & Deletion Plan](./legacy-migration-deletion-plan.md).

@@ -6,7 +6,7 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ## 1. Status Utama Proyek
 * **Fase Aktif:** `REBUILD / RESTRUCTURE PHASE` (Fase Rebuild & Restrukturisasi).
-* **Batch Terkini:** `Batch 9.1 — Fix Kecil Pilot Buku Scope dan Lexical Environment` (Selesai Dieksekusi, Siap Direview).
+* **Batch Terkini:** `Batch 10 — Dokumentasi Final, Handoff Room Baru, dan Penutup Siklus 1` (Selesai Dieksekusi, Siap Direview).
 * **Source of Truth:** GitHub repository setelah tindakan `commit` dan `push` manual oleh User.
 
 ---
@@ -19,6 +19,7 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 | **Standar Struktur (`material-content-standard.md`)** | **ACTIVE DRAFT** | Standar resmi awal struktur Rak, Buku, Bab, Subbab, template bab, analogi, diagram, dan latihan. |
 | **Rencana Migrasi & Deletion (`legacy-migration-deletion-plan.md`)** | **DRAFT / PLANNING (PILOT ACTIVE)** | Rencana detail mapping per topik, kriteria kelayakan, syarat penghapusan aman, dan prioritas migrasi. |
 | **Pilot Buku Pertama (`BK-01`)** | **PILOT / ACTIVE DRAFT (REFINED)** | Buku pilot pertama "Scope dan Lexical Environment" selesai ditulis sebanyak 3 bab lengkap dengan standar baru, serta ditapis minor (refined) secara teknis. |
+| **Room Handoff (`room-handoff-batch-10.md`)** | **READY** | Starter / Handoff resmi untuk room chat baru agar kelanjutan proyek berjalan mulus tanpa kehilangan konteks. |
 | **Pusat Materi (`materi/`)** | **AKTIF** | Folder `materi/` telah dilengkapi dengan 18 kerangka folder rak pembelajaran (Rak 00 s/d 17) beserta `README.md` placeholder. |
 | **Berkas Root (`README`, `FITUR`, `Status`)** | **SINKRON** | Dokumen di level root telah dirapikan, relative links dibersihkan, dan dibebaskan dari referensi eksternal eksplisit. |
 | **Gerbang Dokumentasi (`docs/README.md`)** | **SINKRON** | Gateway dokumentasi baru selesai dibuat dengan tata letak relative links yang bersih. |
@@ -28,17 +29,18 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ---
 
-## 3. Poin-Poin Kunci Status Batch 9.1
+## 3. Poin-Poin Kunci Status Batch 10
 * **Batch 8 Selesai & Committed:** Buku pilot pertama berisi 3 bab detail bertopik Scope dan Lexical Environment selesai ditulis sepenuhnya.
 * **Batch 9 Review Selesai (Accepted with Notes):** Peninjauan pilot oleh Room Chat 01 selesai dilakukan. Pilot disetujui dengan beberapa catatan perbaikan teknis minor untuk hardening.
 * **Batch 9.1 Refinement / Fix Kecil Selesai:** Memperbaiki tautan relatif, menyisipkan caveat closure pada Bab 01 dan Bab 02, memperjelas mode eksekusi strict/sloppy pada IIFE di Bab 01, merapikan deskripsi hoisting dan TDZ di Bab 02, merapikan istilah `[[Scopes]]` menjadi environment reference di Bab 03, memperjelas outer reference cetakNama di Bab 03, serta memperjelas SyntaxError compile-time pada latihan duplicate const di Bab 03.
+* **Batch 10 Dokumentasi Handoff Selesai:** Membuat dokumen `room-handoff-batch-10.md` yang memuat rangkuman Batch 1–10, keputusan kunci, status pilot materi, dan pilihan kelanjutan untuk memandu sesi baru.
 * **Jaminan Keamanan Terjaga:** Tidak ada buku baru, tidak ada penulisan ulang massal, tidak ada deletion, dan tidak ada migrasi massal. Folder `RAK-*` tetap utuh 100%.
 
 ---
 
 ## 4. Status Pause / Handoff Sementara
 
-Project JavaScript Knowledge Base sedang berada di fase setup/rebuild fondasi. Setelah Batch 9.1, project dapat dipause sementara dengan aman karena seluruh dokumen kontrol telah tersinkronisasi penuh.
+Project JavaScript Knowledge Base sedang berada di fase setup/rebuild fondasi. Setelah Batch 10, project dapat dipause sementara dengan aman karena seluruh dokumen kontrol telah tersinkronisasi penuh dan status handoff bertanda: **READY FOR NEW ROOM**.
 
 Jika project dilanjutkan di chat baru:
 1. Baca [add-instruksi-chatgpt-project.md](./add-instruksi-chatgpt-project.md) (Add Instructions ChatGPT Project).
@@ -47,10 +49,12 @@ Jika project dilanjutkan di chat baru:
 4. Baca [roadmap-active.md](./roadmap-active.md) (Alur pengerjaan dan milestone).
 5. Baca [material-content-standard.md](./material-content-standard.md) (Standar struktur Rak, Buku, Bab, Subbab, gaya penulisan).
 6. Baca [legacy-migration-deletion-plan.md](./legacy-migration-deletion-plan.md) (Rencana detail mapping & deletion).
-7. **JANGAN** mulai migrasi materi sebelum standar penulisan baru disetujui di Room Chat 00.
+7. Baca [room-handoff-batch-10.md](./room-handoff-batch-10.md) (Dokumen serah terima Batch 10).
+8. **JANGAN** mulai migrasi materi sebelum standar penulisan baru disetujui di Room Chat 00.
 
 ---
 
 ## 5. Langkah Berikutnya
-Setelah Batch 9.1 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek siap dipause dengan aman. Saat diaktifkan kembali:
-* **Fase Baru — Ekspansi Penulisan Materi (Batch 10)** pada sub-rak pembelajaran lainnya (seperti Rak 02 Core Language atau Rak 06 Async Concurrency) menggunakan basis standar penulisan baru yang telah diuji coba dan diperhalus di pilot ini.
+Setelah Batch 10 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek siap dipause dengan aman. Saat diaktifkan kembali di room baru:
+* **Batch Terkini Berikutnya:** `Batch 11`
+* **Rekomendasi Utama Kelanjutan:** Lanjutkan Buku Pilot BK-01 (Opsi A) dengan menambahkan Bab 04 (Shadowing), Bab 05 (TDZ & Hoisting detail), dan Bab 06 (Scope dalam proyek nyata) untuk melengkapi Buku Pilot pertama secara solid, kecuali Room Chat 00 / User memilih jalur ekspansi lain.

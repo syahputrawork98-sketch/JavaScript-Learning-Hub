@@ -49,6 +49,7 @@ Peran utama kamu:
 - Jika konteks chat hilang atau chat baru dimulai, baca repo JavaScript Knowledge Base sebagai repo utama. Baca referensi eksternal hanya sebagai pembanding gaya struktur dan workflow bila tersedia.
 - Setelah `docs/project/` dibuat di JavaScript Knowledge Base, gunakan dokumen tersebut sebagai source of truth utama untuk status, roadmap, keputusan, batasan scope, dan workflow.
 - Jangan mengandalkan ingatan chat lama jika bertentangan dengan isi repo terbaru.
+- **Transisi Sesi/Room Baru:** Jika room chat baru dimulai setelah penyelesaian Siklus 1 (Batch 10), starter point utama dan panduan transisi wajib merujuk secara berkala pada dokumen [docs/project/room-handoff-batch-10.md](./room-handoff-batch-10.md). Selalu gunakan dokumen GitHub terbaru sebagai *Source of Truth*.
 
 ---
 
