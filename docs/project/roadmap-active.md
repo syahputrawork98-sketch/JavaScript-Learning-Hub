@@ -11,8 +11,8 @@ gantt
     title Peta Rencana Fondasi Rebuild (Batch 1-5)
     dateFormat  YYYY-MM-DD
     section Fondasi Proyek
-    Batch 1 - Setup Project Control & Portable Add Instructions :active, des1, 2026-05-18, 1d
-    Batch 2 - Setup Kerangka materi/ dan Rak 00-17              : des2, after des1, 1d
+    Batch 1 - Setup Project Control & Portable Add Instructions :done, des1, 2026-05-18, 1d
+    Batch 2 - Setup Kerangka materi/ dan Rak 00-17              :active, des2, after des1, 1d
     Batch 3 - Sinkronisasi Root Docs (README & Status)           : des3, after des2, 1d
     Batch 4 - Legacy Mapping RAK lama ke Rak Baru               : des4, after des3, 1d
     section Review & Gate
@@ -21,12 +21,12 @@ gantt
 
 ### [Batch 1] — Setup Project Control & Portable Add Instructions
 * **Tujuan:** Membuat fondasi awal kontrol proyek di `docs/project/` agar pengerjaan tetap rapi walaupun sesi chat berganti.
-* **Status:** `SEDANG DIEKSEKUSI` (Oleh Gemini 3 Flash).
+* **Status:** `SELESAI / COMMITTED`
 * **Output:** Pembuatan dokumen instruksi portable, ringkasan konteks room, status, workflow, scope guard, roadmap aktif, rencana rak, dan kebijakan migrasi.
 
 ### [Batch 2] — Setup Kerangka `materi/` dan Rak 00–17
 * **Tujuan:** Menginisialisasi 18 rak pembelajaran baru (Rak 00 s/d 17) sebagai wadah penampung materi yang terstruktur.
-* **Status:** `BELUM DIMULAI` (Antrean berikutnya).
+* **Status:** `SELESAI DIEKSEKUSI` (Oleh Gemini 3 Flash, Siap Direview).
 * **Output:** Folder kosong/placeholder untuk masing-masing rak beserta file `README.md` awal di setiap rak yang menjelaskan cakupan bahasannya.
 
 ### [Batch 3] — Sinkronisasi Root Docs: README, FITUR, dan Status
