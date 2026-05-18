@@ -6,9 +6,11 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 
 ## 📢 STATUS AKTIF SAAT INI (REBUILD PHASE)
 * **Fase Proyek:** `REBUILD / RESTRUCTURE PHASE` (Pembangunan Ulang & Restrukturisasi).
-* **Target Rebuild:** Merapikan struktur folder dan tata kelola materi mengikuti referensi struktur proyek yang mapan.
+* **Batch Terkini:** `Batch 5.1 — Fix Review Gate Notes & Dokumentasi Kebijakan Migrasi Materi` (Selesai Dieksekusi, Siap Direview).
+* **Source of Truth:** GitHub repository setelah tindakan `commit` dan `push` manual oleh User.
 * **Struktur Target Baru:**
   * **Project Control:** [docs/project/](./docs/project/) (AKTIF)
+  * **Kebijakan Penulisan:** [docs/project/material-writing-policy.md](./docs/project/material-writing-policy.md) (AKTIF)
   * **Perpustakaan Utama:** [materi/](./materi/) (AKTIF - Kerangka Rak 00-17)
 * **Migrasi Konten:** `BELUM DIMULAI` (Fase Fondasi).
 * **Status Folder Lama (`RAK-*`):** `LEGACY SOURCE` (Tetap dipertahankan seutuhnya, tidak boleh dihapus).
@@ -46,7 +48,9 @@ Dokumen ini memantau perkembangan status global dari repositori JavaScript Knowl
 ---
 
 ## 📜 Log Perubahan Global (Changelog)
-* **2026-05-18**: **BATCH 4 IN PROGRESS** — Pembersihan identitas (cleanup PostgreSQL & PPM V4), penyusunan docs/README.md baru, perbaikan relative links, dan pembuatan mapping legacy ke materi/.
+* **2026-05-18**: **BATCH 5.1 COMPLETED** — Perbaikan catatan Review Gate, sinkronisasi status & roadmap, perbaikan link mapping di migration-policy, pembersihan typo, serta penyusunan Material Writing Policy.
+* **2026-05-18**: **BATCH 5 COMPLETED** — Review Gate oleh Room Chat 01 selesai dengan status Needs Fix ringan.
+* **2026-05-18**: **BATCH 4 COMPLETED** — Pembersihan identitas (referensi eksternal & PPM V4), penyusunan docs/README.md baru, perbaikan relative links, dan pembuatan mapping legacy ke materi/.
 * **2026-05-18**: **BATCH 3 COMPLETED** — Sinkronisasi berkas root (README, FITUR, Status) & cleanup berkas kontrol lama (`.cursorrules`, `docs/standards/`, `docs/README.md`).
 * **2026-05-18**: **BATCH 2 COMPLETED** — Pembuatan 18 subfolder rak fisik (`00` s/d `17`) beserta placeholder `README.md` di bawah `materi/`.
 * **2026-05-18**: **BATCH 1 COMPLETED** — Pendirian Pusat Kontrol baru di `docs/project/` (Instruksi portable, status, roadmap, workflow, scope guard).

@@ -1,0 +1,30 @@
+# Kebijakan Penulisan Materi & Deletion Legacy — JavaScript Knowledge Base
+
+Dokumen ini mencatat keputusan resmi dari Room Chat 00 dan User mengenai kebijakan penulisan materi baru serta regulasi penghapusan folder legacy `RAK-*` di masa mendatang.
+
+---
+
+## 🛑 1. Penangguhan & Kebijakan Penulisan Materi Baru (PPM V4 Deprecated)
+
+* **PPM V4 Deprecated:** Standar penulisan lama (PPM V4) dinyatakan **tidak aktif** dan tidak digunakan sebagai standar aktif untuk penulisan materi baru.
+* **Standar Baru Belum Ditetapkan:** Standar kualitas dan format penulisan materi JavaScript yang baru belum diputuskan. Standar baru akan didiskusikan secara mendalam bersama User dan Room Chat 00 sebelum fase penulisan atau migrasi materi dimulai secara resmi.
+* **Larangan Eksekusi Prematur:** Sebelum standar penulisan baru disepakati secara resmi, Executor (Gemini 3 Flash) **dilarang keras** menulis materi panjang, mengedit subfolder pembelajaran secara mendalam, atau melakukan migrasi konten secara massal.
+* **Tindakan Saat Ini:** Pengerjaan difokuskan penuh hanya pada pembentukan fondasi kontrol proyek dan penyusunan peta mapping awal.
+
+---
+
+## 🗂️ 2. Kebijakan Penghapusan Folder Legacy `RAK-*`
+
+Selama fase setup/fondasi ini berjalan, folder lama `RAK-*` (`RAK-01` s/d `RAK-06` di root) **dilarang keras** untuk dihapus, diubah namanya, atau dipindahkan. Folder legacy ini adalah jaminan keamanan data agar tidak ada catatan belajar yang hilang.
+
+Namun, pada fase penulisan ulang dan migrasi materi di masa mendatang, folder/berkas lama `RAK-*` dapat direncanakan untuk dihapus secara bertahap dengan mematuhi **5 Syarat Keamanan Mutlak** berikut:
+
+1. **Kajian Ulang:** Materi lama di dalam file legacy tersebut sudah dikaji kelayakannya oleh asisten.
+2. **Pemindahan Sukses:** Materi tersebut sudah selesai ditulis ulang atau dipindahkan ke dalam struktur target baru di bawah `materi/`.
+3. **Peta Hubungan Jelas:** Pemetaan asal (source) dan tujuan (target) pemindahan tercatat dengan jelas pada dokumen mapping.
+4. **Audit Independen:** Hasil migrasi materi baru telah diperiksa dan disetujui melalui audit read-only oleh Room Chat 01.
+5. **Persetujuan Owner:** Room Chat 00 dan User telah memberikan keputusan eksplisit tertulis bahwa bagian legacy tersebut sudah aman dan diperbolehkan untuk dihapus.
+
+> [!WARNING]
+> * **Bukan Penghapusan Massal:** Penghapusan folder/file legacy sama sekali tidak boleh dilakukan secara massal atau dalam satu batch besar.
+> * **Penghapusan Bertahap:** Proses pembersihan legacy wajib dilakukan secara perlahan dan bertahap (per file, per topik, atau per sub-rak) hanya setelah dipastikan 100% aman dan tidak ada informasi yang tertinggal.

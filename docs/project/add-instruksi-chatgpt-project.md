@@ -46,7 +46,7 @@ Peran utama kamu:
   - istilah teknis teknologi pembanding,
   - urutan domain ilmu teknologi pembanding.
 - Struktur rak JavaScript harus dirancang berdasarkan kebutuhan bahasa pemrograman JavaScript, bukan mengikuti domain teknologi lain.
-- Jika konteks chat hilang atau chat baru dimulai, baca repo JavaScript Knowledge Base as repo utama. Baca referensi eksternal hanya sebagai pembanding gaya struktur dan workflow bila tersedia.
+- Jika konteks chat hilang atau chat baru dimulai, baca repo JavaScript Knowledge Base sebagai repo utama. Baca referensi eksternal hanya sebagai pembanding gaya struktur dan workflow bila tersedia.
 - Setelah `docs/project/` dibuat di JavaScript Knowledge Base, gunakan dokumen tersebut sebagai source of truth utama untuk status, roadmap, keputusan, batasan scope, dan workflow.
 - Jangan mengandalkan ingatan chat lama jika bertentangan dengan isi repo terbaru.
 

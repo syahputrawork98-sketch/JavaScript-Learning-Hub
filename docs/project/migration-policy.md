@@ -34,7 +34,7 @@ Untuk menjaga keamanan materi, migrasi dilakukan berdasarkan prinsip-prinsip ber
 
 Ketika fase migrasi telah dibuka secara resmi oleh Room Chat 00, setiap proses pemindahan mengikuti alur berikut:
 
-1. **Rujuk Dokumen Mapping:** Lihat `docs/project/legacy-mapping.md` untuk menentukan file target.
+1. **Rujuk Dokumen Mapping:** Lihat [legacy-to-materi-mapping.md](./legacy-to-materi-mapping.md) untuk menentukan file target.
 2. **Salin & Format Ulang:** Salin materi dari folder lama ke subfolder rak baru. Lakukan pemformatan agar mengikuti gaya penulisan premium (analogies, Mermaid diagram, Catatan Interview, Latihan Kecil).
 3. **Smoke Test:** Uji keterbacaan file markdown baru di environment lokal.
 4. **Laporkan Kemajuan:** Laporkan hasil pemindahan per topik di status laporan Gemini.

@@ -6,7 +6,7 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ## 1. Status Utama Proyek
 * **Fase Aktif:** `REBUILD / RESTRUCTURE PHASE` (Fase Rebuild & Restrukturisasi).
-* **Batch Terkini:** `Batch 4 — Docs Identity Cleanup, Docs README Baru, Link Hygiene, dan Legacy Mapping` (Selesai Dieksekusi oleh Gemini 3 Flash, Siap Direview).
+* **Batch Terkini:** `Batch 5.1 — Fix Review Gate Notes & Dokumentasi Kebijakan Migrasi Materi` (Selesai Dieksekusi oleh Gemini 3 Flash, Siap Direview).
 * **Source of Truth:** GitHub repository setelah tindakan `commit` dan `push` manual oleh User.
 
 ---
@@ -15,6 +15,7 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 | Komponen / Sektor | Status | Deskripsi |
 | :--- | :--- | :--- |
 | **Pusat Kontrol (`docs/project/`)** | **AKTIF** | Menjadi satu-satunya *Source of Truth* baru untuk aturan, scope, status, dan roadmap. |
+| **Kebijakan Penulisan (`material-writing-policy.md`)** | **SINKRON** | Menyimpan aturan penangguhan standar penulisan baru (PPM V4 deprecated) & regulasi penghapusan legacy `RAK-*` bertahap. |
 | **Pusat Materi (`materi/`)** | **AKTIF** | Folder `materi/` telah dilengkapi dengan 18 kerangka folder rak pembelajaran (Rak 00 s/d 17) beserta `README.md` placeholder. |
 | **Berkas Root (`README`, `FITUR`, `Status`)** | **SINKRON** | Dokumen di level root telah dirapikan, relative links dibersihkan, dan dibebaskan dari referensi eksternal eksplisit. |
 | **Gerbang Dokumentasi (`docs/README.md`)** | **SINKRON** | Gateway dokumentasi baru selesai dibuat dengan tata letak relative links yang bersih. |
@@ -24,18 +25,29 @@ Dokumen ini mencatat status terkini proyek JavaScript Knowledge Base Rebuild sec
 
 ---
 
-## 3. Poin-Poin Kunci Status Batch 4
-* **Identity Cleanup Selesai:** Semua berkas dokumentasi aktif di bawah `docs/project/`, `materi/README.md`, dan berkas root (`README.md`, `status.md`, `FITUR.md`) dibersihkan dari penyebutan nama repositori pembanding eksternal dan diganti dengan istilah umum.
-* **Neutralize Legacy Standards:** PPM V4 tidak lagi dianggap sebagai standar penulisan aktif. Catatan netral dipasang pada `workflow.md` yang menyatakan standar penulisan baru akan dibahas pada fase migrasi materi berikutnya.
-* **Link Hygiene Diterapkan:** Seluruh link lokal `file:///i:/...` di dokumen aktif telah dibersihkan secara total dan diganti menjadi relative links GitHub-friendly.
-* **Docs README Baru Berdiri:** [docs/README.md](../README.md) baru telah dibuat sebagai pintu gerbang navigasi yang tertata rapi.
-* **Legacy Mapping Siap:** [legacy-to-materi-mapping.md](./legacy-to-materi-mapping.md) draft awal selesai disusun untuk memetakan pembagian 6 rak lama ke dalam 18 rak baru.
+## 3. Poin-Poin Kunci Status Batch 5.1
+* **Review Gate Resolution:** Menjawab catatan review "NEEDS FIX" dari Batch 5 dengan menyelaraskan status pada `status.md` dan `roadmap-active.md`.
+* **Clean References & Typo Fix:** Menuntaskan sisa nama repo pembanding eksternal di `status.md` dan membetulkan typo `as repo utama` di `add-instruksi-chatgpt-project.md`.
+* **Koreksi File Mapping:** Memperbaiki referensi file mapping yang salah di `migration-policy.md` menjadi `legacy-to-materi-mapping.md` dengan relative path yang benar.
+* **Kebijakan Penulisan & Deletion Formal:** Menyusun berkas baru [Material Writing Policy](./material-writing-policy.md) untuk mendepresiasi PPM V4, mengunci penulisan materi baru hingga standar baru disepakati, dan meletakkan 5 Syarat Keamanan Mullak sebelum folder legacy `RAK-*` diperbolehkan dihapus di masa mendatang.
 * **Migrasi Konten:** **BELUM** dilakukan migrasi materi fisik dari folder lama.
 * **Penghapusan Folder Lama:** **BELUM** dilakukan penghapusan folder materi lama. Folder `RAK-*` tetap dipertahankan penuh sebagai legacy source.
-* **Pengembangan Web App:** **BELUM** ada komponen client/server/frontend/backend/auth/database yang disentuh.
 
 ---
 
-## 4. Langkah Berikutnya
-Setelah Batch 4 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek akan bergerak ke:
-* **Batch 5 — Review Gate oleh Room Chat 01 (Read-Only)** (Melakukan audit pembacaan mendalam terhadap seluruh struktur dan dokumen hasil rebuild sebelum dilepas secara resmi).
+## 4. Status Pause / Handoff Sementara
+
+Project JavaScript Knowledge Base sedang berada di fase setup/rebuild fondasi. Setelah Batch 5.1, project dapat dipause sementara dengan aman karena seluruh dokumen kontrol telah tersinkronisasi penuh.
+
+Jika project dilanjutkan di chat baru:
+1. Baca [add-instruksi-chatgpt-project.md](./add-instruksi-chatgpt-project.md) (Add Instructions ChatGPT Project).
+2. Baca [room-context-summary.md](./room-context-summary.md) (Konteks Proyek Terdistribusi).
+3. Baca [current-status.md](./current-status.md) (Dokumen status terupdate ini).
+4. Baca [roadmap-active.md](./roadmap-active.md) (Alur pengerjaan dan milestone).
+5. **JANGAN** mulai migrasi materi sebelum standar penulisan baru disepakati bersama User di Room Chat 00.
+
+---
+
+## 5. Langkah Berikutnya
+Setelah Batch 5.1 ini diverifikasi oleh Room Chat 01 dan disetujui oleh Room Chat 00, proyek siap dipause dengan aman. Saat diaktifkan kembali:
+* **Fase Baru — Penyepakatan Standar Penulisan & Inisiasi Migrasi Materi (Batch 6)**.
